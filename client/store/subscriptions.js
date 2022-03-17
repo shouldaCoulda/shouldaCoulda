@@ -25,6 +25,8 @@ const initialState = [];
 
 export default function (subscriptions = initialState, action) {
   switch (action.type) {
+    case GET_ALL_SUBSCRIPTIONS:
+      return action.subscriptions;
     default:
       return subscriptions;
   }
