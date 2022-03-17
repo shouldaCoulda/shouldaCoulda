@@ -1,46 +1,34 @@
 import React, { useState } from "react";
-import {
-  createUserWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut,
-} from "firebase/auth";
 import { auth } from "../firebase";
+import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 
-const SignUp = () => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [user, setUser] = useState({});
+
+  function handleSubmit() {
+    login(email, password);
+  }
 
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
   });
 
-  function handleSubmit() {
-    console.log("submit");
-    signUp(email, password);
-  }
-
-  const signUp = async () => {
+  const login = async () => {
     try {
-      const createdUser = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-      console.log(createdUser);
+      const user = await signInWithEmailAndPassword(auth, email, password);
+      console.log(user);
     } catch (error) {
       console.log(error.message);
     }
   };
-  const login = async () => {};
-  const logout = async () => {
-    await signOut(auth);
-  };
+  const logout = async () => {};
 
   return (
     <div>
       <form>
-        <h1>sign up</h1>
+        <h1>log in </h1>
         <div>
           <label htmlFor="username">
             <small>Email</small>
@@ -68,14 +56,11 @@ const SignUp = () => {
           />
         </div>
         <div>
-          <button onClick={handleSubmit}>Sign Up</button>
+          <button onClick={handleSubmit}>login</button>
+          {user?.email}
         </div>
-        <div>
-          <button onClick={logout}>logout</button>
-        </div>
-        {user?.email}
       </form>
     </div>
   );
 };
-export default SignUp;
+export default Login;
