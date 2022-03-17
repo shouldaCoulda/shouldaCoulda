@@ -1,8 +1,5 @@
 import React from "react";
 
-/**
- * COMPONENT
- */
 const SignUp = () => {
   function handleSubmit() {
     console.log("submit");
