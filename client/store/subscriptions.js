@@ -1,11 +1,11 @@
 import axios from 'axios';
 import history from '../history';
 
-const GET_ALLSUBSCRIPTIONS = 'GET_ALLSUBSCRIPTIONS';
+const GET_ALL_SUBSCRIPTIONS = 'GET_ALL_SUBSCRIPTIONS';
 
 const getSubscriptions = (subscriptions) => {
   return {
-    type: GET_ALLSUBSCRIPTIONS,
+    type: GET_ALL_SUBSCRIPTIONS,
     subscriptions,
   };
 };
