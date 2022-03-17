@@ -1,18 +1,16 @@
-import React from 'react'
+import React from "react";
 
 /**
  * COMPONENT
  */
 const SignUp = () => {
-
   function handleSubmit() {
-    console.log('submit')
+    console.log("submit");
   }
-
 
   return (
     <div>
-      <form onSubmit={handleSubmit} name={}>
+      <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="username">
             <small>Username</small>
@@ -30,6 +28,6 @@ const SignUp = () => {
         </div>
       </form>
     </div>
-  )
-}
-export default SignUp
+  );
+};
+export default SignUp;
