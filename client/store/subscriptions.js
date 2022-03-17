@@ -10,6 +10,17 @@ const getSubscriptions = (subscriptions) => {
   };
 };
 
+const fetchSubscriptions = () => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.get('/api/subscriptions');
+      dispatch(getSubscriptions(data));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
 const initialState = [];
 
 export default function (subscriptions = initialState, action) {
