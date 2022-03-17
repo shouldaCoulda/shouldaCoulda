@@ -1,5 +1,7 @@
-import axios from "axios";
-import history from "../history";
+import axios from 'axios';
+import history from '../history';
+
+const GET_ALLSUBSCRIPTIONS = 'GET_ALLSUBSCRIPTIONS';
 
 const initialState = [];
 
