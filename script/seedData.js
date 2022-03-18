@@ -92,17 +92,15 @@ export const subscriptionData = [
   },
 ];
 
-export const userDate = [
-    {
-        email: 'user@gmail.com', 
-        password: '123', 
-        isAdmin: false,
-    }
-     {
-        email: 'admin@gmail.com', 
-        password: '123', 
-        isAdmin: true,
-    }
-]
-
-
+export const userData = [
+  {
+    email: "user@gmail.com",
+    password: "123",
+    isAdmin: false,
+  },
+  {
+    email: "admin@gmail.com",
+    password: "123",
+    isAdmin: true,
+  },
+];

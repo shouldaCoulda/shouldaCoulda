@@ -1,13 +1,14 @@
 // 'use strict'
 
 // const {db } = require('../server/db')
-const { fireBase } = require("../client/firebase");
-const { userDate, seedDate } = require("./seedData.js");
+// const { firebase } = require("../client/firebase");
+const { createUserWithEmailAndPassword } = require("firebase/auth");
+const { userData, subscriptionData } = require("./seedData.js");
 
 const seeding = function () {
   let index = 0;
   const interval = setInterval(async () => {
-    const user = newSeedData[index];
+    const user = userDate[index];
     const { email, password, isAdmin } = user;
     console.log("Current user in setInterval: ", user.email);
     await firebase
