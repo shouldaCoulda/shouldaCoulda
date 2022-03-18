@@ -32,7 +32,7 @@ const dummyData = [
 
 const AllSubscriptions = () => {
   console.log('this is', dummyData);
-  return <div></div>;
+  return <div>Hello</div>;
 };
 
 export default AllSubscriptions;
