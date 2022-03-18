@@ -1,41 +1,67 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
 } from "firebase/auth";
 import { auth } from "../firebase";
+import { useAuth } from "../contexts/AuthContext";
+import { Link, useHistory } from "react-router-dom";
 
 const SignUp = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [user, setUser] = useState({});
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const passwordConfirmRef = useRef();
+  const { signup } = useAuth();
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const history = useHistory();
 
-  onAuthStateChanged(auth, (currentUser) => {
-    setUser(currentUser);
-  });
+  async function handleSubmit(e) {
+    e.preventDefault();
 
-  function handleSubmit() {
-    console.log("submit");
-    signUp(email, password);
-  }
-
-  const signUp = async () => {
-    try {
-      const createdUser = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-      console.log(createdUser);
-    } catch (error) {
-      console.log(error.message);
+    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+      return setError("Passwords do not match");
     }
-  };
-  const login = async () => {};
-  const logout = async () => {
-    await signOut(auth);
-  };
+
+    try {
+      setError("");
+      setLoading(true);
+      console.log(emailRef.current.value, passwordRef.current.value);
+      await signup(emailRef.current.value, passwordRef.current.value);
+      history.push("/");
+    } catch {
+      setError("Failed to create an account");
+    }
+
+    setLoading(false);
+  }
+  // onAuthStateChanged(auth, (currentUser) => {
+  //   setUser(currentUser);
+  // });
+
+  // const [user, setUser] = useState({});
+  // function handleSubmit() {
+  //   console.log("submit");
+  //   signUp(email, password);
+  // }
+
+  // const signUp = async () => {
+  //   try {
+  //     const createdUser = await createUserWithEmailAndPassword(
+  //       auth,
+  //       emailRef,
+  //       passwordRef
+  //     );
+  //     console.log(createdUser);
+  //   } catch (error) {
+  //     console.log(error.message);
+  //   }
+  // };
+  // const login = async () => {};
+  // const logout = async () => {
+  //   await signOut(auth);
+  // };
 
   return (
     <div>
@@ -45,35 +71,23 @@ const SignUp = () => {
           <label htmlFor="username">
             <small>Email</small>
           </label>
-          <input
-            name="email"
-            type="text"
-            value={email}
-            onChange={(event) => {
-              setEmail(event.target.value);
-            }}
-          />
+          <input type="email" ref={emailRef} />
         </div>
         <div>
           <label htmlFor="password">
             <small>Password</small>
           </label>
-          <input
-            name="password"
-            type="password"
-            value={password}
-            onChange={(event) => {
-              setPassword(event.target.value);
-            }}
-          />
+          <input type="password" ref={passwordRef} />
+        </div>
+        <div>
+          <label htmlFor="password-confirm">
+            <small>Password Confirmation</small>
+          </label>
+          <input type="password" ref={passwordConfirmRef} />
         </div>
         <div>
           <button onClick={handleSubmit}>Sign Up</button>
         </div>
-        <div>
-          <button onClick={logout}>logout</button>
-        </div>
-        {user?.email}
       </form>
     </div>
   );

@@ -1,15 +1,16 @@
 import React from "react";
+import { AuthProvider } from "./contexts/AuthContext";
 
 import Navbar from "./components/Navbar";
 import Routes from "./Routes";
 
 const App = () => {
-  
-
   return (
     <div>
-      <Navbar />
-      <Routes />
+      <AuthProvider>
+        <Navbar />
+        <Routes />
+      </AuthProvider>
     </div>
   );
 };
