@@ -7,6 +7,7 @@ import { useAuth } from "../contexts/AuthContext";
 export const Home = () => {
   const { currentUser } = useAuth();
 
+  
   return (
     <div>
       <h3>Welcome to shoulda </h3>
