@@ -31,8 +31,23 @@ const dummyData = [
 ];
 
 const AllSubscriptions = () => {
-  console.log('this is', dummyData);
-  return <div>Hello</div>;
+  console.log('this is dummydata', dummyData);
+  return (
+    <div>
+      {dummyData.map((item, index) => {
+        return (
+          <div key={index}>
+            <img src={item.imageUrl} width='200' />
+            <div>{item.name}</div>
+            <div>{item.price}</div>
+            <div>
+              <a href={item.websiteUrl}>Unsubscribe</a>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
 };
 
 export default AllSubscriptions;
