@@ -37,7 +37,7 @@ const AllSubscriptions = () => {
       {dummyData.map((item, index) => {
         return (
           <div key={index}>
-            <img src={item.imageUrl} width='200' />
+            <img src={item.imageUrl} width='150' />
             <div>{item.name}</div>
             <div>{item.price}</div>
             <div>
