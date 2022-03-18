@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 
 const Navbar = () => {
+  //we take in logout and current user so our navbar can display accuratley
   const { logout, currentUser } = useAuth();
 
   return (
@@ -11,10 +12,22 @@ const Navbar = () => {
       <nav>
         <div>
           {/* The navbar will show these links after you log in */}
+          {currentUser ? (
+            <>
+          <Link to="/home">Home</Link>
+          {/* <Link to="/login">login</Link>
+          <Link to="/signUp">sign-up</Link> */}
+          <button onClick={logout}>Logout</button>
+            </>
+
+           ) :(
+             <>
           <Link to="/home">Home</Link>
           <Link to="/login">login</Link>
           <Link to="/signUp">sign-up</Link>
-          <button onClick={logout}>Logout</button>
+             </>
+           )
+        }
         </div>
       </nav>
       <hr />
