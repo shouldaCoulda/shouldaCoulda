@@ -8,7 +8,7 @@ import {
 } from "firebase/auth";
 
 
-//
+
 const AuthContext = React.createContext();
 
 export function useAuth() {

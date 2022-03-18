@@ -8,6 +8,7 @@ import AllSubscriptions from './AllSubscriptions';
 export const Home = () => {
   const { currentUser } = useAuth();
 
+  
   return (
     <div>
       <AllSubscriptions />

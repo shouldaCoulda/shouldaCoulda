@@ -1,13 +1,16 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import { getDatabase } from "firebase/database";
 import { getAuth } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
+
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDIfb81uB0FkqnU6enS138lGRCf3NjEwX8",
   authDomain: "shouldacoulda-development.firebaseapp.com",
+  databaseURL: "https://shouldacoulda-development-default-rtdb.firebaseio.com/",
   projectId: "shouldacoulda-development",
   storageBucket: "shouldacoulda-development.appspot.com",
   messagingSenderId: "1007126989772",
@@ -24,3 +27,6 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+export const database = getDatabase();
+
+// const database = getDatabase(app);
