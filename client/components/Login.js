@@ -1,66 +1,75 @@
-import React, { useState } from "react";
-import { auth } from "../firebase";
-import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import React, { useState, useRef, useEffect } from "react";
+import { useAuth } from "../contexts/AuthContext";
+import { useHistory, Link } from "react-router-dom";
+import { Form, Button, Card, Alert } from "react-bootstrap";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [user, setUser] = useState({});
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const { login, currentUser } = useAuth();
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const history = useHistory();
 
-  function handleSubmit() {
-    login(email, password);
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    try {
+      // setError("");
+      await login(emailRef.current.value, passwordRef.current.value);
+      history.push("/");
+    } catch (error) {
+      window.alert(error);
+
+      // setError("Failed to log in");
+    }
   }
 
-  onAuthStateChanged(auth, (currentUser) => {
-    setUser(currentUser);
-  });
-
-  const login = async () => {
-    try {
-      const user = await signInWithEmailAndPassword(auth, email, password);
-      console.log(user);
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
-  const logout = async () => {};
-
   return (
-    <div>
-      <form>
-        <h1>log in </h1>
-        <div>
-          <label htmlFor="username">
-            <small>Email</small>
-          </label>
-          <input
-            name="email"
-            type="text"
-            value={email}
-            onChange={(event) => {
-              setEmail(event.target.value);
-            }}
-          />
-        </div>
-        <div>
-          <label htmlFor="password">
-            <small>Password</small>
-          </label>
-          <input
-            name="password"
-            type="password"
-            value={password}
-            onChange={(event) => {
-              setPassword(event.target.value);
-            }}
-          />
-        </div>
-        <div>
-          <button onClick={handleSubmit}>login</button>
-          {user?.email}
-        </div>
-      </form>
-    </div>
+    <>
+      <Card>
+        <Card.Body>
+          <h2>Log In</h2>
+          {error && <Alert variant="danger">{error}</Alert>}
+          <Form onSubmit={handleSubmit}>
+            <Form.Group id="email">
+              <Form.Label>Email</Form.Label>
+              <Form.Control type="email" ref={emailRef} required />
+            </Form.Group>
+            <Form.Group id="password">
+              <Form.Label>Password</Form.Label>
+              <Form.Control type="password" ref={passwordRef} required />
+            </Form.Group>
+            <Button disabled={loading} className="w-100" type="submit">
+              Log In
+            </Button>
+          </Form>
+        </Card.Body>
+      </Card>
+      <div className="w-100 text-center mt-2">
+        Need an account? <Link to="/signup">Sign Up</Link>
+      </div>
+    </>
+    // <div>
+    //   <form>
+    //     <h1>log in </h1>
+    //     <div>
+    //       <label htmlFor="username">
+    //         <small>Email</small>
+    //       </label>
+    //       <input name="email" type="text" ref={emailRef} />
+    //     </div>
+    //     <div>
+    //       <label htmlFor="password">
+    //         <small>Password</small>
+    //       </label>
+    //       <input name="password" type="password" ref={passwordRef} />
+    //     </div>
+    //     <div>
+    //       <button onClick={handleSubmit}>login</button>
+    //     </div>
+    //   </form>
+    // </div>
   );
 };
 export default Login;
