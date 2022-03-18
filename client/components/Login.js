@@ -1,52 +1,28 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useAuth } from "../contexts/AuthContext";
-import { Link, useHistory } from "react-router-dom";
+import {  useHistory } from "react-router-dom";
 
 const Login = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
   const { login, currentUser } = useAuth();
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
   const history = useHistory();
-
+  
   async function handleSubmit(e) {
     e.preventDefault();
 
     try {
-      setError("");
-      setLoading(true);
+      // setError("");
       await login(emailRef.current.value, passwordRef.current.value);
-      console.log(currentUser);
-      history.push("/");
-    } catch {
-      setError("Failed to log in");
+        history.push("/");
+    } catch(error) {
+      window.alert(error)
+
+      // setError("Failed to log in");
     }
 
-    setLoading(false);
   }
-
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [user, setUser] = useState({});
-
-  // function handleSubmit() {
-  //   login(email, password);
-  // }
-
-  // onAuthStateChanged(auth, (currentUser) => {
-  //   setUser(currentUser);
-  // });
-
-  // const login = async () => {
-  //   try {
-  //     const user = await signInWithEmailAndPassword(auth, email, password);
-  //     console.log(user);
-  //   } catch (error) {
-  //     console.log(error.message);
-  //   }
-  // };
-  // const logout = async () => {};
 
   return (
     <div>

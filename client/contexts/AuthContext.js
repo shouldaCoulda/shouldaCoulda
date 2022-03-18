@@ -52,17 +52,17 @@ export function AuthProvider({ children }) {
 
     try {
       const user = await signInWithEmailAndPassword(auth, email, password);
-      return user
+      // return user
     } catch (error) {
       console.log(error.message);
     }
   }
 
-  function logout() {
+  async function logout() {
     return auth.signOut();
   }
 
-  function updatePassword(password) {
+  async function updatePassword(password) {
     return currentUser.updatePassword(password);
   }
 

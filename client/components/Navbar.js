@@ -11,12 +11,9 @@ const Navbar = () => {
       <h1>ShouldaCoulda</h1>
       <nav>
         <div>
-          {/* The navbar will show these links after you log in */}
           {currentUser ? (
             <>
           <Link to="/home">Home</Link>
-          {/* <Link to="/login">login</Link>
-          <Link to="/signUp">sign-up</Link> */}
           <button onClick={logout}>Logout</button>
             </>
 
