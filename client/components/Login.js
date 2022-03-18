@@ -1,29 +1,52 @@
-import React, { useState } from "react";
-import { auth } from "../firebase";
-import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import React, { useState, useRef } from "react";
+import { useAuth } from "../contexts/AuthContext";
+import { Link, useHistory } from "react-router-dom";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [user, setUser] = useState({});
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const { login, currentUser } = useAuth();
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const history = useHistory();
 
-  function handleSubmit() {
-    login(email, password);
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    try {
+      setError("");
+      setLoading(true);
+      await login(emailRef.current.value, passwordRef.current.value);
+      console.log(currentUser);
+      history.push("/");
+    } catch {
+      setError("Failed to log in");
+    }
+
+    setLoading(false);
   }
 
-  onAuthStateChanged(auth, (currentUser) => {
-    setUser(currentUser);
-  });
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [user, setUser] = useState({});
 
-  const login = async () => {
-    try {
-      const user = await signInWithEmailAndPassword(auth, email, password);
-      console.log(user);
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
-  const logout = async () => {};
+  // function handleSubmit() {
+  //   login(email, password);
+  // }
+
+  // onAuthStateChanged(auth, (currentUser) => {
+  //   setUser(currentUser);
+  // });
+
+  // const login = async () => {
+  //   try {
+  //     const user = await signInWithEmailAndPassword(auth, email, password);
+  //     console.log(user);
+  //   } catch (error) {
+  //     console.log(error.message);
+  //   }
+  // };
+  // const logout = async () => {};
 
   return (
     <div>
@@ -33,31 +56,16 @@ const Login = () => {
           <label htmlFor="username">
             <small>Email</small>
           </label>
-          <input
-            name="email"
-            type="text"
-            value={email}
-            onChange={(event) => {
-              setEmail(event.target.value);
-            }}
-          />
+          <input name="email" type="text" ref={emailRef} />
         </div>
         <div>
           <label htmlFor="password">
             <small>Password</small>
           </label>
-          <input
-            name="password"
-            type="password"
-            value={password}
-            onChange={(event) => {
-              setPassword(event.target.value);
-            }}
-          />
+          <input name="password" type="password" ref={passwordRef} />
         </div>
         <div>
           <button onClick={handleSubmit}>login</button>
-          {user?.email}
         </div>
       </form>
     </div>
