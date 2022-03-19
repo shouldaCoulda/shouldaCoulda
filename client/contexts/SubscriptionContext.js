@@ -8,7 +8,7 @@ export function useSubscription() {
   return useContext(SubscriptionContext);
 }
 
-const dbRef = ref(database);
+var dbRef = ref(database);
 
 var subscriptions = [];
 
@@ -25,10 +25,24 @@ export function SubscriptionProvider({ children }) {
   // console.log('at the begening of the provider', subscriptions)
   var [defualtSubscriptions, setSub] = useState([]);
 
-  const getSubscriptions = async () => {
-    await setSub(subscriptions)
-    return defualtSubscriptions;
-  };
+  // const getSubscriptions = async () => {
+  //   await setSub(subscriptions);
+  //   return defualtSubscriptions;
+  // };
+
+  function getSubscriptions() {
+    const path = ref(dbRef, "subscriptions");
+
+    onValue(path),
+      (snapshot) => {
+       
+        snapshot.forEach((childSnapshot) => {
+          var childData = childSnapshot.val();
+          console.log('child data', childData)
+          subscriptions.push(childData);
+        });
+      };
+  }
 
   useEffect(() => {
     // console.log("in use effect", subscriptions);
