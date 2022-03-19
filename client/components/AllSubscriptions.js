@@ -34,18 +34,18 @@ const dummyData = [
 const AllSubscriptions = () => {
   const { subscriptions, getSubscriptions } = useSubscription();
   // getSubscriptions();
-  console.log("this is real data", subscriptions);
+  // console.log("this is real data", subscriptions);
   const defualtSubscriptions = [];
 
   subscriptions.map((sub) => {
     defualtSubscriptions.push(sub);
   });
 
-  console.log("this is modified data", defualtSubscriptions);
-  console.log("this is dummydata", dummyData);
+  // console.log("this is modified data", defualtSubscriptions);
+  // console.log("this is dummydata", dummyData);
   return (
     <div>
-      {dummyData.map((item, index) => {
+      {/* {dummyData.map((item, index) => {
         return (
           <div key={index}>
             <img src={item.imageUrl} width="150" />
@@ -56,7 +56,7 @@ const AllSubscriptions = () => {
             </div>
           </div>
         );
-      })}
+      })} */}
       {subscriptions.map((item, index) => {
         return (
           <div key={index}>

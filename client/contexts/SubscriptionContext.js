@@ -2,23 +2,28 @@ import React, { useContext, useState, useEffect } from "react";
 import { getDatabase, ref, onValue, get, child } from "firebase/database";
 import { database } from "../firebase";
 
-const SubscriptionContext = React.createContext();
 //hook to use context outside of this file
+const SubscriptionContext = React.createContext();
 export function useSubscription() {
   return useContext(SubscriptionContext);
 }
 
-var dbRef = ref(database);
-
 var subscriptions = [];
 
-get(child(dbRef, "subscriptions")).then((snapshot) => {
+var dbRef = ref(database);
+// get(child(dbRef, "subscriptions")).then((snapshot) => {
+//   snapshot.forEach((childSnapshot) => {
+//     var childData = childSnapshot.val();
+//     subscriptions.push(childData);
+//   });
+
+// });
+var subRef = ref(database, "subscriptions");
+onValue(subRef, (snapshot) => {
   snapshot.forEach((childSnapshot) => {
     var childData = childSnapshot.val();
     subscriptions.push(childData);
   });
-  //   console.table(subscriptions);
-  //   console.log(subscriptions);
 });
 
 export function SubscriptionProvider({ children }) {
@@ -35,10 +40,9 @@ export function SubscriptionProvider({ children }) {
 
     onValue(path),
       (snapshot) => {
-       
         snapshot.forEach((childSnapshot) => {
           var childData = childSnapshot.val();
-          console.log('child data', childData)
+          console.log("child data", childData);
           subscriptions.push(childData);
         });
       };

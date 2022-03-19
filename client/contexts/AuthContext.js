@@ -7,14 +7,20 @@ import {
   signOut,
 } from "firebase/auth";
 
-
-
+//
 const AuthContext = React.createContext();
 
+/*this hook makes it so that we dont need to access
+the auth context outside of this file
+*/
 export function useAuth() {
-  return useContext(AuthContext);
+  const context = useContext(AuthContext);
+  if (context === undefined) {
+    throw new Error("useCount must be used within a CountProvider");
+  }
+  return context;
 }
-
+// return useContext(AuthContext);
 
 export function AuthProvider({ children }) {
   /*this is where out logged in user is saved in state, this can be accessed
@@ -29,7 +35,7 @@ export function AuthProvider({ children }) {
   }
   **************************************************
   */
-  const [currentUser, setCurrentUser] = useState();
+  const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
   async function signup(email, password) {
@@ -49,7 +55,6 @@ export function AuthProvider({ children }) {
   }
 
   async function login(email, password) {
-
     try {
       const user = await signInWithEmailAndPassword(auth, email, password);
       // return user
@@ -60,10 +65,6 @@ export function AuthProvider({ children }) {
 
   async function logout() {
     return auth.signOut();
-  }
-
-  async function updatePassword(password) {
-    return currentUser.updatePassword(password);
   }
 
   useEffect(() => {
@@ -80,9 +81,9 @@ export function AuthProvider({ children }) {
     login,
     signup,
     logout,
-    updatePassword,
   };
-//the 
+
+  //the
   return (
     <AuthContext.Provider value={value}>
       {!loading && children}
