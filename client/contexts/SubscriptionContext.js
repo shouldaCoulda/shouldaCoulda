@@ -32,12 +32,27 @@ export function SubscriptionProvider({ children }) {
   var [defualtSubscriptions, setSub] = useState([]);
 
   // useEffect(() => {
-  onValue(subRef, (snapshot) => {
-    const data = snapshot.val();
-    subscriptions = data;
-    console.log(data);
-  });
+  //   onValue(subRef, (snapshot) => {
+  //     const data = snapshot.val();
+  //     subscriptions = data;
+  //     setSub(subscriptions);
+  //     console.log(data);
+  //     console.log(subscriptions);
+  //   });
   // }, []);
+
+  useEffect(() => {
+    onValue(subRef, (snapshot) => {
+      setSub([]);
+      const data = snapshot.val();
+      console.log(data);
+      if (data !== null) {
+        Object.values(data).map((subscription) => {
+          setSub((oldArray) => [...oldArray, subscription]);
+        });
+      }
+    });
+  }, []);
 
   function writeSubscriptionData(name, price) {
     const uuid = uid();
