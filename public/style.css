@@ -33,9 +33,12 @@ img {
   align-items: stretch;
 }
 .defaultCards {
-  background-color: lightblue;
+  /* background-color: lightblue; */
+  width: 100px;
   /* max-width: auto;
   max-height: auto; */
 }
-.logo {
+.selected {
+  box-shadow: 10ch;
+  background-color: red;
 }

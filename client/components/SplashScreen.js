@@ -33,28 +33,31 @@ const dummyData = [
 
 const SplashScreen = () => {
   const { defualtSubscriptions } = useSubscription();
-  const isSelected = [true, false, true, true];
+  const isSelected = Array(dummyData.length).fill(false);
 
-  function handleClick(event) {
-    console.log(event);
-  }
-  function handleSubmit(e) {
-    console.log("submitted");
-  }
-
-  function handleChange(e) {
-    console.log("handle change");
+  function handleClick(e, index) {
+    isSelected[index] = !isSelected[index];
+    if (e.target.className.includes("selected")) {
+      e.target.className = "card-img";
+    } else {
+      e.target.className += " selected";
+    }
   }
 
   return (
-    <div className="container">
+    <div className="card-columns">
       {dummyData.map((item, index) => {
         return (
-          <div key={index} className="defaultCards">
-            {/* {isSelected[index] ? <h1>click</h1> : <></>} */}
-            <img src={item.imageUrl} className="logo"></img>
-            <a> {item.name}</a>
-            <a>{item.price}</a>
+          <div
+            key={index}
+            className="card defaultCards"
+            onClick={(event) => handleClick(event, index)}
+          >
+            <img
+              className="card-img"
+              src={item.imageUrl}
+              alt="Card image cap"
+            ></img>
           </div>
         );
       })}
