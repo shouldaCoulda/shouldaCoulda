@@ -38,15 +38,23 @@ const SplashScreen = () => {
   function handleClick(event) {
     console.log(event);
   }
+  function handleSubmit(e) {
+    console.log("submitted");
+  }
+
+  function handleChange(e) {
+    console.log("handle change");
+  }
 
   return (
-    <div>
+    <div className="container">
       {dummyData.map((item, index) => {
         return (
-          <div key={index}>
+          <div key={index} className="defaultCards">
             {/* {isSelected[index] ? <h1>click</h1> : <></>} */}
-            <div>{item.name}</div>
-            <div>{item.price}</div>
+            <img src={item.imageUrl} className="logo"></img>
+            <a> {item.name}</a>
+            <a>{item.price}</a>
           </div>
         );
       })}
