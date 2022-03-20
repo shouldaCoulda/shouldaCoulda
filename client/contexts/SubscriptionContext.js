@@ -10,36 +10,11 @@ export function useSubscription() {
 }
 
 var dbRef = ref(database);
-// get(child(dbRef, "subscriptions")).then((snapshot) => {
-//   snapshot.forEach((childSnapshot) => {
-//     var childData = childSnapshot.val();
-//     subscriptions.push(childData);
-//   });
 
-// });
 var subRef = ref(database, "subscriptions");
-// onValue(subRef, (snapshot) => {
-//   snapshot.forEach((childSnapshot) => {
-//     var childData = childSnapshot.val();
-//     subscriptions.push(childData);
-//     console.log(subscriptions)
-//   });
-// });
 
 export function SubscriptionProvider({ children }) {
-  var subscriptions = [];
-  // console.log('at the begening of the provider', subscriptions)
   var [defualtSubscriptions, setSub] = useState([]);
-
-  // useEffect(() => {
-  //   onValue(subRef, (snapshot) => {
-  //     const data = snapshot.val();
-  //     subscriptions = data;
-  //     setSub(subscriptions);
-  //     console.log(data);
-  //     console.log(subscriptions);
-  //   });
-  // }, []);
 
   useEffect(() => {
     onValue(subRef, (snapshot) => {
@@ -69,7 +44,6 @@ export function SubscriptionProvider({ children }) {
 
   const value = {
     defualtSubscriptions,
-    subscriptions,
     writeSubscriptionData,
   };
 

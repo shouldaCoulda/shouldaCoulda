@@ -32,32 +32,11 @@ import { useSubscription } from "../contexts/SubscriptionContext";
 // ];
 
 const AllSubscriptions = () => {
-  const { subscriptions, getSubscriptions, defualtSubscriptions } =
-    useSubscription();
+  const { defualtSubscriptions } = useSubscription();
 
-  console.log("this is real data", defualtSubscriptions);
-  // const defualtSubscriptions = [];
 
-  // subscriptions.map((sub) => {
-  //   defualtSubscriptions.push(sub);
-  // });
-
-  // console.log("this is modified data", defualtSubscriptions);
-  // console.log("this is dummydata", dummyData);
   return (
     <div>
-      {/* {dummyData.map((item, index) => {
-        return (
-          <div key={index}>
-            <img src={item.imageUrl} width="150" />
-            <div>{item.name}</div>
-            <div>{item.price}</div>
-            <div>
-              <a href={item.websiteUrl}>Unsubscribe</a>
-            </div>
-          </div>
-        );
-      })} */}
       {defualtSubscriptions.map((item, index) => {
         return (
           <div key={index}>
