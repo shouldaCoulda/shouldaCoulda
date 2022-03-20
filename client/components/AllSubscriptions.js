@@ -32,14 +32,15 @@ const dummyData = [
 ];
 
 const AllSubscriptions = () => {
-  const { subscriptions, getSubscriptions } = useSubscription();
+  const { subscriptions, getSubscriptions, defualtSubscriptions } =
+    useSubscription();
   // getSubscriptions();
-  // console.log("this is real data", subscriptions);
-  const defualtSubscriptions = [];
+  console.log("this is real data", subscriptions);
+  // const defualtSubscriptions = [];
 
-  subscriptions.map((sub) => {
-    defualtSubscriptions.push(sub);
-  });
+  // subscriptions.map((sub) => {
+  //   defualtSubscriptions.push(sub);
+  // });
 
   // console.log("this is modified data", defualtSubscriptions);
   // console.log("this is dummydata", dummyData);
