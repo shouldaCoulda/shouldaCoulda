@@ -1,6 +1,7 @@
-import React from 'react';
-import { useAuth } from '../contexts/AuthContext';
-import AllSubscriptions from './AllSubscriptions';
+import React from "react";
+import { useAuth } from "../contexts/AuthContext";
+import AllSubscriptions from "./AllSubscriptions";
+import AddSubscription from "./AddSubscription";
 
 /**
  * COMPONENT
@@ -8,10 +9,10 @@ import AllSubscriptions from './AllSubscriptions';
 export const Home = () => {
   const { currentUser } = useAuth();
 
-  
   return (
     <div>
       <AllSubscriptions />
+      <AddSubscription />
       <h3>Welcome to shoulda </h3>
       <p>Email:</p> {currentUser?.email}
     </div>

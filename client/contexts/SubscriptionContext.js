@@ -1,14 +1,13 @@
 import React, { useContext, useState, useEffect } from "react";
-import { getDatabase, ref, onValue, get, child } from "firebase/database";
+import { getDatabase, ref, onValue, get, child, set } from "firebase/database";
 import { database } from "../firebase";
+import { uid } from "uid";
 
 //hook to use context outside of this file
 const SubscriptionContext = React.createContext();
 export function useSubscription() {
   return useContext(SubscriptionContext);
 }
-
-var subscriptions = [];
 
 var dbRef = ref(database);
 // get(child(dbRef, "subscriptions")).then((snapshot) => {
@@ -28,18 +27,35 @@ var subRef = ref(database, "subscriptions");
 // });
 
 export function SubscriptionProvider({ children }) {
+  var subscriptions = [];
   // console.log('at the begening of the provider', subscriptions)
   var [defualtSubscriptions, setSub] = useState([]);
 
+  // useEffect(() => {
   onValue(subRef, (snapshot) => {
     const data = snapshot.val();
-    // setSub(data);
+    subscriptions = data;
     console.log(data);
   });
+  // }, []);
+
+  function writeSubscriptionData(name, price) {
+    const uuid = uid();
+    set(ref(database, `subscriptions/` + uuid), {
+      name: name,
+      price: price,
+    });
+  }
+
+  //delete
+  const handleDelete = (subscription) => {
+    remove(ref(database, `/${subscription.uuid}`));
+  };
 
   const value = {
     defualtSubscriptions,
     subscriptions,
+    writeSubscriptionData,
   };
 
   return (
