@@ -48,19 +48,12 @@ const SplashScreen = () => {
   }
   async function handleSubmit(e) {
     e.preventDefault();
-    console.log("set subs fired");
     const data = [];
-
-
     defualtSubscriptions.map((element, i) => {
       if (isSelected[i]) {
         data.push(element);
       }
     });
-
-
-    
-    console.log("after data is filterd" + data);
     await writeSubscriptions(data);
   }
   return (

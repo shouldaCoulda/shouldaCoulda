@@ -7,9 +7,8 @@ import {
   signOut,
 } from "firebase/auth";
 import { database } from "../firebase";
-import { getDatabase, ref, onValue, get, child, set } from "firebase/database";
+import { ref, set } from "firebase/database";
 import { uid } from "uid";
-import { use } from "chai";
 
 //
 const AuthContext = React.createContext();
@@ -26,7 +25,6 @@ export function useAuth() {
   }
   return context;
 }
-// return useContext(AuthContext);
 
 export function AuthProvider({ children }) {
   /*this is where out logged in user is saved in state, this can be accessed
@@ -55,7 +53,6 @@ export function AuthProvider({ children }) {
         uid: createdUser.uid,
         email: createdUser.email,
       };
-      console.log("in sign up" + createdUser);
       writeUserData(user);
     } catch (error) {
       console.log(error.message);
@@ -73,7 +70,6 @@ export function AuthProvider({ children }) {
   async function login(email, password) {
     try {
       const user = await signInWithEmailAndPassword(auth, email, password);
-      // return user
     } catch (error) {
       console.log(error.message);
     }
@@ -85,13 +81,12 @@ export function AuthProvider({ children }) {
 
   async function writeSubscriptions(subscriptions) {
     console.log("in write subs function", subscriptions);
-    
 
-    // data.map((sub) => {
-    var userSubsReff = ref( database, "users/" + currentUser.uid + "/subscriptions"
+    var userSubsReff = ref(
+      database,
+      "users/" + currentUser.uid + "/subscriptions"
     );
     set(userSubsReff, subscriptions);
-    // });
   }
 
   useEffect(() => {
@@ -112,7 +107,6 @@ export function AuthProvider({ children }) {
     writeSubscriptions,
   };
 
-  //the
   return (
     <AuthContext.Provider value={value}>
       {!loading && children}

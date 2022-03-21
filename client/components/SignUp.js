@@ -36,33 +36,7 @@ const SignUp = () => {
 
     setLoading(false);
   }
-  // onAuthStateChanged(auth, (currentUser) => {
-  //   setUser(currentUser);
-  // });
-
-  // const [user, setUser] = useState({});
-  // function handleSubmit() {
-  //   console.log("submit");
-  //   signUp(email, password);
-  // }
-
-  // const signUp = async () => {
-  //   try {
-  //     const createdUser = await createUserWithEmailAndPassword(
-  //       auth,
-  //       emailRef,
-  //       passwordRef
-  //     );
-  //     console.log(createdUser);
-  //   } catch (error) {
-  //     console.log(error.message);
-  //   }
-  // };
-  // const login = async () => {};
-  // const logout = async () => {
-  //   await signOut(auth);
-  // };
-
+  
   return (
     <div>
       <form>
