@@ -5,6 +5,8 @@ import { uid } from "uid";
 
 //hook to use context outside of this file
 const SubscriptionContext = React.createContext();
+
+
 export function useSubscription() {
   return useContext(SubscriptionContext);
 }
@@ -16,11 +18,11 @@ var subRef = ref(database, "subscriptions");
 export function SubscriptionProvider({ children }) {
   var [defualtSubscriptions, setSub] = useState([]);
 
+  //Read from table
   useEffect(() => {
     onValue(subRef, (snapshot) => {
       setSub([]);
       const data = snapshot.val();
-      console.log(data);
       if (data !== null) {
         Object.values(data).map((subscription) => {
           setSub((oldArray) => [...oldArray, subscription]);
@@ -37,7 +39,7 @@ export function SubscriptionProvider({ children }) {
     });
   }
 
-  //delete
+  //delete **********test this
   const handleDelete = (subscription) => {
     remove(ref(database, `/${subscription.uuid}`));
   };
