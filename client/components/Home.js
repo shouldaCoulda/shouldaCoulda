@@ -3,6 +3,7 @@ import AllSubscriptions from './AllSubscriptions';
 import AddSubscription from './AddSubscription';
 import SplashScreen from './SplashScreen';
 import Charts from './Charts';
+import PieChart from './PieChart';
 
 /**
  * COMPONENT
@@ -15,6 +16,7 @@ export const Home = () => {
 
       <h3>Welcome to shoulda </h3>
       <Charts />
+      <PieChart />
     </div>
   );
 };
