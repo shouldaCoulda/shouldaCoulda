@@ -88,6 +88,16 @@ export function AuthProvider({ children }) {
     );
     set(userSubsReff, subscriptions);
   }
+  async function removeSubscription(idx) {
+    console.log(idx);
+    const str = idx + "";
+    var userSubsReff = ref(
+      database,
+      "users/" + currentUser.uid + "/subscriptions/" + str
+    );
+    set(userSubsReff, {});
+    console.log("in conterxt remove", idx);
+  }
 
   useEffect(async () => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -118,6 +128,7 @@ export function AuthProvider({ children }) {
     writeUserData,
     writeSubscriptions,
     usersSubscriptions,
+    removeSubscription,
   };
 
   return (
