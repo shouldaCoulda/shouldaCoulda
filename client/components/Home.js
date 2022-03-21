@@ -1,7 +1,8 @@
-import React from "react";
-import AllSubscriptions from "./AllSubscriptions";
-import AddSubscription from "./AddSubscription";
-import SplashScreen from "./SplashScreen";
+import React from 'react';
+import AllSubscriptions from './AllSubscriptions';
+import AddSubscription from './AddSubscription';
+import SplashScreen from './SplashScreen';
+import Charts from './Charts';
 
 /**
  * COMPONENT
@@ -11,8 +12,9 @@ export const Home = () => {
     <div>
       {/* <AllSubscriptions />
       <AddSubscription /> */}
-      <SplashScreen />
+
       <h3>Welcome to shoulda </h3>
+      <Charts />
     </div>
   );
 };
