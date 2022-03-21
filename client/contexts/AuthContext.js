@@ -83,21 +83,14 @@ export function AuthProvider({ children }) {
     return auth.signOut();
   }
 
-  async function writeSubscriptions() {
-    console.log("in write subs function");
-    let data = [
-      {
-        name: "netflix",
-        price: 9.99,
-      },
-    ];
+  async function writeSubscriptions(subscriptions) {
+    console.log("in write subs function", subscriptions);
+    
 
     // data.map((sub) => {
-    var userSubsReff = ref(
-      database,
-      "users/" + currentUser.uid + "subscriptions/"
+    var userSubsReff = ref( database, "users/" + currentUser.uid + "/subscriptions"
     );
-    set(userSubsReff, data);
+    set(userSubsReff, subscriptions);
     // });
   }
 
