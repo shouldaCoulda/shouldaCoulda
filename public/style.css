@@ -1,6 +1,7 @@
 body {
   font-family: sans-serif;
   background-color: lightgray;
+  text-align: center;
 }
 
 a {
@@ -20,10 +21,82 @@ form div {
   margin: 1em;
   display: inline-block;
 }
+
 img {
-  max-width: 50%;
-  max-height: 50%;
+  max-width: 100%;
+  display: block;
 }
+
+
+
+#carouselDiv {
+  margin: auto;
+  width: 75vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  grid-auto-flow: column;
+  grid-template-rows: 1fr auto;
+  overflow-x: scroll;
+}
+
+.stacked {
+  display: grid;
+}
+
+.card {
+  width: max-content;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+#cardImg {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+
+.user-sub-table {
+  border-collapse: collapse;
+  margin: auto;
+  font-size: 1.0em;
+  font-family: sans-serif;
+  max-width: 1000px;
+  box-shadow: 0 0 20px blue;
+}
+
+.user-sub-table thead tr {
+  background-color: darkblue;
+  color: white;
+  text-align: left;
+}
+
+.user-sub-table th {
+  padding: 12px 30 px;
+}
+
+.user-sub-table td {
+  padding: 12px 30px;
+}
+
+.user-sub-table tbody tr {
+  border-bottom: 1px solid greenyellow
+}
+
+.user-sub-table tbody tr:nth-of-type(even) {
+  background-color: lightblue;
+}
+
+.user-sub-table tbody tr:last-of-type {
+  border-bottom: 1.5px solid greenyellow;
+}
+
+#userSubs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
 .container {
   flex-wrap: wrap;
   align-items: center;
