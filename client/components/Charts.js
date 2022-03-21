@@ -1,5 +1,6 @@
 import React from 'react';
-import * as V from 'victory';
+
+import { VictoryBar, VictoryChart } from 'victory';
 
 const data = [
   { quarter: 1, earnings: 130 },
@@ -9,7 +10,14 @@ const data = [
 ];
 
 const Charts = () => {
-  return <div>Chart</div>;
+  return (
+    <div>
+      Chart
+      <VictoryChart>
+        <VictoryBar data={data} x='quarter' y='earnings' />
+      </VictoryChart>
+    </div>
+  );
 };
 
 export default Charts;
