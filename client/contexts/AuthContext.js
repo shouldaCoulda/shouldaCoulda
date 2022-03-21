@@ -6,9 +6,13 @@ import {
   onAuthStateChanged,
   signOut,
 } from "firebase/auth";
+import { database } from "../firebase";
+import { getDatabase, ref, onValue, get, child, set } from "firebase/database";
+import { uid } from "uid";
 
 //
 const AuthContext = React.createContext();
+var dbRef = ref(database);
 
 /*this hook makes it so that we dont need to access
 the auth context outside of this file
@@ -49,9 +53,24 @@ export function AuthProvider({ children }) {
         email,
         password
       );
+      var user = {
+        name: "firstName",
+        email: createdUser.email,
+        uid: createdUser.uid,
+      };
+      writeUserData(user);
     } catch (error) {
       console.log(error.message);
     }
+  }
+  function writeUserData(user) {
+    const uuid = uid();
+    console.log("in write user data ");
+    set(ref(database, "users/" + uuid)),
+      {
+        email: "user.email",
+        firstName: "firstName",
+      };
   }
 
   async function login(email, password) {
