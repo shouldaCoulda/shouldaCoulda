@@ -4,6 +4,7 @@ import AddSubscription from './AddSubscription';
 import SplashScreen from './SplashScreen';
 import Charts from './Charts';
 import PieChart from './PieChart';
+import LineChart from './LineChart';
 import { useAuth } from '../contexts/AuthContext';
 
 /**
@@ -18,6 +19,7 @@ export const Home = () => {
       <AddSubscription />
       <SplashScreen /> */}
       <h3>Welcome to shoulda </h3>
+      <LineChart />
       <Charts />
       <PieChart />
     </div>
