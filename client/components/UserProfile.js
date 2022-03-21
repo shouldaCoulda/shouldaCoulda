@@ -57,18 +57,33 @@ const UserSubscriptions = () => {
   // }
 
   return (
-    <div>
-      {selectedSubArray.map((sub) => {
-        return (
-          <div key={sub.id} id="userSubs">
-            <div>
-              <a href={sub.websiteUrl}><img src={sub.imageUrl} height='75'/></a>
-            </div>
-            <div>{sub.name}</div>
-            <div>{sub.price}/month</div>
-          </div>
-        );
-      })}
+    <div style={{ marginTop: "50px" }}>
+      <table className='user-sub-table'>
+        <thead>
+          <tr>
+            <th style={{ textAlign: "center" }}></th>
+            <th style={{ textAlign: "center" }}>Unsubscribe Link:</th>
+            <th style={{ textAlign: "center" }}>Subscription:</th>
+            <th style={{ textAlign: "center" }}>Cost:</th>
+          </tr>
+        </thead>
+        <tbody>
+          {selectedSubArray.map((sub, index) => {
+            return (
+              <tr key={sub.id}>
+                <th scope='row'>{index + 1}</th>
+                <td>
+                  <a href={sub.websiteUrl}><img src={sub.imageUrl} height='90'/></a>
+                </td>
+                <td>{sub.name}</td>
+                <td>{sub.price}/month</td>
+              </tr>
+            );
+          })}
+        </tbody>
+
+      </table>
+
     </div>
   );
 }

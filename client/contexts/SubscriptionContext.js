@@ -1,43 +1,52 @@
 import React, { useContext, useState, useEffect } from "react";
-import { getDatabase, ref, onValue, get, child } from "firebase/database";
+import { getDatabase, ref, onValue, get, child, set } from "firebase/database";
 import { database } from "../firebase";
+import { uid } from "uid";
 
-const SubscriptionContext = React.createContext();
 //hook to use context outside of this file
+const SubscriptionContext = React.createContext();
+
+
 export function useSubscription() {
   return useContext(SubscriptionContext);
 }
 
-const dbRef = ref(database);
+var dbRef = ref(database);
 
-var subscriptions = [];
-
-get(child(dbRef, "subscriptions")).then((snapshot) => {
-  snapshot.forEach((childSnapshot) => {
-    var childData = childSnapshot.val();
-    subscriptions.push(childData);
-  });
-  //   console.table(subscriptions);
-  //   console.log(subscriptions);
-});
+var subRef = ref(database, "subscriptions");
 
 export function SubscriptionProvider({ children }) {
-  // console.log('at the begening of the provider', subscriptions)
   var [defualtSubscriptions, setSub] = useState([]);
 
-  const getSubscriptions = async () => {
-    await setSub(subscriptions)
-    return defualtSubscriptions;
-  };
-
+  //Read from table
   useEffect(() => {
-    // console.log("in use effect", subscriptions);
+    onValue(subRef, (snapshot) => {
+      setSub([]);
+      const data = snapshot.val();
+      if (data !== null) {
+        Object.values(data).map((subscription) => {
+          setSub((oldArray) => [...oldArray, subscription]);
+        });
+      }
+    });
   }, []);
+
+  function writeSubscriptionData(name, price) {
+    const uuid = uid();
+    set(ref(database, `subscriptions/` + uuid), {
+      name: name,
+      price: price,
+    });
+  }
+
+  //delete **********test this
+  const handleDelete = (subscription) => {
+    remove(ref(database, `/${subscription.uuid}`));
+  };
 
   const value = {
     defualtSubscriptions,
-    subscriptions,
-    getSubscriptions,
+    writeSubscriptionData,
   };
 
   return (

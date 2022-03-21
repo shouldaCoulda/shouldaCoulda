@@ -21,9 +21,66 @@ form div {
   display: inline-block;
 }
 
+.user-sub-table {
+  border-collapse: collapse;
+  margin: auto;
+  font-size: 1.0em;
+  font-family: sans-serif;
+  max-width: 1000px;
+  box-shadow: 0 0 20px blue;
+}
+
+.user-sub-table thead tr {
+  background-color: darkblue;
+  color: white;
+  text-align: left;
+}
+
+.user-sub-table th {
+  padding: 12px 15 px;
+}
+
+.user-sub-table td {
+  padding: 12px 20px;
+}
+
+.user-sub-table tbody tr {
+  border-bottom: 1px solid orange
+}
+
+.user-sub-table tbody tr:nth-of-type(even) {
+  background-color: lightblue;
+}
+
+.user-sub-table tbody tr:last-of-type {
+  border-bottom: 1.5px solid purple;
+}
+
 #userSubs {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   flex-wrap: wrap;
+}
+/* img {
+  max-width: 50%;
+  max-height: 50%;
+} */
+.container {
+  flex-wrap: wrap;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+}
+.defaultCards {
+  /* background-color: lightblue; */
+  width: 100px;
+  /* max-width: auto;
+  max-height: auto; */
+}
+.selected {
+  box-shadow: 10ch;
+  background-color: red;
 }

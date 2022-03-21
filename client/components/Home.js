@@ -2,6 +2,8 @@ import React from 'react';
 import { useAuth } from '../contexts/AuthContext';
 // import AllSubscriptions from './AllSubscriptions';
 import UserSubscriptions from './UserProfile';
+// import AddSubscription from "./AddSubscription";
+// import SplashScreen from "./SplashScreen";
 
 /**
  * COMPONENT
@@ -13,8 +15,7 @@ export const Home = () => {
   return (
     <div>
       <UserSubscriptions />
-      <h3>Welcome to shoulda </h3>
-      <p>Email:</p> {currentUser?.email}
+       <h3>Welcome to shoulda </h3>
     </div>
   );
 };
