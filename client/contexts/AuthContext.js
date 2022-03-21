@@ -7,12 +7,13 @@ import {
   signOut,
 } from "firebase/auth";
 import { database } from "../firebase";
-import { getDatabase, ref, onValue, get, child, set } from "firebase/database";
+import { ref, set } from "firebase/database";
 import { uid } from "uid";
 
 //
 const AuthContext = React.createContext();
 var dbRef = ref(database);
+var userRef = ref(database, "users");
 
 /*this hook makes it so that we dont need to access
 the auth context outside of this file
@@ -24,7 +25,6 @@ export function useAuth() {
   }
   return context;
 }
-// return useContext(AuthContext);
 
 export function AuthProvider({ children }) {
   /*this is where out logged in user is saved in state, this can be accessed
@@ -48,15 +48,10 @@ export function AuthProvider({ children }) {
       this method passes in our auth,email,and password and will create
       a user in our firebase. then sets the currentUser to this user
       */
-      const createdUser = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
+      const createdUser = createUserWithEmailAndPassword(auth, email, password);
       var user = {
-        name: "firstName",
-        email: createdUser.email,
         uid: createdUser.uid,
+        email: createdUser.email,
       };
       writeUserData(user);
     } catch (error) {
@@ -65,18 +60,16 @@ export function AuthProvider({ children }) {
   }
   function writeUserData(user) {
     const uuid = uid();
-    console.log("in write user data ");
-    set(ref(database, "users/" + uuid)),
-      {
-        email: "user.email",
-        firstName: "firstName",
-      };
+    console.log("in write user data ", user);
+
+    var userReff = ref(database, "users/" + user.uid);
+
+    set(userReff, user);
   }
 
   async function login(email, password) {
     try {
       const user = await signInWithEmailAndPassword(auth, email, password);
-      // return user
     } catch (error) {
       console.log(error.message);
     }
@@ -84,6 +77,16 @@ export function AuthProvider({ children }) {
 
   async function logout() {
     return auth.signOut();
+  }
+
+  async function writeSubscriptions(subscriptions) {
+    console.log("in write subs function", subscriptions);
+
+    var userSubsReff = ref(
+      database,
+      "users/" + currentUser.uid + "/subscriptions"
+    );
+    set(userSubsReff, subscriptions);
   }
 
   useEffect(() => {
@@ -100,9 +103,10 @@ export function AuthProvider({ children }) {
     login,
     signup,
     logout,
+    writeUserData,
+    writeSubscriptions,
   };
 
-  //the
   return (
     <AuthContext.Provider value={value}>
       {!loading && children}
