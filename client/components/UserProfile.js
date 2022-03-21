@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-// import { getUserSubscriptions } from .....
+// import { db } from '../firebase'
+// import { collection, getDocs } from 'firebase/firestore'
 
 const selectedSubArray = [
   {
@@ -33,10 +34,18 @@ const selectedSubArray = [
 ];
 
 const UserSubscriptions = () => {
-  // const dispatch = useDispatch()
-  // const { subscriptions, setSubscriptions } = useState([])
+
+  // const { subscriptions, setSubscriptions } = useState([]);
+  // const subCollectionRef = collection(db, "subscriptions")
 
   // useEffect(() => {
+
+  //   const getSubscriptions = async () => {
+  //     const data = await getDocs(subCollectionRef)
+  //     // console.log(data)
+  //     setSubscriptions(data)
+  //   }
+
   //   dispatch(getUserSubscriptions())
   // }, []);
 
@@ -46,7 +55,6 @@ const UserSubscriptions = () => {
   //   })
   //   setSubscriptions(userSubs)
   // }
-
 
   return (
     <div>
