@@ -22,15 +22,9 @@ const PieChart = () => {
                   {
                     target: 'data',
                     mutation: ({ style }) => {
-                      return style.fill === '#c43a31' ? null : (
-                        <div>{data[0]}</div>
-                      );
-                    },
-                  },
-                  {
-                    target: 'labels',
-                    mutation: ({ text }) => {
-                      return text === 'clicked' ? null : { text: `${data}` };
+                      return style.fill === '#c43a31'
+                        ? null
+                        : { style: { fill: '#c43a31' } };
                     },
                   },
                 ];
