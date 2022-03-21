@@ -65,6 +65,7 @@ const UserSubscriptions = () => {
             <th style={{ textAlign: "center" }}>Unsubscribe Link:</th>
             <th style={{ textAlign: "center" }}>Subscription:</th>
             <th style={{ textAlign: "center" }}>Cost:</th>
+            <th style={{ textAlign: "center" }}>Remove:</th>
           </tr>
         </thead>
         <tbody>
@@ -77,6 +78,7 @@ const UserSubscriptions = () => {
                 </td>
                 <td>{sub.name}</td>
                 <td>{sub.price}/month</td>
+                <td></td>
               </tr>
             );
           })}
