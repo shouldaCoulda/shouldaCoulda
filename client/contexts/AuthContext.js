@@ -7,7 +7,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { database } from "../firebase";
-import { ref, set } from "firebase/database";
+import { ref, set, onValue } from "firebase/database";
 import { uid } from "uid";
 
 //
@@ -39,8 +39,10 @@ export function AuthProvider({ children }) {
   }
   **************************************************
   */
-  const [currentUser, setCurrentUser] = useState(null);
+  var [currentUser, setCurrentUser] = useState(null);
+  const [usersSubscriptions, setSubs] = useState([]);
   const [loading, setLoading] = useState(true);
+  var userSubReff = "";
 
   async function signup(email, password) {
     try {
@@ -80,8 +82,6 @@ export function AuthProvider({ children }) {
   }
 
   async function writeSubscriptions(subscriptions) {
-    console.log("in write subs function", subscriptions);
-
     var userSubsReff = ref(
       database,
       "users/" + currentUser.uid + "/subscriptions"
@@ -89,9 +89,21 @@ export function AuthProvider({ children }) {
     set(userSubsReff, subscriptions);
   }
 
-  useEffect(() => {
+  useEffect(async () => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
+
+      userSubReff = ref(database, "users/" + user.uid + "/subscriptions");
+      onValue(userSubReff, (snapshot) => {
+        setSubs([]);
+        const data = snapshot.val();
+        if (data !== null) {
+          Object.values(data).map((subscription) => {
+            setSubs((oldArray) => [...oldArray, subscription]);
+          });
+        }
+      });
+
       setLoading(false);
     });
 
@@ -105,6 +117,7 @@ export function AuthProvider({ children }) {
     logout,
     writeUserData,
     writeSubscriptions,
+    usersSubscriptions,
   };
 
   return (

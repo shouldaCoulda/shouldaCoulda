@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Profile from "./components/Profile";
+import UserProfile from "./components/UserProfile";
 
 /**
  * COMPONENT
