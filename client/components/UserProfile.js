@@ -1,5 +1,8 @@
+import { remove } from 'firebase/database';
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { database } from '../firebase';
 // import { db } from '../firebase'
 // import { collection, getDocs } from 'firebase/firestore'
 
@@ -16,20 +19,50 @@ const selectedSubArray = [
   {
     name: 'Spotify',
     price: '9.99',
-    imageUrl: 'https://source.unsplash.com/random',
+    imageUrl: 'https://cdn-icons-png.flaticon.com/512/174/174872.png',
     websiteUrl: 'https://support.spotify.com/us/article/cancel-premium/',
   },
   {
     name: 'Youtube Premium',
     price: '11.99',
-    imageUrl: 'https://source.unsplash.com/random',
+    imageUrl: 'https://cdn.icon-icons.com/icons2/1211/PNG/512/1491579609-yumminkysocialmedia08_83079.png',
     websiteUrl: 'https://www.youtube.com/paid_memberships?ybp=mAEK',
   },
   {
     name: 'Hulu',
     price: '12.99',
-    imageUrl: 'https://source.unsplash.com/random',
+    imageUrl: 'https://img.apkshub.com/38/com.hulu.plus/4.23.0.4234.google/icon.png',
     websiteUrl: 'https://help.hulu.com/s/article/manage-subscription',
+  },
+  {
+    name: 'Random',
+    price: '11.99',
+    imageUrl: 'https://source.unsplash.com/random',
+    websiteUrl: 'https://source.unsplash.com/random',
+  },
+  {
+    name: 'Spotify',
+    price: '9.99',
+    imageUrl: 'https://cdn-icons-png.flaticon.com/512/174/174872.png',
+    websiteUrl: 'https://support.spotify.com/us/article/cancel-premium/',
+  },
+  {
+    name: 'Youtube Premium',
+    price: '11.99',
+    imageUrl: 'https://cdn.icon-icons.com/icons2/1211/PNG/512/1491579609-yumminkysocialmedia08_83079.png',
+    websiteUrl: 'https://www.youtube.com/paid_memberships?ybp=mAEK',
+  },
+  {
+    name: 'Hulu',
+    price: '12.99',
+    imageUrl: 'https://img.apkshub.com/38/com.hulu.plus/4.23.0.4234.google/icon.png',
+    websiteUrl: 'https://help.hulu.com/s/article/manage-subscription',
+  },
+  {
+    name: 'Random',
+    price: '11.99',
+    imageUrl: 'https://source.unsplash.com/random',
+    websiteUrl: 'https://source.unsplash.com/random',
   },
 ];
 
@@ -56,6 +89,12 @@ const UserSubscriptions = () => {
   //   setSubscriptions(userSubs)
   // }
 
+  const handleDelete = (id) => {
+    if(window.confirm("remove this subscription?")) {
+      remove(ref(database, 'subscriptions/' + uuid))
+    }
+  };
+
   return (
     <div style={{ marginTop: "50px" }}>
       <table className='user-sub-table'>
@@ -65,7 +104,8 @@ const UserSubscriptions = () => {
             <th style={{ textAlign: "center" }}>Unsubscribe Link:</th>
             <th style={{ textAlign: "center" }}>Subscription:</th>
             <th style={{ textAlign: "center" }}>Cost:</th>
-            <th style={{ textAlign: "center" }}>Remove:</th>
+            <th style={{ textAlign: "center" }}></th>
+            <th style={{ textAlign: "center" }}></th>
           </tr>
         </thead>
         <tbody>
@@ -78,7 +118,14 @@ const UserSubscriptions = () => {
                 </td>
                 <td>{sub.name}</td>
                 <td>{sub.price}/month</td>
-                <td></td>
+                <td>
+                  <button className='edit-cost'
+                  onClick={() => handleDelete(sub.id)}>Edit Cost</button>
+                </td>
+                <td>
+                  <button className='remove-button'
+                  onClick={() => handleDelete(sub.id)}>Remove</button>
+                </td>
               </tr>
             );
           })}
