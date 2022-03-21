@@ -6,7 +6,6 @@ import { uid } from "uid";
 //hook to use context outside of this file
 const SubscriptionContext = React.createContext();
 
-
 export function useSubscription() {
   return useContext(SubscriptionContext);
 }

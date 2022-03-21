@@ -14,8 +14,10 @@ export const Home = () => {
 
   return (
     <div>
-      <UserSubscriptions />
-       <h3>Welcome to shoulda </h3>
+      <AllSubscriptions />
+      <AddSubscription />
+      <SplashScreen />
+      <h3>Welcome to shoulda </h3>
     </div>
   );
 };
