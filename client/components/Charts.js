@@ -18,6 +18,7 @@ const Charts = () => {
           tickValues={[1, 2, 3, 4]}
           tickFormat={['Netflix', 'Hulu', 'Spotify', 'YoutubeTV']}
         />
+        <VictoryAxis dependentAxis tickFormat={(x) => `$${x / 1}`} />
         <VictoryBar data={data} x='quarter' y='earnings' />
       </VictoryChart>
     </div>
