@@ -1,6 +1,7 @@
 body {
   font-family: sans-serif;
   background-color: lightgray;
+  text-align: center;
 }
 
 a {
@@ -20,6 +21,39 @@ form div {
   margin: 1em;
   display: inline-block;
 }
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+
+
+#carouselDiv {
+  margin: auto;
+  width: 75vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  grid-auto-flow: column;
+  grid-template-rows: 1fr auto;
+  overflow-x: scroll;
+}
+
+.stacked {
+  display: grid;
+}
+
+.card {
+  width: max-content;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+#cardImg {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
 
 .user-sub-table {
   border-collapse: collapse;
