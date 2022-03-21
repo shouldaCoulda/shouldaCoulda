@@ -9,10 +9,12 @@ import {
 import { database } from "../firebase";
 import { getDatabase, ref, onValue, get, child, set } from "firebase/database";
 import { uid } from "uid";
+import { use } from "chai";
 
 //
 const AuthContext = React.createContext();
 var dbRef = ref(database);
+var userRef = ref(database, "users");
 
 /*this hook makes it so that we dont need to access
 the auth context outside of this file
@@ -66,11 +68,15 @@ export function AuthProvider({ children }) {
   function writeUserData(user) {
     const uuid = uid();
     console.log("in write user data ");
-    set(ref(database, "users/" + uuid)),
-      {
-        email: "user.email",
-        firstName: "firstName",
-      };
+    // set(ref(database, "users/" + uuid)),
+    //   {
+    //     email: user.email,
+    //     firstName: "firstName",
+    // };
+    var userReff = ref(database, "users/" + user.uid);
+    console.log(userReff);
+
+    set(userReff, user);
   }
 
   async function login(email, password) {
@@ -100,6 +106,7 @@ export function AuthProvider({ children }) {
     login,
     signup,
     logout,
+    writeUserData,
   };
 
   //the

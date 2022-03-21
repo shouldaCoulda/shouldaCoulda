@@ -1,8 +1,10 @@
 import React, { useRef } from "react";
 import { useSubscription } from "../contexts/SubscriptionContext";
+import { useAuth } from "../contexts/AuthContext";
 
 const AddSubscription = () => {
   const { writeSubscriptionData } = useSubscription();
+  const { writeUserData, currentUser } = useAuth();
   let nameRef = useRef("");
   let priceRef = useRef();
 
@@ -10,6 +12,17 @@ const AddSubscription = () => {
     e.preventDefault();
     writeSubscriptionData(nameRef.current.value, priceRef.current.value);
     console.log(nameRef.current.value, priceRef.current.value);
+  };
+  const write = (e) => {
+    var user = {
+      name: "Raja",
+      phone: "779797329",
+      address: "475 Mercer Drive",
+      uid: currentUser.uid,
+      email: currentUser.email,
+    };
+    e.preventDefault();
+    writeUserData(user);
   };
 
   return (
@@ -30,6 +43,9 @@ const AddSubscription = () => {
         </div>
         <div>
           <button onClick={handleSubmit}>submit</button>
+        </div>
+        <div>
+          <button onClick={write}>write</button>
         </div>
       </form>
     </div>
