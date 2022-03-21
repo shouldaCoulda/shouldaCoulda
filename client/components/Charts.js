@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { VictoryBar, VictoryChart, VictoryAxis } from 'victory';
+import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme } from 'victory';
 
 const data = [
   { quarter: 1, earnings: 130 },
@@ -13,7 +13,7 @@ const Charts = () => {
   return (
     <div>
       Chart
-      <VictoryChart domainPadding={20}>
+      <VictoryChart domainPadding={20} theme={VictoryTheme.material}>
         <VictoryAxis
           tickValues={[1, 2, 3, 4]}
           tickFormat={['Netflix', 'Hulu', 'Spotify', 'YoutubeTV']}
