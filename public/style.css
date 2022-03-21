@@ -20,10 +20,49 @@ form div {
   margin: 1em;
   display: inline-block;
 }
-img {
-  max-width: 50%;
-  max-height: 50%;
+
+.user-sub-table {
+  border-collapse: collapse;
+  margin: auto;
+  font-size: 1.0em;
+  font-family: sans-serif;
+  max-width: 1000px;
+  box-shadow: 0 0 20px blue;
 }
+
+.user-sub-table thead tr {
+  background-color: darkblue;
+  color: white;
+  text-align: left;
+}
+
+.user-sub-table th {
+  padding: 12px 30 px;
+}
+
+.user-sub-table td {
+  padding: 12px 30px;
+}
+
+.user-sub-table tbody tr {
+  border-bottom: 1px solid greenyellow
+}
+
+.user-sub-table tbody tr:nth-of-type(even) {
+  background-color: lightblue;
+}
+
+.user-sub-table tbody tr:last-of-type {
+  border-bottom: 1.5px solid greenyellow;
+}
+
+#userSubs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
 .container {
   flex-wrap: wrap;
   align-items: center;
