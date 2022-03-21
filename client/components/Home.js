@@ -1,9 +1,10 @@
 import React from 'react';
+import AllSubscriptions from './AllSubscriptions';
+import AddSubscription from './AddSubscription';
+import SplashScreen from './SplashScreen';
+import Charts from './Charts';
+import PieChart from './PieChart';
 import { useAuth } from '../contexts/AuthContext';
-// import AllSubscriptions from './AllSubscriptions';
-import UserSubscriptions from './UserProfile';
-// import AddSubscription from "./AddSubscription";
-// import SplashScreen from "./SplashScreen";
 
 /**
  * COMPONENT
@@ -11,13 +12,14 @@ import UserSubscriptions from './UserProfile';
 export const Home = () => {
   const { currentUser } = useAuth();
 
-
   return (
     <div>
-      <AllSubscriptions />
+      {/* <AllSubscriptions />
       <AddSubscription />
-      <SplashScreen />
+      <SplashScreen /> */}
       <h3>Welcome to shoulda </h3>
+      <Charts />
+      <PieChart />
     </div>
   );
 };

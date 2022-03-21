@@ -1,9 +1,8 @@
-import React from "react";
-import { useSubscription } from "../contexts/SubscriptionContext";
+import React from 'react';
+import { useSubscription } from '../contexts/SubscriptionContext';
 
 const AllSubscriptions = () => {
   const { defualtSubscriptions } = useSubscription();
-
 
   return (
     <div>
