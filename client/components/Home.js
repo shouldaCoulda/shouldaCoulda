@@ -11,7 +11,7 @@ export const Home = () => {
     <div>
       <AllSubscriptions />
       <AddSubscription />
-      {/* <SplashScreen /> */}
+      <SplashScreen />
       <h3>Welcome to shoulda </h3>
     </div>
   );

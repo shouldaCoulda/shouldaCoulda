@@ -14,14 +14,11 @@ const AddSubscription = () => {
     console.log(nameRef.current.value, priceRef.current.value);
   };
   const write = (e) => {
+    e.preventDefault();
     var user = {
-      name: "Raja",
-      phone: "779797329",
-      address: "475 Mercer Drive",
       uid: currentUser.uid,
       email: currentUser.email,
     };
-    e.preventDefault();
     writeUserData(user);
   };
 

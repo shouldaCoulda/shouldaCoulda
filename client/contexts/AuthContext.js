@@ -50,16 +50,12 @@ export function AuthProvider({ children }) {
       this method passes in our auth,email,and password and will create
       a user in our firebase. then sets the currentUser to this user
       */
-      const createdUser = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
+      const createdUser = createUserWithEmailAndPassword(auth, email, password);
       var user = {
-        name: "firstName",
-        email: createdUser.email,
         uid: createdUser.uid,
+        email: createdUser.email,
       };
+      console.log("in sign up" + createdUser);
       writeUserData(user);
     } catch (error) {
       console.log(error.message);
@@ -67,14 +63,9 @@ export function AuthProvider({ children }) {
   }
   function writeUserData(user) {
     const uuid = uid();
-    console.log("in write user data ");
-    // set(ref(database, "users/" + uuid)),
-    //   {
-    //     email: user.email,
-    //     firstName: "firstName",
-    // };
+    console.log("in write user data ", user);
+
     var userReff = ref(database, "users/" + user.uid);
-    console.log(userReff);
 
     set(userReff, user);
   }
@@ -92,6 +83,24 @@ export function AuthProvider({ children }) {
     return auth.signOut();
   }
 
+  async function writeSubscriptions() {
+    console.log("in write subs function");
+    let data = [
+      {
+        name: "netflix",
+        price: 9.99,
+      },
+    ];
+
+    // data.map((sub) => {
+    var userSubsReff = ref(
+      database,
+      "users/" + currentUser.uid + "subscriptions/"
+    );
+    set(userSubsReff, data);
+    // });
+  }
+
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
@@ -107,6 +116,7 @@ export function AuthProvider({ children }) {
     signup,
     logout,
     writeUserData,
+    writeSubscriptions,
   };
 
   //the

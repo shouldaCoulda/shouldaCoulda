@@ -1,4 +1,6 @@
+import { async } from "@firebase/util";
 import React from "react";
+import { useAuth } from "../contexts/AuthContext";
 import { useSubscription } from "../contexts/SubscriptionContext";
 
 const dummyData = [
@@ -33,6 +35,7 @@ const dummyData = [
 
 const SplashScreen = () => {
   const { defualtSubscriptions } = useSubscription();
+  const { writeSubscriptions } = useAuth();
   const isSelected = Array(dummyData.length).fill(false);
 
   function handleClick(e, index) {
@@ -43,7 +46,11 @@ const SplashScreen = () => {
       e.target.className += " selected";
     }
   }
-
+  async function handleSubmit(e) {
+    e.preventDefault();
+    console.log("set subs fired");
+    await writeSubscriptions();
+  }
   return (
     <div className="card-columns">
       {dummyData.map((item, index) => {
@@ -61,6 +68,7 @@ const SplashScreen = () => {
           </div>
         );
       })}
+      <button onClick={handleSubmit}>add subs to user</button>
     </div>
   );
 };
