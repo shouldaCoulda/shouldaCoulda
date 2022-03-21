@@ -105,6 +105,7 @@ export const Carousel = () => {
             </div>
           );
         })}
+        <button>Submit</button>
       </div>
     </div>
   );
