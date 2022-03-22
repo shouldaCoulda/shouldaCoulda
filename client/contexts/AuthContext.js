@@ -1,14 +1,14 @@
-import React, { useContext, useState, useEffect } from "react";
-import { auth } from "../firebase";
+import React, { useContext, useState, useEffect } from 'react';
+import { auth } from '../firebase';
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
-} from "firebase/auth";
-import { database } from "../firebase";
-import { ref, set, onValue, remove } from "firebase/database";
-import { uid } from "uid";
+} from 'firebase/auth';
+import { database } from '../firebase';
+import { ref, set, onValue, remove } from 'firebase/database';
+import { uid } from 'uid';
 
 //
 const AuthContext = React.createContext();
@@ -19,7 +19,7 @@ the auth context outside of this file
 export function useAuth() {
   const context = useContext(AuthContext);
   if (context === undefined) {
-    throw new Error("useCount must be used within a CountProvider");
+    throw new Error('useCount must be used within a CountProvider');
   }
   return context;
 }
@@ -27,11 +27,11 @@ export function useAuth() {
 export function AuthProvider({ children }) {
   /*this is where out logged in user is saved in state, this can be accessed
   anywhere in our application by
-  ******************************************************* 
+  *******************************************************
   import { useAuth } from " path to AuthContext";
   const Component = () => {
       const {  currentUser } = useAuth();
-    return ( 
+    return (
       <h1> {currentUser.email}    </h1>
      );
   }
@@ -40,7 +40,7 @@ export function AuthProvider({ children }) {
   var [currentUser, setCurrentUser] = useState(null);
   const [usersSubscriptions, setSubs] = useState([]);
   const [loading, setLoading] = useState(true);
-  var userSubReff = "";
+  var userSubReff = '';
 
   async function signup(email, password) {
     try {
@@ -60,9 +60,9 @@ export function AuthProvider({ children }) {
   }
   //this function writes user data into the user database
   function writeUserData(user) {
-    console.log("in write", user);
+    console.log('in write', user);
     const uuid = uid();
-    var userReff = ref(database, "users/" + user.uid);
+    var userReff = ref(database, 'users/' + user.uid);
     set(userReff, user);
   }
 
@@ -86,7 +86,7 @@ export function AuthProvider({ children }) {
       set(
         ref(
           database,
-          "users/" + currentUser.uid + "/subscriptions/" + subscriptions[i].uid
+          'users/' + currentUser.uid + '/subscriptions/' + subscriptions[i].uid
         ),
         {
           name: subscriptions[i].name,
@@ -104,7 +104,7 @@ export function AuthProvider({ children }) {
   async function removeSubscription(uid) {
     var userSubsReff = ref(
       database,
-      "users/" + currentUser.uid + "/subscriptions/" + uid
+      'users/' + currentUser.uid + '/subscriptions/' + uid
     );
     remove(userSubsReff);
   }
@@ -122,8 +122,8 @@ export function AuthProvider({ children }) {
   //this function sets the onvalue listner that saves the value of a
   //users subscriptions into the usersSubscriptions state
   function read(user) {
-    const str = user.uid || "";
-    userSubReff = ref(database, "users/" + str + "/subscriptions");
+    const str = user.uid || '';
+    userSubReff = ref(database, 'users/' + str + '/subscriptions');
     onValue(userSubReff, (snapshot) => {
       setSubs([]);
       const data = snapshot.val();
