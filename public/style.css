@@ -22,12 +22,10 @@ form div {
   display: inline-block;
 }
 
-img {
+/* img {
   max-width: 100%;
   display: block;
-}
-
-
+} */
 
 #carouselDiv {
   margin: auto;
@@ -39,14 +37,17 @@ img {
   overflow-x: scroll;
 }
 
-.stacked {
+/* .stacked {
   display: grid;
-}
+} */
 
 .card {
-  width: max-content;
+  height: 265px;
+  width: 220px;
+  /* width: max-content; */
   margin: 1rem;
   padding: 1rem;
+  display: grid;
 }
 
 #cardImg {
@@ -54,11 +55,10 @@ img {
   aspect-ratio: 1 / 1;
 }
 
-
 .user-sub-table {
   border-collapse: collapse;
   margin: auto;
-  font-size: 1.0em;
+  font-size: 1em;
   font-family: sans-serif;
   max-width: 1000px;
   box-shadow: 0 0 20px blue;
@@ -79,7 +79,7 @@ img {
 }
 
 .user-sub-table tbody tr {
-  border-bottom: 1px solid greenyellow
+  border-bottom: 1px solid greenyellow;
 }
 
 .user-sub-table tbody tr:nth-of-type(even) {
