@@ -59,7 +59,7 @@ const Profile = () => {
               .reduce((total, sub) => {
                 return total + Number(sub.price);
               }, 0)}
-              /month!</td>
+              /month! </td>
             </tr>
           </tfoot>
         </table>
