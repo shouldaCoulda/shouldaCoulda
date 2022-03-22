@@ -7,13 +7,11 @@ import {
   signOut,
 } from "firebase/auth";
 import { database } from "../firebase";
-import { ref, set } from "firebase/database";
+import { ref, set, onValue, remove } from "firebase/database";
 import { uid } from "uid";
 
 //
 const AuthContext = React.createContext();
-var dbRef = ref(database);
-var userRef = ref(database, "users");
 
 /*this hook makes it so that we dont need to access
 the auth context outside of this file
@@ -39,8 +37,10 @@ export function AuthProvider({ children }) {
   }
   **************************************************
   */
-  const [currentUser, setCurrentUser] = useState(null);
+  var [currentUser, setCurrentUser] = useState(null);
+  const [usersSubscriptions, setSubs] = useState([]);
   const [loading, setLoading] = useState(true);
+  var userSubReff = "";
 
   async function signup(email, password) {
     try {
@@ -58,15 +58,15 @@ export function AuthProvider({ children }) {
       console.log(error.message);
     }
   }
+  //this function writes user data into the user database
   function writeUserData(user) {
+    console.log("in write", user);
     const uuid = uid();
-    console.log("in write user data ", user);
-
     var userReff = ref(database, "users/" + user.uid);
-
     set(userReff, user);
   }
 
+  //Login with email and pass
   async function login(email, password) {
     try {
       const user = await signInWithEmailAndPassword(auth, email, password);
@@ -74,29 +74,66 @@ export function AuthProvider({ children }) {
       console.log(error.message);
     }
   }
-
+  //Logout
   async function logout() {
     return auth.signOut();
   }
 
+  //this funtion adds subscriptions into a users subscriptions/
+  //collestion
   async function writeSubscriptions(subscriptions) {
-    console.log("in write subs function", subscriptions);
+    for (let i = 0; i < subscriptions.length; i++) {
+      set(
+        ref(
+          database,
+          "users/" + currentUser.uid + "/subscriptions/" + subscriptions[i].uid
+        ),
+        {
+          name: subscriptions[i].name,
+          price: subscriptions[i].price,
+          imageUrl: subscriptions[i].imageUrl,
+          websiteUrl: subscriptions[i].websiteUrl,
+          uid: subscriptions[i].uid,
+        }
+      );
+    }
+  }
 
+  //this function romoves a subscription from a user's subscriptions
+  //it removes the subscription based on the uid
+  async function removeSubscription(uid) {
     var userSubsReff = ref(
       database,
-      "users/" + currentUser.uid + "/subscriptions"
+      "users/" + currentUser.uid + "/subscriptions/" + uid
     );
-    set(userSubsReff, subscriptions);
+    remove(userSubsReff);
   }
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
+      read(user);
       setLoading(false);
     });
 
     return unsubscribe;
   }, []);
+
+  //this function sets the onvalue listner that saves the value of a
+  //users subscriptions into the usersSubscriptions state
+  function read(user) {
+    const str = user.uid || "";
+    userSubReff = ref(database, "users/" + str + "/subscriptions");
+    onValue(userSubReff, (snapshot) => {
+      setSubs([]);
+      const data = snapshot.val();
+      if (data !== null) {
+        Object.values(data).map((subscription) => {
+          setSubs((oldArray) => [...oldArray, subscription]);
+        });
+      }
+    });
+  }
 
   const value = {
     currentUser,
@@ -105,6 +142,8 @@ export function AuthProvider({ children }) {
     logout,
     writeUserData,
     writeSubscriptions,
+    usersSubscriptions,
+    removeSubscription,
   };
 
   return (

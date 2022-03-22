@@ -1,6 +1,5 @@
 body {
   font-family: sans-serif;
-  background-color: lightgray;
   text-align: center;
 }
 
@@ -16,6 +15,16 @@ nav a {
   display: inline-block;
   margin: 1em;
 }
+nav {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: left;
+  padding-right: 50px;
+}
+nav div {
+  justify-content: right;
+}
 
 form div {
   margin: 1em;
@@ -26,8 +35,6 @@ img {
   max-width: 100%;
   display: block;
 }
-
-
 
 #carouselDiv {
   margin: auto;
@@ -54,18 +61,17 @@ img {
   aspect-ratio: 1 / 1;
 }
 
-
 .user-sub-table {
   border-collapse: collapse;
   margin: auto;
-  font-size: 1.0em;
+  font-size: 1em;
   font-family: sans-serif;
   max-width: 1000px;
-  box-shadow: 0 0 20px blue;
+  box-shadow: 0 0 20px grey;
 }
 
 .user-sub-table thead tr {
-  background-color: darkblue;
+  background-color: black;
   color: white;
   text-align: left;
 }
@@ -78,16 +84,12 @@ img {
   padding: 12px 30px;
 }
 
-.user-sub-table tbody tr {
-  border-bottom: 1px solid greenyellow
-}
-
 .user-sub-table tbody tr:nth-of-type(even) {
-  background-color: lightblue;
+  background-color: lightgray;
 }
 
 .user-sub-table tbody tr:last-of-type {
-  border-bottom: 1.5px solid greenyellow;
+  border-bottom: 1.5px solid black;
 }
 
 #userSubs {
@@ -107,11 +109,28 @@ img {
 }
 .defaultCards {
   /* background-color: lightblue; */
-  width: 100px;
+  width: 60px;
   /* max-width: auto;
   max-height: auto; */
 }
 .selected {
-  box-shadow: 10ch;
-  background-color: red;
+  border-collapse: collapse;
+  margin: auto;
+  font-size: 1em;
+  font-family: sans-serif;
+  max-width: 1000px;
+  box-shadow: 0 0 20px lightgray;
+}
+
+.navItem {
+  color: black;
+  font-size: 20px;
+}
+.logo {
+  flex-wrap: wrap;
+  align-content: flex-end;
+}
+.navOptions {
+  justify-content: right;
+  align-items: right;
 }
