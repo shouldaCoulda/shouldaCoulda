@@ -28,9 +28,9 @@ const Routes = () => {
         ) : (
           <>
             <Route exact path="/chart" component={Charts} />
-            <Route exact path="/" component={Carousel} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={SignUp} />
+            <Route exact path="/" component={Carousel} />
           </>
         )}
       </Switch>
