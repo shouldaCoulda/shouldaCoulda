@@ -7,7 +7,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { database } from "../firebase";
-import { ref, set, onValue } from "firebase/database";
+import { ref, set, onValue, remove } from "firebase/database";
 import { uid } from "uid";
 
 //
@@ -94,26 +94,28 @@ export function AuthProvider({ children }) {
 
     // set(userSubsReff, subscriptions);
     for (let i = 0; i < subscriptions.length; i++) {
-      const uuid = uid();
-      console.log("in loop");
       set(
-        ref(database, "users/" + currentUser.uid + "/subscriptions/" + uuid),
+        ref(
+          database,
+          "users/" + currentUser.uid + "/subscriptions/" + subscriptions[i].uid
+        ),
         {
           name: subscriptions[i].name,
           price: subscriptions[i].price,
+          uid: subscriptions[i].uid,
         }
       );
     }
   }
-  async function removeSubscription(idx) {
-    console.log(idx);
-    const str = idx + "";
+  async function removeSubscription(uid) {
     var userSubsReff = ref(
       database,
-      "users/" + currentUser.uid + "/subscriptions/" + str
+      "users/" + currentUser.uid + "/subscriptions/" + uid
     );
-    set(userSubsReff, {});
-    console.log("in conterxt remove", idx);
+    // set(userSubsReff, {});
+    remove(userSubsReff);
+
+    console.log("in conterxt remove", uid);
   }
 
   useEffect(async () => {

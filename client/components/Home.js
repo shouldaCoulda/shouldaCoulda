@@ -5,6 +5,7 @@ import UserSubscriptions from "./UserProfile";
 import AddSubscription from "./AddSubscription";
 import SplashScreen from "./SplashScreen";
 import { useSubscription } from "../contexts/SubscriptionContext";
+import { Carousel } from "./Carousel";
 
 /**
  * COMPONENT
@@ -21,9 +22,9 @@ export const Home = () => {
   return (
     <div>
       <button onClick={handleClick}>Seed!!!!</button>
-      <AllSubscriptions />
       <AddSubscription />
       <SplashScreen />
+      {/* <Carousel /> */}
       <h3>Welcome to shoulda </h3>
     </div>
   );
