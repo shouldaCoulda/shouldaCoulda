@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   VictoryLine,
   VictoryAxis,
@@ -8,7 +8,7 @@ import {
   VictoryTheme,
   VictoryCursorContainer,
 } from "victory";
-import { useAuth } from "../contexts/AuthContext";
+import { useAuth } from "../../contexts/AuthContext";
 import {
   Slider,
   Box,
@@ -17,26 +17,18 @@ import {
   InputLabel,
   MenuItem,
 } from "@mui/material";
+import { getFinData } from "../../../script/FinancialData";
+import { useChart } from "../../contexts/ChartContext";
 
 const LineChart = () => {
-  const { currentUser, usersSubscriptions, removeSubscription, getTotal } =
-    useAuth();
-  const [months, setMonths] = useState(12);
+  const { getTotal } = useAuth();
+  const { months, setMonths } = useChart();
+  // const [months, setMonths] = useState(12);
 
   function getData(total, months) {
     const data = [];
     for (let i = 0; i < months; i++) {
       data[i] = { x: i, y: getTotal() * i };
-    }
-
-    return data;
-  }
-
-  function getFinData(total, months) {
-    const data = [];
-    for (let i = 0; i < months; i++) {
-      let random = Math.random();
-      data[i] = { x: i, y: getTotal() * i * random };
     }
 
     return data;
@@ -63,24 +55,6 @@ const LineChart = () => {
   console.log(finData);
   return (
     <div>
-      <h1>Subscriptions: {getTotal()}</h1>
-
-      <div>
-        <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">Choice</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={choice}
-            label="Compare to "
-            onChange={handleChange}
-          >
-            <MenuItem value={"bitcoin"}>bitcoin</MenuItem>
-            <MenuItem value={"sp"}>S&P500</MenuItem>
-          </Select>
-        </FormControl>
-      </div>
-
       <Box sx={{ width: "500px", overflow: "hidden" }}>
         <VictoryChart domain={{ x: [0, months], y: [0, maxY] }}>
           <VictoryLine
@@ -98,18 +72,6 @@ const LineChart = () => {
             }}
           />
         </VictoryChart>
-        <h3>months</h3>
-        <Slider
-          aria-label="Temperature"
-          defaultValue={12}
-          getAriaValueText={valuetext}
-          valueLabelDisplay="auto"
-          step={5}
-          marks
-          min={1}
-          max={100}
-          onChange={handleSlide}
-        />
       </Box>
     </div>
   );

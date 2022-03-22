@@ -175,3 +175,14 @@ form div {
   background: #04aa6d; /* Green background */
   cursor: pointer; /* Cursor on hover */
 }
+.chartContainer {
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: left;
+  padding-right: 50px;
+}
+.selectionsContainer {
+  border: #04aa6d;
+}

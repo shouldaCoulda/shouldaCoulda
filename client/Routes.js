@@ -6,7 +6,8 @@ import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Profile from "./components/Profile";
 import Carousel from "./components/Carousel";
-import LineChart from "./components/LineChart";
+import LineChart from "./components/Chart/LineChart";
+import ChartContainer from "./components/Chart/ChartContainer";
 
 /**
  * COMPONENT
@@ -20,10 +21,10 @@ const Routes = () => {
       <Switch>
         {currentUser ? (
           <>
-            <Route exact path="/chart" component={LineChart} />
+            <Route exact path="/chart" component={ChartContainer} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/home" component={Carousel} />
-            <Route exact path="/" component={LineChart} />
+            <Route exact path="/" component={ChartContainer} />
           </>
         ) : (
           <>
