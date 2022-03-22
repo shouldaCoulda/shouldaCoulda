@@ -1,9 +1,17 @@
 import React from "react";
 import { useAuth } from "../../contexts/AuthContext";
+import { useChart } from "../../contexts/ChartContext";
 
 const SelectionsContainer = () => {
   const { usersSubscriptions, getTotal } = useAuth();
+  const { selectedSubscriptions, setSelectedSubs } = useChart();
+  const isSelected = Array(usersSubscriptions.length).fill(true);
 
+  function handleChange(e, index) {
+    isSelected[index] = !isSelected[index];
+
+    console.log(isSelected);
+  }
   return (
     <div>
       <span>total Subscriptions: {getTotal()}</span>
@@ -13,12 +21,13 @@ const SelectionsContainer = () => {
             <td>{sub.name}</td>
 
             <td>
-              <button
-                className="remove-button"
-                onClick={(e) => handleDelete(e, sub.uid)}
-              >
-                show
-              </button>
+              <input
+                type="checkbox"
+                id="vehicle1"
+                name="vehicle1"
+                value={index}
+                onChange={(e) => handleChange(e, index)}
+              />
             </td>
           </tr>
         );

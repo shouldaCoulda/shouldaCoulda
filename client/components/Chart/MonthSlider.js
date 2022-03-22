@@ -13,6 +13,8 @@ const MonthSlider = () => {
     setMonths(e.target.value);
   }
 
+  
+
   return (
     <div>
       <h3>duration</h3>
