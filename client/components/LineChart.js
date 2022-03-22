@@ -34,9 +34,9 @@ const LineChart = () => {
 
   function getFinData(total, months) {
     const data = [];
-    let random = Math.random();
     for (let i = 0; i < months; i++) {
-      data[i] = { x: i, y: getTotal() * i * 2 };
+      let random = Math.random();
+      data[i] = { x: i, y: getTotal() * i * random };
     }
 
     return data;
@@ -44,7 +44,7 @@ const LineChart = () => {
 
   const data = getData(getTotal(), months);
   const finData = getFinData(getTotal(), months);
-  const maxY = finData[finData.length - 1].y * 1.2;
+  const maxY = data[data.length - 1].y * 1.2;
 
   function handleSlide(e) {
     console.log(e.target.value);
