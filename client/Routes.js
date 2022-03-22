@@ -5,8 +5,8 @@ import { withRouter, Route, Switch, Redirect } from "react-router-dom";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Profile from "./components/Profile";
-import Charts from "./components/Charts";
 import Carousel from "./components/Carousel";
+import LineChart from "./components/LineChart";
 
 /**
  * COMPONENT
@@ -20,14 +20,14 @@ const Routes = () => {
       <Switch>
         {currentUser ? (
           <>
-            <Route exact path="/chart" component={Charts} />
+            <Route exact path="/chart" component={LineChart} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/home" component={Carousel} />
-            <Route exact path="/" component={Charts} />
+            <Route exact path="/" component={LineChart} />
           </>
         ) : (
           <>
-            <Route exact path="/chart" component={Charts} />
+            <Route exact path="/chart" component={LineChart} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/" component={Carousel} />
