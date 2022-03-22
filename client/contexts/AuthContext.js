@@ -112,24 +112,37 @@ export function AuthProvider({ children }) {
   useEffect(async () => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
+      read(user);
 
-      userSubReff = ref(database, "users/" + user.uid + "/subscriptions");
-      onValue(userSubReff, (snapshot) => {
-        setSubs([]);
-        const data = snapshot.val();
-        if (data !== null) {
-          Object.values(data).map((subscription) => {
-            setSubs((oldArray) => [...oldArray, subscription]);
-          });
-        }
-      });
+      // userSubReff = ref(database, "users/" + user.uid + "/subscriptions");
+      // onValue(userSubReff, (snapshot) => {
+      //   setSubs([]);
+      //   const data = snapshot.val();
+      //   if (data !== null) {
+      //     Object.values(data).map((subscription) => {
+      //       setSubs((oldArray) => [...oldArray, subscription]);
+      //     });
+      //   }
+      // });
 
       setLoading(false);
     });
 
     return unsubscribe;
   }, []);
-
+  function read(user) {
+    const str = user.uid || "";
+    userSubReff = ref(database, "users/" + str + "/subscriptions");
+    onValue(userSubReff, (snapshot) => {
+      setSubs([]);
+      const data = snapshot.val();
+      if (data !== null) {
+        Object.values(data).map((subscription) => {
+          setSubs((oldArray) => [...oldArray, subscription]);
+        });
+      }
+    });
+  }
   const value = {
     currentUser,
     login,

@@ -15,6 +15,16 @@ nav a {
   display: inline-block;
   margin: 1em;
 }
+nav {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: left;
+  padding-right: 50px;
+}
+nav div {
+  justify-content: right;
+}
 
 form div {
   margin: 1em;
@@ -57,11 +67,11 @@ img {
   font-size: 1em;
   font-family: sans-serif;
   max-width: 1000px;
-  box-shadow: 0 0 20px blue;
+  box-shadow: 0 0 20px black;
 }
 
 .user-sub-table thead tr {
-  background-color: darkblue;
+  background-color: black;
   color: white;
   text-align: left;
 }
@@ -79,11 +89,11 @@ img {
 }
 
 .user-sub-table tbody tr:nth-of-type(even) {
-  background-color: lightblue;
+  background-color: lightgray;
 }
 
 .user-sub-table tbody tr:last-of-type {
-  border-bottom: 1.5px solid greenyellow;
+  border-bottom: 1.5px solid black;
 }
 
 #userSubs {
@@ -113,5 +123,18 @@ img {
   font-size: 1em;
   font-family: sans-serif;
   max-width: 1000px;
-  box-shadow: 0 0 20px blue;
+  box-shadow: 0 0 20px lightgray;
+}
+
+.navItem {
+  color: black;
+  font-size: 20px;
+}
+.logo {
+  flex-wrap: wrap;
+  align-content: flex-end;
+}
+.navOptions {
+  justify-content: right;
+  align-items: right;
 }
