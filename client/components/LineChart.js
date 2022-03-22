@@ -27,7 +27,7 @@ const data = [
 const LineChart = () => {
   return (
     <div>
-      <h1>Netflix</h1>
+      <h1>Netflixs</h1>
       <VictoryChart>
         <VictoryLine
           data={data}
