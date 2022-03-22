@@ -92,6 +92,11 @@ img {
   border-bottom: 1.5px solid black;
 }
 
+.user-sub-total {
+  font-size: 1.3em;
+  font-family: sans-serif;
+}
+
 #userSubs {
   display: flex;
   flex-direction: row;
