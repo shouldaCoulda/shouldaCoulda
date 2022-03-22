@@ -45,11 +45,15 @@ export function SubscriptionProvider({ children }) {
   };
 
   function seed() {
-    // const uuid = uid();
-    // set(ref(database, `subscriptions/` + uuid), {
-    //   name: name,
-    //   price: price,
-    // });
+    for (let i = 0; i < data.length; i++) {
+      const uuid = uid();
+      set(ref(database, `subscriptions/` + uuid), {
+        name: data[i].name,
+        price: data[i].price,
+        imageUrl: data[i].imageUrl,
+        websiteUrl: data[i].websiteUrl,
+      });
+    }
     console.log(data);
   }
 
