@@ -1,4 +1,5 @@
 import { useSubscription } from "../contexts/SubscriptionContext";
+<<<<<<< HEAD
 import React from 'react';
 import AllSubscriptions from './AllSubscriptions';
 import AddSubscription from './AddSubscription';
@@ -7,6 +8,15 @@ import Charts from './Charts';
 import PieChart from './PieChart';
 import LineChart from './LineChart';
 import { useAuth } from '../contexts/AuthContext';
+=======
+import React from "react";
+import AllSubscriptions from "./AllSubscriptions";
+import AddSubscription from "./AddSubscription";
+import SplashScreen from "./SplashScreen";
+import Charts from "./Charts";
+import PieChart from "./PieChart";
+import { useAuth } from "../contexts/AuthContext";
+>>>>>>> main
 
 /**
  * COMPONENT
