@@ -58,7 +58,7 @@ const Profile = () => {
               <td className='user-sub-total'>${usersSubscriptions
               .reduce((total, sub) => {
                 return total + Number(sub.price);
-              }, 0)}
+              }, 0).toFixed(2)}
               /month! </td>
             </tr>
           </tfoot>
