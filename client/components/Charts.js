@@ -1,6 +1,7 @@
-import React from "react";
 
-import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme } from "victory";
+import React from 'react';
+
+import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme } from 'victory';
 
 const data = [
   { quarter: 1, earnings: 130 },
@@ -16,13 +17,15 @@ const Charts = () => {
       <VictoryChart domainPadding={20} theme={VictoryTheme.material}>
         <VictoryAxis
           tickValues={[1, 2, 3, 4]}
-          tickFormat={["Netflix", "Hulu", "Spotify", "YoutubeTV"]}
+
+          tickFormat={['Netflix', 'Hulu', 'Spotify', 'YoutubeTV']}
         />
         <VictoryAxis dependentAxis tickFormat={(y) => `$${y / 1}`} />
         <VictoryBar
           data={data}
-          x="quarter"
-          y="earnings"
+
+          x='quarter'
+          y='earnings'
           // style={{ data: { fill: '#c43a31' } }}
         />
       </VictoryChart>
