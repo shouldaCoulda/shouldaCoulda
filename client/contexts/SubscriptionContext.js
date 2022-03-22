@@ -64,8 +64,6 @@ export function SubscriptionProvider({ children }) {
         uid: uuid,
       });
     }
-    console.log(data);
-    // remove(ref(database, `/subscriptions`));
   }
 
   const value = {

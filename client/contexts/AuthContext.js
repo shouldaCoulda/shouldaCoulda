@@ -62,7 +62,6 @@ export function AuthProvider({ children }) {
   }
   function writeUserData(user) {
     const uuid = uid();
-    console.log("in write user data ", user);
 
     var userReff = ref(database, "users/" + user.uid);
 
@@ -105,31 +104,30 @@ export function AuthProvider({ children }) {
     );
     // set(userSubsReff, {});
     remove(userSubsReff);
-
-    console.log("in conterxt remove", uid);
   }
 
-  useEffect(async () => {
+  useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
       read(user);
 
-      // userSubReff = ref(database, "users/" + user.uid + "/subscriptions");
-      // onValue(userSubReff, (snapshot) => {
-      //   setSubs([]);
-      //   const data = snapshot.val();
-      //   if (data !== null) {
-      //     Object.values(data).map((subscription) => {
-      //       setSubs((oldArray) => [...oldArray, subscription]);
-      //     });
-      //   }
-      // });
+      //     // userSubReff = ref(database, "users/" + user.uid + "/subscriptions");
+      //     // onValue(userSubReff, (snapshot) => {
+      //     //   setSubs([]);
+      //     //   const data = snapshot.val();
+      //     //   if (data !== null) {
+      //     //     Object.values(data).map((subscription) => {
+      //     //       setSubs((oldArray) => [...oldArray, subscription]);
+      //     //     });
+      //     //   }
+      //     // });
 
       setLoading(false);
     });
 
     return unsubscribe;
   }, []);
+
   function read(user) {
     const str = user.uid || "";
     userSubReff = ref(database, "users/" + str + "/subscriptions");

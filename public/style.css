@@ -67,7 +67,7 @@ img {
   font-size: 1em;
   font-family: sans-serif;
   max-width: 1000px;
-  box-shadow: 0 0 20px black;
+  box-shadow: 0 0 20px grey;
 }
 
 .user-sub-table thead tr {
@@ -82,10 +82,6 @@ img {
 
 .user-sub-table td {
   padding: 12px 30px;
-}
-
-.user-sub-table tbody tr {
-  border-bottom: 1px solid greenyellow;
 }
 
 .user-sub-table tbody tr:nth-of-type(even) {

@@ -4,11 +4,8 @@ import AddSubscription from "./AddSubscription";
 
 const Profile = () => {
   const { currentUser, usersSubscriptions, removeSubscription } = useAuth();
-  // console.log(currentUser);
-  console.log(usersSubscriptions);
 
   function handleDelete(e, uid) {
-    console.log(uid);
     removeSubscription(uid);
   }
 
@@ -39,7 +36,6 @@ const Profile = () => {
           </thead>
           <tbody>
             {usersSubscriptions.map((sub, index) => {
-              console.log(sub);
               return (
                 <tr key={index}>
                   <th scope="row">{index + 1}</th>
@@ -65,6 +61,7 @@ const Profile = () => {
           </tbody>
         </table>
       </div>
+      {/* <AddSubscription /> */}
     </div>
   );
 };
