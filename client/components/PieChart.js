@@ -7,6 +7,7 @@ const data = [
   { x: 3, y: 140, label: 'Spotify' },
   { x: 4, y: 190, label: 'Youtube TV' },
 ];
+console.log(data[1]);
 
 const PieChart = () => {
   return (
@@ -22,9 +23,9 @@ const PieChart = () => {
                   {
                     target: 'data',
                     mutation: ({ style }) => {
-                      return style.fill === '#c43a31'
+                      return style.fill === 'red'
                         ? null
-                        : { style: { fill: '#c43a31' } };
+                        : { style: { fill: 'red' } };
                     },
                   },
                 ];
