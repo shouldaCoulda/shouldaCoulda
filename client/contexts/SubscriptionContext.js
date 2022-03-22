@@ -53,6 +53,7 @@ export function SubscriptionProvider({ children }) {
   };
 
   function seed() {
+    remove(ref(database, `/subscriptions`));
     for (let i = 0; i < data.length; i++) {
       const uuid = uid();
       set(ref(database, `subscriptions/` + uuid), {
@@ -64,6 +65,7 @@ export function SubscriptionProvider({ children }) {
       });
     }
     console.log(data);
+    // remove(ref(database, `/subscriptions`));
   }
 
   const value = {

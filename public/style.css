@@ -1,6 +1,5 @@
 body {
   font-family: sans-serif;
-  background-color: lightgray;
   text-align: center;
 }
 
@@ -27,8 +26,6 @@ img {
   display: block;
 }
 
-
-
 #carouselDiv {
   margin: auto;
   width: 75vw;
@@ -54,11 +51,10 @@ img {
   aspect-ratio: 1 / 1;
 }
 
-
 .user-sub-table {
   border-collapse: collapse;
   margin: auto;
-  font-size: 1.0em;
+  font-size: 1em;
   font-family: sans-serif;
   max-width: 1000px;
   box-shadow: 0 0 20px blue;
@@ -79,7 +75,7 @@ img {
 }
 
 .user-sub-table tbody tr {
-  border-bottom: 1px solid greenyellow
+  border-bottom: 1px solid greenyellow;
 }
 
 .user-sub-table tbody tr:nth-of-type(even) {
@@ -112,6 +108,10 @@ img {
   max-height: auto; */
 }
 .selected {
-  box-shadow: 10ch;
-  background-color: red;
+  border-collapse: collapse;
+  margin: auto;
+  font-size: 1em;
+  font-family: sans-serif;
+  max-width: 1000px;
+  box-shadow: 0 0 20px blue;
 }
