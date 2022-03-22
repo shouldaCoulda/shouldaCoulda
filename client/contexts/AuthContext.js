@@ -82,17 +82,6 @@ export function AuthProvider({ children }) {
   }
 
   async function writeSubscriptions(subscriptions) {
-    // var userSubsReff = ref(
-    //   database,
-    //   "users/" + currentUser.uid + "/subscriptions"
-    // );
-    // set(userSubsReff, subscriptions);
-    // var userSubsReff = ref(
-    //   database,
-    //   "users/" + currentUser.uid + "/subscriptions"
-    // );
-
-    // set(userSubsReff, subscriptions);
     for (let i = 0; i < subscriptions.length; i++) {
       set(
         ref(
@@ -102,6 +91,8 @@ export function AuthProvider({ children }) {
         {
           name: subscriptions[i].name,
           price: subscriptions[i].price,
+          imageUrl: subscriptions[i].imageUrl,
+          websiteUrl: subscriptions[i].websiteUrl,
           uid: subscriptions[i].uid,
         }
       );
