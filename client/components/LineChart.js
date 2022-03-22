@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   VictoryLine,
   VictoryAxis,
@@ -7,33 +7,34 @@ import {
   VictoryChart,
   VictoryTheme,
   VictoryCursorContainer,
-} from 'victory';
-
-const data = [
-  { x: 'Jan', y: 30 },
-  { x: 'Feb', y: 32 },
-  { x: 'Mar', y: 65 },
-  { x: 'Apr', y: 38 },
-  { x: 'May', y: 50 },
-  { x: 'Jun', y: 47 },
-  { x: 'Jul', y: 38 },
-  { x: 'Aug', y: 48 },
-  { x: 'Sep', y: 80 },
-  { x: 'Oct', y: 73 },
-  { x: 'Nov', y: 76 },
-  { x: 'Dec', y: 100 },
-];
+} from "victory";
+import { useAuth } from "../contexts/AuthContext";
 
 const LineChart = () => {
+  const { currentUser, usersSubscriptions, removeSubscription, getTotal } =
+    useAuth();
+  let months = 12;
+
+  function getData(total, months) {
+    const data = [];
+    for (let i = 0; i < months; i++) {
+      data[i] = { x: i, y: getTotal() * i, label: Math.floor(getTotal() * i) };
+    }
+
+    console.log(data);
+    return data;
+  }
+  const data = getData(getTotal(), months);
+
   return (
     <div>
-      <h1>Netflixs</h1>
-      <VictoryChart>
+      <h1>Subscriptions: {getTotal()}</h1>
+      <VictoryChart domain={{ x: [0, 12], y: [0, 1000] }}>
         <VictoryLine
           data={data}
           style={{
-            data: { stroke: 'blue' },
-            parent: { border: '1px solid #ccc' },
+            data: { stroke: "blue" },
+            parent: { border: "1px solid #ccc" },
           }}
         />
       </VictoryChart>

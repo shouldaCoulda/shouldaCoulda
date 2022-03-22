@@ -3,7 +3,8 @@ import { useAuth } from "../contexts/AuthContext";
 import AddSubscription from "./AddSubscription";
 
 const Profile = () => {
-  const { currentUser, usersSubscriptions, removeSubscription } = useAuth();
+  const { currentUser, usersSubscriptions, removeSubscription, getTotal } =
+    useAuth();
 
   function handleDelete(e, uid) {
     removeSubscription(uid);
@@ -55,11 +56,10 @@ const Profile = () => {
               <td></td>
               <td></td>
               <td>Total: </td>
-              <td className='user-sub-total'>${usersSubscriptions
-              .reduce((total, sub) => {
-                return total + Number(sub.price);
-              }, 0).toFixed(2)}
-              /month! </td>
+              <td className="user-sub-total">
+                ${getTotal()}
+                /month!{" "}
+              </td>
             </tr>
           </tfoot>
         </table>

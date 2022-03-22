@@ -136,6 +136,13 @@ export function AuthProvider({ children }) {
       });
     }
   }
+  function getTotal() {
+    return usersSubscriptions
+      .reduce((total, sub) => {
+        return total + Number(sub.price);
+      }, 0)
+      .toFixed(2);
+  }
 
   const value = {
     currentUser,
@@ -146,6 +153,7 @@ export function AuthProvider({ children }) {
     writeSubscriptions,
     usersSubscriptions,
     removeSubscription,
+    getTotal,
   };
 
   return (
