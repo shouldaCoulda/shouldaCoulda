@@ -12,8 +12,6 @@ import { uid } from "uid";
 
 //
 const AuthContext = React.createContext();
-var dbRef = ref(database);
-var userRef = ref(database, "users");
 
 /*this hook makes it so that we dont need to access
 the auth context outside of this file
@@ -60,14 +58,15 @@ export function AuthProvider({ children }) {
       console.log(error.message);
     }
   }
+  //this function writes user data into the user database
   function writeUserData(user) {
+    console.log("in write", user);
     const uuid = uid();
-
     var userReff = ref(database, "users/" + user.uid);
-
     set(userReff, user);
   }
 
+  //Login with email and pass
   async function login(email, password) {
     try {
       const user = await signInWithEmailAndPassword(auth, email, password);
@@ -75,11 +74,13 @@ export function AuthProvider({ children }) {
       console.log(error.message);
     }
   }
-
+  //Logout
   async function logout() {
     return auth.signOut();
   }
 
+  //this funtion adds subscriptions into a users subscriptions/
+  //collestion
   async function writeSubscriptions(subscriptions) {
     for (let i = 0; i < subscriptions.length; i++) {
       set(
@@ -97,12 +98,14 @@ export function AuthProvider({ children }) {
       );
     }
   }
+
+  //this function romoves a subscription from a user's subscriptions
+  //it removes the subscription based on the uid
   async function removeSubscription(uid) {
     var userSubsReff = ref(
       database,
       "users/" + currentUser.uid + "/subscriptions/" + uid
     );
-    // set(userSubsReff, {});
     remove(userSubsReff);
   }
 
@@ -110,24 +113,14 @@ export function AuthProvider({ children }) {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
       read(user);
-
-      //     // userSubReff = ref(database, "users/" + user.uid + "/subscriptions");
-      //     // onValue(userSubReff, (snapshot) => {
-      //     //   setSubs([]);
-      //     //   const data = snapshot.val();
-      //     //   if (data !== null) {
-      //     //     Object.values(data).map((subscription) => {
-      //     //       setSubs((oldArray) => [...oldArray, subscription]);
-      //     //     });
-      //     //   }
-      //     // });
-
       setLoading(false);
     });
 
     return unsubscribe;
   }, []);
 
+  //this function sets the onvalue listner that saves the value of a
+  //users subscriptions into the usersSubscriptions state
   function read(user) {
     const str = user.uid || "";
     userSubReff = ref(database, "users/" + str + "/subscriptions");
@@ -141,6 +134,7 @@ export function AuthProvider({ children }) {
       }
     });
   }
+
   const value = {
     currentUser,
     login,

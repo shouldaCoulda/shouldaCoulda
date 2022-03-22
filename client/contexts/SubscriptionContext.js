@@ -39,6 +39,7 @@ export function SubscriptionProvider({ children }) {
     });
   }, []);
 
+  //this writes data into the subscriptions folder
   function writeSubscriptionData(name, price) {
     const uuid = uid();
     set(ref(database, `subscriptions/` + uuid), {
@@ -47,11 +48,13 @@ export function SubscriptionProvider({ children }) {
     });
   }
 
-  //delete **********test this
+  //delete
   const handleDelete = (subscription) => {
     remove(ref(database, `/${subscription.uuid}`));
   };
 
+  //this function removes all enteries in the sunbscriptions and fils it with data
+  //that is imported from scrpti/defaultsubscriptions
   function seed() {
     remove(ref(database, `/subscriptions`));
     for (let i = 0; i < data.length; i++) {
