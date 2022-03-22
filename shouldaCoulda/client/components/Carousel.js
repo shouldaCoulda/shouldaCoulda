@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 const subscriptionData = [
   {
@@ -96,23 +95,18 @@ const subscriptionData = [
 ];
 export const Carousel = () => {
   return (
-    <>
-      <div id="carouselContainer">
-        <div id="carouselDiv">
-          {subscriptionData.map((sub) => {
-            return (
-              <div key={sub.name} className="card stacked" id="sub.name">
-                <img src={sub.imageUrl} id="cardImg"></img>
-                <h3>{sub.name}</h3>
-              </div>
-            );
-          })}
-        </div>
-        <Link to="/Charts">
-          <button>Submit</button>
-        </Link>
+    <div id="carouselContainer">
+      <div id="carouselDiv">
+        {subscriptionData.map((sub) => {
+          return (
+            <div key={sub.name} className="card" id="sub.name">
+              <img src={sub.imageUrl} id="cardImg"></img>
+              <h3>{sub.name}</h3>
+            </div>
+          );
+        })}
       </div>
-    </>
+    </div>
   );
 };
 
