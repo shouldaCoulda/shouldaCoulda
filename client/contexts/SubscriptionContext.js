@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { getDatabase, ref, onValue, get, child, set } from "firebase/database";
 import { database } from "../firebase";
 import { uid } from "uid";
+import { data } from "../../script/DefaultSubscriptionData";
 
 //hook to use context outside of this file
 const SubscriptionContext = React.createContext();
@@ -43,9 +44,19 @@ export function SubscriptionProvider({ children }) {
     remove(ref(database, `/${subscription.uuid}`));
   };
 
+  function seed() {
+    // const uuid = uid();
+    // set(ref(database, `subscriptions/` + uuid), {
+    //   name: name,
+    //   price: price,
+    // });
+    console.log(data);
+  }
+
   const value = {
     defualtSubscriptions,
     writeSubscriptionData,
+    seed,
   };
 
   return (
