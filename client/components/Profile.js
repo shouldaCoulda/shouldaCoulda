@@ -13,15 +13,6 @@ const Profile = () => {
     <div>
       <p>Email:</p> {currentUser?.email}
       <p>Subscriptions:</p>{" "}
-      {/* {usersSubscriptions.map((elem, i) => {
-        return (
-          <div elem={elem} key={i}>
-            <h1>{elem.name}</h1>
-            <h1>{elem.price}</h1>
-            <button onClick={(e) => handleDelete(e, i)}>delete</button>
-          </div>
-        );
-      })} */}
       <div style={{ marginTop: "50px" }}>
         <table className="user-sub-table">
           <thead>
@@ -61,7 +52,6 @@ const Profile = () => {
           </tbody>
         </table>
       </div>
-      {/* <AddSubscription /> */}
     </div>
   );
 };

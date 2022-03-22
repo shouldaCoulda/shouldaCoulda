@@ -42,6 +42,7 @@ const SplashScreen = () => {
           </div>
         );
       })}
+
       <button onClick={handleSubmit}>add subs to user</button>
     </div>
   );

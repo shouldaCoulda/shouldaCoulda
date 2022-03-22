@@ -17,7 +17,6 @@ export const Carousel = () => {
         <button>Submit</button>
       </div>
     </div>
-    // <h1>hello world</h1>
   );
 };
 
