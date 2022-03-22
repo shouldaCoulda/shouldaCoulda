@@ -1,11 +1,11 @@
 import { useSubscription } from "../contexts/SubscriptionContext";
-import React from 'react';
-import AllSubscriptions from './AllSubscriptions';
-import AddSubscription from './AddSubscription';
-import SplashScreen from './SplashScreen';
-import Charts from './Charts';
-import PieChart from './PieChart';
-import { useAuth } from '../contexts/AuthContext';
+import React from "react";
+import AllSubscriptions from "./AllSubscriptions";
+import AddSubscription from "./AddSubscription";
+import SplashScreen from "./SplashScreen";
+import Charts from "./Charts";
+import PieChart from "./PieChart";
+import { useAuth } from "../contexts/AuthContext";
 
 /**
  * COMPONENT
