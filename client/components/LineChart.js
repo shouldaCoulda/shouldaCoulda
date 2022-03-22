@@ -6,6 +6,7 @@ import {
   VictoryGroup,
   VictoryChart,
   VictoryTheme,
+  VictoryCursorContainer,
 } from 'victory';
 
 const data = [
@@ -26,7 +27,7 @@ const data = [
 const LineChart = () => {
   return (
     <div>
-      Line Chart
+      <h1>Netflix</h1>
       <VictoryChart>
         <VictoryLine
           data={data}
