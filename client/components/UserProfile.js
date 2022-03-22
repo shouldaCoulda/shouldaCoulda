@@ -6,27 +6,9 @@ import { database } from "../firebase";
 // import { db } from '../firebase'
 // import { collection, getDocs } from 'firebase/firestore'
 
+
+
 const UserSubscriptions = () => {
-  // const { subscriptions, setSubscriptions } = useState([]);
-  // const subCollectionRef = collection(db, "subscriptions")
-
-  // useEffect(() => {
-
-  //   const getSubscriptions = async () => {
-  //     const data = await getDocs(subCollectionRef)
-  //     // console.log(data)
-  //     setSubscriptions(data)
-  //   }
-
-  //   dispatch(getUserSubscriptions())
-  // }, []);
-
-  // const getUserSubscriptions = id => {
-  //   let userSubs = selectedSubArray.filter((sub) => {
-  //     if (sub.id !== id) return sub
-  //   })
-  //   setSubscriptions(userSubs)
-  // }
 
   const handleDelete = (id) => {
     if (window.confirm("remove this subscription?")) {

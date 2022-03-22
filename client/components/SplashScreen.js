@@ -1,4 +1,3 @@
-import { async } from "@firebase/util";
 import React from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { useSubscription } from "../contexts/SubscriptionContext";
@@ -6,7 +5,7 @@ import { useSubscription } from "../contexts/SubscriptionContext";
 const SplashScreen = () => {
   const { defualtSubscriptions } = useSubscription();
   const { writeSubscriptions } = useAuth();
-  const isSelected = Array(dummyData.length).fill(false);
+  const isSelected = Array(defualtSubscriptions.length).fill(false);
 
   function handleClick(e, index) {
     isSelected[index] = !isSelected[index];
@@ -28,7 +27,7 @@ const SplashScreen = () => {
   }
   return (
     <div className="card-columns">
-      {dummyData.map((item, index) => {
+      {defualtSubscriptions.map((item, index) => {
         return (
           <div
             key={index}
@@ -43,6 +42,7 @@ const SplashScreen = () => {
           </div>
         );
       })}
+
       <button onClick={handleSubmit}>add subs to user</button>
     </div>
   );

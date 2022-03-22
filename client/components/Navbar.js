@@ -1,3 +1,4 @@
+import { Button } from "bootstrap";
 import React from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
@@ -8,14 +9,24 @@ const Navbar = () => {
 
   return (
     <div>
-      <h1>ShouldaCoulda</h1>
       <nav>
-        <div>
+        <img src="/logo.png" alt="image" className="logo" />
+        <div className="navOptions">
           {currentUser ? (
             <>
-              <Link to="/">Home</Link>
-              <Link to="/profile">my profile</Link>
-              <button onClick={logout}>Logout</button>
+
+              <Link to="/home" className="navItem">
+                HOME
+              </Link>
+              <Link to="/profile" className="navItem">
+                PROFILE
+              </Link>
+              <Link to="/chart" className="navItem">
+                CHART
+              </Link>
+              <button className="navItem" onClick={logout}>
+                LOG OUT
+              </button>
             </>
           ) : (
             <>

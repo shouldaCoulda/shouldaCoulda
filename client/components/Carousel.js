@@ -31,7 +31,7 @@ export const Carousel = () => {
     <>
       <div id="carouselContainer">
         <div id="carouselDiv">
-          {subscriptionData.map((sub) => {
+          {defualtSubscriptions.map((sub) => {
             return (
               <div
                 key={sub.name}
@@ -48,6 +48,7 @@ export const Carousel = () => {
         <Link to="/Charts">
           <button>Submit</button>
         </Link>
+
       </div>
     </>
   );

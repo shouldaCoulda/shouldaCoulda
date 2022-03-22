@@ -1,3 +1,4 @@
+import { useSubscription } from "../contexts/SubscriptionContext";
 import React from 'react';
 import AllSubscriptions from './AllSubscriptions';
 import AddSubscription from './AddSubscription';
@@ -14,9 +15,8 @@ export const Home = () => {
 
   return (
     <div>
-      {/* <AllSubscriptions />
-      <AddSubscription />
-      <SplashScreen /> */}
+      <SplashScreen />
+
       <h3>Welcome to shoulda </h3>
       <Charts />
       <PieChart />

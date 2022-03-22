@@ -11,7 +11,6 @@ const AddSubscription = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     writeSubscriptionData(nameRef.current.value, priceRef.current.value);
-    console.log(nameRef.current.value, priceRef.current.value);
   };
   const write = (e) => {
     e.preventDefault();
