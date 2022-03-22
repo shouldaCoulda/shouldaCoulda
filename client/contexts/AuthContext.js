@@ -82,11 +82,28 @@ export function AuthProvider({ children }) {
   }
 
   async function writeSubscriptions(subscriptions) {
-    var userSubsReff = ref(
-      database,
-      "users/" + currentUser.uid + "/subscriptions"
-    );
-    set(userSubsReff, subscriptions);
+    // var userSubsReff = ref(
+    //   database,
+    //   "users/" + currentUser.uid + "/subscriptions"
+    // );
+    // set(userSubsReff, subscriptions);
+    // var userSubsReff = ref(
+    //   database,
+    //   "users/" + currentUser.uid + "/subscriptions"
+    // );
+
+    // set(userSubsReff, subscriptions);
+    for (let i = 0; i < subscriptions.length; i++) {
+      const uuid = uid();
+      console.log("in loop");
+      set(
+        ref(database, "users/" + currentUser.uid + "/subscriptions/" + uuid),
+        {
+          name: subscriptions[i].name,
+          price: subscriptions[i].price,
+        }
+      );
+    }
   }
   async function removeSubscription(idx) {
     console.log(idx);
