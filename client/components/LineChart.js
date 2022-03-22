@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   VictoryLine,
   VictoryAxis,
@@ -9,11 +9,12 @@ import {
   VictoryCursorContainer,
 } from "victory";
 import { useAuth } from "../contexts/AuthContext";
-
+import { Slider } from "@mui/material";
 const LineChart = () => {
   const { currentUser, usersSubscriptions, removeSubscription, getTotal } =
     useAuth();
-  let months = 60;
+  // let months = 60;
+  const [months, setMonths] = useState(12);
 
   function getData(total, months) {
     const data = [];
@@ -28,6 +29,15 @@ const LineChart = () => {
   const maxY = data[data.length - 1].y * 1.2;
   console.log(maxY);
 
+  function handleSlide(e) {
+    console.log(e.target.value);
+    setMonths(e.target.value);
+  }
+
+  function valuetext(value) {
+    return `${value}°C`;
+  }
+
   return (
     <div>
       <h1>Subscriptions: {getTotal()}</h1>
@@ -40,6 +50,17 @@ const LineChart = () => {
           }}
         />
       </VictoryChart>
+      <Slider
+        aria-label="Temperature"
+        defaultValue={12}
+        getAriaValueText={valuetext}
+        valueLabelDisplay="auto"
+        step={5}
+        marks
+        min={1}
+        max={100}
+        onChange={handleSlide}
+      />
     </div>
   );
 };
