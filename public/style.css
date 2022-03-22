@@ -31,10 +31,6 @@ form div {
   display: inline-block;
 }
 
-img {
-  max-width: 100%;
-  display: block;
-}
 
 #carouselDiv {
   margin: auto;
@@ -46,14 +42,17 @@ img {
   overflow-x: scroll;
 }
 
-.stacked {
+/* .stacked {
   display: grid;
-}
+} */
 
 .card {
-  width: max-content;
+  height: 265px;
+  width: 220px;
+  /* width: max-content; */
   margin: 1rem;
   padding: 1rem;
+  display: grid;
 }
 
 #cardImg {
@@ -84,12 +83,19 @@ img {
   padding: 12px 30px;
 }
 
+
+
 .user-sub-table tbody tr:nth-of-type(even) {
   background-color: lightgray;
 }
 
 .user-sub-table tbody tr:last-of-type {
   border-bottom: 1.5px solid black;
+}
+
+.user-sub-total {
+  font-size: 1.4em;
+  font-family: sans-serif;
 }
 
 #userSubs {

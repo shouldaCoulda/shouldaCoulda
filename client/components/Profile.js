@@ -50,6 +50,18 @@ const Profile = () => {
               );
             })}
           </tbody>
+          <tfoot>
+            <tr>
+              <td></td>
+              <td></td>
+              <td>Total: </td>
+              <td className='user-sub-total'>${usersSubscriptions
+              .reduce((total, sub) => {
+                return total + Number(sub.price);
+              }, 0)}
+              /month! </td>
+            </tr>
+          </tfoot>
         </table>
       </div>
     </div>
