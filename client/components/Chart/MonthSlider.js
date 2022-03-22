@@ -10,13 +10,12 @@ const MonthSlider = () => {
   }
 
   function handleSlide(e) {
-    console.log(e.target.value);
     setMonths(e.target.value);
   }
 
   return (
     <div>
-      <h3>months</h3>
+      <h3>duration</h3>
       <Slider
         aria-label="Temperature"
         defaultValue={12}
