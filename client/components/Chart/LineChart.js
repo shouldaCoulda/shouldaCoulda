@@ -13,6 +13,11 @@ const LineChart = () => {
   }
   const colors = ["red", "blue", "yellow", "purple"];
 
+  // useEffect(() => {
+
+  // }, []);
+
+  // colors[key]
   return (
     <div>
       <Box sx={{ width: "500px", overflow: "hidden" }}>
@@ -27,7 +32,7 @@ const LineChart = () => {
                 key={`line_${key}`}
                 name={`line_${key}`}
                 style={{
-                  data: { stroke: colors[key], strokeWidth: 3 },
+                  data: { stroke: dataArray.color, strokeWidth: 3 },
                 }}
                 data={dataArray.line}
               />
