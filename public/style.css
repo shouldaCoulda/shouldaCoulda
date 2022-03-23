@@ -19,8 +19,46 @@ nav {
   display: flex;
   align-items: center;
   flex-direction: row;
-  justify-content: left;
+  justify-content: space-between;
   padding-right: 50px;
+}
+.navItem {
+  color: black;
+}
+
+.logoutButton {
+  border-width: 0;
+  border-collapse: collapse;
+  /* box-shadow: 0 0 15px darkgray; */
+  box-shadow: 3px 2px 10px darkgray;
+}
+.logoutButton:hover {
+  /* color: red; */
+  box-shadow: 0 0 15px darkgray;
+}
+.nextButton {
+  display: block;
+  height: 45px;
+  width: 200px;
+  border-radius: 30px;
+  border: 1px solid red;
+  border-width: 0;
+  border-collapse: collapse;
+  /* box-shadow: 0 0 15px darkgray; */
+  box-shadow: 3px 2px 10px darkgray;
+}
+
+.nextButton:hover {
+  /* color: red; */
+  box-shadow: 0 0 15px darkgray;
+}
+
+.navOptions {
+  align-self: flex-end;
+}
+.logo {
+  /* flex-wrap: wrap; */
+  /* align-content: flex-end; */
 }
 nav div {
   justify-content: right;
@@ -31,33 +69,23 @@ form div {
   display: inline-block;
 }
 
-
-#carouselDiv {
-  margin: auto;
-  width: 75vw;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  grid-auto-flow: column;
-  grid-template-rows: 1fr auto;
-  overflow-x: scroll;
-}
-
-/* .stacked {
-  display: grid;
-} */
-
 .card {
-  height: 265px;
-  width: 220px;
+  height: 115px;
+  width: 115px;
   /* width: max-content; */
+  border-width: 0;
   margin: 1rem;
   padding: 1rem;
   display: grid;
 }
+.card:hover {
+  box-shadow: 3px 2px 10px lightgray;
+}
 
-#cardImg {
+.cardImg {
   width: 100%;
   aspect-ratio: 1 / 1;
+  padding-bottom: 15px;
 }
 
 .user-sub-table {
@@ -65,14 +93,13 @@ form div {
   margin: auto;
   font-size: 1em;
   font-family: sans-serif;
-  max-width: 1000px;
   box-shadow: 0 0 20px grey;
 }
 
 .user-sub-table thead tr {
   background-color: black;
   color: white;
-  text-align: left;
+  text-align: center;
 }
 
 .user-sub-table th {
@@ -82,8 +109,6 @@ form div {
 .user-sub-table td {
   padding: 12px 30px;
 }
-
-
 
 .user-sub-table tbody tr:nth-of-type(even) {
   background-color: lightgray;
@@ -116,27 +141,60 @@ form div {
 .defaultCards {
   /* background-color: lightblue; */
   width: 60px;
-  /* max-width: auto;
-  max-height: auto; */
+  /* max-width: auto; */
+  /* max-height: auto; */
 }
 .selected {
   border-collapse: collapse;
-  margin: auto;
+  /* margin: auto; */
   font-size: 1em;
   font-family: sans-serif;
-  max-width: 1000px;
+  /* max-width: 1000px; */
   box-shadow: 0 0 20px lightgray;
 }
 
-.navItem {
-  color: black;
-  font-size: 20px;
+.slidecontainer {
+  width: 100%; /* Width of the outside container */
 }
-.logo {
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none; /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 25px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
+  transition: opacity 0.2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+.chartContainer {
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: left;
+  padding-right: 50px;
+}
+.selectionsContainer {
+  border: #04aa6d;
+}
+
+.defaultCardContainer {
   flex-wrap: wrap;
-  align-content: flex-end;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-bottom: 40px;
 }
-.navOptions {
-  justify-content: right;
-  align-items: right;
+.hover:hover {
+  box-shadow: 0 0 15px darkgray;
 }
