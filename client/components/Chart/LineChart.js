@@ -7,7 +7,7 @@ import { useChart } from "../../contexts/ChartContext";
 
 const LineChart = () => {
   const { months, getTotal } = useChart();
-  const finData = getFinData(getTotal(), months);
+  const finData = getFinData(getTotal(), months, "selection");
   const data = getData(getTotal(), months);
   const maxY = data[data.length - 1].y * 1.2;
 
