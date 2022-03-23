@@ -4,7 +4,9 @@ import { useChart } from "../../contexts/ChartContext";
 
 const SelectionsContainer = () => {
   const { usersSubscriptions } = useAuth();
-  const { selectedSubscriptions, setSelectedSubs, getTotal } = useChart();
+  const { selectedSubscriptions, setSelectedSubs, getTotal, months } =
+    useChart();
+  const total = (getTotal() * months).toFixed(2);
 
   function handleChange(e, index) {
     const data = [];
@@ -25,7 +27,10 @@ const SelectionsContainer = () => {
 
   return (
     <div>
-      <span>total Subscriptions: {getTotal()}</span>
+      <p>monthly: {getTotal()}</p>
+      <p>
+        {months}: months: {total}
+      </p>
       <table>
         <tbody>
           {usersSubscriptions.map((sub, index) => {
