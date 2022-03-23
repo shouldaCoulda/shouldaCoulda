@@ -31,23 +31,9 @@ form div {
   display: inline-block;
 }
 
-#carouselDiv {
-  margin: auto;
-  width: 75vw;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  grid-auto-flow: column;
-  grid-template-rows: 1fr auto;
-  overflow-x: scroll;
-}
-
-/* .stacked {
-  display: grid;
-} */
-
 .card {
-  height: 265px;
-  width: 220px;
+  height: 120px;
+  width: 120px;
   /* width: max-content; */
   margin: 1rem;
   padding: 1rem;
@@ -159,22 +145,6 @@ form div {
   opacity: 1; /* Fully shown on mouse-over */
 }
 
-/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Override default look */
-  appearance: none;
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
-  background: #04aa6d; /* Green background */
-  cursor: pointer; /* Cursor on hover */
-}
-
-.slider::-moz-range-thumb {
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
-  background: #04aa6d; /* Green background */
-  cursor: pointer; /* Cursor on hover */
-}
 .chartContainer {
   /* background-color: red; */
   display: flex;
@@ -185,4 +155,12 @@ form div {
 }
 .selectionsContainer {
   border: #04aa6d;
+}
+
+.defaultCardContainer {
+  flex-wrap: wrap;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }

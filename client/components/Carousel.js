@@ -31,8 +31,8 @@ export const Carousel = () => {
 
   return (
     <>
-      <div id="carouselContainer">
-        <div id="carouselDiv">
+      <div>
+        <div className="defaultCardContainer">
           {defualtSubscriptions.map((sub, index) => {
             return (
               <div
@@ -42,7 +42,6 @@ export const Carousel = () => {
                 id={sub.name}
               >
                 <img src={sub.imageUrl} id="cardImg"></img>
-                <h3 id="cardTitle">{sub.name}</h3>
               </div>
             );
           })}
