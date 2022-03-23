@@ -10,7 +10,9 @@ const SelectionsContainer = () => {
   function handleChange(e, index) {
     isSelected[index] = !isSelected[index];
 
-    console.log(isSelected);
+    // console.log(isSelected);
+    setSelectedSubs(isSelected);
+    console.log(selectedSubscriptions);
   }
   return (
     <div>
@@ -23,10 +25,9 @@ const SelectionsContainer = () => {
             <td>
               <input
                 type="checkbox"
-                id="vehicle1"
-                name="vehicle1"
-                value={index}
+                // value={index}
                 onChange={(e) => handleChange(e, index)}
+                checked="false"
               />
             </td>
           </tr>

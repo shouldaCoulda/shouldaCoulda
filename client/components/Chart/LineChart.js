@@ -19,11 +19,14 @@ const LineChart = () => {
     }
     return data;
   }
-
   return (
     <div>
       <Box sx={{ width: "500px", overflow: "hidden" }}>
-        <VictoryChart domain={{ x: [0, months], y: [0, maxY] }}>
+        <VictoryChart
+          minDomain={({ y: 0 }, { x: 0 })}
+          maxDomain={({ y: maxY }, { x: months })}
+          domainPadding={30}
+        >
           <VictoryLine
             data={data}
             style={{
