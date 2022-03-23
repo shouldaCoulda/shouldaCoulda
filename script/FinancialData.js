@@ -7,11 +7,11 @@ export function getFinData(total, months, selection) {
       data[i] = { x: i, y: 0 };
     } else if (i === 1) {
       prevtotal = 0;
-      data[i] = { x: i, y: compound(prevtotal, 1.007, total) };
+      data[i] = { x: i, y: compound(prevtotal, selection, total) };
       prevtotal = compound(prevtotal, 1.007, total);
     } else {
-      data[i] = { x: i, y: compound(prevtotal, 1.007, total) };
-      prevtotal = compound(prevtotal, 1.007, total);
+      data[i] = { x: i, y: compound(prevtotal, selection, total) };
+      prevtotal = compound(prevtotal, selection, total);
     }
   }
   return data;

@@ -9,9 +9,7 @@ const FinancialContainer = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    // console.log("in handle submit", returnRef.current.value);
     setSelectedApr(returnRef.current.value);
-    // console.log(selectedApr);
   }
   return (
     <div>
@@ -19,14 +17,16 @@ const FinancialContainer = () => {
         <h4>Finance</h4>
         <h5>apr : {selectedApr}</h5>
         <div>
-          <label htmlFor="return">
+          <label>
             <small>APR</small>
           </label>
           <input type="text" ref={returnRef} />
         </div>
 
         <div>
-          <button onClick={handleSubmit}>Sign Up</button>
+          <button className="logoutButton" onClick={handleSubmit}>
+            view
+          </button>
         </div>
       </form>
     </div>

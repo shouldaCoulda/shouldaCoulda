@@ -6,8 +6,8 @@ import { getFinData } from "../../../script/FinancialData";
 import { useChart } from "../../contexts/ChartContext";
 
 const LineChart = () => {
-  const { months, getTotal } = useChart();
-  const finData = getFinData(getTotal(), months, "selection");
+  const { months, getTotal, selectedApr } = useChart();
+  const finData = getFinData(getTotal(), months, selectedApr);
   const data = getData(getTotal(), months);
   const maxY = data[data.length - 1].y * 1.2;
 
