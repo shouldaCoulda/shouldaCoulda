@@ -12,6 +12,7 @@ export function ChartProvider({ children }) {
   const { usersSubscriptions } = useAuth();
   const [months, setMonths] = useState(12);
   const [selectedSubscriptions, setSelectedSubs] = useState([]);
+  const [selectedApr, setSelectedApr] = useState(1);
 
   function getTotal() {
     let total = 0;
@@ -33,6 +34,8 @@ export function ChartProvider({ children }) {
     setSelectedSubs,
     selectedSubscriptions,
     getTotal,
+    selectedApr,
+    setSelectedApr,
   };
 
   return (
