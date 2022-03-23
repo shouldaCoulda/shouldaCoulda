@@ -44,6 +44,7 @@ const SelectionsContainer = () => {
                     value={selectedSubscriptions[index]}
                     onChange={(e) => handleChange(e, index)}
                     defaultChecked
+                    className="hover"
                   />
                 </td>
               </tr>

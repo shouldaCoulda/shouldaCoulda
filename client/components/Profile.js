@@ -16,12 +16,12 @@ const Profile = () => {
         <table className="user-sub-table">
           <thead>
             <tr>
-              <th style={{ textAlign: "center" }}></th>
-              <th style={{ textAlign: "center" }}>Unsubscribe Link:</th>
-              <th style={{ textAlign: "center" }}>Subscription:</th>
-              <th style={{ textAlign: "center" }}>Cost:</th>
-              <th style={{ textAlign: "center" }}></th>
-              <th style={{ textAlign: "center" }}></th>
+              <th></th>
+              <th>Unsubscribe Link:</th>
+              <th>Subscription:</th>
+              <th>Cost:</th>
+              <th></th>
+              <th></th>
             </tr>
           </thead>
           <tbody>

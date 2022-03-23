@@ -32,6 +32,10 @@ nav {
   /* box-shadow: 0 0 15px darkgray; */
   box-shadow: 3px 2px 10px darkgray;
 }
+.logoutButton:hover {
+  /* color: red; */
+  box-shadow: 0 0 15px darkgray;
+}
 .nextButton {
   display: block;
   height: 45px;
@@ -89,14 +93,13 @@ form div {
   margin: auto;
   font-size: 1em;
   font-family: sans-serif;
-  max-width: 1000px;
   box-shadow: 0 0 20px grey;
 }
 
 .user-sub-table thead tr {
   background-color: black;
   color: white;
-  text-align: left;
+  text-align: center;
 }
 
 .user-sub-table th {
@@ -191,4 +194,7 @@ form div {
   flex-direction: row;
   justify-content: center;
   padding-bottom: 40px;
+}
+.hover:hover {
+  box-shadow: 0 0 15px darkgray;
 }

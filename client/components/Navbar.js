@@ -14,13 +14,13 @@ const Navbar = () => {
         <div className="navOptions">
           {currentUser ? (
             <>
-              <Link to="/home" className="navItem">
+              <Link to="/home" className="navItem ">
                 HOME
               </Link>
-              <Link to="/profile" className="navItem">
+              <Link to="/profile" className="navItem ">
                 PROFILE
               </Link>
-              <Link to="/chart" className="navItem">
+              <Link to="/chart" className="navItem ">
                 CHART
               </Link>
               <button className="logoutButton" onClick={logout}>
