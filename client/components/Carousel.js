@@ -9,7 +9,7 @@ export const Carousel = () => {
   const { defaultSubscriptions } = useSubscription();
   const { writeSubscriptions } = useAuth();
 
-  const isSelected = Array(defualtSubscriptions.length).fill(false);
+  const isSelected = Array(defaultSubscriptions.length).fill(false);
   const guestData = useGuestData();
   const { expenses, subscriptions } = useGuestData();
 
@@ -28,26 +28,15 @@ export const Carousel = () => {
     e.preventDefault();
     const data = [];
     defaultSubscriptions.map((element, i) => {
-
       if (isSelected[i]) {
         subscriptions.push(element);
         console.log(element);
         history.push("/subscriptionInfo");
       }
     });
-    await writeSubscriptions(data);
+    writeSubscriptions(data);
     history.push("/profile");
-  // async function handleSubmit(e) {
-  //   e.preventDefault();
-  //   const data = [];
-  //   defualtSubscriptions.map((element, i) => {
-  //     if (isSelected[i]) {
-  //       data.push(element);
-  //       console.log(data);
-  //     }
-  //   });
-  //   await writeSubscriptions(data);
-  // }
+  }
 
   return (
     <>
