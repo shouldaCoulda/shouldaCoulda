@@ -19,8 +19,18 @@ nav {
   display: flex;
   align-items: center;
   flex-direction: row;
-  justify-content: left;
+  justify-content: space-between;
   padding-right: 50px;
+}
+.navItem {
+  color: black;
+}
+.navOptions {
+  align-self: flex-end;
+}
+.logo {
+  /* flex-wrap: wrap; */
+  /* align-content: flex-end; */
 }
 nav div {
   justify-content: right;
@@ -32,12 +42,13 @@ form div {
 }
 
 .card {
-  height: 120px;
-  width: 120px;
+  height: 115px;
+  width: 115px;
   /* width: max-content; */
+  border-width: 0;
   margin: 1rem;
   padding: 1rem;
-  display: grid;
+  /* display: grid; */
 }
 
 #cardImg {
@@ -111,18 +122,6 @@ form div {
   box-shadow: 0 0 20px lightgray;
 }
 
-.navItem {
-  color: black;
-  font-size: 20px;
-}
-.logo {
-  flex-wrap: wrap;
-  align-content: flex-end;
-}
-.navOptions {
-  justify-content: right;
-  align-items: right;
-}
 .slidecontainer {
   width: 100%; /* Width of the outside container */
 }

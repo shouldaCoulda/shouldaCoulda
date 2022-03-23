@@ -42,6 +42,7 @@ export const Carousel = () => {
                 id={sub.name}
               >
                 <img src={sub.imageUrl} id="cardImg"></img>
+                <p>{sub.name}</p>
               </div>
             );
           })}
