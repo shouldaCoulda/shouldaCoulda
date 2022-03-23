@@ -22,6 +22,7 @@ export function ChartProvider({ children }) {
   const finData = getFinData(getTotal(), months, selectedApr);
   const data = getData(getTotal(), months);
   const stockData = getStockData(getTotal(), months);
+  const btcData = getStockData(getTotal(), months);
 
   function getData(total, months) {
     const data = [];
@@ -64,6 +65,7 @@ export function ChartProvider({ children }) {
       { name: "subscriptions", line: data, color: "blue" },
       { name: "apr", line: finData, color: "red" },
       { name: "stock", line: stockData, color: "green" },
+      { name: "bitcoin", line: btcData, color: "purple" },
     ]);
   }, [months]);
   useEffect(() => {

@@ -22,14 +22,7 @@ const LineChart = () => {
     console.log(displayedLines);
   }
   // }
-  const colors = ["red", "blue", "purple", "green"];
-
-  // useEffect(() => {
-  //   setLines();
-  // }, [selectedSubscriptions]);
-  // useEffect(() => {
-  // setLines();
-  // }, []);
+  const colors = ["red", "blue", "yellow", "purple"];
 
   return (
     <div>
@@ -48,7 +41,6 @@ const LineChart = () => {
                   data: { stroke: colors[key], strokeWidth: 3 },
                 }}
                 data={dataArray.line}
-                // labelComponent={<VictoryLabel dx={10} dy={15} renderInPortal />}
               />
             );
           })}

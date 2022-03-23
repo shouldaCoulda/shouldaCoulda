@@ -3,7 +3,7 @@ export function getStockData(total, months) {
 
   let prevtotal;
   for (let i = 0; i < months; i++) {
-    const selection = Math.random() * 1.3;
+    const selection = Math.random() / 10 + 1;
     if (i === 0) {
       data[i] = { x: i, y: 0 };
     } else if (i === 1) {
