@@ -6,7 +6,7 @@ export function makeLine(data) {
     <VictoryLine
       data={data}
       style={{
-        data: { stroke: "blue" },
+        data: { stroke: "red" },
         parent: { border: "3px solid #ccc" },
       }}
     />
