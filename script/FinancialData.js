@@ -8,22 +8,21 @@ export function getFinData(total, months, selection) {
   for (let i = 0; i < months; i++) {
     if (i === 0) {
       data[i] = { x: i, y: 0 };
-      prevtotal = total;
     } else if (i === 1) {
-      prevtotal = total;
-      data[i] = { x: i, y: compound(prevtotal, 1.08) };
+      prevtotal = 0;
+      data[i] = { x: i, y: compound(prevtotal, 1.007, total) };
+      prevtotal = compound(prevtotal, 1.007, total);
     } else {
-      data[i] = { x: i, y: compound(prevtotal, 1.08) };
-      prevtotal = compound(prevtotal, 1.08);
+      data[i] = { x: i, y: compound(prevtotal, 1.007, total) };
+      prevtotal = compound(prevtotal, 1.007, total);
     }
     console.log(prevtotal);
   }
   return data;
 }
 
-export function compound(prev, rate) {
-  console.log("prec", prev);
+export function compound(prev, rate, total) {
   let newTotal = prev * rate;
-  console.log("in compound", newTotal);
+  newTotal += Number(total);
   return newTotal;
 }
