@@ -13,22 +13,23 @@ const MonthSlider = () => {
     setMonths(e.target.value);
   }
 
-  
-
   return (
-    <div>
+    <div className="monthcontainer">
       <h3>duration</h3>
-      <Slider
-        aria-label="Temperature"
-        defaultValue={12}
-        getAriaValueText={valuetext}
-        valueLabelDisplay="auto"
-        step={5}
-        marks
-        min={1}
-        max={100}
-        onChange={handleSlide}
-      />
+      <div className="sliderContainer">
+        <Slider
+          aria-label="Temperature"
+          defaultValue={12}
+          getAriaValueText={valuetext}
+          valueLabelDisplay="auto"
+          step={5}
+          marks
+          min={1}
+          max={100}
+          onChange={handleSlide}
+          className="slider"
+        />
+      </div>
     </div>
   );
 };
