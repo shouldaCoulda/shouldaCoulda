@@ -3,7 +3,6 @@ import { useAuth } from "./AuthContext";
 import { getFinData } from "../../script/ChartOperations/DataGen/FinancialData";
 import { getStockData } from "../../script/ChartOperations/DataGen/StockData";
 
-//hook to use context outside of this file
 const ChartContext = React.createContext();
 
 export function useChart() {
@@ -51,7 +50,6 @@ export function ChartProvider({ children }) {
         returnedLines.push(lines[i]);
       }
     }
-    // console.log(returnedLines);
     return returnedLines;
   }
 
@@ -60,7 +58,6 @@ export function ChartProvider({ children }) {
   }, [usersSubscriptions]);
 
   useEffect(() => {
-    console.log("stockdata", stockData);
     setLines([
       { name: "subscriptions", line: data, color: "blue" },
       { name: "apr", line: finData, color: "red" },
@@ -68,13 +65,6 @@ export function ChartProvider({ children }) {
       { name: "bitcoin", line: btcData, color: "purple" },
     ]);
   }, [months]);
-  useEffect(() => {
-    // setLines([
-    //   { name: "subscriptions", line: data, color: "blue" },
-    //   { name: "apr", line: finData, color: "red" },
-    //   { name: "stock", line: stockData, color: "green" },
-    // ]);
-  }, []);
 
   const value = {
     months,

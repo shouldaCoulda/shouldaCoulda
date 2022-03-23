@@ -21,9 +21,6 @@ const SelectionsContainer = () => {
     setSelectedSubs(data);
   }
 
-  
-
-
   useEffect(() => {
     for (const sub of usersSubscriptions) {
       setSelectedSubs([...selectedSubscriptions, true]);
