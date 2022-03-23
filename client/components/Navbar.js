@@ -14,7 +14,6 @@ const Navbar = () => {
         <div className="navOptions">
           {currentUser ? (
             <>
-
               <Link to="/home" className="navItem">
                 HOME
               </Link>
