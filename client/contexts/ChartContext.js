@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { useAuth } from "./AuthContext";
-import { getFinData } from "../../script/FinancialData";
+import { getFinData } from "../../script/ChartOperations/DataGen/FinancialData";
+import { getStockData } from "../../script/ChartOperations/DataGen/StockData";
 
 //hook to use context outside of this file
 const ChartContext = React.createContext();
@@ -20,6 +21,7 @@ export function ChartProvider({ children }) {
 
   const finData = getFinData(getTotal(), months, selectedApr);
   const data = getData(getTotal(), months);
+  const stockData = getStockData(getTotal(), months);
 
   function getData(total, months) {
     const data = [];
@@ -55,12 +57,22 @@ export function ChartProvider({ children }) {
   useEffect(() => {
     getTotal();
   }, [usersSubscriptions]);
+
   useEffect(() => {
+    console.log("stockdata", stockData);
     setLines([
       { name: "subscriptions", line: data, color: "blue" },
       { name: "apr", line: finData, color: "red" },
+      { name: "stock", line: stockData, color: "green" },
     ]);
   }, [months]);
+  useEffect(() => {
+    // setLines([
+    //   { name: "subscriptions", line: data, color: "blue" },
+    //   { name: "apr", line: finData, color: "red" },
+    //   { name: "stock", line: stockData, color: "green" },
+    // ]);
+  }, []);
 
   const value = {
     months,
