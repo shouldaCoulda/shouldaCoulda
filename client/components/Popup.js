@@ -1,8 +1,16 @@
 import React from 'react';
-import PopupCSS from './Popup.module.css';
 
-const Popup = () => {
-  return <div>Hello</div>;
+const Popup = (props) => {
+  return (
+    <div className='popupBox'>
+      <div className='box'>
+        <span className='closeBox' onClick={props.handleClose}>
+          X
+        </span>
+        {props.content}
+      </div>
+    </div>
+  );
 };
 
 export default Popup;

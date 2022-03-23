@@ -15,8 +15,9 @@ const Test = () => {
         <Popup
           content={
             <>
-              <p>Test</p>
+              <p>Add To </p>
               <button>Subscriptions</button>
+              <button>Expenses</button>
             </>
           }
           handleClose={togglePopup}
