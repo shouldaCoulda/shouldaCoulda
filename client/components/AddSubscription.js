@@ -10,7 +10,7 @@ const AddSubscription = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    writeSubscriptionData(nameRef.current.value, priceRef.current.value);
+    writeSubscriptionData(nameRef.current.value, priceRef.current.value, currentUser.uid);
   };
   const write = (e) => {
     e.preventDefault();
@@ -24,7 +24,7 @@ const AddSubscription = () => {
   return (
     <div>
       <form>
-        <h1>Add Subscription</h1>
+        <h1>Add Other Subscriptions</h1>
         <div>
           <label htmlFor="name">
             <small>name</small>
@@ -33,16 +33,16 @@ const AddSubscription = () => {
         </div>
         <div>
           <label htmlFor="price">
-            <small>price</small>
+            <small>monthly price</small>
           </label>
           <input type="price" ref={priceRef} />
         </div>
         <div>
           <button onClick={handleSubmit}>submit</button>
         </div>
-        <div>
+        {/* <div>
           <button onClick={write}>write</button>
-        </div>
+        </div> */}
       </form>
     </div>
   );

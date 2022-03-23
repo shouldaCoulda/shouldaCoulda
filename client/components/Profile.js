@@ -1,5 +1,6 @@
 import React from "react";
 import { useAuth } from "../contexts/AuthContext";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
   const { currentUser, usersSubscriptions, removeSubscription, getTotal } =
@@ -11,7 +12,8 @@ const Profile = () => {
   return (
     <div>
       <p>Email:</p> {currentUser?.email}
-      <p>Subscriptions:</p>{" "}
+      {/* <p>Subscriptions:</p>{" "} */}
+      <div><Link to="/add" type="button"> Add other expenses</Link></div>
       <div style={{ marginTop: "50px" }}>
         <table className="user-sub-table">
           <thead>
@@ -30,7 +32,7 @@ const Profile = () => {
                 <tr key={index}>
                   <th scope="row">{index + 1}</th>
                   <td>
-                    <a href={sub.websiteUrl}>
+                    <a href={sub.websiteUrl} target="_blank" rel="noreferrer noopener">
                       <img src={sub.imageUrl} height="90" />
                     </a>
                   </td>

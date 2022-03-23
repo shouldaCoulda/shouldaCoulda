@@ -6,8 +6,9 @@ import { useHistory } from "react-router-dom";
 import { useGuestData } from "../contexts/GuestDataContext";
 
 export const Carousel = () => {
-  const { defualtSubscriptions } = useSubscription();
+  const { defaultSubscriptions } = useSubscription();
   const { writeSubscriptions } = useAuth();
+
   const isSelected = Array(defualtSubscriptions.length).fill(false);
   const guestData = useGuestData();
   const { expenses, subscriptions } = useGuestData();
@@ -25,15 +26,17 @@ export const Carousel = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log("clicked");
-    defualtSubscriptions.map((element, i) => {
+    const data = [];
+    defaultSubscriptions.map((element, i) => {
+
       if (isSelected[i]) {
         subscriptions.push(element);
         console.log(element);
         history.push("/subscriptionInfo");
       }
     });
-  }
+    await writeSubscriptions(data);
+    history.push("/profile");
   // async function handleSubmit(e) {
   //   e.preventDefault();
   //   const data = [];
@@ -50,7 +53,7 @@ export const Carousel = () => {
     <>
       <div>
         <div className="defaultCardContainer">
-          {defualtSubscriptions.map((sub, index) => {
+          {defaultSubscriptions.map((sub, index) => {
             return (
               <div
                 key={sub.name}
@@ -66,7 +69,7 @@ export const Carousel = () => {
         </div>
         <div className="defaultCardContainer">
           <button className="nextButton" onClick={handleSubmit}>
-            NEXT
+            Next
           </button>
         </div>
       </div>
