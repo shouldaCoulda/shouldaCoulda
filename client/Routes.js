@@ -6,10 +6,8 @@ import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Profile from "./components/Profile";
 import Carousel from "./components/Carousel";
-import LineChart from "./components/LineChart";
 import { SubscriptionTier } from "./components/SubscriptionTier";
 import ChartContainer from "./components/Chart/ChartContainer";
-
 
 /**
  * COMPONENT
@@ -30,7 +28,7 @@ const Routes = () => {
           </>
         ) : (
           <>
-            <Route exact path="/chart" component={LineChart} />
+            <Route exact path="/chart" component={ChartContainer} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/" component={Carousel} />
