@@ -13,7 +13,6 @@ export function getFinData(total, months, selection) {
       data[i] = { x: i, y: compound(prevtotal, 1.007, total) };
       prevtotal = compound(prevtotal, 1.007, total);
     }
-    console.log(prevtotal);
   }
   return data;
 }
