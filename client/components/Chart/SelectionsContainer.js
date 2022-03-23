@@ -7,7 +7,6 @@ const SelectionsContainer = () => {
   const { selectedSubscriptions, setSelectedSubs, getTotal } = useChart();
 
   function handleChange(e, index) {
-    console.log("in handle change", selectedSubscriptions);
     const data = [];
     for (let i = 0; i < selectedSubscriptions.length; i++) {
       if (i === index) {
@@ -17,15 +16,11 @@ const SelectionsContainer = () => {
       }
     }
     setSelectedSubs(data);
-    console.log(data);
   }
   useEffect(() => {
-    // setSelectedSubs(isSelected);
-    console.log("in the hook", selectedSubscriptions);
     for (const sub of usersSubscriptions) {
       setSelectedSubs([...selectedSubscriptions, true]);
     }
-    console.log("end hook", selectedSubscriptions);
   }, [usersSubscriptions]);
 
   return (

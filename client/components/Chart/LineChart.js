@@ -6,7 +6,6 @@ import { getFinData } from "../../../script/FinancialData";
 import { useChart } from "../../contexts/ChartContext";
 
 const LineChart = () => {
-  // const { getTotal } = useAuth();
   const { months, getTotal } = useChart();
   const finData = getFinData(getTotal(), months);
   const data = getData(getTotal(), months);

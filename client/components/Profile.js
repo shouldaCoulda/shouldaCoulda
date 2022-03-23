@@ -1,6 +1,5 @@
 import React from "react";
 import { useAuth } from "../contexts/AuthContext";
-import AddSubscription from "./AddSubscription";
 
 const Profile = () => {
   const { currentUser, usersSubscriptions, removeSubscription, getTotal } =
@@ -9,7 +8,6 @@ const Profile = () => {
   function handleDelete(e, uid) {
     removeSubscription(uid);
   }
-  console.log(usersSubscriptions);
   return (
     <div>
       <p>Email:</p> {currentUser?.email}

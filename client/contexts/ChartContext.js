@@ -27,16 +27,6 @@ export function ChartProvider({ children }) {
     getTotal();
   }, [usersSubscriptions]);
 
-  useEffect(() => {
-    // setSelectedSubs(usersSubscriptions);
-    // setSelectedSubs();
-    // getTotal();
-    console.log("in hook", usersSubscriptions);
-    for (const sub of usersSubscriptions) {
-      console.log(sub);
-    }
-  }, [usersSubscriptions]);
-
   const value = {
     months,
     setMonths,
