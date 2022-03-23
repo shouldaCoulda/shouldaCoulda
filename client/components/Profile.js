@@ -32,7 +32,7 @@ const Profile = () => {
                 <tr key={index}>
                   <th scope="row">{index + 1}</th>
                   <td>
-                    <a href={sub.websiteUrl}>
+                    <a href={sub.websiteUrl} target="_blank" rel="noreferrer noopener">
                       <img src={sub.imageUrl} height="90" />
                     </a>
                   </td>
