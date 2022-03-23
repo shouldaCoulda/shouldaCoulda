@@ -22,6 +22,11 @@ nav {
   justify-content: space-between;
   padding-right: 50px;
 }
+
+h1 {
+  padding: 2rem;
+  margin: 2rem;
+}
 .navItem {
   color: black;
 }
@@ -46,6 +51,17 @@ nav {
   border-collapse: collapse;
   /* box-shadow: 0 0 15px darkgray; */
   box-shadow: 3px 2px 10px darkgray;
+}
+.moreSubsButton {
+  display: block;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  border-width: 0;
+  border-collapse: collapse;
+  background-color: #00a651;
+  /* box-shadow: 0 0 15px darkgray; */
+  box-shadow: 3px 2px 10px lightgray;
 }
 
 .nextButton:hover {
@@ -159,20 +175,26 @@ form div {
 
 /* The slider itself */
 .slider {
-  -webkit-appearance: none; /* Override default CSS styles */
-  appearance: none;
-  width: 100%; /* Full-width */
-  height: 25px; /* Specified height */
-  background: #d3d3d3; /* Grey background */
-  outline: none; /* Remove outline */
-  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  background: #81d3f2; /* Grey background */
+  width: 30%;
+  opacity: 0.4; /* Set transparency (for mouse-over effects on hover) */
   -webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
-  transition: opacity 0.2s;
+  transition: opacity 0.3s;
 }
 
 /* Mouse-over effects */
 .slider:hover {
-  opacity: 1; /* Fully shown on mouse-over */
+  opacity: 0.7; /* Fully shown on mouse-over */
+}
+.sliderContainer {
+  width: 30%;
+}
+.monthContainer {
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .chartContainer {
@@ -182,9 +204,6 @@ form div {
   flex-direction: row;
   justify-content: left;
   padding-right: 50px;
-}
-.selectionsContainer {
-  border: #04aa6d;
 }
 
 .defaultCardContainer {
@@ -197,4 +216,79 @@ form div {
 }
 .hover:hover {
   box-shadow: 0 0 15px darkgray;
+}
+
+.red {
+  background-color: red;
+}
+.blue {
+  background-color: blue;
+}
+
+/* The legend is absolutely positioned, but in relation to its 
+ * container.
+ * We also apply a common trick to place it at the vertical center of
+ * its parent: position the top bound at 50% of the parent's height.
+ * then transform the position to move it up by 50% of its own height. 
+ */
+.legend {
+  display: inline-block;
+  color: rgba(0, 0, 0, 0);
+  width: 1em;
+  height: 1em;
+  background-color: lightblue;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* This div is decisive for the whole thing's height.
+ * Since the legend is positioned in an absolute way, we need to make 
+ * room for it by moving this div to the right (margin-left)
+ */
+.legend-text {
+  margin-left: 1em;
+  padding: 5px;
+  font-size: 1.5em;
+  display: inline-block;
+}
+.ledgendContainer {
+  position: relative;
+=======
+
+#tierTable {
+  width: 55vw;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+}
+
+#iconTable {
+  width: 9rem;
+  overflow-wrap: normal;
+}
+
+#tierIcon {
+  margin: 10px;
+  padding: 5px;
+  width: 8rem;
+  object-fit: scale-down;
+}
+
+#priceTierTable {
+  margin: auto;
+  text-align: center;
+  height: max-content;
+  width: 38rem;
+}
+.singleTier {
+  display: inline-block;
+}
+.singleTierChild {
+  height: 2rem;
+  width: 4rem;
+}
+
+#priceTierSlider {
+  width: 35rem;
 }

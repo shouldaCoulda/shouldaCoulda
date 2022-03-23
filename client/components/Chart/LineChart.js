@@ -1,23 +1,23 @@
 import React from "react";
 import { VictoryLine, VictoryChart } from "victory";
-import { useAuth } from "../../contexts/AuthContext";
 import { Box } from "@mui/material";
-import { getFinData } from "../../../script/FinancialData";
 import { useChart } from "../../contexts/ChartContext";
-
 const LineChart = () => {
-  const { months, getTotal } = useChart();
-  const finData = getFinData(getTotal(), months);
-  const data = getData(getTotal(), months);
-  const maxY = data[data.length - 1].y * 1.2;
+  const { months, lines, maxY, selectedLines } = useChart();
 
-  function getData(total, months) {
-    const data = [];
-    for (let i = 0; i < months; i++) {
-      data[i] = { x: i, y: getTotal() * i };
+  let displayedLines = [];
+  for (let i = 0; i < lines.length; i++) {
+    if (selectedLines[i] === true) {
+      displayedLines.push(lines[i]);
     }
-    return data;
   }
+  const colors = ["red", "blue", "yellow", "purple"];
+
+  // useEffect(() => {
+
+  // }, []);
+
+  // colors[key]
   return (
     <div>
       <Box sx={{ width: "500px", overflow: "hidden" }}>
@@ -26,20 +26,18 @@ const LineChart = () => {
           maxDomain={({ y: maxY }, { x: months })}
           domainPadding={30}
         >
-          <VictoryLine
-            data={data}
-            style={{
-              data: { stroke: "blue" },
-              parent: { border: "3px solid #ccc" },
-            }}
-          />
-          <VictoryLine
-            data={finData}
-            style={{
-              data: { stroke: "red" },
-              parent: { border: "3px solid #ccc" },
-            }}
-          />
+          {displayedLines.map((dataArray, key) => {
+            return (
+              <VictoryLine
+                key={`line_${key}`}
+                name={`line_${key}`}
+                style={{
+                  data: { stroke: dataArray.color, strokeWidth: 3 },
+                }}
+                data={dataArray.line}
+              />
+            );
+          })}
         </VictoryChart>
       </Box>
     </div>

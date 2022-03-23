@@ -3,11 +3,15 @@ import { Link } from "react-router-dom";
 import { useSubscription } from "../contexts/SubscriptionContext";
 import { useAuth } from "../contexts/AuthContext";
 import { useHistory } from "react-router-dom";
+import { useGuestData } from "../contexts/GuestDataContext";
 
 export const Carousel = () => {
   const { defaultSubscriptions } = useSubscription();
   const { writeSubscriptions } = useAuth();
-  const isSelected = Array(defaultSubscriptions.length).fill(false);
+
+  const isSelected = Array(defualtSubscriptions.length).fill(false);
+  const guestData = useGuestData();
+  const { expenses, subscriptions } = useGuestData();
 
   function handleClick(e, index) {
     isSelected[index] = !isSelected[index];
@@ -19,18 +23,31 @@ export const Carousel = () => {
     // history.push("/subscriptionInfo");
   }
   const history = useHistory();
-  async function handleSubmit(e) {
+
+  function handleSubmit(e) {
     e.preventDefault();
     const data = [];
     defaultSubscriptions.map((element, i) => {
+
       if (isSelected[i]) {
-        data.push(element);
-        console.log(data);
+        subscriptions.push(element);
+        console.log(element);
+        history.push("/subscriptionInfo");
       }
     });
     await writeSubscriptions(data);
     history.push("/profile");
-  }
+  // async function handleSubmit(e) {
+  //   e.preventDefault();
+  //   const data = [];
+  //   defualtSubscriptions.map((element, i) => {
+  //     if (isSelected[i]) {
+  //       data.push(element);
+  //       console.log(data);
+  //     }
+  //   });
+  //   await writeSubscriptions(data);
+  // }
 
   return (
     <>

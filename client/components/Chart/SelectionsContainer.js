@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import { useChart } from "../../contexts/ChartContext";
+import AddButton from "./AddButton";
 
 const SelectionsContainer = () => {
   const { usersSubscriptions } = useAuth();
@@ -19,6 +20,7 @@ const SelectionsContainer = () => {
     }
     setSelectedSubs(data);
   }
+
   useEffect(() => {
     for (const sub of usersSubscriptions) {
       setSelectedSubs([...selectedSubscriptions, true]);
@@ -52,6 +54,7 @@ const SelectionsContainer = () => {
           })}
         </tbody>
       </table>
+      <AddButton />
     </div>
   );
 };
