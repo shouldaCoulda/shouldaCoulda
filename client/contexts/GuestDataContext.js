@@ -8,7 +8,7 @@ export function useGuestData() {
 
 export function GuestDataContextProvider({ children }) {
   var expenses = {};
-  var subscriptions = {};
+  var subscriptions = [];
 
   var data = { expenses, subscriptions };
   return (
