@@ -5,9 +5,9 @@ import { useAuth } from "../contexts/AuthContext";
 import { useHistory } from "react-router-dom";
 
 export const Carousel = () => {
-  const { defualtSubscriptions } = useSubscription();
+  const { defaultSubscriptions } = useSubscription();
   const { writeSubscriptions } = useAuth();
-  const isSelected = Array(defualtSubscriptions.length).fill(false);
+  const isSelected = Array(defaultSubscriptions.length).fill(false);
 
   function handleClick(e, index) {
     isSelected[index] = !isSelected[index];
@@ -22,20 +22,21 @@ export const Carousel = () => {
   async function handleSubmit(e) {
     e.preventDefault();
     const data = [];
-    defualtSubscriptions.map((element, i) => {
+    defaultSubscriptions.map((element, i) => {
       if (isSelected[i]) {
         data.push(element);
         console.log(data);
       }
     });
     await writeSubscriptions(data);
+    history.push("/profile");
   }
 
   return (
     <>
       <div>
         <div className="defaultCardContainer">
-          {defualtSubscriptions.map((sub, index) => {
+          {defaultSubscriptions.map((sub, index) => {
             return (
               <div
                 key={sub.name}
@@ -51,7 +52,7 @@ export const Carousel = () => {
         </div>
         <div className="defaultCardContainer">
           <button className="nextButton" onClick={handleSubmit}>
-            NEXT
+            Next
           </button>
         </div>
       </div>

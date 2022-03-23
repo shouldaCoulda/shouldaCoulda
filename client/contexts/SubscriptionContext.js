@@ -24,7 +24,7 @@ var dbRef = ref(database);
 var subRef = ref(database, "subscriptions");
 
 export function SubscriptionProvider({ children }) {
-  var [defualtSubscriptions, setSub] = useState([]);
+  var [defaultSubscriptions, setSub] = useState([]);
 
   //Read from table
   useEffect(() => {
@@ -40,11 +40,12 @@ export function SubscriptionProvider({ children }) {
   }, []);
 
   //this writes data into the subscriptions folder
-  function writeSubscriptionData(name, price) {
+  function writeSubscriptionData(name, price, userId) {
     const uuid = uid();
-    set(ref(database, `subscriptions/` + uuid), {
+    set(ref(database, `users/` + userId + '/subscriptions/' + uuid), {
       name: name,
       price: price,
+      uid: uuid
     });
   }
 
@@ -70,7 +71,7 @@ export function SubscriptionProvider({ children }) {
   }
 
   const value = {
-    defualtSubscriptions,
+    defaultSubscriptions,
     writeSubscriptionData,
     seed,
   };

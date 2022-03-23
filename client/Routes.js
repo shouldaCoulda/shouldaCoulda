@@ -8,6 +8,7 @@ import Profile from "./components/Profile";
 import Carousel from "./components/Carousel";
 import { SubscriptionTier } from "./components/SubscriptionTier";
 import ChartContainer from "./components/Chart/ChartContainer";
+import AddSubscription from "./components/AddSubscription";
 
 /**
  * COMPONENT
@@ -24,6 +25,7 @@ const Routes = () => {
             <Route exact path="/chart" component={ChartContainer} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/home" component={Carousel} />
+            <Route exact path="/add" component={AddSubscription} />
             <Route exact path="/" component={ChartContainer} />
           </>
         ) : (
