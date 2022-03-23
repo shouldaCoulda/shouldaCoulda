@@ -13,6 +13,7 @@ export function ChartProvider({ children }) {
   const { usersSubscriptions } = useAuth();
   const [months, setMonths] = useState(12);
   const [selectedSubscriptions, setSelectedSubs] = useState([]);
+  const [selectedLines, setSelectedLines] = useState([]);
   const [selectedApr, setSelectedApr] = useState(1);
   const [lines, setLines] = useState([]);
   let maxY = 0;
@@ -26,7 +27,6 @@ export function ChartProvider({ children }) {
       data[i] = { x: i, y: getTotal() * i };
     }
     maxY = data[data.length - 1].y * 1.2;
-    console.log(lines);
 
     return data;
   }
@@ -49,7 +49,6 @@ export function ChartProvider({ children }) {
       { name: "subscriptions", line: data, color: "blue" },
       { name: "apr", line: finData, color: "red" },
     ]);
-    console.log(lines);
   }, [months]);
 
   const value = {
@@ -63,6 +62,8 @@ export function ChartProvider({ children }) {
     lines,
     setLines,
     maxY,
+    selectedLines,
+    setSelectedLines,
   };
 
   return (

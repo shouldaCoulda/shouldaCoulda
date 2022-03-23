@@ -5,23 +5,7 @@ import { getFinData } from "../../../script/FinancialData";
 import { useChart } from "../../contexts/ChartContext";
 const LineChart = () => {
   const { months, getTotal, selectedApr, lines, maxY } = useChart();
-  // const finData = getFinData(getTotal(), months, selectedApr);
-  // const data = getData(getTotal(), months);
-
-  // const maxY = data[data.length - 1].y * 1.2;
-
-  // function getData(total, months) {
-  //   const data = [];
-  //   for (let i = 0; i < months; i++) {
-  //     data[i] = { x: i, y: getTotal() * i };
-  //   }
-  //   return data;
-  // }
-
-  // const lines = [
-  //   { name: "subscriptions", line: data, color: "blue" },
-  //   { name: "apr", line: finData, color: "red" },
-  // ];
+  
 
   const colors = ["red", "blue", "purple", "green"];
   return (
