@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import { useChart } from "../../contexts/ChartContext";
+import AddButton from "./AddButton";
 
 const SelectionsContainer = () => {
   const { usersSubscriptions } = useAuth();
@@ -52,6 +53,7 @@ const SelectionsContainer = () => {
           })}
         </tbody>
       </table>
+      <AddButton />
     </div>
   );
 };

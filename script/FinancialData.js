@@ -1,9 +1,6 @@
 export function getFinData(total, months, selection) {
   const data = [];
-  // for (let i = 0; i < months; i++) {
-  //   let random = Math.random();
-  //   data[i] = { x: i, y: total * i * random };
-  // }
+
   let prevtotal;
   for (let i = 0; i < months; i++) {
     if (i === 0) {
