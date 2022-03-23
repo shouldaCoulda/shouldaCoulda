@@ -9,7 +9,6 @@ export const Carousel = () => {
   const isSelected = Array(defualtSubscriptions.length).fill(false);
 
   function handleClick(e, index) {
-    console.log(e.currentTarget);
     isSelected[index] = !isSelected[index];
     if (e.currentTarget.className.includes("selected")) {
       e.currentTarget.className = "card";
