@@ -5,14 +5,15 @@ import { useChart } from "../../contexts/ChartContext";
 const SelectionsContainer = () => {
   const { usersSubscriptions, getTotal } = useAuth();
   const { selectedSubscriptions, setSelectedSubs } = useChart();
+
   const isSelected = Array(usersSubscriptions.length).fill(true);
 
   function handleChange(e, index) {
     isSelected[index] = !isSelected[index];
 
-    // console.log(isSelected);
-    setSelectedSubs(isSelected);
-    console.log(selectedSubscriptions);
+    console.log(e.target);
+    // setSelectedSubs(isSelected);
+    console.log(isSelected);
   }
   return (
     <div>
@@ -24,14 +25,15 @@ const SelectionsContainer = () => {
               <tr key={index}>
                 <td>{sub.name}</td>
 
-                {/* <td>
-              <input
-              type="checkbox"
-              // value={index}
-              onChange={(e) => handleChange(e, index)}
-              checked="false"
-              />
-            </td> */}
+                <td>
+                  <input
+                    type="checkbox"
+                    value={isSelected[index]}
+                    onChange={(e) => handleChange(e, index)}
+                    defaultChecked
+                    // checked={isSelected[index]}
+                  />
+                </td>
               </tr>
             );
           })}
