@@ -11,7 +11,17 @@ const Test = () => {
   return (
     <div>
       <input type='button' value='Click To Add' onClick={togglePopup} />
-      {isOpen && <Popup />}
+      {isOpen && (
+        <Popup
+          content={
+            <>
+              <p>Test</p>
+              <button>Subscriptions</button>
+            </>
+          }
+          handleClose={togglePopup}
+        />
+      )}
     </div>
   );
 };
