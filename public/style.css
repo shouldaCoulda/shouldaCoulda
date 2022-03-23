@@ -212,3 +212,13 @@ form div {
 .hover:hover {
   box-shadow: 0 0 15px darkgray;
 }
+.square {
+  height: 10px;
+  width: 10px;
+}
+.red {
+  background-color: red;
+}
+.blue {
+  background-color: blue;
+}

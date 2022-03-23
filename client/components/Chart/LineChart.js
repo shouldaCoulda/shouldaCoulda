@@ -4,11 +4,12 @@ import { useAuth } from "../../contexts/AuthContext";
 import { Box } from "@mui/material";
 import { getFinData } from "../../../script/FinancialData";
 import { useChart } from "../../contexts/ChartContext";
-
+import { makeLine } from "../../../script/ChartOperations/DisplayLines";
 const LineChart = () => {
   const { months, getTotal, selectedApr } = useChart();
   const finData = getFinData(getTotal(), months, selectedApr);
   const data = getData(getTotal(), months);
+
   const maxY = data[data.length - 1].y * 1.2;
 
   function getData(total, months) {
@@ -18,6 +19,12 @@ const LineChart = () => {
     }
     return data;
   }
+
+  const sample = [
+    { name: "subscriptions", array: data, color: "blue" },
+    { name: "apr", array: finData, color: "red" },
+  ];
+  // console.log(sample);
   return (
     <div>
       <Box sx={{ width: "500px", overflow: "hidden" }}>
@@ -26,7 +33,7 @@ const LineChart = () => {
           maxDomain={({ y: maxY }, { x: months })}
           domainPadding={30}
         >
-          <VictoryLine
+          {/* <VictoryLine
             data={data}
             style={{
               data: { stroke: "blue" },
@@ -39,7 +46,8 @@ const LineChart = () => {
               data: { stroke: "red" },
               parent: { border: "3px solid #ccc" },
             }}
-          />
+          /> */}
+          {makeLine(finData)}
         </VictoryChart>
       </Box>
     </div>

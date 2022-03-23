@@ -14,7 +14,15 @@ const FinancialContainer = () => {
   return (
     <div>
       <form>
-        <h4>Finance</h4>
+        <h5>display data:</h5>
+        <span>
+          <div className="square blue" />
+          -subscriptions
+        </span>
+        <div>
+          <div className="square red" />
+          -apr
+        </div>
         <h5>apr : {selectedApr}</h5>
         <div>
           <label>
