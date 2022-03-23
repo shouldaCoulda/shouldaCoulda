@@ -1,4 +1,4 @@
-import { Button } from "bootstrap";
+import { Button } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
@@ -14,17 +14,16 @@ const Navbar = () => {
         <div className="navOptions">
           {currentUser ? (
             <>
-
-              <Link to="/home" className="navItem">
+              <Link to="/home" className="navItem ">
                 HOME
               </Link>
-              <Link to="/profile" className="navItem">
+              <Link to="/profile" className="navItem ">
                 PROFILE
               </Link>
-              <Link to="/chart" className="navItem">
+              <Link to="/chart" className="navItem ">
                 CHART
               </Link>
-              <button className="navItem" onClick={logout}>
+              <button className="logoutButton" onClick={logout}>
                 LOG OUT
               </button>
             </>

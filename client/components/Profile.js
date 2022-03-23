@@ -1,14 +1,13 @@
 import React from "react";
 import { useAuth } from "../contexts/AuthContext";
-import AddSubscription from "./AddSubscription";
 
 const Profile = () => {
-  const { currentUser, usersSubscriptions, removeSubscription } = useAuth();
+  const { currentUser, usersSubscriptions, removeSubscription, getTotal } =
+    useAuth();
 
   function handleDelete(e, uid) {
     removeSubscription(uid);
   }
-
   return (
     <div>
       <p>Email:</p> {currentUser?.email}
@@ -17,12 +16,12 @@ const Profile = () => {
         <table className="user-sub-table">
           <thead>
             <tr>
-              <th style={{ textAlign: "center" }}></th>
-              <th style={{ textAlign: "center" }}>Unsubscribe Link:</th>
-              <th style={{ textAlign: "center" }}>Subscription:</th>
-              <th style={{ textAlign: "center" }}>Cost:</th>
-              <th style={{ textAlign: "center" }}></th>
-              <th style={{ textAlign: "center" }}></th>
+              <th></th>
+              <th>Unsubscribe Link:</th>
+              <th>Subscription:</th>
+              <th>Cost:</th>
+              <th></th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -40,7 +39,7 @@ const Profile = () => {
 
                   <td>
                     <button
-                      className="remove-button"
+                      className="logoutButton"
                       onClick={(e) => handleDelete(e, sub.uid)}
                     >
                       Remove
@@ -55,11 +54,10 @@ const Profile = () => {
               <td></td>
               <td></td>
               <td>Total: </td>
-              <td className='user-sub-total'>${usersSubscriptions
-              .reduce((total, sub) => {
-                return total + Number(sub.price);
-              }, 0).toFixed(2)}
-              /month! </td>
+              <td className="user-sub-total">
+                ${getTotal()}
+                /month!{" "}
+              </td>
             </tr>
           </tfoot>
         </table>
