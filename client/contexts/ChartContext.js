@@ -11,15 +11,36 @@ export function useChart() {
 export function ChartProvider({ children }) {
   const { usersSubscriptions } = useAuth();
   const [months, setMonths] = useState(12);
-  const [selectedSubscriptions, setSelectedSubs] = useState(
-    Array(usersSubscriptions.length).fill(false)
-  );
+  const [selectedSubscriptions, setSelectedSubs] = useState([
+    usersSubscriptions.length,
+  ]);
+
+  function getTotal() {
+    let total = 0;
+    for (let i = 0; i < usersSubscriptions.length; i++) {
+      if (selectedSubscriptions[i] === true) {
+        total = total + Number(usersSubscriptions[i].price);
+      }
+    }
+    return total;
+  }
+
+  // useEffect(() => {
+  //   getTotal();
+  // }, [selectedSubscriptions]);
+
+  // useEffect(() => {
+  //   setSelectedSubs(usersSubscriptions);
+  //   setSelectedSubs();
+  //   getTotal();
+  // }, []);
 
   const value = {
     months,
     setMonths,
     setSelectedSubs,
     selectedSubscriptions,
+    getTotal,
   };
 
   return (

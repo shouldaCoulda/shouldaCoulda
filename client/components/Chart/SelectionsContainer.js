@@ -1,20 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import { useChart } from "../../contexts/ChartContext";
 
 const SelectionsContainer = () => {
-  const { usersSubscriptions, getTotal } = useAuth();
-  const { selectedSubscriptions, setSelectedSubs } = useChart();
-
-  const isSelected = Array(usersSubscriptions.length).fill(true);
+  const { usersSubscriptions } = useAuth();
+  const { selectedSubscriptions, setSelectedSubs, getTotal } = useChart();
 
   function handleChange(e, index) {
-    isSelected[index] = !isSelected[index];
-
-    console.log(e.target);
-    // setSelectedSubs(isSelected);
-    console.log(isSelected);
+    console.log("in handle change", selectedSubscriptions);
+    if (selectedSubscriptions[index] === true) {
+      // selectedSubscriptions[index] = false;
+      // } else selectedSubscriptions[index] = true;
+      // setSelectedSubs([...isSelected]);
+    }
   }
+  useEffect(() => {
+    // setSelectedSubs(isSelected);
+    // isSelected = Array(usersSubscriptions.length).fill(true);
+  }, []);
+
   return (
     <div>
       <span>total Subscriptions: {getTotal()}</span>
@@ -28,10 +32,9 @@ const SelectionsContainer = () => {
                 <td>
                   <input
                     type="checkbox"
-                    value={isSelected[index]}
+                    value={selectedSubscriptions[index]}
                     onChange={(e) => handleChange(e, index)}
                     defaultChecked
-                    // checked={isSelected[index]}
                   />
                 </td>
               </tr>
