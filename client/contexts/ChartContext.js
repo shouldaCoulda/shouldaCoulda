@@ -41,6 +41,17 @@ export function ChartProvider({ children }) {
     return total.toFixed(2);
   }
 
+  function getLines() {
+    let returnedLines = [];
+    for (let i = 0; i < lines.length; i++) {
+      if (selectedLines[i] === true) {
+        returnedLines.push(lines[i]);
+      }
+    }
+    // console.log(returnedLines);
+    return returnedLines;
+  }
+
   useEffect(() => {
     getTotal();
   }, [usersSubscriptions]);
@@ -64,6 +75,7 @@ export function ChartProvider({ children }) {
     maxY,
     selectedLines,
     setSelectedLines,
+    getLines,
   };
 
   return (

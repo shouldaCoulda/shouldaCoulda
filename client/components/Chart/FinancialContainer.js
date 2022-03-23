@@ -60,14 +60,7 @@ const FinancialContainer = () => {
             })}
           </tbody>
         </table>
-        {/* <span>
-          <div className="square blue" />
-          -subscriptions
-        </span>
-        <div>
-          <div className="square red" />
-          -apr
-        </div> */}
+
         <h5>apr : {selectedApr}</h5>
         <div>
           <label>
