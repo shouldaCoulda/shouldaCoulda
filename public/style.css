@@ -22,6 +22,11 @@ nav {
   justify-content: space-between;
   padding-right: 50px;
 }
+
+h1 {
+  padding: 2rem;
+  margin: 2rem;
+}
 .navItem {
   color: black;
 }
@@ -197,4 +202,41 @@ form div {
 }
 .hover:hover {
   box-shadow: 0 0 15px darkgray;
+}
+
+#tierTable {
+  width: 55vw;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+}
+
+#iconTable {
+  width: 9rem;
+  overflow-wrap: normal;
+}
+
+#tierIcon {
+  margin: 10px;
+  padding: 5px;
+  width: 8rem;
+  object-fit: scale-down;
+}
+
+#priceTierTable {
+  margin: auto;
+  text-align: center;
+  height: max-content;
+  width: 38rem;
+}
+.singleTier {
+  display: inline-block;
+}
+.singleTierChild {
+  height: 2rem;
+  width: 4rem;
+}
+
+#priceTierSlider {
+  width: 35rem;
 }
