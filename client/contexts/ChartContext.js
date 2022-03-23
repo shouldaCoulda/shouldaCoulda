@@ -20,7 +20,7 @@ export function ChartProvider({ children }) {
         total = total + Number(usersSubscriptions[i].price);
       }
     }
-    return total;
+    return total.toFixed(2);
   }
 
   useEffect(() => {
@@ -35,7 +35,7 @@ export function ChartProvider({ children }) {
     for (const sub of usersSubscriptions) {
       console.log(sub);
     }
-  }, []);
+  }, [usersSubscriptions]);
 
   const value = {
     months,
