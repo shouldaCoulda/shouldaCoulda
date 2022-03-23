@@ -9,7 +9,7 @@ const Profile = () => {
   function handleDelete(e, uid) {
     removeSubscription(uid);
   }
-
+  console.log(usersSubscriptions);
   return (
     <div>
       <p>Email:</p> {currentUser?.email}

@@ -11,9 +11,7 @@ export function useChart() {
 export function ChartProvider({ children }) {
   const { usersSubscriptions } = useAuth();
   const [months, setMonths] = useState(12);
-  const [selectedSubscriptions, setSelectedSubs] = useState([
-    usersSubscriptions.length,
-  ]);
+  const [selectedSubscriptions, setSelectedSubs] = useState([]);
 
   function getTotal() {
     let total = 0;
@@ -25,15 +23,19 @@ export function ChartProvider({ children }) {
     return total;
   }
 
-  // useEffect(() => {
-  //   getTotal();
-  // }, [selectedSubscriptions]);
+  useEffect(() => {
+    getTotal();
+  }, [usersSubscriptions]);
 
-  // useEffect(() => {
-  //   setSelectedSubs(usersSubscriptions);
-  //   setSelectedSubs();
-  //   getTotal();
-  // }, []);
+  useEffect(() => {
+    // setSelectedSubs(usersSubscriptions);
+    // setSelectedSubs();
+    // getTotal();
+    console.log("in hook", usersSubscriptions);
+    for (const sub of usersSubscriptions) {
+      console.log(sub);
+    }
+  }, []);
 
   const value = {
     months,

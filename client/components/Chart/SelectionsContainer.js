@@ -8,16 +8,25 @@ const SelectionsContainer = () => {
 
   function handleChange(e, index) {
     console.log("in handle change", selectedSubscriptions);
-    if (selectedSubscriptions[index] === true) {
-      // selectedSubscriptions[index] = false;
-      // } else selectedSubscriptions[index] = true;
-      // setSelectedSubs([...isSelected]);
+    const data = [];
+    for (let i = 0; i < selectedSubscriptions.length; i++) {
+      if (i === index) {
+        data[i] = !selectedSubscriptions[i];
+      } else {
+        data[i] = selectedSubscriptions[i];
+      }
     }
+    setSelectedSubs(data);
+    console.log(data);
   }
   useEffect(() => {
     // setSelectedSubs(isSelected);
-    // isSelected = Array(usersSubscriptions.length).fill(true);
-  }, []);
+    console.log("in the hook", selectedSubscriptions);
+    for (const sub of usersSubscriptions) {
+      setSelectedSubs([...selectedSubscriptions, true]);
+    }
+    console.log("end hook", selectedSubscriptions);
+  }, [usersSubscriptions]);
 
   return (
     <div>
