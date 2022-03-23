@@ -39,7 +39,7 @@ const Profile = () => {
 
                   <td>
                     <button
-                      className="remove-button"
+                      className="logoutButton"
                       onClick={(e) => handleDelete(e, sub.uid)}
                     >
                       Remove

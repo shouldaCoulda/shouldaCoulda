@@ -9,11 +9,12 @@ export const Carousel = () => {
   const isSelected = Array(defualtSubscriptions.length).fill(false);
 
   function handleClick(e, index) {
+    console.log(e.currentTarget);
     isSelected[index] = !isSelected[index];
-    if (e.target.className.includes("selected")) {
-      e.target.className = "card-img";
+    if (e.currentTarget.className.includes("selected")) {
+      e.currentTarget.className = "card";
     } else {
-      e.target.className += " selected";
+      e.currentTarget.className += " selected";
     }
   }
   const history = useHistory();
@@ -41,13 +42,17 @@ export const Carousel = () => {
                 onClick={(event) => handleClick(event, index)}
                 id={sub.name}
               >
-                <img src={sub.imageUrl} id="cardImg"></img>
+                <img src={sub.imageUrl} className="cardImg"></img>
                 <p>{sub.name}</p>
               </div>
             );
           })}
         </div>
-        <button onClick={handleSubmit}>Submit</button>
+        <div className="defaultCardContainer">
+          <button className="nextButton" onClick={handleSubmit}>
+            NEXT
+          </button>
+        </div>
       </div>
     </>
   );
