@@ -222,3 +222,34 @@ form div {
 .blue {
   background-color: blue;
 }
+
+/* The legend is absolutely positioned, but in relation to its 
+ * container.
+ * We also apply a common trick to place it at the vertical center of
+ * its parent: position the top bound at 50% of the parent's height.
+ * then transform the position to move it up by 50% of its own height. 
+ */
+.legend {
+  display: inline-block;
+  color: rgba(0, 0, 0, 0);
+  width: 1em;
+  height: 1em;
+  background-color: lightblue;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* This div is decisive for the whole thing's height.
+ * Since the legend is positioned in an absolute way, we need to make 
+ * room for it by moving this div to the right (margin-left)
+ */
+.legend-text {
+  margin-left: 1em;
+  padding: 5px;
+  font-size: 1.5em;
+  display: inline-block;
+}
+.ledgendContainer {
+  position: relative;
+}

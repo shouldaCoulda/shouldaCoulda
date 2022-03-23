@@ -10,16 +10,17 @@ const Legend = () => {
     }
   }
   return (
-    <div>
+    <div className="ledgendContainer">
       {displayedLines.map((elem, key) => {
         return (
-          <span key={key}>
-            {" "}
-            {elem.name} : {elem.color}
-          </span>
+          <div className="legend-text" key={key} style={{ color: elem.color }}>
+            <span>
+              {" "}
+              {elem.name} : {elem.color}
+            </span>
+          </div>
         );
       })}
-      {/* <span>red: findata blue: subscriptions price</span> */}
     </div>
   );
 };
