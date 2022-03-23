@@ -17,22 +17,26 @@ const SelectionsContainer = () => {
   return (
     <div>
       <span>total Subscriptions: {getTotal()}</span>
-      {usersSubscriptions.map((sub, index) => {
-        return (
-          <tr>
-            <td>{sub.name}</td>
+      <table>
+        <tbody>
+          {usersSubscriptions.map((sub, index) => {
+            return (
+              <tr key={index}>
+                <td>{sub.name}</td>
 
-            <td>
+                {/* <td>
               <input
-                type="checkbox"
-                // value={index}
-                onChange={(e) => handleChange(e, index)}
-                checked="false"
+              type="checkbox"
+              // value={index}
+              onChange={(e) => handleChange(e, index)}
+              checked="false"
               />
-            </td>
-          </tr>
-        );
-      })}
+            </td> */}
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
     </div>
   );
 };
