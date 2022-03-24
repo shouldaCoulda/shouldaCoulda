@@ -49,18 +49,12 @@ export function AuthProvider({ children }) {
       a user in our firebase. then sets the currentUser to this user
       */
       const createdUser = createUserWithEmailAndPassword(auth, email, password);
-      // var user = {
-      //   uid: createdUser.uid,
-      //   email: createdUser.email,
-      // };
-      // writeUserData(user);
     } catch (error) {
       console.log(error.message);
     }
   }
   //this function writes user data into the user database
   function writeUserData(user) {
-    console.log("in write", user);
     var userReff = ref(database, "users/" + user.uid);
     set(userReff, user);
   }
