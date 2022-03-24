@@ -1,26 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { VictoryLine, VictoryChart } from "victory";
 import { Box } from "@mui/material";
 import { useChart } from "../../contexts/ChartContext";
 const LineChart = () => {
-  const { months, lines, maxY, selectedLines } = useChart();
+  const { months, lines, maxY, selectedLines, setMonths } = useChart();
+  const [displayedLines, setDisplayedLine] = useState([]);
 
-  let displayedLines = [];
-  for (let i = 0; i < lines.length; i++) {
-    if (selectedLines[i] === true) {
-      displayedLines.push(lines[i]);
+  function setDisplayedLines() {
+    let vals = [];
+    for (let i = 0; i < lines.length; i++) {
+      if (selectedLines[i] === true) {
+        vals.push(lines[i]);
+      }
     }
+    setDisplayedLine(vals);
   }
-  const colors = ["red", "blue", "yellow", "purple"];
 
-  // useEffect(() => {
+  useEffect(() => {
+    setDisplayedLines();
+  }, [selectedLines, months]);
+  useEffect(() => {
+    setDisplayedLines();
+  }, []);
 
-  // }, []);
-
-  // colors[key]
   return (
-    <div>
-      <Box sx={{ width: "500px", overflow: "hidden" }}>
+    <div className="finChart">
+      <Box sx={{ width: "550px" }}>
         <VictoryChart
           minDomain={({ y: 0 }, { x: 0 })}
           maxDomain={({ y: maxY }, { x: months })}

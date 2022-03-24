@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import PopupButton from './PopupButton';
 import PopupBox from './PopupBox';
 
+
+
 const Profile = () => {
   const { currentUser, usersSubscriptions, removeSubscription, getTotal } =
     useAuth();

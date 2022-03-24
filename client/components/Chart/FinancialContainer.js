@@ -36,7 +36,7 @@ const FinancialContainer = () => {
   }, [usersSubscriptions]);
 
   return (
-    <div>
+    <div className="grey side">
       <form>
         <h5>display data:</h5>
         <table>
