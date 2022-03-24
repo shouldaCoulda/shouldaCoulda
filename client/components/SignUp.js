@@ -27,7 +27,6 @@ const SignUp = () => {
     try {
       setError("");
       setLoading(true);
-      console.log(emailRef.current.value, passwordRef.current.value);
       signup(emailRef.current.value, passwordRef.current.value);
       history.push("/");
     } catch {
@@ -36,7 +35,7 @@ const SignUp = () => {
 
     setLoading(false);
   }
-  
+
   return (
     <div>
       <form>
