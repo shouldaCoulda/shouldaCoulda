@@ -10,7 +10,7 @@ const Legend = () => {
     }
   }
   return (
-    <div className="ledgendContainer">
+    <div className="ledgendContainer grey round">
       {displayedLines.map((elem, key) => {
         return (
           <div className="legend-text" key={key} style={{ color: elem.color }}>

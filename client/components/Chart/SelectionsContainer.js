@@ -28,7 +28,7 @@ const SelectionsContainer = () => {
   }, [usersSubscriptions]);
 
   return (
-    <div>
+    <div className="grey side">
       <p>monthly: {getTotal()}</p>
       <p>
         {months}: months: {total}
