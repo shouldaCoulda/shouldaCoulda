@@ -29,9 +29,12 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <Link to="/">Home</Link>
-              <Link to="/login">login</Link>
-              <Link to="/signUp">sign-up</Link>
+              <Link to="/login" className="navItem ">
+                login
+              </Link>
+              <Link to="/signUp" className="navItem ">
+                sign-up
+              </Link>
             </>
           )}
         </div>

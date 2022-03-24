@@ -30,15 +30,9 @@ const Routes = () => {
           </>
         ) : (
           <>
-            <Route exact path="/chart" component={ChartContainer} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/" component={SelectionScreen} />
-            <Route
-              exact
-              path="/subscriptionInfo"
-              component={SubscriptionTier}
-            />
           </>
         )}
       </Switch>
