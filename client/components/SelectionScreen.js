@@ -48,7 +48,7 @@ export const SelectionScreen = () => {
         history.push("/subscriptionInfo");
       }
     });
-    await writeSubscriptions(data);
+    writeSubscriptions(data);
     history.push("/profile");
   }
   function checkIsSelected(uid) {
