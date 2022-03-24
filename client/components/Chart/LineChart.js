@@ -19,8 +19,8 @@ const LineChart = () => {
 
   // colors[key]
   return (
-    <div>
-      <Box sx={{ width: "500px", overflow: "hidden" }}>
+    <div className="finChart">
+      <Box sx={{ width: "550px" }}>
         <VictoryChart
           minDomain={({ y: 0 }, { x: 0 })}
           maxDomain={({ y: maxY }, { x: months })}

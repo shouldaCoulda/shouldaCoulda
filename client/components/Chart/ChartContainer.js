@@ -9,7 +9,7 @@ import Legend from "./Legend";
 const ChartContainer = () => {
   return (
     <div>
-      <Legend />
+      <Legend  />
       <div className="chartContainer">
         <SelectionsContainer className="selectionsContainer card" />
         <LineChart />

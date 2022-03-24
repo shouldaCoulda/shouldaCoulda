@@ -263,7 +263,7 @@ form div {
 }
 .ledgendContainer {
   position: relative;
-
+}
 #tierTable {
   width: 55vw;
   margin: auto;
@@ -299,5 +299,31 @@ form div {
 
 #priceTierSlider {
   width: 35rem;
- 
+}
+
+.finChart {
+  padding: 60px;
+}
+
+.grey {
+  background-color: lightgray;
+}
+.side {
+  border-radius: 30px;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.surround {
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.round {
+  border-radius: 30px;
 }

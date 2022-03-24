@@ -14,7 +14,7 @@ const MonthSlider = () => {
   }
 
   return (
-    <div className="monthcontainer">
+    <div className="monthcontainer grey surround">
       <h3>duration</h3>
       <div className="sliderContainer">
         <Slider
