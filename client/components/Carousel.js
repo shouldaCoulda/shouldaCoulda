@@ -9,7 +9,7 @@ export const Carousel = () => {
   const { defaultSubscriptions } = useSubscription();
   const { writeSubscriptions } = useAuth();
 
-  const isSelected = Array(defualtSubscriptions.length).fill(false);
+  const isSelected = Array(defaultSubscriptions.length).fill(false);
   const guestData = useGuestData();
   const { expenses, subscriptions } = useGuestData();
 
@@ -24,19 +24,10 @@ export const Carousel = () => {
   }
   const history = useHistory();
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    const data = [];
-    defaultSubscriptions.map((element, i) => {
+  //if youre logged in
 
-      if (isSelected[i]) {
-        subscriptions.push(element);
-        console.log(element);
-        history.push("/subscriptionInfo");
-      }
-    });
-    await writeSubscriptions(data);
-    history.push("/profile");
+  // await writeSubscriptions(data);
+  // history.push("/profile");
   // async function handleSubmit(e) {
   //   e.preventDefault();
   //   const data = [];
@@ -48,33 +39,45 @@ export const Carousel = () => {
   //   });
   //   await writeSubscriptions(data);
   // }
+  //else do this below
 
-  return (
-    <>
-      <div>
-        <div className="defaultCardContainer">
-          {defaultSubscriptions.map((sub, index) => {
-            return (
-              <div
-                key={sub.name}
-                className="card"
-                onClick={(event) => handleClick(event, index)}
-                id={sub.name}
-              >
-                <img src={sub.imageUrl} className="cardImg"></img>
-                <p>{sub.name}</p>
-              </div>
-            );
-          })}
+  function handleSubmit(e) {
+    e.preventDefault();
+    const data = [];
+    defaultSubscriptions.map((element, i) => {
+      if (isSelected[i]) {
+        subscriptions.push(element);
+        console.log(element);
+        history.push("/subscriptionInfo");
+      }
+    });
+
+    return (
+      <>
+        <div>
+          <div className="defaultCardContainer">
+            {defaultSubscriptions.map((sub, index) => {
+              return (
+                <div
+                  key={sub.name}
+                  className="card"
+                  onClick={(event) => handleClick(event, index)}
+                  id={sub.name}
+                >
+                  <img src={sub.imageUrl} className="cardImg"></img>
+                  <p>{sub.name}</p>
+                </div>
+              );
+            })}
+          </div>
+          <div className="defaultCardContainer">
+            <button className="nextButton" onClick={handleSubmit}>
+              Next
+            </button>
+          </div>
         </div>
-        <div className="defaultCardContainer">
-          <button className="nextButton" onClick={handleSubmit}>
-            Next
-          </button>
-        </div>
-      </div>
-    </>
-  );
+      </>
+    );
+  }
 };
-
 export default Carousel;

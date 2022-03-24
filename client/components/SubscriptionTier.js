@@ -2,20 +2,35 @@ import React from "react";
 import { useGuestData } from "../contexts/GuestDataContext";
 import { Slider } from "@mui/material";
 import Box from "@mui/material/Box";
+import { borderRadius } from "@mui/system";
 
 const subscriptions = [
   {
     imageUrl:
       "https://cdn.icon-icons.com/icons2/1211/PNG/512/1491579609-yumminkysocialmedia08_83079.png",
     name: "Youtube Premium",
-    price: { basic: "4.99", extra: "9.99", super: "14.99" },
+    price: "4.99",
+
+    plans: [
+      { basic: { 4.99: "monthly" } },
+      { extra: { 9.99: "monthly" } },
+      { super: { 14.99: "monthly" } },
+      { annual: { 149.99: "annual" } },
+    ],
     uid: "6ade7c52a8b",
     websiteUrl: "https://www.youtube.com/paid_memberships?ybp=mAEK",
   },
   {
     imageUrl: "https://cdn-icons-png.flaticon.com/512/174/174872.png",
     name: "Spotify",
-    price: { basic: "4.99", extra: "9.99", super: "14.99" },
+    price: "4.99",
+    plans: [
+      { basic: { 4.99: "monthly" } },
+      { extra: { 9.99: "monthly" } },
+      { super: { 14.99: "monthly" } },
+      { annual: { 149.99: "annual" } },
+    ],
+
     uid: "76ade7c52a8",
     websiteUrl: "https://support.spotify.com/us/article/cancel-premium/",
   },
@@ -24,6 +39,12 @@ const subscriptions = [
       "https://i.pinimg.com/474x/d2/64/3a/d2643ac76db3e1f3fd09fea9ef8eae00.jpg",
     name: "HBO Max",
     price: { basic: "4.99", extra: "9.99", super: "14.99" },
+    plans: [
+      { basic: { 4.99: "monthly" } },
+      { extra: { 9.99: "monthly" } },
+      { super: { 14.99: "monthly" } },
+      { annual: { 149.99: "annual" } },
+    ],
     uid: "7c52a8bf5a0",
     websiteUrl: "https://help.hbomax.com/us/Answer/Detail/000001191",
   },
@@ -32,6 +53,12 @@ const subscriptions = [
       "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Apple_TV.svg/1200px-Apple_TV.svg.png",
     name: "Apple TV",
     price: { basic: "4.99", extra: "9.99", super: "14.99" },
+    plans: [
+      { basic: { 4.99: "monthly" } },
+      { extra: { 9.99: "monthly" } },
+      { super: { 14.99: "monthly" } },
+      { annual: { 149.99: "annual" } },
+    ],
     uid: "8bf5a01a33e",
     websiteUrl: "https://support.apple.com/en-us/HT212048",
   },
@@ -40,6 +67,12 @@ const subscriptions = [
       "https://toppng.com/uploads/preview/logos-download-black-apple-music-logo-transparent-11562935177ggugsp6gy1.png",
     name: "Apple Music",
     price: { basic: "4.99", extra: "9.99", super: "14.99" },
+    plans: [
+      { basic: { 4.99: "monthly" } },
+      { extra: { 9.99: "monthly" } },
+      { super: { 14.99: "monthly" } },
+      { annual: { 149.99: "annual" } },
+    ],
     uid: "de7c52a8bf5",
     websiteUrl: "https://support.apple.com/en-us/HT212047",
   },
@@ -47,6 +80,12 @@ const subscriptions = [
     imageUrl: "https://cdn.iconscout.com/icon/free/png-256/tidal-282241.png",
     name: "Tidal",
     price: { basic: "4.99", extra: "9.99", super: "14.99" },
+    plans: [
+      { basic: { 4.99: "monthly" } },
+      { extra: { 9.99: "monthly" } },
+      { super: { 14.99: "monthly" } },
+      { annual: { 149.99: "annual" } },
+    ],
     uid: "e7c52a8bf5a",
     websiteUrl:
       "https://support.tidal.com/hc/en-us/articles/201314601-Cancel-TIDAL-Subscription-or-Trial",
@@ -73,7 +112,7 @@ export const SubscriptionTier = () => {
               <h4>{sub.name}</h4>
             </div>
             <div id="priceTierTable">
-              {Object.entries(sub.price).map(([key, value]) => {
+              {Object.entries(sub.plans).map(([key, value]) => {
                 return (
                   <div className="singleTier" key={setCount()}>
                     <h4 className="singleTierChild">{value}</h4>
@@ -81,7 +120,20 @@ export const SubscriptionTier = () => {
                   </div>
                 );
               })}
-              <Slider steps={3} marks={true} id="priceTierSlider"></Slider>
+
+              <div
+                id="tierS
+              lider"
+              >
+                <div id="sliderTrack"></div>
+                <div id="sliderIndicator"></div>
+              </div>
+              {/* <Slider
+                thumb={(color = "red")}
+                steps={3}
+                marks={true}
+                id="priceTierSlider"
+              ></Slider> */}
             </div>
           </div>
         );

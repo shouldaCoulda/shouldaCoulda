@@ -254,7 +254,7 @@ form div {
 }
 .ledgendContainer {
   position: relative;
-=======
+}
 
 #tierTable {
   width: 55vw;
@@ -276,19 +276,39 @@ form div {
 }
 
 #priceTierTable {
-  margin: auto;
+  display: grid;
   text-align: center;
-  height: max-content;
+  margin: auto;
+  grid-template-rows: 5% 30% 30% 30% 5%;
+  /* grid-template-columns: 30% 30% 30%; */
+  grid-template-columns: repeat(auto-fit, minmax(45px, 1fr));
+
+  /* height: max-content;
   width: 38rem;
+    margin: auto; */
 }
 .singleTier {
   display: inline-block;
+  grid-row-start: 2;
 }
 .singleTierChild {
   height: 2rem;
   width: 4rem;
 }
 
-#priceTierSlider {
+/* #tierSlider {
+  grid-row-start: 4;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+#sliderTrack {
+  background-color: gray;
+  height: 0.4rem;
   width: 35rem;
 }
+#sliderIndicator {
+  background-color: black;
+  height: 0.7rem;
+  width: 4rem;
+} */
