@@ -7,13 +7,14 @@ import { useGuestData } from "../contexts/GuestDataContext";
 
 export const SelectionScreen = () => {
   const { defaultSubscriptions } = useSubscription();
-  const { writeSubscriptions } = useAuth();
+  const { writeSubscriptions, usersSubscriptions } = useAuth();
 
   const isSelected = Array(defaultSubscriptions.length).fill(false);
   const guestData = useGuestData();
   const { expenses, subscriptions } = useGuestData();
 
   function handleClick(e, index) {
+    console.log(usersSubscriptions);
     isSelected[index] = !isSelected[index];
     if (e.currentTarget.className.includes("selected")) {
       e.currentTarget.className = "card";
@@ -50,16 +51,28 @@ export const SelectionScreen = () => {
     await writeSubscriptions(data);
     history.push("/profile");
   }
+  function checkIsSelected(uid) {
+    let uids = [];
+    for (let i = 0; i < usersSubscriptions.length; i++) {
+      uids.push(usersSubscriptions[i].uid);
+    }
+    if (uids.includes(uid)) {
+      console.log("found equal", uid);
+      return "card selected";
+    }
+    return "card";
+  }
 
   return (
     <>
       <div>
         <div className="defaultCardContainer">
           {defaultSubscriptions.map((sub, index) => {
+            let str = checkIsSelected(sub.uid);
             return (
               <div
                 key={sub.name}
-                className="card"
+                className={str}
                 onClick={(event) => handleClick(event, index)}
                 id={sub.name}
               >
