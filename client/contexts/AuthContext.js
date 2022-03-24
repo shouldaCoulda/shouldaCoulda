@@ -49,19 +49,12 @@ export function AuthProvider({ children }) {
       a user in our firebase. then sets the currentUser to this user
       */
       const createdUser = createUserWithEmailAndPassword(auth, email, password);
-      var user = {
-        uid: createdUser.uid,
-        email: createdUser.email,
-      };
-      writeUserData(user);
     } catch (error) {
       console.log(error.message);
     }
   }
   //this function writes user data into the user database
   function writeUserData(user) {
-    console.log("in write", user);
-    const uuid = uid();
     var userReff = ref(database, "users/" + user.uid);
     set(userReff, user);
   }
@@ -74,6 +67,7 @@ export function AuthProvider({ children }) {
       console.log(error.message);
     }
   }
+
   //Logout
   async function logout() {
     return auth.signOut();
@@ -82,6 +76,13 @@ export function AuthProvider({ children }) {
   //this funtion adds subscriptions into a users subscriptions/
   //collestion
   async function writeSubscriptions(subscriptions) {
+    if (usersSubscriptions.length === 0) {
+      var user = {
+        uid: currentUser.uid,
+        email: currentUser.email,
+      };
+      writeUserData(user);
+    }
     for (let i = 0; i < subscriptions.length; i++) {
       set(
         ref(
