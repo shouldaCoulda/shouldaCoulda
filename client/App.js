@@ -2,6 +2,8 @@ import React from "react";
 import { AuthProvider } from "./contexts/AuthContext";
 import { SubscriptionProvider } from "./contexts/SubscriptionContext";
 
+import { OtherProvider } from "./contexts/OtherExpContext";
+
 import { GuestDataContextProvider } from "./contexts/GuestDataContext";
 
 import { ChartProvider } from "./contexts/ChartContext";
@@ -15,10 +17,12 @@ const App = () => {
       <AuthProvider>
         <GuestDataContextProvider>
           <SubscriptionProvider>
-            <ChartProvider>
-              <Navbar />
-              <Routes />
-            </ChartProvider>
+              <OtherProvider>
+              <ChartProvider>
+                <Navbar />
+                <Routes />
+              </ChartProvider>
+            </OtherProvider>
           </SubscriptionProvider>
         </GuestDataContextProvider>
       </AuthProvider>

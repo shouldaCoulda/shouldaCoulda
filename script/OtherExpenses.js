@@ -1,6 +1,6 @@
-export const data = [
+export const otherData = [
   {
-    name: "Coffee to-go",
+    name: "Coffee",
     price: "3.99",
     frequency: "",
     imageUrl:
@@ -18,7 +18,7 @@ export const data = [
       "https://www.cancer.net/navigating-cancer-care/prevention-and-healthy-living/stopping-tobacco-use-after-cancer-diagnosis/resources-help-you-quit-smoking",
   },
   {
-    name: "Food Delivery",
+    name: "Food",
     price: "29.99",
     frequency: "",
     imageUrl:
