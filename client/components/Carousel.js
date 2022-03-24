@@ -24,17 +24,30 @@ export const Carousel = () => {
   }
   const history = useHistory();
 
-  function handleSubmit(e) {
+  // function handleSubmit(e) {
+  //   e.preventDefault();
+  //   const data = [];
+  //   defaultSubscriptions.map((element, i) => {
+  //     if (isSelected[i]) {
+  //       subscriptions.push(element);
+  //       console.log(element);
+  //       history.push("/subscriptionInfo");
+  //     }
+  //   });
+  //   writeSubscriptions(data);
+  //   history.push("/profile");
+  // }
+  // await writeSubscriptions(data);
+  async function handleSubmit(e) {
     e.preventDefault();
     const data = [];
     defaultSubscriptions.map((element, i) => {
       if (isSelected[i]) {
-        subscriptions.push(element);
-        console.log(element);
-        history.push("/subscriptionInfo");
+        data.push(element);
+        console.log(data);
       }
     });
-    writeSubscriptions(data);
+    await writeSubscriptions(data);
     history.push("/profile");
   }
 
