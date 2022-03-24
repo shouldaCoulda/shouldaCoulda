@@ -5,10 +5,10 @@ import { withRouter, Route, Switch, Redirect } from "react-router-dom";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Profile from "./components/Profile";
-import Carousel from "./components/Carousel";
 import { SubscriptionTier } from "./components/SubscriptionTier";
 import ChartContainer from "./components/Chart/ChartContainer";
 import AddSubscription from "./components/AddSubscription";
+import SelectionScreen from "./components/SelectionScreen";
 
 /**
  * COMPONENT
@@ -24,7 +24,7 @@ const Routes = () => {
           <>
             <Route exact path="/chart" component={ChartContainer} />
             <Route exact path="/profile" component={Profile} />
-            <Route exact path="/home" component={Carousel} />
+            <Route exact path="/home" component={SelectionScreen} />
             <Route exact path="/add" component={AddSubscription} />
             <Route exact path="/" component={ChartContainer} />
           </>
@@ -33,7 +33,7 @@ const Routes = () => {
             <Route exact path="/chart" component={ChartContainer} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={SignUp} />
-            <Route exact path="/" component={Carousel} />
+            <Route exact path="/" component={SelectionScreen} />
             <Route
               exact
               path="/subscriptionInfo"

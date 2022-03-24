@@ -5,7 +5,7 @@ import { useAuth } from "../contexts/AuthContext";
 import { useHistory } from "react-router-dom";
 import { useGuestData } from "../contexts/GuestDataContext";
 
-export const Carousel = () => {
+export const SelectionScreen = () => {
   const { defaultSubscriptions } = useSubscription();
   const { writeSubscriptions } = useAuth();
 
@@ -79,4 +79,4 @@ export const Carousel = () => {
   );
 };
 
-export default Carousel;
+export default SelectionScreen;
