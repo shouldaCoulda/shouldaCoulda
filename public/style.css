@@ -319,7 +319,7 @@ form div {
   width: max-content;
 }
 
-/* #tierSlider {
+#tierSlider {
   grid-row-start: 4;
   grid-column-start: 1;
   grid-column-end: 3;
@@ -382,7 +382,7 @@ form div {
 }
 
 .close {
-  content: 'x';
+  content: "x";
   cursor: pointer;
   position: fixed;
   right: calc(15% - 30px);
@@ -400,4 +400,4 @@ form div {
   background-color: black;
   height: 0.7rem;
   width: 4rem;
-} */
+}
