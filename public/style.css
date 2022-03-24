@@ -239,11 +239,11 @@ form div {
   background-color: blue;
 }
 
-/* The legend is absolutely positioned, but in relation to its 
+/* The legend is absolutely positioned, but in relation to its
  * container.
  * We also apply a common trick to place it at the vertical center of
  * its parent: position the top bound at 50% of the parent's height.
- * then transform the position to move it up by 50% of its own height. 
+ * then transform the position to move it up by 50% of its own height.
  */
 .legend {
   display: inline-block;
@@ -257,7 +257,7 @@ form div {
 }
 
 /* This div is decisive for the whole thing's height.
- * Since the legend is positioned in an absolute way, we need to make 
+ * Since the legend is positioned in an absolute way, we need to make
  * room for it by moving this div to the right (margin-left)
  */
 .legend-text {
@@ -329,7 +329,45 @@ form div {
   background-color: gray;
   height: 0.4rem;
   width: 35rem;
- 
+}
+
+.popup {
+  position: fixed;
+  background: #00000050;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+.box {
+  position: relative;
+  width: 70%;
+  margin: 0 auto;
+  height: auto;
+  max-height: 70vh;
+  margin-top: calc(100vh - 85vh - 20px);
+  background: #fff;
+  border-radius: 4px;
+  padding: 20px;
+  border: 1px solid #999;
+  overflow: auto;
+}
+
+.close {
+  content: 'x';
+  cursor: pointer;
+  position: fixed;
+  right: calc(15% - 30px);
+  top: calc(100vh - 85vh - 33px);
+  background: #ededed;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  line-height: 20px;
+  text-align: center;
+  border: 1px solid #999;
+  font-size: 20px;
 }
 #sliderIndicator {
   background-color: black;
