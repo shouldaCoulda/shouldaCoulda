@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Popup from './Popup';
+import PopupBox from './PopupBox';
 
 function PopupButton() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +13,7 @@ function PopupButton() {
       <input type='button' value='ADD' onClick={togglePopup} />
       <p></p>
       {isOpen && (
-        <Popup
+        <PopupBox
           content={
             <>
               <b>I Want To Add To</b>
