@@ -49,6 +49,7 @@ h1 {
   border: 1px solid red;
   border-width: 0;
   border-collapse: collapse;
+  margin: 3rem auto;
   /* box-shadow: 0 0 15px darkgray; */
   box-shadow: 3px 2px 10px darkgray;
 }
@@ -178,6 +179,10 @@ form div {
   box-shadow: 0 0 20px lightgray;
 }
 
+.tierSelected {
+  box-shadow: 0 0 40px 20px #0ff;
+}
+
 .slidecontainer {
   width: 100%; /* Width of the outside container */
 }
@@ -234,11 +239,11 @@ form div {
   background-color: blue;
 }
 
-/* The legend is absolutely positioned, but in relation to its 
+/* The legend is absolutely positioned, but in relation to its
  * container.
  * We also apply a common trick to place it at the vertical center of
  * its parent: position the top bound at 50% of the parent's height.
- * then transform the position to move it up by 50% of its own height. 
+ * then transform the position to move it up by 50% of its own height.
  */
 .legend {
   display: inline-block;
@@ -252,7 +257,7 @@ form div {
 }
 
 /* This div is decisive for the whole thing's height.
- * Since the legend is positioned in an absolute way, we need to make 
+ * Since the legend is positioned in an absolute way, we need to make
  * room for it by moving this div to the right (margin-left)
  */
 .legend-text {
@@ -264,6 +269,7 @@ form div {
 .ledgendContainer {
   position: relative;
 }
+
 #tierTable {
   width: 55vw;
   margin: auto;
@@ -281,23 +287,47 @@ form div {
   padding: 5px;
   width: 8rem;
   object-fit: scale-down;
+  display: inline;
+  font-size: 3em;
 }
 
 #priceTierTable {
-  margin: auto;
-  text-align: center;
-  height: max-content;
   width: 38rem;
+  display: grid;
+  text-align: center;
+  margin: auto;
+  grid-template-rows: 50% 50%;
+  /* grid-template-columns: 30% 30% 30%; */
+  grid-template-columns: repeat(auto-fit, minmax(45px, 1fr));
+
+  /* height: max-content;
+  width: 38rem;
+    margin: auto; */
 }
 .singleTier {
-  display: inline-block;
+  text-align: center;
+  width: 9rem;
+  height: 6rem;
+  grid-row-start: 1;
+  margin: auto;
+  padding: 0.8rem;
 }
 .singleTierChild {
-  height: 2rem;
-  width: 4rem;
+  margin: auto auto;
+  padding: 0.5rem;
+
+  width: max-content;
 }
 
-#priceTierSlider {
+/* #tierSlider {
+  grid-row-start: 4;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+#sliderTrack {
+  background-color: gray;
+  height: 0.4rem;
   width: 35rem;
 }
 
@@ -327,3 +357,47 @@ form div {
 .round {
   border-radius: 30px;
 }
+
+.popup {
+  position: fixed;
+  background: #00000050;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+.box {
+  position: relative;
+  width: 70%;
+  margin: 0 auto;
+  height: auto;
+  max-height: 70vh;
+  margin-top: calc(100vh - 85vh - 20px);
+  background: #fff;
+  border-radius: 4px;
+  padding: 20px;
+  border: 1px solid #999;
+  overflow: auto;
+}
+
+.close {
+  content: 'x';
+  cursor: pointer;
+  position: fixed;
+  right: calc(15% - 30px);
+  top: calc(100vh - 85vh - 33px);
+  background: #ededed;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  line-height: 20px;
+  text-align: center;
+  border: 1px solid #999;
+  font-size: 20px;
+}
+#sliderIndicator {
+  background-color: black;
+  height: 0.7rem;
+  width: 4rem;
+} */

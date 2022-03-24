@@ -25,27 +25,27 @@ export const SelectionScreen = () => {
   }
   const history = useHistory();
 
-  // function handleSubmit(e) {
+  //if youre logged in
+  // async function handleSubmit(e) {
   //   e.preventDefault();
   //   const data = [];
-  //   defaultSubscriptions.map((element, i) => {
+  //   defualtSubscriptions.map((element, i) => {
   //     if (isSelected[i]) {
-  //       subscriptions.push(element);
-  //       console.log(element);
-  //       history.push("/subscriptionInfo");
+  //       data.push(element);
+  //       console.log(data);
   //     }
   //   });
-  //   writeSubscriptions(data);
-  //   history.push("/profile");
+  //   await writeSubscriptions(data);
   // }
-  // await writeSubscriptions(data);
-  async function handleSubmit(e) {
+  // else  use the below handle submit
+  function handleSubmit(e) {
     e.preventDefault();
     const data = [];
     defaultSubscriptions.map((element, i) => {
       if (isSelected[i]) {
-        data.push(element);
-        console.log(data);
+        subscriptions.push(element);
+        console.log(element);
+        history.push("/subscriptionInfo");
       }
     });
     await writeSubscriptions(data);
