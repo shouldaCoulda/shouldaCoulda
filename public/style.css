@@ -263,6 +263,7 @@ form div {
 }
 .ledgendContainer {
   position: relative;
+}
 
 #tierTable {
   width: 55vw;
@@ -299,10 +300,9 @@ form div {
 
 #priceTierSlider {
   width: 35rem;
-
 }
 
-.popup-box {
+.popup {
   position: fixed;
   background: #00000050;
   width: 100%;
@@ -325,7 +325,7 @@ form div {
   overflow: auto;
 }
 
-.close-icon {
+.close {
   content: 'x';
   cursor: pointer;
   position: fixed;
