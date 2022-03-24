@@ -3,6 +3,16 @@ import { useGuestData } from "../contexts/GuestDataContext";
 import { Slider } from "@mui/material";
 import Box from "@mui/material/Box";
 import { borderRadius } from "@mui/system";
+import { Link } from "react-router-dom";
+
+function handleClick(e, index) {
+  // isSelected[index] = !isSelected[index];
+  if (e.currentTarget.className.includes("tierSelected")) {
+    e.currentTarget.className = "singleTier";
+  } else {
+    e.currentTarget.className = "singleTier tierSelected";
+  }
+}
 
 const subscriptions = [
   {
@@ -10,12 +20,10 @@ const subscriptions = [
       "https://cdn.icon-icons.com/icons2/1211/PNG/512/1491579609-yumminkysocialmedia08_83079.png",
     name: "Youtube Premium",
     price: "4.99",
-
     plans: [
-      { basic: { 4.99: "monthly" } },
-      { extra: { 9.99: "monthly" } },
-      { super: { 14.99: "monthly" } },
-      { annual: { 149.99: "annual" } },
+      { tier: "Basic", frequency: "monthly", price: "4.99" },
+      { tier: "Extra", frequency: "monthly", price: "9.99" },
+      { tier: "Saver", frequency: "annually", price: "99.99" },
     ],
     uid: "6ade7c52a8b",
     websiteUrl: "https://www.youtube.com/paid_memberships?ybp=mAEK",
@@ -25,10 +33,9 @@ const subscriptions = [
     name: "Spotify",
     price: "4.99",
     plans: [
-      { basic: { 4.99: "monthly" } },
-      { extra: { 9.99: "monthly" } },
-      { super: { 14.99: "monthly" } },
-      { annual: { 149.99: "annual" } },
+      { tier: "Basic", frequency: "monthly", price: "4.99" },
+      { tier: "Extra", frequency: "monthly", price: "9.99" },
+      { tier: "Saver", frequency: "annually", price: "99.99" },
     ],
 
     uid: "76ade7c52a8",
@@ -38,12 +45,11 @@ const subscriptions = [
     imageUrl:
       "https://i.pinimg.com/474x/d2/64/3a/d2643ac76db3e1f3fd09fea9ef8eae00.jpg",
     name: "HBO Max",
-    price: { basic: "4.99", extra: "9.99", super: "14.99" },
+    price: "4.99",
     plans: [
-      { basic: { 4.99: "monthly" } },
-      { extra: { 9.99: "monthly" } },
-      { super: { 14.99: "monthly" } },
-      { annual: { 149.99: "annual" } },
+      { tier: "Basic", frequency: "monthly", price: "4.99" },
+      { tier: "Extra", frequency: "monthly", price: "9.99" },
+      { tier: "Saver", frequency: "annually", price: "99.99" },
     ],
     uid: "7c52a8bf5a0",
     websiteUrl: "https://help.hbomax.com/us/Answer/Detail/000001191",
@@ -52,12 +58,11 @@ const subscriptions = [
     imageUrl:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Apple_TV.svg/1200px-Apple_TV.svg.png",
     name: "Apple TV",
-    price: { basic: "4.99", extra: "9.99", super: "14.99" },
+    price: "4.99",
     plans: [
-      { basic: { 4.99: "monthly" } },
-      { extra: { 9.99: "monthly" } },
-      { super: { 14.99: "monthly" } },
-      { annual: { 149.99: "annual" } },
+      { tier: "Basic", frequency: "monthly", price: "4.99" },
+      { tier: "Extra", frequency: "monthly", price: "9.99" },
+      { tier: "Saver", frequency: "annually", price: "99.99" },
     ],
     uid: "8bf5a01a33e",
     websiteUrl: "https://support.apple.com/en-us/HT212048",
@@ -66,12 +71,11 @@ const subscriptions = [
     imageUrl:
       "https://toppng.com/uploads/preview/logos-download-black-apple-music-logo-transparent-11562935177ggugsp6gy1.png",
     name: "Apple Music",
-    price: { basic: "4.99", extra: "9.99", super: "14.99" },
+    price: "4.99",
     plans: [
-      { basic: { 4.99: "monthly" } },
-      { extra: { 9.99: "monthly" } },
-      { super: { 14.99: "monthly" } },
-      { annual: { 149.99: "annual" } },
+      { tier: "Basic", frequency: "monthly", price: "4.99" },
+      { tier: "Extra", frequency: "monthly", price: "9.99" },
+      { tier: "Saver", frequency: "annually", price: "99.99" },
     ],
     uid: "de7c52a8bf5",
     websiteUrl: "https://support.apple.com/en-us/HT212047",
@@ -79,12 +83,12 @@ const subscriptions = [
   {
     imageUrl: "https://cdn.iconscout.com/icon/free/png-256/tidal-282241.png",
     name: "Tidal",
-    price: { basic: "4.99", extra: "9.99", super: "14.99" },
+    price: "4.99",
     plans: [
-      { basic: { 4.99: "monthly" } },
-      { extra: { 9.99: "monthly" } },
-      { super: { 14.99: "monthly" } },
-      { annual: { 149.99: "annual" } },
+      { tier: "Basic", frequency: "monthly", price: "4.99" },
+      { tier: "Extra", frequency: "monthly", price: "9.99" },
+      { tier: "Super", frequency: "weekly", price: "29.99" },
+      { tier: "Saver", frequency: "annually", price: "99.99" },
     ],
     uid: "e7c52a8bf5a",
     websiteUrl:
@@ -109,25 +113,28 @@ export const SubscriptionTier = () => {
           <div id="tierTable" key={sub.uid}>
             <div id="iconTable">
               <img id="tierIcon" src={sub.imageUrl}></img>
-              <h4>{sub.name}</h4>
+              <p>{sub.name}</p>
             </div>
             <div id="priceTierTable">
-              {Object.entries(sub.plans).map(([key, value]) => {
+              {sub.plans.map((plan) => {
                 return (
-                  <div className="singleTier" key={setCount()}>
-                    <h4 className="singleTierChild">{value}</h4>
-                    <h5 className="singleTierChild">{key}</h5>
+                  <div
+                    className="singleTier"
+                    onClick={handleClick}
+                    key={setCount()}
+                  >
+                    <h4 className="singleTierChild">${plan.price}</h4>
+                    <p className="singleTierChild">{plan.tier}</p>
                   </div>
                 );
               })}
 
-              <div
-                id="tierS
-              lider"
+              {/* <div
+                id="tierSlider"
               >
                 <div id="sliderTrack"></div>
                 <div id="sliderIndicator"></div>
-              </div>
+              </div> */}
               {/* <Slider
                 thumb={(color = "red")}
                 steps={3}
@@ -138,6 +145,9 @@ export const SubscriptionTier = () => {
           </div>
         );
       })}
+      <Link to={"/chart"}>
+        <button className="nextButton">Show me the money!</button>
+      </Link>
     </section>
   );
 };

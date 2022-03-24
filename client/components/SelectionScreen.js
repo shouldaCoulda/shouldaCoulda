@@ -5,7 +5,7 @@ import { useAuth } from "../contexts/AuthContext";
 import { useHistory } from "react-router-dom";
 import { useGuestData } from "../contexts/GuestDataContext";
 
-export const Carousel = () => {
+export const SelectionScreen = () => {
   const { defaultSubscriptions } = useSubscription();
   const { writeSubscriptions } = useAuth();
 
@@ -25,9 +25,6 @@ export const Carousel = () => {
   const history = useHistory();
 
   //if youre logged in
-
-  // await writeSubscriptions(data);
-  // history.push("/profile");
   // async function handleSubmit(e) {
   //   e.preventDefault();
   //   const data = [];
@@ -39,8 +36,7 @@ export const Carousel = () => {
   //   });
   //   await writeSubscriptions(data);
   // }
-  //else do this below
-
+  // else  use the below handle submit
   function handleSubmit(e) {
     e.preventDefault();
     const data = [];
@@ -80,4 +76,5 @@ export const Carousel = () => {
     );
   }
 };
-export default Carousel;
+
+export default SelectionScreen;
