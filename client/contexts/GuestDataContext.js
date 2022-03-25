@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 
 const GuestDataContext = React.createContext();
 
@@ -8,9 +8,9 @@ export function useGuestData() {
 
 export function GuestDataContextProvider({ children }) {
   var expenses = {};
-  var subscriptions = [];
+  const [subscriptions, setSubscriptions] = useState([]);
 
-  var data = { expenses, subscriptions };
+  var data = { expenses, subscriptions, setSubscriptions };
   return (
     <GuestDataContext.Provider value={data}>
       {children}
