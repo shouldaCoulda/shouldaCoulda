@@ -274,7 +274,9 @@ form div {
   width: 55vw;
   margin: auto;
   display: flex;
-  flex-direction: row;
+  flex-direction: auto;
+  flex-wrap: wrap;
+  align-content: flex-start;
 }
 
 #iconTable {
@@ -292,13 +294,13 @@ form div {
 }
 
 #priceTierTable {
-  width: 38rem;
-  display: grid;
+  width: max-content;
+  /* display: grid; */
+  display: flex;
   text-align: center;
   margin: auto;
-  grid-template-rows: 50% 50%;
-  /* grid-template-columns: 30% 30% 30%; */
-  grid-template-columns: repeat(auto-fit, minmax(45px, 1fr));
+  /* grid-template-rows: 50% 50%; */
+  /* grid-template-columns: repeat(auto-fit, minmax(45px, 1fr)); */
 
   /* height: max-content;
   width: 38rem;
@@ -308,14 +310,15 @@ form div {
   text-align: center;
   width: 9rem;
   height: 6rem;
-  grid-row-start: 1;
+  /* grid-row-start: 1; */
   margin: auto;
   padding: 0.8rem;
+  flex-basis: auto;
 }
 .singleTierChild {
   margin: auto auto;
   padding: 0.5rem;
-
+  text-overflow: wrap;
   width: max-content;
 }
 

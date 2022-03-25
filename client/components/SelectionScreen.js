@@ -7,11 +7,11 @@ import { useGuestData } from "../contexts/GuestDataContext";
 
 export const SelectionScreen = () => {
   const { defaultSubscriptions } = useSubscription();
-  const { writeSubscriptions, usersSubscriptions } = useAuth();
+  const { writeSubscriptions, usersSubscriptions, currentUser } = useAuth();
 
   const isSelected = Array(defaultSubscriptions.length).fill(false);
   const guestData = useGuestData();
-  const { expenses, subscriptions } = useGuestData();
+  const { expenses, subscriptions, setSubscriptions } = useGuestData();
 
   function handleClick(e, index) {
     console.log(usersSubscriptions);
@@ -25,33 +25,45 @@ export const SelectionScreen = () => {
   }
   const history = useHistory();
 
-  // if youre logged in
-  async function handleSubmit(e) {
-    e.preventDefault();
-    const data = [];
-    defaultSubscriptions.map((element, i) => {
-      if (isSelected[i]) {
-        data.push(element);
-        console.log(data);
-      }
-    });
-    writeSubscriptions(data);
-    history.push("/profile");
+  function handleSubmit(e) {
+    if (currentUser) {
+      e.preventDefault();
+      var data = [];
+      defaultSubscriptions.map((element, i) => {
+        if (isSelected[i]) {
+          data.push(element);
+        }
+      });
+      writeSubscriptions(data);
+      history.push("/subscriptioninfo");
+    } else {
+      e.preventDefault();
+      var datas = [];
+      defaultSubscriptions.map((element, i) => {
+        if (isSelected[i]) {
+          datas.push(element);
+        }
+      });
+      setSubscriptions(datas);
+      history.push("/subscriptioninfo");
+    }
   }
-  // else  use the below handle submit
-  // async function handleSubmit(e) {
+
+  // function handleSubmit(e) {
   //   e.preventDefault();
   //   const data = [];
   //   defaultSubscriptions.map((element, i) => {
   //     if (isSelected[i]) {
-  //       subscriptions.push(element);
+  //       // subscriptions.push(element);
+  //       data.push(element);
   //       console.log(element);
   //       history.push("/subscriptionInfo");
   //     }
   //   });
-  //   await writeSubscriptions(data);
-  //   history.push("/profile");
+  //   writeSubscriptions(data);
+  //   history.push("/subscriptioninfo");
   // }
+
   function checkIsSelected(uid) {
     let uids = [];
     for (let i = 0; i < usersSubscriptions.length; i++) {
