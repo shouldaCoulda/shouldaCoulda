@@ -1,7 +1,10 @@
 import React, { useContext, useState, useEffect } from "react";
 import { ref, set } from "firebase/database";
 import { database } from "../firebase";
-import { testAlpha } from "../../script/FinancialAPI/FinancialData";
+import {
+  testAlpha,
+  testMonthly,
+} from "../../script/FinancialAPI/FinancialData";
 const FinancialDataContext = React.createContext();
 
 export function useSubscription() {
@@ -17,6 +20,7 @@ export function FinancialDataProvider({ children }) {
   useEffect(() => {
     console.log("hello");
     testAlpha();
+    testMonthly();
   }, []);
   const value = {
     FinancialData,
