@@ -9,7 +9,7 @@ import ChartContainer from './components/Chart/ChartContainer';
 import AddSubscription from './components/AddSubscription';
 import SelectionScreen from './components/SelectionScreen';
 import { SubscriptionTier } from './components/SubscriptionTier';
-import SignInPrompt from './components/SignInPrompt';
+import PromptButton from './components/PromptButton';
 
 const Routes = () => {
   const { currentUser } = useAuth();
@@ -29,7 +29,7 @@ const Routes = () => {
               path='/subscriptioninfo'
               component={SubscriptionTier}
             />
-            <Route exact path='/alert' component={SignInPrompt} />
+            <Route exact path='/alert' component={PromptButton} />
           </>
         ) : (
           <>
