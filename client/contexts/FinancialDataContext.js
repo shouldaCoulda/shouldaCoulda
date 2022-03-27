@@ -19,7 +19,6 @@ export function FinancialDataProvider({ children }) {
   //this writes data into the subscriptions folder
   useEffect(() => {
     console.log("hello");
-    testAlpha();
     setFinancialData(testMonthly());
     console.log("use effect", financialData);
   }, []);

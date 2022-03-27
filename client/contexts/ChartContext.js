@@ -67,7 +67,7 @@ export function ChartProvider({ children }) {
       { name: "stock", line: stockData, color: "green" },
       { name: "bitcoin", line: btcData, color: "purple" },
     ]);
-  }, [months]);
+  }, [months, financialData]);
 
   const value = {
     months,
