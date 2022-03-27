@@ -7,23 +7,24 @@ import {
 } from "../../script/FinancialAPI/FinancialData";
 const FinancialDataContext = React.createContext();
 
-export function useSubscription() {
+export function useFinancialData() {
   return useContext(FinancialDataContext);
 }
 
 var dbRef = ref(database);
 
 export function FinancialDataProvider({ children }) {
-  var [FinancialData, setFinancialData] = useState({});
+  var [financialData, setFinancialData] = useState({});
 
   //this writes data into the subscriptions folder
   useEffect(() => {
     console.log("hello");
     testAlpha();
-    testMonthly();
+    setFinancialData(testMonthly());
+    console.log("use effect", financialData);
   }, []);
   const value = {
-    FinancialData,
+    financialData,
     setFinancialData,
   };
 

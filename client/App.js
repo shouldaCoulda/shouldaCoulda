@@ -19,12 +19,12 @@ const App = () => {
         <GuestDataContextProvider>
           <SubscriptionProvider>
             <OtherProvider>
-              <ChartProvider>
-                <FinancialDataProvider>
+              <FinancialDataProvider>
+                <ChartProvider>
                   <Navbar />
                   <Routes />
-                </FinancialDataProvider>
-              </ChartProvider>
+                </ChartProvider>
+              </FinancialDataProvider>
             </OtherProvider>
           </SubscriptionProvider>
         </GuestDataContextProvider>
