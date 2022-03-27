@@ -4,7 +4,7 @@ import { positions, Provider } from 'react-alert';
 import AlertTemplate from 'react-alert-template-basic';
 
 const animate = {
-  timeout: 3000,
+  timeout: 4000,
   position: positions.MIDDLE,
 };
 
