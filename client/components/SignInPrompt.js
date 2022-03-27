@@ -1,9 +1,19 @@
 import React from 'react';
-import SignInPrompt from './SignInPrompt';
+import PromptButton from './PromptButton';
 import { positions, Provider } from 'react-alert';
+import AlertTemplate from 'react-alert-template-basic';
+
+const animate = {
+  timeout: 3000,
+  position: positions.MIDDLE,
+};
 
 const SignInPrompt = () => {
-  return <div>Hello Friend</div>;
+  return (
+    <Provider template={AlertTemplate} {...animate}>
+      <PromptButton />
+    </Provider>
+  );
 };
 
 export default SignInPrompt;
