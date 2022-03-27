@@ -7,6 +7,7 @@ import { OtherProvider } from "./contexts/OtherExpContext";
 import { GuestDataContextProvider } from "./contexts/GuestDataContext";
 
 import { ChartProvider } from "./contexts/ChartContext";
+import { FinancialDataProvider } from "./contexts/FinancialDataContext";
 
 import Navbar from "./components/Navbar";
 import Routes from "./Routes";
@@ -17,10 +18,12 @@ const App = () => {
       <AuthProvider>
         <GuestDataContextProvider>
           <SubscriptionProvider>
-              <OtherProvider>
+            <OtherProvider>
               <ChartProvider>
-                <Navbar />
-                <Routes />
+                <FinancialDataProvider>
+                  <Navbar />
+                  <Routes />
+                </FinancialDataProvider>
               </ChartProvider>
             </OtherProvider>
           </SubscriptionProvider>
