@@ -1,10 +1,8 @@
-import React from 'react';
-import { useAuth } from '../contexts/AuthContext';
-import { Link } from 'react-router-dom';
-import PopupButton from './PopupButton';
-import PopupBox from './PopupBox';
-
-
+import React from "react";
+import { useAuth } from "../contexts/AuthContext";
+import { Link } from "react-router-dom";
+import PopupButton from "./PopupButton";
+import PopupBox from "./PopupBox";
 
 const Profile = () => {
   const { currentUser, usersSubscriptions, removeSubscription, getTotal } =
@@ -22,8 +20,8 @@ const Profile = () => {
         <PopupButton />
         {/* </Link> */}
       </div>
-      <div style={{ marginTop: '50px' }}>
-        <table className='user-sub-table'>
+      <div style={{ marginTop: "50px" }}>
+        <table className="user-sub-table">
           <thead>
             <tr>
               <th></th>
@@ -38,14 +36,14 @@ const Profile = () => {
             {usersSubscriptions.map((sub, index) => {
               return (
                 <tr key={index}>
-                  <th scope='row'>{index + 1}</th>
+                  <th scope="row">{index + 1}</th>
                   <td>
                     <a
                       href={sub.websiteUrl}
-                      target='_blank'
-                      rel='noreferrer noopener'
+                      target="_blank"
+                      rel="noreferrer noopener"
                     >
-                      <img src={sub.imageUrl} height='90' />
+                      <img src={sub.imageUrl} height="40" />
                     </a>
                   </td>
                   <td>{sub.name}</td>
@@ -53,7 +51,7 @@ const Profile = () => {
 
                   <td>
                     <button
-                      className='logoutButton'
+                      className="logoutButton"
                       onClick={(e) => handleDelete(e, sub.uid)}
                     >
                       Remove
@@ -68,9 +66,9 @@ const Profile = () => {
               <td></td>
               <td></td>
               <td>Total: </td>
-              <td className='user-sub-total'>
+              <td className="user-sub-total">
                 ${getTotal()}
-                /month!{' '}
+                /month!{" "}
               </td>
             </tr>
           </tfoot>
