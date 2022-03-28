@@ -1,10 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
-import { ref, set } from "firebase/database";
+import { ref, set, onValue } from "firebase/database";
 import { database } from "../firebase";
-import {
-  testAlpha,
-  testMonthly,
-} from "../../script/FinancialAPI/FinancialData";
+
 const FinancialDataContext = React.createContext();
 
 export function useFinancialData() {
@@ -15,22 +12,49 @@ var dbRef = ref(database);
 
 export function FinancialDataProvider({ children }) {
   var [financialData, setFinancialData] = useState({});
+  var [bitcoinData, setbitcoinData] = useState([]);
+  var [ethereumData, setEthData] = useState([]);
 
-  async function readData() {
-    const data = await testMonthly();
-    console.log("in realDAta", financialData);
+  var btcRef = ref(database, "financialData/bitcoin");
+  var ethRef = ref(database, "financialData/ethereum");
+
+  useEffect(() => {
+    onValue(btcRef, (snapshot) => {
+      setbitcoinData([]);
+      const data = snapshot.val();
+      if (data !== null) {
+        Object.values(data).map((month) => {
+          setbitcoinData((oldArray) => [...oldArray, month]);
+        });
+      }
+    });
+    onValue(ethRef, (snapshot) => {
+      setEthData([]);
+      const data = snapshot.val();
+      if (data !== null) {
+        Object.values(data).map((month) => {
+          setEthData((oldArray) => [...oldArray, month]);
+        });
+      }
+    });
+  }, []);
+
+  function readData() {
+    return bitcoinData;
   }
 
   //this writes data into the subscriptions folder
-  useEffect(async () => {
-    const data = testMonthly();
-    await setFinancialData(data);
-    readData();
-  }, []);
+  // useEffect(async () => {
+  //   readData();
+  // }, []);
+
   const value = {
     financialData,
     setFinancialData,
+    bitcoinData,
+    setbitcoinData,
     readData,
+    ethereumData,
   };
 
   return (

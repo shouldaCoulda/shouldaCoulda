@@ -59,8 +59,12 @@ export const SubscriptionTier = () => {
           }
         }
       })}
+
       <Link to={"/chart"}>
         <button className="nextButton">Show me the money!</button>
+      </Link>
+      <Link to={"/expense"}>
+        <button className="nextButton">Add more expenses</button>
       </Link>
     </section>
   );

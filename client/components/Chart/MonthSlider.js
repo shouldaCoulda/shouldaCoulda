@@ -5,14 +5,13 @@ import { useFinancialData } from "../../contexts/FinancialDataContext";
 
 const MonthSlider = () => {
   const { months, setMonths } = useChart();
-  const { financialData, readData } = useFinancialData();
+  const { financialData, readData, bitcoinData } = useFinancialData();
 
   function valuetext(value) {
     return `${value}°C`;
   }
 
   function handleSlide(e) {
-    console.log(readData());
     setMonths(e.target.value);
   }
 
@@ -25,10 +24,10 @@ const MonthSlider = () => {
           defaultValue={12}
           getAriaValueText={valuetext}
           valueLabelDisplay="auto"
-          step={5}
+          step={1}
           marks
           min={1}
-          max={100}
+          max={30}
           onChange={handleSlide}
           className="slider"
         />

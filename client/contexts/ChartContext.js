@@ -1,7 +1,11 @@
 import React, { useContext, useState, useEffect } from "react";
 import { useAuth } from "./AuthContext";
 import { getFinData } from "../../script/ChartOperations/DataGen/FinancialData";
-import { getStockData } from "../../script/ChartOperations/DataGen/StockData";
+import {
+  getStockData,
+  getBtcData,
+  getEthData,
+} from "../../script/ChartOperations/DataGen/StockData";
 import { useFinancialData } from "./FinancialDataContext";
 
 const ChartContext = React.createContext();
@@ -17,13 +21,13 @@ export function ChartProvider({ children }) {
   const [selectedLines, setSelectedLines] = useState([]);
   const [selectedApr, setSelectedApr] = useState(1);
   const [lines, setLines] = useState([]);
-  const { financialData } = useFinancialData();
+  const { financialData, bitcoinData, ethereumData } = useFinancialData();
   let maxY = 0;
 
   const finData = getFinData(getTotal(), months, selectedApr);
   const data = getData(getTotal(), months);
-  const stockData = getStockData(getTotal(), months);
-  const btcData = getStockData(getTotal(), months);
+  const ethData = getEthData(getTotal(), months, ethereumData);
+  const btcData = getBtcData(getTotal(), months, bitcoinData);
 
   function getData(total, months) {
     const data = [];
@@ -63,8 +67,8 @@ export function ChartProvider({ children }) {
     setLines([
       { name: "subscriptions", line: data, color: "blue" },
       { name: "apr", line: finData, color: "red" },
-      { name: "stock", line: stockData, color: "green" },
-      { name: "bitcoin", line: btcData, color: "purple" },
+      { name: "Ethereum", line: ethData, color: "green" },
+      { name: "Bitcoin", line: btcData, color: "purple" },
     ]);
   }, [months, financialData]);
 
