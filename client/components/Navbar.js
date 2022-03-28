@@ -22,39 +22,72 @@ const Navbar = () => {
             >
               <img src="/logo.png" alt="image" className="logo" />
             </Typography>
-            <Box>
-              <Typography
-                variant="h6"
-                noWrap
-                component="div"
-                onClick={() => history.push("./selections")}
-                sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
-              >
-                Home
-              </Typography>
-              <Typography
-                variant="h6"
-                noWrap
-                component="div"
-                onClick={() => history.push("./profile")}
-                sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
-              >
-                Profile
-              </Typography>
-              <Typography
-                variant="h6"
-                noWrap
-                component="div"
-                onClick={() => history.push("./chart")}
-                sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
-              >
-                Chart
-              </Typography>
-            </Box>
+            {currentUser ? (
+              <Box>
+                <Typography
+                  variant="h6"
+                  noWrap
+                  component="div"
+                  onClick={() => history.push("./selections")}
+                  sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
+                >
+                  Home
+                </Typography>
+                <Typography
+                  variant="h6"
+                  noWrap
+                  component="div"
+                  onClick={() => history.push("./profile")}
+                  sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
+                >
+                  Profile
+                </Typography>
+                <Typography
+                  variant="h6"
+                  noWrap
+                  component="div"
+                  onClick={() => history.push("./chart")}
+                  sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
+                >
+                  Chart
+                </Typography>
+                <Typography
+                  variant="h6"
+                  noWrap
+                  component="div"
+                  onClick={logout}
+                  sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
+                >
+                  Logout
+                </Typography>
+              </Box>
+            ) : (
+              <Box>
+                <Typography
+                  variant="h6"
+                  noWrap
+                  component="div"
+                  onClick={() => history.push("./login")}
+                  sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
+                >
+                  login
+                </Typography>
+                <Typography
+                  variant="h6"
+                  noWrap
+                  component="div"
+                  onClick={() => history.push("./signup")}
+                  sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
+                >
+                  Sign up
+                </Typography>
+              </Box>
+            )}
           </Toolbar>
         </Container>
       </AppBar>
-      <div>
+
+      {/* <div>
         <nav>
           <div className="navOptions">
             {currentUser ? (
@@ -85,7 +118,7 @@ const Navbar = () => {
           </div>
         </nav>
         <hr />
-      </div>
+      </div> */}
     </>
   );
 };
