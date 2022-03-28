@@ -16,15 +16,21 @@ var dbRef = ref(database);
 export function FinancialDataProvider({ children }) {
   var [financialData, setFinancialData] = useState({});
 
+  async function readData() {
+    const data = await testMonthly();
+    console.log("in realDAta", financialData);
+  }
+
   //this writes data into the subscriptions folder
-  useEffect(() => {
-    console.log("hello");
-    setFinancialData(testMonthly());
-    console.log("use effect", financialData);
+  useEffect(async () => {
+    const data = testMonthly();
+    await setFinancialData(data);
+    readData();
   }, []);
   const value = {
     financialData,
     setFinancialData,
+    readData,
   };
 
   return (

@@ -1,18 +1,20 @@
 import React, { useEffect } from "react";
 import { Slider } from "@mui/material";
 import { useChart } from "../../contexts/ChartContext";
+import { useFinancialData } from "../../contexts/FinancialDataContext";
 
 const MonthSlider = () => {
   const { months, setMonths } = useChart();
+  const { financialData, readData } = useFinancialData();
 
   function valuetext(value) {
     return `${value}°C`;
   }
 
   function handleSlide(e) {
+    console.log(readData());
     setMonths(e.target.value);
   }
- 
 
   return (
     <div className="monthcontainer grey surround">

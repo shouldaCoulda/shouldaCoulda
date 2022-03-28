@@ -60,7 +60,6 @@ export function ChartProvider({ children }) {
   }, [usersSubscriptions]);
 
   useEffect(() => {
-    console.log("in use Effect Hook", financialData);
     setLines([
       { name: "subscriptions", line: data, color: "blue" },
       { name: "apr", line: finData, color: "red" },
