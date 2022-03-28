@@ -391,3 +391,7 @@ form div {
   height: 0.7rem;
   width: 4rem;
 }
+
+#profileIcon {
+  height: 40;
+}
