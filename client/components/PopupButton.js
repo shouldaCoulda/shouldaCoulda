@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import PopupBox from './PopupBox';
+import React, { useState } from "react";
+import PopupBox from "./PopupBox";
+import { Link } from "react-router-dom";
 
 function PopupButton() {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,7 +11,12 @@ function PopupButton() {
 
   return (
     <div>
-      <input type='button' value='ADD' onClick={togglePopup} />
+      <input
+        type="button"
+        value="ADD"
+        className="moreSubsButton hover"
+        onClick={togglePopup}
+      />
       <p></p>
       {isOpen && (
         <PopupBox
@@ -19,11 +25,12 @@ function PopupButton() {
               <b>I Want To Add To</b>
 
               <div>
-                <button>Other Expenses</button>
-                <button>Expenses</button>
-                <button>Subscriptions</button>
-                <button>Cigerettes</button>
-                <button>Coffee</button>
+                <Link to="/expense">
+                  <button>Other Expenses</button>
+                </Link>
+                <Link to="/selections">
+                  <button>Subscriptions</button>
+                </Link>
               </div>
             </>
           }
