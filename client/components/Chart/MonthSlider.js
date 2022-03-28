@@ -5,7 +5,7 @@ import { useFinancialData } from "../../contexts/FinancialDataContext";
 
 const MonthSlider = () => {
   const { months, setMonths } = useChart();
-  const { financialData, readData } = useFinancialData();
+  const { financialData, readData, bitcoinData } = useFinancialData();
 
   function valuetext(value) {
     return `${value}°C`;
@@ -13,6 +13,7 @@ const MonthSlider = () => {
 
   function handleSlide(e) {
     console.log(readData());
+    console.log(bitcoinData);
     setMonths(e.target.value);
   }
 

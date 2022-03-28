@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { ref, set } from "firebase/database";
+import { ref, set, onValue } from "firebase/database";
 import { database } from "../firebase";
 import {
   testAlpha,
@@ -15,19 +15,36 @@ var dbRef = ref(database);
 
 export function FinancialDataProvider({ children }) {
   var [financialData, setFinancialData] = useState({});
+  var [bitcoinData, setbitcoinData] = useState([]);
 
-  async function readData() {
-    const data = await testMonthly();
-    console.log("in realDAta", data);
+  var btcRef = ref(database, "financialData/bitcoin");
+
+  useEffect(() => {
+    onValue(btcRef, (snapshot) => {
+      setbitcoinData([]);
+      const data = snapshot.val();
+      if (data !== null) {
+        Object.values(data).map((month) => {
+          setbitcoinData((oldArray) => [...oldArray, month]);
+        });
+      }
+    });
+  }, []);
+
+  function readData() {
+    return bitcoinData;
   }
 
   //this writes data into the subscriptions folder
-  useEffect(async () => {
-    readData();
-  }, []);
+  // useEffect(async () => {
+  //   readData();
+  // }, []);
+
   const value = {
     financialData,
     setFinancialData,
+    bitcoinData,
+    setbitcoinData,
     readData,
   };
 

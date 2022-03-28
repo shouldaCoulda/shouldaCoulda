@@ -17,7 +17,6 @@ export function testAlpha() {
 }
 export async function testMonthly() {
   await alpha.crypto.monthly("btc", "usd").then((data) => {
-    console.log(data);
     fillData(data);
     return data;
   });
@@ -25,7 +24,6 @@ export async function testMonthly() {
 
 async function fillData(data) {
   let dates = Object.keys(data["Time Series (Digital Currency Monthly)"]);
-  console.log(dates);
   let monthlyPriceData = [];
   for (let i = 0; i < dates.length; i++) {
     monthlyPriceData.push({
@@ -37,7 +35,6 @@ async function fillData(data) {
     });
   }
   // seed(monthlyPriceData);
-  console.log("filled arry", monthlyPriceData);
 }
 
 function seed(priceData) {
