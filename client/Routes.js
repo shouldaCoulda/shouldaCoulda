@@ -24,6 +24,10 @@ const Routes = () => {
             <Route exact path='/home' component={SelectionScreen} />
             <Route exact path='/add' component={AddSubscription} />
             <Route exact path='/' component={ChartContainer} />
+
+         
+
+
             <Route
               exact
               path='/subscriptioninfo'

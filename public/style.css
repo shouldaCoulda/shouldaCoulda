@@ -180,7 +180,7 @@ form div {
 }
 
 .tierSelected {
-  box-shadow: 0 0 40px 20px #0ff;
+  box-shadow: 0 0 40px 10px rgb(255, 51, 0);
 }
 
 .slidecontainer {
@@ -271,10 +271,11 @@ form div {
 }
 
 #tierTable {
-  width: 55vw;
+  width: 65vw;
   margin: auto;
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
 }
 
 #iconTable {
@@ -292,31 +293,20 @@ form div {
 }
 
 #priceTierTable {
-  width: 38rem;
-  display: grid;
+  width: max-content;
+  display: flex;
   text-align: center;
   margin: auto;
-  grid-template-rows: 50% 50%;
-  /* grid-template-columns: 30% 30% 30%; */
-  grid-template-columns: repeat(auto-fit, minmax(45px, 1fr));
-
-  /* height: max-content;
-  width: 38rem;
-    margin: auto; */
 }
 .singleTier {
-  text-align: center;
-  width: 9rem;
-  height: 6rem;
-  grid-row-start: 1;
-  margin: auto;
+  width: 11rem;
+  height: max-content;
   padding: 0.8rem;
+  margin: 20px;
 }
 .singleTierChild {
   margin: auto auto;
-  padding: 0.5rem;
-
-  width: max-content;
+  overflow-wrap: break-word;
 }
 
 #tierSlider {
@@ -400,4 +390,8 @@ form div {
   background-color: black;
   height: 0.7rem;
   width: 4rem;
+}
+
+#profileIcon {
+  height: 40;
 }

@@ -42,10 +42,10 @@ export function SubscriptionProvider({ children }) {
   //this writes data into the subscriptions folder
   function writeSubscriptionData(name, price, userId) {
     const uuid = uid();
-    set(ref(database, `users/` + userId + '/subscriptions/' + uuid), {
+    set(ref(database, `users/` + userId + "/subscriptions/" + uuid), {
       name: name,
       price: price,
-      uid: uuid
+      uid: uuid,
     });
   }
 
@@ -63,6 +63,7 @@ export function SubscriptionProvider({ children }) {
       set(ref(database, `subscriptions/` + uuid), {
         name: data[i].name,
         price: data[i].price,
+        plans: data[i].plans,
         imageUrl: data[i].imageUrl,
         websiteUrl: data[i].websiteUrl,
         uid: uuid,
