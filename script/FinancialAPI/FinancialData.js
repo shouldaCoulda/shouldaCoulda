@@ -30,7 +30,7 @@ async function fillData(data) {
       month: dates[i],
     });
   }
-  seed(monthlyPriceData);
+  // seed(monthlyPriceData);
 }
 
 function seed(priceData) {

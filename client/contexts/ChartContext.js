@@ -21,13 +21,13 @@ export function ChartProvider({ children }) {
   const [selectedLines, setSelectedLines] = useState([]);
   const [selectedApr, setSelectedApr] = useState(1);
   const [lines, setLines] = useState([]);
-  const { financialData, bitcoinData } = useFinancialData();
+  const { financialData, bitcoinData, ethereumData } = useFinancialData();
   let maxY = 0;
 
   const finData = getFinData(getTotal(), months, selectedApr);
   const data = getData(getTotal(), months);
-  // const ethData = getEthData(getTotal(), months);
-  // const btcData = getBtcData(getTotal(), months, bitcoinData);
+  const ethData = getEthData(getTotal(), months, ethereumData);
+  const btcData = getBtcData(getTotal(), months, bitcoinData);
 
   function getData(total, months) {
     const data = [];
@@ -67,8 +67,8 @@ export function ChartProvider({ children }) {
     setLines([
       { name: "subscriptions", line: data, color: "blue" },
       { name: "apr", line: finData, color: "red" },
-      // { name: "Ethereum", line: ethData, color: "green" },
-      // { name: "Bitcoin", line: btcData, color: "purple" },
+      { name: "Ethereum", line: ethData, color: "green" },
+      { name: "Bitcoin", line: btcData, color: "purple" },
     ]);
   }, [months, financialData]);
 

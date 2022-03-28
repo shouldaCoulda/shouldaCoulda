@@ -16,17 +16,27 @@ var dbRef = ref(database);
 export function FinancialDataProvider({ children }) {
   var [financialData, setFinancialData] = useState({});
   var [bitcoinData, setbitcoinData] = useState([]);
+  var [ethereumData, setEthData] = useState([]);
 
   var btcRef = ref(database, "financialData/bitcoin");
+  var ethRef = ref(database, "financialData/ethereum");
 
   useEffect(() => {
-    getBtcMonthly();
     onValue(btcRef, (snapshot) => {
       setbitcoinData([]);
       const data = snapshot.val();
       if (data !== null) {
         Object.values(data).map((month) => {
           setbitcoinData((oldArray) => [...oldArray, month]);
+        });
+      }
+    });
+    onValue(ethRef, (snapshot) => {
+      setEthData([]);
+      const data = snapshot.val();
+      if (data !== null) {
+        Object.values(data).map((month) => {
+          setEthData((oldArray) => [...oldArray, month]);
         });
       }
     });
@@ -47,6 +57,7 @@ export function FinancialDataProvider({ children }) {
     bitcoinData,
     setbitcoinData,
     readData,
+    ethereumData,
   };
 
   return (
