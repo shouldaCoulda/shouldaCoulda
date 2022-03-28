@@ -11,6 +11,7 @@ import SelectionScreen from "./components/SelectionScreen";
 import { SubscriptionTier } from "./components/SubscriptionTier";
 import SignInPrompt from "./components/SignInPrompt";
 import Home from "./components/Home";
+import AddExpensees from "./components/AddExpenses";
 
 const Routes = () => {
   const { currentUser } = useAuth();
@@ -24,6 +25,7 @@ const Routes = () => {
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/selections" component={SelectionScreen} />
             <Route exact path="/add" component={AddSubscription} />
+            <Route exact path="/expense" component={AddExpensees} />
             <Route exact path="/" component={ChartContainer} />
 
             <Route
