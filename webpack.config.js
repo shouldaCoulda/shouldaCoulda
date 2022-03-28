@@ -10,9 +10,9 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: [/\.jsx?$/,/\.css$/i]
         exclude: /node_modules/,
-        loader: 'babel-loader',
+        loader: ['babel-loader',"style-loader", "css-loader" ]
         options: {
           presets: [
             '@babel/preset-react'
