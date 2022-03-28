@@ -1,10 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { ref, set, onValue } from "firebase/database";
 import { database } from "../firebase";
-import {
-  getEthMonthly,
-  getBtcMonthly,
-} from "../../script/FinancialAPI/FinancialData";
+
 const FinancialDataContext = React.createContext();
 
 export function useFinancialData() {

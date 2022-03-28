@@ -29,7 +29,6 @@ export function getBtcData(total, months, btcData) {
 export function getEthData(total, months, ethData) {
   //start with an empty array that will be return and used to display the lines
   const data = [];
-  console.log(ethData);
 
   let prevtotal;
 
