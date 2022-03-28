@@ -12,8 +12,6 @@ const MonthSlider = () => {
   }
 
   function handleSlide(e) {
-    console.log(readData());
-    console.log(bitcoinData);
     setMonths(e.target.value);
   }
 

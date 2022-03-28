@@ -17,13 +17,13 @@ export function ChartProvider({ children }) {
   const [selectedLines, setSelectedLines] = useState([]);
   const [selectedApr, setSelectedApr] = useState(1);
   const [lines, setLines] = useState([]);
-  const { financialData } = useFinancialData();
+  const { financialData, bitcoinData } = useFinancialData();
   let maxY = 0;
 
   const finData = getFinData(getTotal(), months, selectedApr);
   const data = getData(getTotal(), months);
   const stockData = getStockData(getTotal(), months);
-  const btcData = getStockData(getTotal(), months);
+  const btcData = getStockData(getTotal(), months, bitcoinData);
 
   function getData(total, months) {
     const data = [];
