@@ -29,7 +29,6 @@ const Routes = () => {
               path='/subscriptioninfo'
               component={SubscriptionTier}
             />
-            <Route exact path='/alert' component={SignInPrompt} />
           </>
         ) : (
           <>
@@ -42,6 +41,7 @@ const Routes = () => {
               component={SubscriptionTier}
             />
             <Route exact path='/chart' component={ChartContainer} />
+            <Route exact path='/alert' component={SignInPrompt} />
           </>
         )}
       </Switch>
