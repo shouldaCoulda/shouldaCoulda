@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { useAuth } from "./AuthContext";
 import { getFinData } from "../../script/ChartOperations/DataGen/FinancialData";
 import { getStockData } from "../../script/ChartOperations/DataGen/StockData";
+import { useFinancialData } from "./FinancialDataContext";
 
 const ChartContext = React.createContext();
 
@@ -16,6 +17,7 @@ export function ChartProvider({ children }) {
   const [selectedLines, setSelectedLines] = useState([]);
   const [selectedApr, setSelectedApr] = useState(1);
   const [lines, setLines] = useState([]);
+  const { financialData } = useFinancialData();
   let maxY = 0;
 
   const finData = getFinData(getTotal(), months, selectedApr);
@@ -64,7 +66,7 @@ export function ChartProvider({ children }) {
       { name: "stock", line: stockData, color: "green" },
       { name: "bitcoin", line: btcData, color: "purple" },
     ]);
-  }, [months]);
+  }, [months, financialData]);
 
   const value = {
     months,
