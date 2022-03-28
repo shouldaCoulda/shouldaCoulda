@@ -1,4 +1,4 @@
-'use strict'
+// 'use strict'
 
 const {db } = require('../server/db')
 

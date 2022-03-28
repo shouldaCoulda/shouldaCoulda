@@ -70,7 +70,6 @@ export const SelectionScreen = () => {
       uids.push(usersSubscriptions[i].uid);
     }
     if (uids.includes(uid)) {
-      console.log("found equal", uid);
       return "card selected";
     }
     return "card";

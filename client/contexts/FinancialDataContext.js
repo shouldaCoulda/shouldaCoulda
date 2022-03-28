@@ -18,13 +18,11 @@ export function FinancialDataProvider({ children }) {
 
   async function readData() {
     const data = await testMonthly();
-    console.log("in realDAta", financialData);
+    console.log("in realDAta", data);
   }
 
   //this writes data into the subscriptions folder
   useEffect(async () => {
-    const data = testMonthly();
-    await setFinancialData(data);
     readData();
   }, []);
   const value = {
