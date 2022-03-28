@@ -43,7 +43,7 @@ const Profile = () => {
                       target="_blank"
                       rel="noreferrer noopener"
                     >
-                      <img src={sub.imageUrl} id="profileIcon" />
+                      <img src={sub.imageUrl} className="profileIcon" />
                     </a>
                   </td>
                   <td>{sub.name}</td>

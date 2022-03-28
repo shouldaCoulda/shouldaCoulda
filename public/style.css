@@ -392,6 +392,6 @@ form div {
   width: 4rem;
 }
 
-#profileIcon {
-  height: 40;
+.profileIcon {
+  max-height: 25px;
 }
