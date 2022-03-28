@@ -14,7 +14,6 @@ export const SelectionScreen = () => {
   const { expenses, subscriptions, setSubscriptions } = useGuestData();
 
   function handleClick(e, index) {
-    console.log(usersSubscriptions);
     isSelected[index] = !isSelected[index];
     if (e.currentTarget.className.includes("selected")) {
       e.currentTarget.className = "card";

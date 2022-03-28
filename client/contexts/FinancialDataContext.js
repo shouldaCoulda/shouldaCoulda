@@ -2,8 +2,8 @@ import React, { useContext, useState, useEffect } from "react";
 import { ref, set, onValue } from "firebase/database";
 import { database } from "../firebase";
 import {
-  testAlpha,
-  testMonthly,
+  getEthMonthly,
+  getBtcMonthly,
 } from "../../script/FinancialAPI/FinancialData";
 const FinancialDataContext = React.createContext();
 
@@ -20,6 +20,7 @@ export function FinancialDataProvider({ children }) {
   var btcRef = ref(database, "financialData/bitcoin");
 
   useEffect(() => {
+    getBtcMonthly();
     onValue(btcRef, (snapshot) => {
       setbitcoinData([]);
       const data = snapshot.val();

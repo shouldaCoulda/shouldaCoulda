@@ -24,10 +24,10 @@ const MonthSlider = () => {
           defaultValue={12}
           getAriaValueText={valuetext}
           valueLabelDisplay="auto"
-          step={5}
+          step={1}
           marks
           min={1}
-          max={100}
+          max={30}
           onChange={handleSlide}
           className="slider"
         />
