@@ -4,6 +4,16 @@ import { useSubscription } from "../contexts/SubscriptionContext";
 import { useAuth } from "../contexts/AuthContext";
 import { useHistory } from "react-router-dom";
 import { useGuestData } from "../contexts/GuestDataContext";
+import {
+  Container,
+  AppBar,
+  Toolbar,
+  Typography,
+  Box,
+  Card,
+  CardMedia,
+  CardContent,
+} from "@mui/material";
 
 export const SelectionScreen = () => {
   const { defaultSubscriptions } = useSubscription();
@@ -76,7 +86,38 @@ export const SelectionScreen = () => {
 
   return (
     <>
-      <div>
+      <Box
+        className="defaultCardContainer"
+        sx={{
+          maxWidth: 800,
+        }}
+      >
+        {defaultSubscriptions.map((sub, index) => {
+          let str = checkIsSelected(sub.uid);
+          return (
+            <Card
+              sx={{
+                maxWidth: 150,
+              }}
+              onClick={(event) => handleClick(event, index)}
+              key={sub.name}
+            >
+              <CardMedia
+                component="img"
+                src={sub.imageUrl}
+                alt="green iguana"
+              />
+              <CardContent>
+                <Typography gutterBottom variant="p" component="div">
+                  {sub.name}
+                </Typography>
+              </CardContent>
+            </Card>
+          );
+        })}
+      </Box>
+
+      {/* <div>
         <div className="defaultCardContainer">
           {defaultSubscriptions.map((sub, index) => {
             let str = checkIsSelected(sub.uid);
@@ -98,7 +139,7 @@ export const SelectionScreen = () => {
             Next
           </button>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };
