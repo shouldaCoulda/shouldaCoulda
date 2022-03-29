@@ -31,6 +31,9 @@ const App = () => {
                     sx={{
                       maxWidth: 1000,
                       maxHeight: 600,
+                      mr: 2,
+                      display: { xs: "none", md: "flex" },
+                      flexDirection: "column",
                     }}
                   >
                     <Navbar />

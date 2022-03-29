@@ -87,12 +87,7 @@ export const SelectionScreen = () => {
 
   return (
     <>
-      <Box
-        className="defaultCardContainer"
-        sx={{
-          maxWidth: 800,
-        }}
-      >
+      <Box sx={{ display: "flex", flexWrap: "wrap" }}>
         {defaultSubscriptions.map((sub, index) => {
           let str = checkIsSelected(sub.uid);
           return (
