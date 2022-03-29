@@ -70,7 +70,7 @@ const Navbar = () => {
                 onClick={() => history.push("./login")}
                 sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
               >
-                login
+                Login
               </Typography>
               <Typography
                 variant="h6"
@@ -79,7 +79,7 @@ const Navbar = () => {
                 onClick={() => history.push("./signup")}
                 sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
               >
-                Sign up
+                Sign Up
               </Typography>
             </Box>
           )}
