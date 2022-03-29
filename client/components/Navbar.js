@@ -3,8 +3,11 @@ import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { Container, AppBar, Toolbar, Typography, Box } from "@mui/material";
-import LogoutIcon from "@mui/icons-material";
-
+import LogoutIcon from "@mui/icons-material/Logout";
+import HomeIcon from "@mui/icons-material/Home";
+import AccountBoxIcon from "@mui/icons-material/AccountBox";
+import ShowChartIcon from "@mui/icons-material/ShowChart";
+import LoginIcon from "@mui/icons-material/Login";
 const Navbar = () => {
   //we take in logout and current user so our navbar can display accuratley
   const { logout, currentUser } = useAuth();
@@ -34,7 +37,7 @@ const Navbar = () => {
               onClick={() => history.push("./selections")}
               sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
             >
-              Home
+              <HomeIcon />
             </Typography>
             <Typography
               variant="h6"
@@ -43,7 +46,7 @@ const Navbar = () => {
               onClick={() => history.push("./profile")}
               sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
             >
-              Profile
+              <AccountBoxIcon />
             </Typography>
             <Typography
               variant="h6"
@@ -52,7 +55,7 @@ const Navbar = () => {
               onClick={() => history.push("./chart")}
               sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
             >
-              Chart
+              <ShowChartIcon />
             </Typography>
             <Typography
               variant="h6"
@@ -61,7 +64,7 @@ const Navbar = () => {
               onClick={logout}
               sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
             >
-              Logout
+              <LogoutIcon />
             </Typography>
           </Box>
         ) : (
@@ -73,7 +76,7 @@ const Navbar = () => {
               onClick={() => history.push("./login")}
               sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
             >
-              Login
+              <LoginIcon />
             </Typography>
             <Typography
               variant="h6"

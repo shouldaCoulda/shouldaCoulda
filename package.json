@@ -23,6 +23,7 @@
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
     "@mapbox/react-click-to-select": "^2.2.1",
+    "@mui/icons-material": "^5.5.1",
     "@mui/material": "^5.5.2",
     "alphavantage": "^2.3.0",
     "axios": "^0.21.1",
