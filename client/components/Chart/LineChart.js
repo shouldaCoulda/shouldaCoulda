@@ -37,15 +37,7 @@ const LineChart = () => {
         domainPadding={30}
         containerComponent={
           <VictoryVoronoiContainer
-            voronoiDimension="x"
             labels={({ datum }) => `${datum.y.toFixed(2)}`}
-            labelComponent={
-              <VictoryTooltip
-                cornerRadius={4}
-                flyoutStyle={{ fill: "white" }}
-                flyoutPadding={15}
-              />
-            }
           />
         }
         standalone={true}
