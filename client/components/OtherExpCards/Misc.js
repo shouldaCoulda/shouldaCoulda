@@ -20,14 +20,14 @@ export default function MiscCard() {
         component="img"
         alt="Misc"
         height="140"
-        image="https://images.tech.co/wp-content/uploads/2020/01/03081100/streamingbanner-708x400.jpg"
+        image="https://media.istockphoto.com/photos/anything-else-picture-id471941335?k=20&m=471941335&s=612x612&w=0&h=3sqLPaqFhLRmMyQC5MBACpwf_d-3zP6tvGslPYblWrU="
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           Other / Miscellaneous
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          If there are any other expenses that you think you could reduce in future months, use this section. Maybe you have a gym membership that you never use? Or anything else, feel free to add it here.
+          If there are any other expenses that you think you could reduce in future months, use this section. Maybe you have a gym membership that you never use? Or anything else, add it here.
         </Typography>
       </CardContent>
       <CardActions>

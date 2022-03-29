@@ -45,14 +45,6 @@ const AddExpense = () => {
     writeUserData(user);
   };
 
-  const expenses = [
-    "Coffee",
-    "Food Delivery",
-    "Tobacco",
-    "Alcohol",
-    "Cable TV"
-  ]
-
   return (
     <>
     <div>Would you like to add other expenses?</div>
