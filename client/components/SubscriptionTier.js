@@ -5,8 +5,9 @@ import { useAuth } from "../contexts/AuthContext";
 
 export const SubscriptionTier = () => {
   let { currentUser, usersSubscriptions } = useAuth();
-  let { subscriptions } = useGuestData();
-  let curSubscriptions = [];
+  // let { subscriptions } = useGuestData();
+  console.log("subscriptions", usersSubscriptions);
+  // let curSubscriptions = [];
 
   let count = 0;
   function setCount() {
@@ -14,11 +15,13 @@ export const SubscriptionTier = () => {
     return count;
   }
 
-  if (currentUser) {
-    curSubscriptions = usersSubscriptions;
-  } else {
-    curSubscriptions = subscriptions;
-  }
+  // if (currentUser) {
+  //   curSubscriptions = usersSubscriptions;
+  // } else {
+  //   curSubscriptions = subscriptions;
+  // }
+
+  // console.log("curSubscriptions", curSubscriptions);
 
   function handleClick(e, index) {
     if (e.currentTarget.className.includes("tierSelected")) {
@@ -31,7 +34,8 @@ export const SubscriptionTier = () => {
   return (
     <section>
       <h1>Select your plan</h1>
-      {curSubscriptions.map((sub) => {
+      {usersSubscriptions.map((sub) => {
+        console.log("inthemap", sub);
         {
           if (sub.plans && sub.plans.length > 0) {
             return (
