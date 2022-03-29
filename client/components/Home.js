@@ -15,8 +15,5 @@ export const Home = () => {
   );
 };
 
-/**
- * CONTAINER
- */
 
 export default Home;

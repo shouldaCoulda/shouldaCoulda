@@ -1,6 +1,17 @@
 import React, { useState } from "react";
 import PopupBox from "./PopupBox";
 import { Link } from "react-router-dom";
+import {
+  Container,
+  AppBar,
+  Toolbar,
+  Typography,
+  Box,
+  Card,
+  CardMedia,
+  CardContent,
+  Button,
+} from "@mui/material";
 
 function PopupButton() {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,34 +21,33 @@ function PopupButton() {
   };
 
   return (
-    <div>
+    <Box>
       <input
         type="button"
         value="ADD"
         className="moreSubsButton hover"
         onClick={togglePopup}
       />
-      <p></p>
       {isOpen && (
         <PopupBox
           content={
             <>
-              <b>I Want To Add To</b>
+              <Typography type="b">I Want To Add To</Typography>
 
-              <div>
+              <Box>
                 <Link to="/expense">
-                  <button>Other Expenses</button>
+                  <Button>Other Expenses</Button>
                 </Link>
                 <Link to="/selections">
-                  <button>Subscriptions</button>
+                  <Button>Subscriptions</Button>
                 </Link>
-              </div>
+              </Box>
             </>
           }
           handleClose={togglePopup}
         />
       )}
-    </div>
+    </Box>
   );
 }
 

@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import { useChart } from "../../contexts/ChartContext";
+import { Box, Typography, Button, ButtonGroup } from "@mui/material";
 
 const FinancialContainer = () => {
   const { usersSubscriptions } = useAuth();
@@ -36,46 +37,35 @@ const FinancialContainer = () => {
   }, [usersSubscriptions]);
 
   return (
-    <div className="grey side">
-      <form>
-        <h5>display data:</h5>
-        <table>
-          <tbody>
-            {lines.map((line, index) => {
-              return (
-                <tr key={index}>
-                  <td>{line.name}</td>
-
-                  <td>
-                    <input
-                      type="checkbox"
-                      value={selectedLines[index]}
-                      onChange={(e) => handleChange(e, index)}
-                      defaultChecked
-                      className="hover"
-                    />
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-
-        <h5>apr : {selectedApr}</h5>
-        <div>
-          <label>
-            <small>APR</small>
-          </label>
-          <input type="text" ref={returnRef} />
-        </div>
-
-        <div>
-          <button className="logoutButton" onClick={handleSubmit}>
-            view
-          </button>
-        </div>
-      </form>
-    </div>
+    <>
+      <Box>
+        <Typography gutterBottom variant="h5" component="div">
+          Toggle Data
+        </Typography>
+        <ButtonGroup
+          orientation="vertical"
+          aria-label="vertical outlined button group"
+        >
+          {lines.map((line, index) => {
+            let color = "";
+            let fontColor = "";
+            if (selectedLines[index]) {
+              color = line.color;
+              fontColor = "white";
+            }
+            return (
+              <Button
+                key={index}
+                onClick={(e) => handleChange(e, index)}
+                sx={{ backgroundColor: color, color: fontColor }}
+              >
+                {line.name}
+              </Button>
+            );
+          })}
+        </ButtonGroup>
+      </Box>
+    </>
   );
 };
 

@@ -1,61 +1,22 @@
-import React, { useEffect } from "react";
-import { useAuth } from "../../contexts/AuthContext";
+import React from "react";
 import { useChart } from "../../contexts/ChartContext";
-import AddButton from "./AddButton";
+import { Box, Typography } from "@mui/material";
+import PopupButton from "../PopupButton";
 
 const SelectionsContainer = () => {
-  const { usersSubscriptions } = useAuth();
-  const { selectedSubscriptions, setSelectedSubs, getTotal, months } =
-    useChart();
+  const { getTotal, months } = useChart();
   const total = (getTotal() * months).toFixed(2);
 
-  function handleChange(e, index) {
-    const data = [];
-    for (let i = 0; i < selectedSubscriptions.length; i++) {
-      if (i === index) {
-        data[i] = !selectedSubscriptions[i];
-      } else {
-        data[i] = selectedSubscriptions[i];
-      }
-    }
-    setSelectedSubs(data);
-  }
-
-  useEffect(() => {
-    for (const sub of usersSubscriptions) {
-      setSelectedSubs([...selectedSubscriptions, true]);
-    }
-  }, [usersSubscriptions]);
-
   return (
-    <div className="grey side">
-      <p>monthly: {getTotal()}</p>
-      <p>
-        {months}: months: {total}
-      </p>
-      <table>
-        <tbody>
-          {usersSubscriptions.map((sub, index) => {
-            return (
-              <tr key={index}>
-                <td>{sub.name}</td>
-
-                <td>
-                  <input
-                    type="checkbox"
-                    value={selectedSubscriptions[index]}
-                    onChange={(e) => handleChange(e, index)}
-                    defaultChecked
-                    className="hover"
-                  />
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-      <AddButton />
-    </div>
+    <Box sx={{ padding: 1 }}>
+      <Typography gutterBottom variant="p" component="div">
+        monthly: {getTotal()}
+      </Typography>
+      <Typography gutterBottom variant="p" component="div">
+        {months}: month total: {total}
+      </Typography>
+      <PopupButton />
+    </Box>
   );
 };
 

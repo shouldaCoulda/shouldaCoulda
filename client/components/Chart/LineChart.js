@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { VictoryLine, VictoryChart } from "victory";
-import { Box } from "@mui/material";
 import { useChart } from "../../contexts/ChartContext";
+import { Box, Typography, Container } from "@mui/material";
+
 const LineChart = () => {
   const { months, lines, maxY, selectedLines, setMonths } = useChart();
   const [displayedLines, setDisplayedLine] = useState([]);
@@ -24,28 +25,29 @@ const LineChart = () => {
   }, []);
 
   return (
-    <div className="finChart">
-      <Box sx={{ width: "550px" }}>
-        <VictoryChart
-          minDomain={({ y: 0 }, { x: 0 })}
-          maxDomain={({ y: maxY }, { x: months })}
-          domainPadding={30}
-        >
-          {displayedLines.map((dataArray, key) => {
-            return (
-              <VictoryLine
-                key={`line_${key}`}
-                name={`line_${key}`}
-                style={{
-                  data: { stroke: dataArray.color, strokeWidth: 3 },
-                }}
-                data={dataArray.line}
-              />
-            );
-          })}
-        </VictoryChart>
-      </Box>
-    </div>
+    <Box sx={{ width: "500px" }}>
+      <VictoryChart
+        minDomain={({ y: 0 }, { x: 0 })}
+        maxDomain={({ y: maxY }, { x: months })}
+        domainPadding={30}
+        animate={{
+          duration: 500,
+        }}
+      >
+        {displayedLines.map((dataArray, key) => {
+          return (
+            <VictoryLine
+              key={`line_${key}`}
+              name={`line_${key}`}
+              style={{
+                data: { stroke: dataArray.color, strokeWidth: 3 },
+              }}
+              data={dataArray.line}
+            />
+          );
+        })}
+      </VictoryChart>
+    </Box>
   );
 };
 

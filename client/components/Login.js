@@ -24,8 +24,8 @@ const Login = () => {
 
   return (
     <>
-      <div className='container'>
-        <Card className='logincard'>
+      <div className="container">
+        <Card>
           <Card.Body>
             <h2>Log In</h2>
             {error && <Alert variant='danger'>{error}</Alert>}

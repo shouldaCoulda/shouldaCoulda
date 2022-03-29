@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Slider } from "@mui/material";
 import { useChart } from "../../contexts/ChartContext";
 import { useFinancialData } from "../../contexts/FinancialDataContext";
+import { Box, Typography, Container } from "@mui/material";
 
 const MonthSlider = () => {
   const { months, setMonths } = useChart();
@@ -16,9 +17,18 @@ const MonthSlider = () => {
   }
 
   return (
-    <div className="monthcontainer grey surround">
-      <h3>duration</h3>
-      <div className="sliderContainer">
+    <Box
+      sx={{
+        mr: 2,
+        display: { xs: "none", md: "flex" },
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
+      <Typography gutterBottom variant="h6" component="div">
+        Duration
+      </Typography>
+      <Box sx={{ width: 300 }}>
         <Slider
           aria-label="Temperature"
           defaultValue={12}
@@ -31,8 +41,8 @@ const MonthSlider = () => {
           onChange={handleSlide}
           className="slider"
         />
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };
 

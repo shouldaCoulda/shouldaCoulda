@@ -5,18 +5,21 @@ import SelectionsContainer from "./SelectionsContainer";
 import FinancialContainer from "./FinancialContainer";
 import MonthSlider from "./MonthSlider";
 import Legend from "./Legend";
+import { Box, Container } from "@mui/material";
 
 const ChartContainer = () => {
   return (
-    <div>
-      <Legend  />
-      <div className="chartContainer">
-        <SelectionsContainer className="selectionsContainer card" />
-        <LineChart />
-        <FinancialContainer className="selectionsContainer card" />
-      </div>
-      <MonthSlider />
-    </div>
+    <Container>
+      <Box>
+        <Legend />
+        <Box sx={{ display: { xs: "none", md: "flex", alignItems: "center" } }}>
+          <SelectionsContainer className="selectionsContainer card" />
+          <LineChart />
+          <FinancialContainer className="selectionsContainer card" />
+        </Box>
+        <MonthSlider />
+      </Box>
+    </Container>
   );
 };
 
