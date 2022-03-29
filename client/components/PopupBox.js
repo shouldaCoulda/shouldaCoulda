@@ -1,15 +1,30 @@
-import React from 'react';
+import React from "react";
+import {
+  Container,
+  AppBar,
+  Toolbar,
+  Typography,
+  Box,
+  Card,
+  CardMedia,
+  CardContent,
+  Button,
+  FormControl,
+  InputLabel,
+  Input,
+  FormHelperText,
+} from "@mui/material";
 
 const PopupBox = (props) => {
   return (
-    <div className='popup'>
-      <div className='box'>
-        <span className='close' onClick={props.handleClose}>
+    <Box className="popup">
+      <Box className="box">
+        <span className="close" onClick={props.handleClose}>
           x
         </span>
         {props.content}
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };
 

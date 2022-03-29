@@ -32,7 +32,7 @@ export const SelectionScreen = () => {
     e.preventDefault();
     isSelected[index] = !isSelected[index];
     if (e.currentTarget.className.includes("selected")) {
-      e.currentTarget.className = "card";
+      e.currentTarget.className = "";
     } else {
       e.currentTarget.className += " selected";
     }
@@ -57,10 +57,11 @@ export const SelectionScreen = () => {
       uids.push(usersSubscriptions[i].uid);
     }
     if (uids.includes(uid)) {
-      return "card selected";
+      return " selected";
     }
-    return "card";
+    return "";
   }
+
   function toggleForm() {
     setShown(!shown);
   }
@@ -82,9 +83,11 @@ export const SelectionScreen = () => {
               >
                 <Card
                   sx={{
-                    maxWidth: 150,
-                    margin: 1,
+                    maxWidth: 100,
+                    margin: 2,
                     padding: 0,
+                    border: "none",
+                    boxShadow: "none",
                   }}
                 >
                   <CardMedia
