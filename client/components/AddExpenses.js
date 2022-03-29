@@ -3,8 +3,8 @@ import { useOtherExpenses }from "../contexts/OtherExpContext";
 import FoodCard from "./OtherExpCards/Food";
 import CableCard from "./OtherExpCards/Cable";
 import TobaccoCard from "./OtherExpCards/Tobacco";
-import StreamingOtherCard from "./OtherExpCards/StreamingOther";
-import { useAuth } from "../contexts/AuthContext";
+import AlcoholCard from "./OtherExpCards/Alcohol"
+;import { useAuth } from "../contexts/AuthContext";
 import { Link } from "react-router-dom";
 import {
   Container,
@@ -28,7 +28,10 @@ const AddExpense = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    writeOtherExpenseData(nameRef.current.value, priceRef.current.value, currentUser.uid);
+    writeOtherExpenseData(
+      nameRef.current.value,
+      priceRef.current.value,
+      currentUser.uid);
   };
 
   const write = (e) => {
@@ -57,7 +60,7 @@ const AddExpense = () => {
       <Box sx={{ ml: 1, mr: 1 }}><FoodCard /></Box>
       <Box sx={{ ml: 1, mr: 1 }}><CableCard /></Box>
       <Box sx={{ ml: 1, mr: 1 }}><TobaccoCard /></Box>
-      <Box sx={{ ml: 1, mr: 1 }}><StreamingOtherCard /></Box>
+      <Box sx={{ ml: 1, mr: 1 }}><AlcoholCard /></Box>
     </Box>
     <Link to="/chart">
         <button>continue</button>
