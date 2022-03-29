@@ -82,8 +82,8 @@ export const SelectionScreen = () => {
               >
                 <Card
                   sx={{
-                    maxWidth: 150,
-                    margin: 1,
+                    maxWidth: 100,
+                    margin: 2,
                     padding: 0,
                     border: "none",
                     boxShadow: "none",

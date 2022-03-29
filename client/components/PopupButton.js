@@ -22,12 +22,15 @@ function PopupButton() {
 
   return (
     <Box>
-      <input
+      <Button
         type="button"
         value="ADD"
         className="moreSubsButton hover"
         onClick={togglePopup}
-      />
+        sx={{ backgroundColor: "lightgreen", borderRadius: "50%" }}
+      >
+        +
+      </Button>
       {isOpen && (
         <PopupBox
           content={
