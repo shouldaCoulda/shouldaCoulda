@@ -13,21 +13,21 @@ import {
   InputAdornment
 } from "@mui/material";
 
-export default function CableCard() {
+export default function MiscCard() {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         component="img"
-        alt="Cable"
+        alt="Misc"
         height="140"
-        image="https://www.bitsonbroadband.com/wp-content/uploads/2014/05/Satellite-TV.jpg"
+        image="https://media.istockphoto.com/photos/anything-else-picture-id471941335?k=20&m=471941335&s=612x612&w=0&h=3sqLPaqFhLRmMyQC5MBACpwf_d-3zP6tvGslPYblWrU="
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Cable/Directv
+          Other / Miscellaneous
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Do you pay for a cable service, directv, or an equivalent service that you lower your cost of or cut out completely? Check your account statements and estimate potential savings below.
+          If there are any other expenses that you think you could reduce in future months, use this section. Maybe you have a gym membership that you never use? Or anything else, add it here.
         </Typography>
       </CardContent>
       <CardActions>

@@ -13,21 +13,21 @@ import {
   InputAdornment
 } from "@mui/material";
 
-export default function CableCard() {
+export default function AlcoholCard() {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         component="img"
-        alt="Cable"
+        alt="Alcohol"
         height="140"
-        image="https://www.bitsonbroadband.com/wp-content/uploads/2014/05/Satellite-TV.jpg"
+        image="https://mshanken.imgix.net/wso/Articles/2018/NS_health112817_1600.jpg"
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Cable/Directv
+          Alcohol
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Do you pay for a cable service, directv, or an equivalent service that you lower your cost of or cut out completely? Check your account statements and estimate potential savings below.
+          Have you thought about cutting down on drinking? Use this section to find out how much you could be saving if you were to invest some of that money.
         </Typography>
       </CardContent>
       <CardActions>
