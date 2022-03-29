@@ -47,8 +47,16 @@ const FinancialContainer = () => {
           aria-label="vertical outlined button group"
         >
           {lines.map((line, index) => {
+            let color = "";
+            if (selectedLines[index]) {
+              color = line.color;
+            }
             return (
-              <Button key={index} onClick={(e) => handleChange(e, index)}>
+              <Button
+                key={index}
+                onClick={(e) => handleChange(e, index)}
+                sx={{ backgroundColor: color }}
+              >
                 {line.name}
               </Button>
             );

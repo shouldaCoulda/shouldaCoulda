@@ -73,7 +73,6 @@ export const SelectionScreen = () => {
     return "card";
   }
   function toggleForm() {
-    console.log("toggle", shown);
     setShown(!shown);
   }
 
@@ -82,35 +81,41 @@ export const SelectionScreen = () => {
       <Box
         sx={{ mr: 2, display: { xs: "none", md: "flex" }, flexWrap: "wrap" }}
       >
-        {defaultSubscriptions.map((sub, index) => {
-          let str = checkIsSelected(sub.uid);
-          return (
-            <Box onClick={(event) => handleClick(event, index)} key={sub.name}>
-              <Card
-                sx={{
-                  maxWidth: 150,
-                  margin: 1,
-                  padding: 0,
-                }}
+        <Box
+          sx={{ mr: 2, display: { xs: "none", md: "flex" }, flexWrap: "wrap" }}
+        >
+          {defaultSubscriptions.map((sub, index) => {
+            let str = checkIsSelected(sub.uid);
+            return (
+              <Box
+                onClick={(event) => handleClick(event, index)}
+                key={sub.name}
               >
-                <CardMedia
-                  component="img"
-                  src={sub.imageUrl}
-                  alt="green iguana"
+                <Card
                   sx={{
-                    height: 120,
+                    maxWidth: 150,
+                    margin: 1,
+                    padding: 0,
                   }}
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="p" component="div">
-                    {sub.name}
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Box>
-          );
-        })}
-        <Button onClick={handleSubmit}>Next</Button>
+                >
+                  <CardMedia
+                    component="img"
+                    src={sub.imageUrl}
+                    alt="green iguana"
+                    sx={{
+                      height: 120,
+                    }}
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="p" component="div">
+                      {sub.name}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Box>
+            );
+          })}
+        </Box>
         <Box>
           {shown ? (
             <Box>
@@ -118,37 +123,18 @@ export const SelectionScreen = () => {
               <Button onClick={toggleForm}>cancel</Button>
             </Box>
           ) : (
-            <Typography gutterBottom variant="p" component="div">
-              have a subscription not shown here?
-              <Button onClick={toggleForm}>Add</Button>
-            </Typography>
+            <Box>
+              <Typography gutterBottom variant="p" component="div">
+                have a subscription not shown here?
+                <Button onClick={toggleForm}>Add</Button>
+              </Typography>
+            </Box>
           )}
         </Box>
+        <Box>
+          <Button onClick={handleSubmit}>Next</Button>
+        </Box>
       </Box>
-
-      {/* <div>
-        <div className="defaultCardContainer">
-          {defaultSubscriptions.map((sub, index) => {
-            let str = checkIsSelected(sub.uid);
-            return (
-              <div
-                key={sub.name}
-                className={str}
-                onClick={(event) => handleClick(event, index)}
-                id={sub.name}
-              >
-                <img src={sub.imageUrl} className="cardImg"></img>
-                <p>{sub.name}</p>
-              </div>
-            );
-          })}
-        </div>
-        <div className="defaultCardContainer">
-          <button className="nextButton" onClick={handleSubmit}>
-            Next
-          </button>
-        </div>
-      </div> */}
     </>
   );
 };
