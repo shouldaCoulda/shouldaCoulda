@@ -5,19 +5,10 @@ import { useAuth } from "../contexts/AuthContext";
 
 export const SubscriptionTier = () => {
   let { currentUser, usersSubscriptions } = useAuth();
-  let { subscriptions } = useGuestData();
-  let curSubscriptions = [];
-
   let count = 0;
   function setCount() {
     count++;
     return count;
-  }
-
-  if (currentUser) {
-    curSubscriptions = usersSubscriptions;
-  } else {
-    curSubscriptions = subscriptions;
   }
 
   function handleClick(e, index) {
@@ -31,7 +22,7 @@ export const SubscriptionTier = () => {
   return (
     <section>
       <h1>Select your plan</h1>
-      {curSubscriptions.map((sub) => {
+      {usersSubscriptions.map((sub) => {
         {
           if (sub.plans && sub.plans.length > 0) {
             return (

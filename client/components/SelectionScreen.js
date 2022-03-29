@@ -23,6 +23,7 @@ import AddSubscription from "./AddSubscription";
 
 export const SelectionScreen = () => {
   const { defaultSubscriptions } = useSubscription();
+  console.log("defaultsubscriptions", defaultSubscriptions);
   const { writeSubscriptions, usersSubscriptions, currentUser } = useAuth();
   const [shown, setShown] = useState(false);
   const isSelected = Array(defaultSubscriptions.length).fill(false);
@@ -39,27 +40,15 @@ export const SelectionScreen = () => {
   const history = useHistory();
 
   function handleSubmit(e) {
-    if (currentUser) {
-      e.preventDefault();
-      var data = [];
-      defaultSubscriptions.map((element, i) => {
-        if (isSelected[i]) {
-          data.push(element);
-        }
-      });
-      writeSubscriptions(data);
-      history.push("/subscriptioninfo");
-    } else {
-      e.preventDefault();
-      var datas = [];
-      defaultSubscriptions.map((element, i) => {
-        if (isSelected[i]) {
-          datas.push(element);
-        }
-      });
-      setSubscriptions(datas);
-      history.push("/subscriptioninfo");
-    }
+    e.preventDefault();
+    var data = [];
+    defaultSubscriptions.map((element, i) => {
+      if (isSelected[i]) {
+        data.push(element);
+      }
+    });
+    writeSubscriptions(data);
+    history.push("/subscriptioninfo");
   }
 
   function checkIsSelected(uid) {
