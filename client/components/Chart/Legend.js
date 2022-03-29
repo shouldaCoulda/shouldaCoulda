@@ -1,6 +1,6 @@
 import React from "react";
 import { useChart } from "../../contexts/ChartContext";
-import { Box, Typography, Button, ButtonGroup, Container } from "@mui/material";
+import { Box, Typography, Container } from "@mui/material";
 
 const Legend = () => {
   const { lines, selectedLines } = useChart();
@@ -12,22 +12,20 @@ const Legend = () => {
     }
   }
   return (
-    <Box>
-      <Container sx={{ display: { xs: "none", md: "flex" } }}>
-        {displayedLines.map((elem, key) => {
-          return (
-            <Typography
-              key={key}
-              gutterBottom
-              variant="p"
-              component="div"
-              sx={{ color: elem.color, padding: 2 }}
-            >
-              {elem.name} : {elem.color}
-            </Typography>
-          );
-        })}
-      </Container>
+    <Box sx={{ display: { xs: "none", md: "flex" }, alignItems: "center" }}>
+      {displayedLines.map((elem, key) => {
+        return (
+          <Typography
+            key={key}
+            gutterBottom
+            variant="p"
+            component="div"
+            sx={{ color: elem.color, padding: 2 }}
+          >
+            {elem.name} : {elem.color}
+          </Typography>
+        );
+      })}
     </Box>
   );
 };

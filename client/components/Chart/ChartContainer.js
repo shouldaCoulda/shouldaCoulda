@@ -12,7 +12,7 @@ const ChartContainer = () => {
     <Container>
       <Box>
         <Legend />
-        <Box sx={{ display: { xs: "none", md: "flex" } }}>
+        <Box sx={{ display: { xs: "none", md: "flex", alignItems: "center" } }}>
           <SelectionsContainer className="selectionsContainer card" />
           <LineChart />
           <FinancialContainer className="selectionsContainer card" />

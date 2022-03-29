@@ -12,78 +12,79 @@ const Navbar = () => {
   return (
     // <>
     <AppBar position="static">
-      <Container>
-        <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
-          >
-            <img src="/logo.png" alt="image" className="logo" />
-          </Typography>
-          {currentUser ? (
-            <Box>
-              <Typography
-                variant="h6"
-                noWrap
-                component="div"
-                onClick={() => history.push("./selections")}
-                sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
-              >
-                Home
-              </Typography>
-              <Typography
-                variant="h6"
-                noWrap
-                component="div"
-                onClick={() => history.push("./profile")}
-                sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
-              >
-                Profile
-              </Typography>
-              <Typography
-                variant="h6"
-                noWrap
-                component="div"
-                onClick={() => history.push("./chart")}
-                sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
-              >
-                Chart
-              </Typography>
-              <Typography
-                variant="h6"
-                noWrap
-                component="div"
-                onClick={logout}
-                sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
-              >
-                Logout
-              </Typography>
-            </Box>
-          ) : (
-            <Box>
-              <Typography
-                variant="h6"
-                noWrap
-                component="div"
-                onClick={() => history.push("./login")}
-                sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
-              >
-                Login
-              </Typography>
-              <Typography
-                variant="h6"
-                noWrap
-                component="div"
-                onClick={() => history.push("./signup")}
-                sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
-              >
-                Sign Up
-              </Typography>
-            </Box>
-          )}
-        </Toolbar>
+      <Container
+        sx={{
+          mr: 2,
+          display: { xs: "none", md: "flex" },
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "flex-end",
+        }}
+      >
+        <Typography variant="h6" noWrap component="div">
+          <img src="/logo.png" alt="image" className="logo" />
+        </Typography>
+        {currentUser ? (
+          <Box sx={{ mr: 2, display: { xs: "none", md: "flex" } }}>
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              onClick={() => history.push("./selections")}
+              sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
+            >
+              Home
+            </Typography>
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              onClick={() => history.push("./profile")}
+              sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
+            >
+              Profile
+            </Typography>
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              onClick={() => history.push("./chart")}
+              sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
+            >
+              Chart
+            </Typography>
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              onClick={logout}
+              sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
+            >
+              Logout
+            </Typography>
+          </Box>
+        ) : (
+          <Box>
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              onClick={() => history.push("./login")}
+              sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
+            >
+              Login
+            </Typography>
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              onClick={() => history.push("./signup")}
+              sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
+            >
+              Sign Up
+            </Typography>
+          </Box>
+        )}
       </Container>
     </AppBar>
 
