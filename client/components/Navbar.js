@@ -3,6 +3,7 @@ import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { Container, AppBar, Toolbar, Typography, Box } from "@mui/material";
+import LogoutIcon from "@mui/icons-material";
 
 const Navbar = () => {
   //we take in logout and current user so our navbar can display accuratley

@@ -21,7 +21,14 @@ const Profile = () => {
     removeSubscription(uid);
   }
   return (
-    <Box>
+    <Box
+      sx={{
+        mr: 2,
+        display: { xs: "none", md: "flex" },
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
       <Typography gutterBottom variant="p" component="div">
         Email: {currentUser?.email}
       </Typography>
