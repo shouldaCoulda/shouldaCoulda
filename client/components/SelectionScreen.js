@@ -40,29 +40,15 @@ export const SelectionScreen = () => {
   const history = useHistory();
 
   function handleSubmit(e) {
-    // if (currentUser) {
     e.preventDefault();
     var data = [];
-    console.log(data, "data");
     defaultSubscriptions.map((element, i) => {
       if (isSelected[i]) {
         data.push(element);
-        console.log(data);
       }
     });
     writeSubscriptions(data);
     history.push("/subscriptioninfo");
-    // } else {
-    //   e.preventDefault();
-    //   var datas = [];
-    //   defaultSubscriptions.map((element, i) => {
-    //     if (isSelected[i]) {
-    //       datas.push(element);
-    //     }
-    //   });
-    //   setSubscriptions(datas);
-    //   history.push("/subscriptioninfo");
-    // }
   }
 
   function checkIsSelected(uid) {
