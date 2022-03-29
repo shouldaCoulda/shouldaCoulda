@@ -57,8 +57,6 @@ const AddExpense = () => {
     <>
     <div>Would you like to add other expenses?</div>
     <Box sx={{ ml: 2, mr: 2, display: { xs: "none", md: "flex" }, flexWrap: "wrap" }}>
-      {/* <h4>Everyone is unique and has different feelings on what expenses they are willing to cut back on.</h4>
-      <h4>Below are some common expenses that add up over time and you may be able to reduce</h4> */}
       <Box sx={{ ml: 1, mr: 1 }}><FoodCard /></Box>
       <Box sx={{ ml: 1, mr: 1 }}><CableCard /></Box>
       <Box sx={{ ml: 1, mr: 1 }}><TobaccoCard /></Box>
