@@ -45,7 +45,7 @@ const LineChart = () => {
           duration: 500,
         }}
       >
-        {displayedLines.map((dataArray, key) => {
+        {lines.map((dataArray, key) => {
           return (
             <VictoryLine
               key={`line_${key}`}

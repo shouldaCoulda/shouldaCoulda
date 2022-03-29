@@ -68,6 +68,15 @@ export function ChartProvider({ children }) {
       { name: "Bitcoin", line: btcData, color: "purple" },
     ]);
   }, [months, financialData]);
+  
+  useEffect(() => {
+    setLines([
+      { name: "subscriptions", line: data, color: "blue" },
+      { name: "apr", line: finData, color: "red" },
+      { name: "Ethereum", line: ethData, color: "green" },
+      { name: "Bitcoin", line: btcData, color: "purple" },
+    ]);
+  }, []);
 
   const value = {
     months,
