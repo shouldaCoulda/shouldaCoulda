@@ -13,21 +13,21 @@ import {
   InputAdornment
 } from "@mui/material";
 
-export default function CoffeeCard() {
+export default function MiscCard() {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         component="img"
-        alt="Coffee"
+        alt="Misc"
         height="140"
-        image="https://images.thestar.com/dQxi2pPwqocxfcGxOzSRrHdV-Fs=/1086x544/smart/filters:cb(2700061000)/https://www.thestar.com/content/dam/thestar/news/gta/2009/03/11/tempest_in_coffee_cup_consumes_city_hall/tempest_in_coffee_cup_consumes_cityhall.jpeg"
+        image="https://images.tech.co/wp-content/uploads/2020/01/03081100/streamingbanner-708x400.jpg"
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Coffee
+          Other / Miscellaneous
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Do you spend $5/day at Starbucks and could be making your own coffee at home or work? Use this section for any coffee savings you think you could produce each month.
+          If there are any other expenses that you think you could reduce in future months, use this section. Maybe you have a gym membership that you never use? Or anything else, feel free to add it here.
         </Typography>
       </CardContent>
       <CardActions>
