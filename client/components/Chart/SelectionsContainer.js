@@ -1,7 +1,7 @@
 import React from "react";
 import { useChart } from "../../contexts/ChartContext";
-import AddButton from "./AddButton";
 import { Box, Typography } from "@mui/material";
+import PopupButton from "../PopupButton";
 
 const SelectionsContainer = () => {
   const { getTotal, months } = useChart();
@@ -15,7 +15,7 @@ const SelectionsContainer = () => {
       <Typography gutterBottom variant="p" component="div">
         {months}: month total: {total}
       </Typography>
-      <AddButton />
+      <PopupButton />
     </Box>
   );
 };

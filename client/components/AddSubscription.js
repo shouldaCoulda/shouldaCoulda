@@ -1,6 +1,21 @@
 import React, { useRef } from "react";
 import { useSubscription } from "../contexts/SubscriptionContext";
 import { useAuth } from "../contexts/AuthContext";
+import {
+  Container,
+  AppBar,
+  Toolbar,
+  Typography,
+  Box,
+  Card,
+  CardMedia,
+  CardContent,
+  Button,
+  FormControl,
+  InputLabel,
+  Input,
+  FormHelperText,
+} from "@mui/material";
 
 const AddSubscription = () => {
   const { writeSubscriptionData } = useSubscription();
@@ -9,8 +24,13 @@ const AddSubscription = () => {
   let priceRef = useRef();
 
   const handleSubmit = async (e) => {
+    console.log(nameRef.current.value);
     e.preventDefault();
-    writeSubscriptionData(nameRef.current.value, priceRef.current.value, currentUser.uid);
+    writeSubscriptionData(
+      nameRef.current.value,
+      priceRef.current.value,
+      currentUser.uid
+    );
   };
   const write = (e) => {
     e.preventDefault();
@@ -22,29 +42,33 @@ const AddSubscription = () => {
   };
 
   return (
-    <div>
-      <form>
-        <h1>Add Other Subscriptions</h1>
-        <div>
-          <label htmlFor="name">
-            <small>name</small>
-          </label>
-          <input type="text" ref={nameRef} />
-        </div>
-        <div>
-          <label htmlFor="price">
-            <small>monthly price</small>
-          </label>
-          <input type="price" ref={priceRef} />
-        </div>
-        <div>
-          <button onClick={handleSubmit}>submit</button>
-        </div>
-        {/* <div>
-          <button onClick={write}>write</button>
-        </div> */}
-      </form>
-    </div>
+    <Box>
+      <FormControl>
+        <InputLabel htmlFor="Name">Name</InputLabel>
+        <Input aria-describedby="my-helper-text" inputRef={nameRef} />
+        <FormHelperText>Name of your subscription:</FormHelperText>
+      </FormControl>
+      <FormControl>
+        <InputLabel htmlFor="Price">Price</InputLabel>
+        <Input aria-describedby="my-helper-text" inputRef={priceRef} />
+        <FormHelperText>monthly cost:</FormHelperText>
+      </FormControl>
+      <Button onClick={handleSubmit}>submit</Button>
+      {/* 
+      <div>
+        <label htmlFor="name">
+          <small>name</small>
+        </label>
+        <input type="text" ref={nameRef} />
+      </div>
+      <div>
+        <label htmlFor="price">
+          <small>monthly price</small>
+        </label>
+        <input type="price" ref={priceRef} />
+      </div>
+      <div></div> */}
+    </Box>
   );
 };
 

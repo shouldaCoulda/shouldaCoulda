@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSubscription } from "../contexts/SubscriptionContext";
 import { useAuth } from "../contexts/AuthContext";
@@ -14,15 +14,18 @@ import {
   CardMedia,
   CardContent,
   Button,
+  FormControl,
+  InputLabel,
+  Input,
+  FormHelperText,
 } from "@mui/material";
+import AddSubscription from "./AddSubscription";
 
 export const SelectionScreen = () => {
   const { defaultSubscriptions } = useSubscription();
   const { writeSubscriptions, usersSubscriptions, currentUser } = useAuth();
-
+  const [shown, setShown] = useState(false);
   const isSelected = Array(defaultSubscriptions.length).fill(false);
-  const guestData = useGuestData();
-  const { expenses, subscriptions, setSubscriptions } = useGuestData();
 
   function handleClick(e, index) {
     e.preventDefault();
@@ -32,7 +35,6 @@ export const SelectionScreen = () => {
     } else {
       e.currentTarget.className += " selected";
     }
-    // history.push("/subscriptionInfo");
   }
   const history = useHistory();
 
@@ -60,21 +62,6 @@ export const SelectionScreen = () => {
     }
   }
 
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-  //   const data = [];
-  //   defaultSubscriptions.map((element, i) => {
-  //     if (isSelected[i]) {
-  //       // subscriptions.push(element);
-  //       data.push(element);
-  //       console.log(element);
-  //       history.push("/subscriptionInfo");
-  //     }
-  //   });
-  //   writeSubscriptions(data);
-  //   history.push("/subscriptioninfo");
-  // }
-
   function checkIsSelected(uid) {
     let uids = [];
     for (let i = 0; i < usersSubscriptions.length; i++) {
@@ -84,6 +71,10 @@ export const SelectionScreen = () => {
       return "card selected";
     }
     return "card";
+  }
+  function toggleForm() {
+    console.log("toggle", shown);
+    setShown(!shown);
   }
 
   return (
@@ -120,6 +111,16 @@ export const SelectionScreen = () => {
           );
         })}
         <Button onClick={handleSubmit}>Next</Button>
+        <Box>
+          {shown ? (
+            <AddSubscription />
+          ) : (
+            <Typography gutterBottom variant="p" component="div">
+              have a subscription not shown here?
+              <Button onClick={toggleForm}>Add</Button>
+            </Typography>
+          )}
+        </Box>
       </Box>
 
       {/* <div>

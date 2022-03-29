@@ -21,16 +21,10 @@ const App = () => {
           <OtherProvider>
             <FinancialDataProvider>
               <ChartProvider>
-                <Container
-                // sx={{
-                //   maxWidth: 800,
-                //   maxHeight: 200,
-                // }}
-                >
+                <Container>
                   <Box
                     sx={{
                       maxWidth: 1000,
-                      mr: 2,
                       display: { xs: "none", md: "flex" },
                       flexDirection: "column",
                     }}
