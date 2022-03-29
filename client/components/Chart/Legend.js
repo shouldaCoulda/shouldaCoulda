@@ -1,5 +1,7 @@
 import React from "react";
 import { useChart } from "../../contexts/ChartContext";
+import { Box, Typography, Button, ButtonGroup, Container } from "@mui/material";
+
 const Legend = () => {
   const { lines, selectedLines } = useChart();
 
@@ -10,18 +12,23 @@ const Legend = () => {
     }
   }
   return (
-    <div className="ledgendContainer grey round">
-      {displayedLines.map((elem, key) => {
-        return (
-          <div className="legend-text" key={key} style={{ color: elem.color }}>
-            <span>
-              {" "}
+    <Box>
+      <Container sx={{ display: { xs: "none", md: "flex" } }}>
+        {displayedLines.map((elem, key) => {
+          return (
+            <Typography
+              key={key}
+              gutterBottom
+              variant="p"
+              component="div"
+              sx={{ color: elem.color, padding: 2 }}
+            >
               {elem.name} : {elem.color}
-            </span>
-          </div>
-        );
-      })}
-    </div>
+            </Typography>
+          );
+        })}
+      </Container>
+    </Box>
   );
 };
 
