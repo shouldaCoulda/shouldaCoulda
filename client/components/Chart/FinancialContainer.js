@@ -48,14 +48,16 @@ const FinancialContainer = () => {
         >
           {lines.map((line, index) => {
             let color = "";
+            let fontColor = "";
             if (selectedLines[index]) {
               color = line.color;
+              fontColor = "white";
             }
             return (
               <Button
                 key={index}
                 onClick={(e) => handleChange(e, index)}
-                sx={{ backgroundColor: color }}
+                sx={{ backgroundColor: color, color: fontColor }}
               >
                 {line.name}
               </Button>

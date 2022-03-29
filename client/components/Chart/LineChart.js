@@ -30,6 +30,9 @@ const LineChart = () => {
         minDomain={({ y: 0 }, { x: 0 })}
         maxDomain={({ y: maxY }, { x: months })}
         domainPadding={30}
+        animate={{
+          duration: 500,
+        }}
       >
         {displayedLines.map((dataArray, key) => {
           return (

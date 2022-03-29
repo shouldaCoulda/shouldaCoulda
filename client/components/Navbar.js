@@ -29,7 +29,14 @@ const Navbar = () => {
           <img src="/logo.png" alt="image" className="logo" />
         </Typography>
         {currentUser ? (
-          <Box sx={{ mr: 2, display: { xs: "none", md: "flex" } }}>
+          <Box
+            sx={{
+              mr: 2,
+              display: { xs: "none", md: "flex" },
+              width: 300,
+              justifyContent: "space-between",
+            }}
+          >
             <Typography
               variant="h6"
               noWrap
@@ -37,7 +44,7 @@ const Navbar = () => {
               onClick={() => history.push("./selections")}
               sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
             >
-              <HomeIcon />
+              <HomeIcon sx={{ fontSize: 40 }} />
             </Typography>
             <Typography
               variant="h6"
@@ -46,7 +53,7 @@ const Navbar = () => {
               onClick={() => history.push("./profile")}
               sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
             >
-              <AccountBoxIcon />
+              <AccountBoxIcon sx={{ fontSize: 40 }} />
             </Typography>
             <Typography
               variant="h6"
@@ -55,7 +62,7 @@ const Navbar = () => {
               onClick={() => history.push("./chart")}
               sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
             >
-              <ShowChartIcon />
+              <ShowChartIcon sx={{ fontSize: 40 }} />
             </Typography>
             <Typography
               variant="h6"
@@ -64,7 +71,7 @@ const Navbar = () => {
               onClick={logout}
               sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
             >
-              <LogoutIcon />
+              <LogoutIcon sx={{ fontSize: 40 }} />
             </Typography>
           </Box>
         ) : (
@@ -76,7 +83,7 @@ const Navbar = () => {
               onClick={() => history.push("./login")}
               sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
             >
-              <LoginIcon />
+              <LoginIcon sx={{ fontSize: 40 }} />
             </Typography>
             <Typography
               variant="h6"
