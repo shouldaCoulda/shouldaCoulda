@@ -17,7 +17,6 @@ export function useChart() {
 export function ChartProvider({ children }) {
   const { usersSubscriptions } = useAuth();
   const [months, setMonths] = useState(12);
-  const [selectedSubscriptions, setSelectedSubs] = useState([]);
   const [selectedLines, setSelectedLines] = useState([]);
   const [selectedApr, setSelectedApr] = useState(1);
   const [lines, setLines] = useState([]);
@@ -42,9 +41,7 @@ export function ChartProvider({ children }) {
   function getTotal() {
     let total = 0;
     for (let i = 0; i < usersSubscriptions.length; i++) {
-      if (selectedSubscriptions[i] === true) {
-        total = total + Number(usersSubscriptions[i].price);
-      }
+      total = total + Number(usersSubscriptions[i].price);
     }
     return total.toFixed(2);
   }
@@ -75,8 +72,6 @@ export function ChartProvider({ children }) {
   const value = {
     months,
     setMonths,
-    setSelectedSubs,
-    selectedSubscriptions,
     getTotal,
     selectedApr,
     setSelectedApr,
