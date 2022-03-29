@@ -64,7 +64,7 @@ const Navbar = () => {
             </Typography>
           </Box>
         ) : (
-          <Box>
+          <Box sx={{ mr: 2, display: { xs: "none", md: "flex" } }}>
             <Typography
               variant="h6"
               noWrap

@@ -25,8 +25,7 @@ export const SelectionScreen = () => {
   const { expenses, subscriptions, setSubscriptions } = useGuestData();
 
   function handleClick(e, index) {
-    console.log("click", e.currentTarget);
-    console.log(isSelected);
+    e.preventDefault();
     isSelected[index] = !isSelected[index];
     if (e.currentTarget.className.includes("selected")) {
       e.currentTarget.className = "card";
@@ -38,16 +37,43 @@ export const SelectionScreen = () => {
   const history = useHistory();
 
   function handleSubmit(e) {
-    e.preventDefault();
-    var data = [];
-    defaultSubscriptions.map((element, i) => {
-      if (isSelected[i]) {
-        data.push(element);
-      }
-    });
-    writeSubscriptions(data);
-    history.push("/subscriptioninfo");
+    if (currentUser) {
+      e.preventDefault();
+      var data = [];
+      defaultSubscriptions.map((element, i) => {
+        if (isSelected[i]) {
+          data.push(element);
+        }
+      });
+      writeSubscriptions(data);
+      history.push("/subscriptioninfo");
+    } else {
+      e.preventDefault();
+      var datas = [];
+      defaultSubscriptions.map((element, i) => {
+        if (isSelected[i]) {
+          datas.push(element);
+        }
+      });
+      setSubscriptions(datas);
+      history.push("/subscriptioninfo");
+    }
   }
+
+  // function handleSubmit(e) {
+  //   e.preventDefault();
+  //   const data = [];
+  //   defaultSubscriptions.map((element, i) => {
+  //     if (isSelected[i]) {
+  //       // subscriptions.push(element);
+  //       data.push(element);
+  //       console.log(element);
+  //       history.push("/subscriptionInfo");
+  //     }
+  //   });
+  //   writeSubscriptions(data);
+  //   history.push("/subscriptioninfo");
+  // }
 
   function checkIsSelected(uid) {
     let uids = [];
@@ -55,43 +81,46 @@ export const SelectionScreen = () => {
       uids.push(usersSubscriptions[i].uid);
     }
     if (uids.includes(uid)) {
-      return 10;
+      return "card selected";
     }
-    return 0;
+    return "card";
   }
 
   return (
     <>
-      <Box sx={{ display: "flex", flexWrap: "wrap" }}>
+      <Box
+        sx={{ mr: 2, display: { xs: "none", md: "flex" }, flexWrap: "wrap" }}
+      >
         {defaultSubscriptions.map((sub, index) => {
           let str = checkIsSelected(sub.uid);
           return (
-            <Card
-              sx={{
-                maxWidth: 120,
-                margin: 2,
-                boxShadow: str,
-              }}
-              onClick={(event) => handleClick(event, index)}
-              key={sub.name}
-            >
-              <CardMedia
-                component="img"
-                src={sub.imageUrl}
-                alt="green iguana"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="p" component="div">
-                  {sub.name}
-                </Typography>
-              </CardContent>
-            </Card>
+            <Box onClick={(event) => handleClick(event, index)} key={sub.name}>
+              <Card
+                sx={{
+                  maxWidth: 150,
+                  margin: 1,
+                  padding: 0,
+                }}
+              >
+                <CardMedia
+                  component="img"
+                  src={sub.imageUrl}
+                  alt="green iguana"
+                  sx={{
+                    height: 120,
+                  }}
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="p" component="div">
+                    {sub.name}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Box>
           );
         })}
+        <Button onClick={handleSubmit}>Next</Button>
       </Box>
-      <Button className="nextButton" onClick={handleSubmit}>
-        Next
-      </Button>
 
       {/* <div>
         <div className="defaultCardContainer">
