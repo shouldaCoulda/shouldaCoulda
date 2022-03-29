@@ -98,40 +98,6 @@ const Navbar = () => {
         )}
       </Container>
     </AppBar>
-
-    //  <div>
-    //   <nav>
-    //     <div className="navOptions">
-    //       {currentUser ? (
-    //         <>
-    //           <Link to="/selections" className="navItem ">
-    //             HOME
-    //           </Link>
-    //           <Link to="/profile" className="navItem ">
-    //             PROFILE
-    //           </Link>
-    //           <Link to="/chart" className="navItem ">
-    //             CHART
-    //           </Link>
-    //           <button className="logoutButton" onClick={logout}>
-    //             LOG OUT
-    //           </button>
-    //         </>
-    //       ) : (
-    //         <>
-    //           <Link to="/login" className="navItem ">
-    //             login
-    //           </Link>
-    //           <Link to="/signUp" className="navItem ">
-    //             sign-up
-    //           </Link>
-    //         </>
-    //       )}
-    //     </div>
-    //   </nav>
-    //   <hr />
-    // </div>
-    // </>
   );
 };
 

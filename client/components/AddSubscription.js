@@ -54,20 +54,6 @@ const AddSubscription = () => {
         <FormHelperText>monthly cost:</FormHelperText>
       </FormControl>
       <Button onClick={handleSubmit}>submit</Button>
-      {/* 
-      <div>
-        <label htmlFor="name">
-          <small>name</small>
-        </label>
-        <input type="text" ref={nameRef} />
-      </div>
-      <div>
-        <label htmlFor="price">
-          <small>monthly price</small>
-        </label>
-        <input type="price" ref={priceRef} />
-      </div>
-      <div></div> */}
     </Box>
   );
 };
