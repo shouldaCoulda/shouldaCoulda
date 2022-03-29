@@ -99,6 +99,7 @@ export const SelectionScreen = () => {
             <Card
               sx={{
                 maxWidth: 120,
+                margin: 2,
               }}
               onClick={(event) => handleClick(event, index)}
               key={sub.name}
@@ -116,10 +117,10 @@ export const SelectionScreen = () => {
             </Card>
           );
         })}
-        <Button className="nextButton" onClick={handleSubmit}>
-          Next
-        </Button>
       </Box>
+      <Button className="nextButton" onClick={handleSubmit}>
+        Next
+      </Button>
 
       {/* <div>
         <div className="defaultCardContainer">
