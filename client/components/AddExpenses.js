@@ -3,8 +3,9 @@ import { useOtherExpenses }from "../contexts/OtherExpContext";
 import FoodCard from "./OtherExpCards/Food";
 import CableCard from "./OtherExpCards/Cable";
 import TobaccoCard from "./OtherExpCards/Tobacco";
-import AlcoholCard from "./OtherExpCards/Alcohol"
-;import { useAuth } from "../contexts/AuthContext";
+import AlcoholCard from "./OtherExpCards/Alcohol";
+import CoffeeCard from "./OtherExpCards/Coffee";
+import { useAuth } from "../contexts/AuthContext";
 import { Link } from "react-router-dom";
 import {
   Container,
@@ -61,6 +62,7 @@ const AddExpense = () => {
       <Box sx={{ ml: 1, mr: 1 }}><CableCard /></Box>
       <Box sx={{ ml: 1, mr: 1 }}><TobaccoCard /></Box>
       <Box sx={{ ml: 1, mr: 1 }}><AlcoholCard /></Box>
+      <Box sx={{ ml: 1, mr: 1 }}><CoffeeCard /></Box>
     </Box>
     <Link to="/chart">
         <button>continue</button>
