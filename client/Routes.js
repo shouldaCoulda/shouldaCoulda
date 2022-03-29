@@ -12,6 +12,7 @@ import { SubscriptionTier } from "./components/SubscriptionTier";
 import SignInPrompt from "./components/SignInPrompt";
 import Home from "./components/Home";
 import AddExpensees from "./components/AddExpenses";
+import LandingPage from "./components/LandingPage";
 
 const Routes = () => {
   const { currentUser } = useAuth();
@@ -21,12 +22,12 @@ const Routes = () => {
       <Switch>
         {currentUser ? (
           <>
+            <Route exact path="/" component={Home} />
             <Route exact path="/chart" component={ChartContainer} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/selections" component={SelectionScreen} />
             <Route exact path="/add" component={AddSubscription} />
             <Route exact path="/expense" component={AddExpensees} />
-            <Route exact path="/" component={ChartContainer} />
             <Route
               exact
               path="/subscriptioninfo"
@@ -37,7 +38,7 @@ const Routes = () => {
           <>
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={SignUp} />
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" component={LandingPage} />
           </>
         )}
       </Switch>

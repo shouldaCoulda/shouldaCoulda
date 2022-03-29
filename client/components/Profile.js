@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import PopupButton from "./PopupButton";
 import {
@@ -14,12 +14,36 @@ import {
 } from "@mui/material";
 
 const Profile = () => {
-  const { currentUser, usersSubscriptions, removeSubscription, getTotal } =
-    useAuth();
+  const {
+    currentUser,
+    usersSubscriptions,
+    removeSubscription,
+    getTotal,
+    writeUserData,
+  } = useAuth();
+
+  function checkIfGuest(email) {
+    let guest = email.slice(0, 5);
+    if (guest === "guest") {
+      console.log("in checkifguest", email);
+      currentUser.email = "Enter-Form-Data-Here@icloud.com";
+      var user = {
+        uid: currentUser.uid,
+        email: currentUser.email,
+      };
+      writeUserData(user);
+    }
+    console.log(currentUser.email);
+  }
 
   function handleDelete(e, uid) {
     removeSubscription(uid);
   }
+
+  useEffect(() => {
+    checkIfGuest(currentUser.email);
+  }, []);
+
   return (
     <Box
       sx={{

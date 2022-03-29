@@ -41,7 +41,7 @@ const Navbar = () => {
               variant="h6"
               noWrap
               component="div"
-              onClick={() => history.push("./selections")}
+              onClick={() => history.push("./")}
               sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
             >
               <HomeIcon sx={{ fontSize: 40 }} />

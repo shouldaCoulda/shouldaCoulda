@@ -1,19 +1,18 @@
 import { useAuth } from "../contexts/AuthContext";
 import React from "react";
+import { Box, Typography } from "@mui/material";
 
 /**
  * COMPONENT
  */
 export const Home = () => {
   const { currentUser } = useAuth();
-
+  console.log(currentUser);
   return (
-    <div>
-      <h3>Welcome to shoulda </h3>
-      <h3>Log in or sign up </h3>
-    </div>
+    <Box>
+      <Typography variant="h3">Welcome to shoulda</Typography>
+    </Box>
   );
 };
-
 
 export default Home;

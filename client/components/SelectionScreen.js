@@ -23,7 +23,6 @@ import AddSubscription from "./AddSubscription";
 
 export const SelectionScreen = () => {
   const { defaultSubscriptions } = useSubscription();
-  console.log("defaultsubscriptions", defaultSubscriptions);
   const { writeSubscriptions, usersSubscriptions, currentUser } = useAuth();
   const [shown, setShown] = useState(false);
   const isSelected = Array(defaultSubscriptions.length).fill(false);

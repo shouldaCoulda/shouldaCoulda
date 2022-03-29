@@ -48,7 +48,9 @@ const AddExpense = () => {
   return (
     <>
     <div>Would you like to add other expenses?</div>
-    <Box sx={{ ml: 2, mr: 2, display: { xs: "none", md: "flex" }, flexWrap: "wrap" }}>
+      <Box sx={{ ml: 2, mr: 2, display: { xs: "none", md: "flex" }, flexWrap: "wrap" }}>
+        
+        
       <Box sx={{ ml: 1, mr: 1 }}><FoodCard /></Box>
       <Box sx={{ ml: 1, mr: 1 }}><CableCard /></Box>
       <Box sx={{ ml: 1, mr: 1 }}><TobaccoCard /></Box>
