@@ -1,6 +1,16 @@
 import { useAuth } from "../contexts/AuthContext";
 import React, { useEffect } from "react";
-import { Box, Typography } from "@mui/material";
+import {
+  Container,
+  AppBar,
+  Toolbar,
+  Typography,
+  Box,
+  Card,
+  CardMedia,
+  CardContent,
+  Button,
+} from "@mui/material";
 import { Link, useHistory } from "react-router-dom";
 
 /**
@@ -21,13 +31,16 @@ export const LandingPage = () => {
     history.push("/");
   };
 
-  useEffect(() => {
-    generator();
-  }, []);
+  //   useEffect(() => {
+  //     generator();
+  //   }, []);
 
   return (
     <Box>
       <Typography variant="h3">Landing page</Typography>
+      <Typography variant="h3">Already a user ? </Typography>
+      <Button onClick={() => history.push("/login")}>Login</Button>
+      <Button onClick={() => generator()}>continue as a guest</Button>
     </Box>
   );
 };
