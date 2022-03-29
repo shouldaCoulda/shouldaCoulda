@@ -41,6 +41,9 @@ const LineChart = () => {
           />
         }
         standalone={true}
+        animate={{
+          duration: 500,
+        }}
       >
         {displayedLines.map((dataArray, key) => {
           return (
