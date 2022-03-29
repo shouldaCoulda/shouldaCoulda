@@ -15,36 +15,34 @@ import { Container, Box } from "@mui/material";
 
 const App = () => {
   return (
-    <div>
-      <AuthProvider>
-        <GuestDataContextProvider>
-          <SubscriptionProvider>
-            <OtherProvider>
-              <FinancialDataProvider>
-                <ChartProvider>
-                  <Container
-                  // sx={{
-                  //   maxWidth: 800,
-                  //   maxHeight: 200,
-                  // }}
+    <AuthProvider>
+      <GuestDataContextProvider>
+        <SubscriptionProvider>
+          <OtherProvider>
+            <FinancialDataProvider>
+              <ChartProvider>
+                <Container
+                // sx={{
+                //   maxWidth: 800,
+                //   maxHeight: 200,
+                // }}
+                >
+                  <Box
+                    sx={{
+                      maxWidth: 1000,
+                      maxHeight: 600,
+                    }}
                   >
-                    <Box
-                      sx={{
-                        maxWidth: 800,
-                        maxHeight: 600,
-                      }}
-                    >
-                      <Navbar />
-                      <Routes />
-                    </Box>
-                  </Container>
-                </ChartProvider>
-              </FinancialDataProvider>
-            </OtherProvider>
-          </SubscriptionProvider>
-        </GuestDataContextProvider>
-      </AuthProvider>
-    </div>
+                    <Navbar />
+                    <Routes />
+                  </Box>
+                </Container>
+              </ChartProvider>
+            </FinancialDataProvider>
+          </OtherProvider>
+        </SubscriptionProvider>
+      </GuestDataContextProvider>
+    </AuthProvider>
   );
 };
 

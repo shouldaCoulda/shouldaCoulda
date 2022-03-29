@@ -5,18 +5,7 @@ import SelectionsContainer from "./SelectionsContainer";
 import FinancialContainer from "./FinancialContainer";
 import MonthSlider from "./MonthSlider";
 import Legend from "./Legend";
-import {
-  Typography,
-  Box,
-  Button,
-  Table,
-  TableRow,
-  TableHead,
-  TableCell,
-  TableContainer,
-  TableBody,
-  Container,
-} from "@mui/material";
+import { Box, Container } from "@mui/material";
 
 const ChartContainer = () => {
   return (

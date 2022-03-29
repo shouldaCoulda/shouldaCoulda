@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import { useChart } from "../../contexts/ChartContext";
 import AddButton from "./AddButton";
+import { Box, Container, Typography } from "@mui/material";
 
 const SelectionsContainer = () => {
   const { usersSubscriptions } = useAuth();
@@ -28,34 +29,18 @@ const SelectionsContainer = () => {
   }, [usersSubscriptions]);
 
   return (
-    <div className="grey side">
-      <p>monthly: {getTotal()}</p>
-      <p>
-        {months}: months: {total}
-      </p>
-      <table>
-        <tbody>
-          {usersSubscriptions.map((sub, index) => {
-            return (
-              <tr key={index}>
-                <td>{sub.name}</td>
+    <>
+      <Box sx={{ padding: 1 }}>
+        <Typography gutterBottom variant="p" component="div">
+          monthly: {getTotal()}
+        </Typography>
+        <Typography gutterBottom variant="p" component="div">
+          {months}: months: {total}
+        </Typography>
 
-                <td>
-                  <input
-                    type="checkbox"
-                    value={selectedSubscriptions[index]}
-                    onChange={(e) => handleChange(e, index)}
-                    defaultChecked
-                    className="hover"
-                  />
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-      <AddButton />
-    </div>
+        <AddButton />
+      </Box>
+    </>
   );
 };
 
