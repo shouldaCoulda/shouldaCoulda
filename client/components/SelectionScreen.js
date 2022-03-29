@@ -31,7 +31,7 @@ export const SelectionScreen = () => {
     e.preventDefault();
     isSelected[index] = !isSelected[index];
     if (e.currentTarget.className.includes("selected")) {
-      e.currentTarget.className = "card";
+      e.currentTarget.className = "";
     } else {
       e.currentTarget.className += " selected";
     }
@@ -39,27 +39,15 @@ export const SelectionScreen = () => {
   const history = useHistory();
 
   function handleSubmit(e) {
-    if (currentUser) {
-      e.preventDefault();
-      var data = [];
-      defaultSubscriptions.map((element, i) => {
-        if (isSelected[i]) {
-          data.push(element);
-        }
-      });
-      writeSubscriptions(data);
-      history.push("/subscriptioninfo");
-    } else {
-      e.preventDefault();
-      var datas = [];
-      defaultSubscriptions.map((element, i) => {
-        if (isSelected[i]) {
-          datas.push(element);
-        }
-      });
-      setSubscriptions(datas);
-      history.push("/subscriptioninfo");
-    }
+    e.preventDefault();
+    var data = [];
+    defaultSubscriptions.map((element, i) => {
+      if (isSelected[i]) {
+        data.push(element);
+      }
+    });
+    writeSubscriptions(data);
+    history.push("/subscriptioninfo");
   }
 
   function checkIsSelected(uid) {
@@ -68,10 +56,11 @@ export const SelectionScreen = () => {
       uids.push(usersSubscriptions[i].uid);
     }
     if (uids.includes(uid)) {
-      return "card selected";
+      return " selected";
     }
-    return "card";
+    return "";
   }
+
   function toggleForm() {
     setShown(!shown);
   }
@@ -96,6 +85,8 @@ export const SelectionScreen = () => {
                     maxWidth: 150,
                     margin: 1,
                     padding: 0,
+                    border: "none",
+                    boxShadow: "none",
                   }}
                 >
                   <CardMedia
