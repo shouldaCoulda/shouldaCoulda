@@ -11,6 +11,7 @@ import { FinancialDataProvider } from "./contexts/FinancialDataContext";
 
 import Navbar from "./components/Navbar";
 import Routes from "./Routes";
+import { Container, Box } from "@mui/material";
 
 const App = () => {
   return (
@@ -21,8 +22,22 @@ const App = () => {
             <OtherProvider>
               <FinancialDataProvider>
                 <ChartProvider>
-                  <Navbar />
-                  <Routes />
+                  <Container
+                  // sx={{
+                  //   maxWidth: 800,
+                  //   maxHeight: 200,
+                  // }}
+                  >
+                    <Box
+                      sx={{
+                        maxWidth: 800,
+                        maxHeight: 600,
+                      }}
+                    >
+                      <Navbar />
+                      <Routes />
+                    </Box>
+                  </Container>
                 </ChartProvider>
               </FinancialDataProvider>
             </OtherProvider>

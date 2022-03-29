@@ -13,6 +13,7 @@ import {
   Card,
   CardMedia,
   CardContent,
+  Button,
 } from "@mui/material";
 
 export const SelectionScreen = () => {
@@ -97,7 +98,7 @@ export const SelectionScreen = () => {
           return (
             <Card
               sx={{
-                maxWidth: 150,
+                maxWidth: 120,
               }}
               onClick={(event) => handleClick(event, index)}
               key={sub.name}
@@ -115,6 +116,9 @@ export const SelectionScreen = () => {
             </Card>
           );
         })}
+        <Button className="nextButton" onClick={handleSubmit}>
+          Next
+        </Button>
       </Box>
 
       {/* <div>
