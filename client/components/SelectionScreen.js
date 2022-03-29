@@ -113,7 +113,10 @@ export const SelectionScreen = () => {
         <Button onClick={handleSubmit}>Next</Button>
         <Box>
           {shown ? (
-            <AddSubscription />
+            <Box>
+              <AddSubscription />
+              <Button onClick={toggleForm}>cancel</Button>
+            </Box>
           ) : (
             <Typography gutterBottom variant="p" component="div">
               have a subscription not shown here?
