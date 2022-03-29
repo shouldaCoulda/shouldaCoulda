@@ -25,6 +25,8 @@ export const SelectionScreen = () => {
   const { expenses, subscriptions, setSubscriptions } = useGuestData();
 
   function handleClick(e, index) {
+    console.log("click", e.currentTarget);
+    console.log(isSelected);
     isSelected[index] = !isSelected[index];
     if (e.currentTarget.className.includes("selected")) {
       e.currentTarget.className = "card";
@@ -36,43 +38,16 @@ export const SelectionScreen = () => {
   const history = useHistory();
 
   function handleSubmit(e) {
-    if (currentUser) {
-      e.preventDefault();
-      var data = [];
-      defaultSubscriptions.map((element, i) => {
-        if (isSelected[i]) {
-          data.push(element);
-        }
-      });
-      writeSubscriptions(data);
-      history.push("/subscriptioninfo");
-    } else {
-      e.preventDefault();
-      var datas = [];
-      defaultSubscriptions.map((element, i) => {
-        if (isSelected[i]) {
-          datas.push(element);
-        }
-      });
-      setSubscriptions(datas);
-      history.push("/subscriptioninfo");
-    }
+    e.preventDefault();
+    var data = [];
+    defaultSubscriptions.map((element, i) => {
+      if (isSelected[i]) {
+        data.push(element);
+      }
+    });
+    writeSubscriptions(data);
+    history.push("/subscriptioninfo");
   }
-
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-  //   const data = [];
-  //   defaultSubscriptions.map((element, i) => {
-  //     if (isSelected[i]) {
-  //       // subscriptions.push(element);
-  //       data.push(element);
-  //       console.log(element);
-  //       history.push("/subscriptionInfo");
-  //     }
-  //   });
-  //   writeSubscriptions(data);
-  //   history.push("/subscriptioninfo");
-  // }
 
   function checkIsSelected(uid) {
     let uids = [];
@@ -80,9 +55,9 @@ export const SelectionScreen = () => {
       uids.push(usersSubscriptions[i].uid);
     }
     if (uids.includes(uid)) {
-      return "card selected";
+      return 10;
     }
-    return "card";
+    return 0;
   }
 
   return (
@@ -95,6 +70,7 @@ export const SelectionScreen = () => {
               sx={{
                 maxWidth: 120,
                 margin: 2,
+                boxShadow: str,
               }}
               onClick={(event) => handleClick(event, index)}
               key={sub.name}
