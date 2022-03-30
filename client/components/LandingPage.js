@@ -36,10 +36,41 @@ export const LandingPage = () => {
   //   }, []);
 
   return (
-    <Box>
-      <Typography variant="h3">Landing page</Typography>
-      <Typography variant="h3">Already a user ? </Typography>
-      <Button onClick={() => generator()}>continue as a guest</Button>
+    <Box
+      sx={{
+        mr: 2,
+        display: { xs: "none", md: "flex" },
+        flexDirection: "column",
+        alignItems: "center",
+        padding: 5,
+      }}
+    >
+      <Card
+        sx={{
+          maxWidth: 700,
+          margin: 2,
+          padding: 0,
+          border: "none",
+          boxShadow: "none",
+        }}
+      >
+        <CardMedia
+          component="img"
+          src={
+            "https://images.pexels.com/photos/4386431/pexels-photo-4386431.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+          }
+          alt="green iguana"
+          sx={{
+            height: 255,
+            width: 600,
+          }}
+        />
+      </Card>
+      <Typography variant="h4" sx={{ fontWeight: 600 }}>
+        Tired Of Wasting Your Hard Earned $$$?
+      </Typography>
+
+      <Button onClick={() => generator()}>Next</Button>
     </Box>
   );
 };
