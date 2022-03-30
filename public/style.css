@@ -41,3 +41,22 @@
 .image {
   max-height: 200;
 }
+
+/* #tierSelected {
+  box-shadow: 0 0 10px 20px royalblue;
+} */
+
+#priceTierTable {
+  display: flex;
+  margin: auto;
+}
+.singleTier {
+  width: 9rem;
+}
+#tierTable {
+  display: flex;
+  margin: auto;
+}
+#tierIcon {
+  width: 8rem;
+}
