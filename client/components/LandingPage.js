@@ -39,7 +39,6 @@ export const LandingPage = () => {
     <Box>
       <Typography variant="h3">Landing page</Typography>
       <Typography variant="h3">Already a user ? </Typography>
-      <Button onClick={() => history.push("/login")}>Login</Button>
       <Button onClick={() => generator()}>continue as a guest</Button>
     </Box>
   );
