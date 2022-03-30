@@ -1,15 +1,19 @@
 import { useAuth } from "../contexts/AuthContext";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import {
   Container,
   AppBar,
   Toolbar,
   Typography,
+  FormControl,
   Box,
   Card,
   CardMedia,
   CardContent,
   Button,
+  InputLabel,
+  Input,
+  FormHelperText,
 } from "@mui/material";
 import { Link, useHistory } from "react-router-dom";
 
@@ -18,6 +22,7 @@ import { Link, useHistory } from "react-router-dom";
  */
 export const LandingPage = () => {
   const { signup, writeUserData } = useAuth();
+  const ammountRef = useRef(0);
 
   const history = useHistory();
 
@@ -30,6 +35,10 @@ export const LandingPage = () => {
     signup(`guest${string}@gmail.com`, "Password");
     history.push("/");
   };
+  function handleSubmit() {
+    console.log("submit", ammountRef.current.value);
+    generator();
+  }
 
   //   useEffect(() => {
   //     generator();
@@ -43,6 +52,7 @@ export const LandingPage = () => {
         flexDirection: "column",
         alignItems: "center",
         padding: 5,
+        paddingBottom: 20,
       }}
     >
       <Card
@@ -69,8 +79,47 @@ export const LandingPage = () => {
       <Typography variant="h4" sx={{ fontWeight: 600 }}>
         Tired Of Wasting Your Hard Earned $$$?
       </Typography>
+      <Typography variant="p" sx={{ padding: 4, lineHeight: 1.5 }}>
+        We get it. You KNOW you should be managing your finances better (i.e.
+        investing, tracking, plus whatever else your dad is always nagging you
+        to do. But you don’t know where to start. The first step to taking care
+        of your money is to understand its REAL value.
+      </Typography>
+      <Typography variant="p" sx={{ padding: 4 }}>
+        Ever wonder how much money you could be making if you invested your
+        starbucks bill into the S&P 500?
+      </Typography>
+      <Typography variant="h4" sx={{ padding: 4 }}>
+        OR
+      </Typography>
+      <Typography variant="p" sx={{ padding: 4 }}>
+        just how much those costly monthly subscriptions are ACTUALLY costing
+        you?!
+      </Typography>
+      <Typography variant="h6" sx={{ padding: 4 }}>
+        We will do the math.
+      </Typography>
+      <Typography variant="p" sx={{ padding: 4 }}>
+        BUT FIRST, answer our simple questions below so we can get to know you
+        better.
+      </Typography>
+      <Typography variant="p" sx={{ padding: 4 }}>
+        Question 1: How much money do you make every month?
+      </Typography>
+      <Box>
+        <FormControl>
+          <InputLabel htmlFor="ammount">Ammount</InputLabel>
+          <Input aria-describedby="my-helper-text" inputRef={ammountRef} />
+          <FormHelperText>Monthly net income:</FormHelperText>
+        </FormControl>
+      </Box>
+      <Typography variant="p" sx={{ padding: 4 }}>
+        Question 2: Are you ready to see how much your is really costing you?
+        Insert radio box here: answers are either YES! or I’M READY
+      </Typography>
+      <Button onClick={handleSubmit}>yes</Button>
 
-      <Button onClick={() => generator()}>Next</Button>
+      <Button onClick={handleSubmit}>im ready</Button>
     </Box>
   );
 };

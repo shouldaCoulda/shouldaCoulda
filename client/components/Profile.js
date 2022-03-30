@@ -46,7 +46,7 @@ const Profile = () => {
 
       return (
         <Box>
-          <Typography variant="h3">logged out</Typography>;
+          <Typography variant="h6">Enter your information</Typography>
           <Box>
             <FormControl>
               <InputLabel htmlFor="email">email</InputLabel>
