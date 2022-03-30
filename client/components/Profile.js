@@ -72,12 +72,12 @@ const Profile = () => {
             display: { xs: "none", md: "flex" },
             flexDirection: "column",
             alignItems: "center",
+            
           }}
         >
           {/* <Typography gutterBottom variant="p" component="div">
             Email: {currentUser?.email}
           </Typography> */}
-          <PopupButton />
           <Typography variant="h4">Subscriptions</Typography>
           <TableContainer>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -141,7 +141,7 @@ const Profile = () => {
             }}
           />
           <Typography variant="h4">Expenses</Typography>
-          <TableContainer>
+          <TableContainer sx={{ marginBottom: 6 }}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
               <TableHead>
                 <TableRow>
@@ -192,6 +192,7 @@ const Profile = () => {
               </TableBody>
             </Table>
           </TableContainer>
+          <PopupButton />
         </Box>
       );
     }

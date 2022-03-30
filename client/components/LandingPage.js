@@ -49,7 +49,6 @@ export const LandingPage = () => {
         flexDirection: "column",
         alignItems: "center",
         padding: 2,
-        paddingBottom: 20,
       }}
     >
       <Card

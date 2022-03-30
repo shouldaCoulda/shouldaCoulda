@@ -28,6 +28,7 @@ const App = () => {
                       maxWidth: 1000,
                       display: { xs: "none", md: "flex" },
                       flexDirection: "column",
+                      paddingBottom: 15,
                     }}
                   >
                     <Navbar />
