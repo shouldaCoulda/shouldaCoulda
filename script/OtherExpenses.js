@@ -1,29 +1,37 @@
-export const otherData = [
+export const expenseCards = [
   {
-    name: "Coffee",
-    price: "3.99",
-    frequency: "",
+    name: "Alcohol",
     imageUrl:
-      "https://atlas-content1-cdn.pixelsquid.com/assets_v2/10/1018179074796820378/jpeg-600/G03.jpg",
-    websiteUrl:
-      "https://www.amazon.com/s?k=coffee&rh=n%3A16310101%2Cp_36%3A698503011&dc&crid=2VMB6RVQ31GP9&qid=1648138008&rnid=386454011&sprefix=coffee%2Caps%2C99&ref=sr_nr_p_36_1",
+      "https://mshanken.imgix.net/wso/Articles/2018/NS_health112817_1600.jpg",
+    description:
+      "Have you thought about cutting down on drinking? Use this section to find out how much you could be saving if you were to invest some of that money.",
   },
   {
-    name: "Tobacco",
-    price: "8.99",
-    frequency: "",
+    name: "Cable/Directv",
     imageUrl:
-      "https://media.istockphoto.com/photos/cigarette-pack-picture-id950393182?b=1&k=20&m=950393182&s=170667a&w=0&h=tGqbGlloWCLDSrdrNUY2eYxnTlRXrWMMh51Sux2v-OQ=",
-    websiteUrl:
-      "https://www.cancer.net/navigating-cancer-care/prevention-and-healthy-living/stopping-tobacco-use-after-cancer-diagnosis/resources-help-you-quit-smoking",
+      "https://www.bitsonbroadband.com/wp-content/uploads/2014/05/Satellite-TV.jpg",
+    description:
+      "Do you pay for a cable service, directv, or an equivalent service that you lower your cost of or cut out completely? Check your account statements and estimate potential savings below.",
   },
   {
-    name: "Food",
-    price: "29.99",
-    frequency: "",
+    name: " Coffee",
     imageUrl:
-      "https://thumbs.dreamstime.com/b/food-delivery-icon-trendy-modern-flat-linear-vector-food-delivery-icon-white-background-thin-line-general-collection-130949354.jpg",
-    websiteUrl:
-      "https://www.google.com/search?q=grocery+stores+near+me",
+      "https://images.thestar.com/dQxi2pPwqocxfcGxOzSRrHdV-Fs=/1086x544/smart/filters:cb(2700061000)/https://www.thestar.com/content/dam/thestar/news/gta/2009/03/11/tempest_in_coffee_cup_consumes_city_hall/tempest_in_coffee_cup_consumes_cityhall.jpeg",
+    description:
+      "Do you spend $5/day at Starbucks and could be making your own coffee at home or work? Use this section for any coffee savings you think you could produce each month.",
+  },
+  {
+    name: "Food Delivery/Pick-Up",
+    imageUrl:
+      "https://technofaq.org/wp-content/uploads/2019/10/whereyatcom_521663620.jpg",
+    description:
+      "Check your order history on food delivery services such as uberEats and Doordash. Now fill in how much $ you think you could save in future months by cutting back on food services.",
+  },
+  {
+    name: " Tobacco Products",
+    imageUrl:
+      "https://s.abcnews.com/images/Health/WireAP_40a3067d6b614a6fa8bd79f73c844fab_16x9_1600.jpg",
+    description:
+      "If you use tobacco products and would like to analyze how much you could save by quitting, use this section to estimate how much you spend per month on these products.",
   },
 ];

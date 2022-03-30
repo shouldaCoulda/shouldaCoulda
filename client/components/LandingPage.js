@@ -33,16 +33,12 @@ export const LandingPage = () => {
       string += chars[Math.floor(Math.random() * chars.length)];
     }
     signup(`guest${string}@gmail.com`, "Password");
-    history.push("/");
+    history.push("/expense");
   };
   function handleSubmit() {
     console.log("submit", ammountRef.current.value);
     generator();
   }
-
-  //   useEffect(() => {
-  //     generator();
-  //   }, []);
 
   return (
     <Box
@@ -144,7 +140,7 @@ export const LandingPage = () => {
         }}
       />
       <Typography variant="p" sx={{ padding: 4 }}>
-        How much money do you make every month?
+        What is your monthly income?
       </Typography>
       <Box>
         <FormControl>
