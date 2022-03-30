@@ -12,7 +12,6 @@ export async function getBtcMonthly() {
 
 export async function getEthMonthly() {
   await alpha.crypto.monthly("eth", "usd").then((data) => {
-    console.log(data);
     fillData(data);
     return data;
   });

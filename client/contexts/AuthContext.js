@@ -111,6 +111,13 @@ export function AuthProvider({ children }) {
     );
     remove(userSubsReff);
   }
+  async function removeExpense(uid) {
+    var userExpenseReff = ref(
+      database,
+      "users/" + currentUser.uid + "/expense/" + uid
+    );
+    remove(userExpenseReff);
+  }
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -181,6 +188,7 @@ export function AuthProvider({ children }) {
     setExpenses,
     getTotalExpenses,
     getOverallTotal,
+    removeExpense,
   };
 
   return (
