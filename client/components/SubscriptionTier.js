@@ -26,47 +26,28 @@ export const SubscriptionTier = () => {
 
   let { writeSubscriptions, currentUser, usersSubscriptions } = useAuth();
 
-  const isSelected = Array(usersSubscriptions.length).fill(false);
-  console.log(isSelected);
-  let count = 0;
-  function setCount() {
-    count++;
-    return count;
-  }
-
-  // function handleClick(e, index, plan) {
-  //   e.preventDefault();
-  //   console.log("plan-------->", plan);
-  //   isSelected[index] = !isSelected[index];
-  //   if (e.currentTarget.className.includes("selected")) {
-  //     e.currentTarget.className = "singleTier";
-  //   } else {
-  //     e.currentTarget.className = "singleTier selected";
-  //   }
-  // }
-
   function handleSubmit(e) {
     e.preventDefault();
     var data = [];
     usersSubscriptions.map((element, i) => {
-      if (isSelected[i]) {
-        data.push(element);
-      }
-      console.log("mic check", data);
+      // if (isSelected[i]) {
+      data.push(element);
+      // }
     });
 
     writeSubscriptions(data);
-    history.push("/subscriptioninfo");
+    history.push("/");
   }
+
   function handleClick(e, index, plan) {
     e.preventDefault();
-    console.log("plan-------->", plan);
-    isSelected[index] = !isSelected[index];
-    if (e.currentTarget.className.includes("selected")) {
-      e.currentTarget.className = "";
-    } else {
-      e.currentTarget.className += " selected";
-    }
+    setPrice(index, plan);
+  }
+
+  function setPrice(index, plan) {
+    console.log(usersSubscriptions);
+    usersSubscriptions[index].price = plan.price;
+    console.log(usersSubscriptions);
   }
 
   return (
@@ -82,8 +63,6 @@ export const SubscriptionTier = () => {
         Select your plan
       </Typography>
       {usersSubscriptions.map((sub, index) => {
-        // const chosenRef = useRef(0);
-
         {
           if (sub.plans && sub.plans.length > 0) {
             return (
@@ -99,10 +78,15 @@ export const SubscriptionTier = () => {
                   sx={{
                     alignSelf: "flex-start",
                     height: 50,
+                    marginLeft: 5,
+                    display: { xs: "none", md: "flex" },
+                    flexDirection: "column",
                   }}
                 >
-                  <img id="tierIcon" src={sub.imageUrl}></img>
-                  <p>{sub.name}</p>
+                  <img style={{ height: 45 }} src={sub.imageUrl}></img>
+                  <Typography gutterBottom variant="p">
+                    {sub.name}
+                  </Typography>
                 </Box>
                 <Box
                   sx={{
@@ -115,29 +99,23 @@ export const SubscriptionTier = () => {
                     return (
                       <Box
                         key={i}
-                        onClick={(event) => handleClick(event, index, plan)}
+                        onClick={(e) => handleClick(e, index, plan)}
                         sx={{
-                          padding: 0.2,
-                          border: "none",
+                          mr: 2,
+                          display: { xs: "none", md: "flex" },
+                          flexDirection: "column",
+                          padding: 2,
+                          margin: 1,
+                          border: 0.5,
+                          alignItems: "center",
                         }}
                       >
-                        <Tabs
-                          orientation="horizontal"
-                          key={setCount()}
-                          value={false}
-                          variant="scrollable"
-                          scrollButtons={false}
-                          aria-label="scrollable prevent tabs example"
-                        >
-                          <Tab
-                            label={
-                              <div className="singleTier">
-                                <h4>${plan.price}</h4>
-                                <p>{plan.tier}</p>
-                              </div>
-                            }
-                          ></Tab>
-                        </Tabs>
+                        <Typography gutterBottom variant="p">
+                          {plan.tier}
+                        </Typography>
+                        <Typography gutterBottom variant="p">
+                          {plan.price}
+                        </Typography>
                       </Box>
                     );
                   })}
