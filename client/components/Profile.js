@@ -28,6 +28,8 @@ const Profile = () => {
     getTotal,
     writeUserData,
     usersExpenses,
+    getTotalExpenses,
+    getOverallTotal,
   } = useAuth();
   const history = useHistory();
 
@@ -178,12 +180,12 @@ const Profile = () => {
                 <TableRow>
                   <TableCell component="th" scope="row">
                     <Typography type="b">
-                      Total Monthly cost: {getTotal()}
+                      Total Monthly cost: {getTotalExpenses()}
                     </Typography>
                   </TableCell>
                   <TableCell component="th" scope="row">
                     <Typography type="b">
-                      Total Anual cost: {(getTotal() * 12).toFixed(2)}
+                      Total Anual cost: {(getTotalExpenses() * 12).toFixed(2)}
                     </Typography>
                   </TableCell>
                 </TableRow>

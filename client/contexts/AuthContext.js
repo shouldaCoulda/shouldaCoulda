@@ -156,6 +156,16 @@ export function AuthProvider({ children }) {
       }, 0)
       .toFixed(2);
   }
+  function getTotalExpenses() {
+    return usersExpenses
+      .reduce((total, expense) => {
+        return total + Number(expense.price);
+      }, 0)
+      .toFixed(2);
+  }
+  function getOverallTotal() {
+    return getTotal() + getTotalExpenses();
+  }
 
   const value = {
     currentUser,
@@ -169,6 +179,8 @@ export function AuthProvider({ children }) {
     getTotal,
     usersExpenses,
     setExpenses,
+    getTotalExpenses,
+    getOverallTotal,
   };
 
   return (
