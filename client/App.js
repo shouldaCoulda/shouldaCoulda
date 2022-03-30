@@ -12,6 +12,7 @@ import { FinancialDataProvider } from "./contexts/FinancialDataContext";
 import Navbar from "./components/Navbar";
 import Routes from "./Routes";
 import { Container, Box } from "@mui/material";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
                   >
                     <Navbar />
                     <Routes />
+                    <Footer />
                   </Box>
                 </Container>
               </ChartProvider>

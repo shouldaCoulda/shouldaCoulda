@@ -38,3 +38,6 @@
   border: 1px solid #999;
   font-size: 20px;
 }
+.image {
+  max-height: 200;
+}

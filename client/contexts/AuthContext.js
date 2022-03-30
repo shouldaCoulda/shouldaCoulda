@@ -48,7 +48,11 @@ export function AuthProvider({ children }) {
       this method passes in our auth,email,and password and will create
       a user in our firebase. then sets the currentUser to this user
       */
-      const createdUser = createUserWithEmailAndPassword(auth, email, password);
+      const createdUser = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
     } catch (error) {
       console.log(error.message);
     }
@@ -94,8 +98,8 @@ export function AuthProvider({ children }) {
           price: subscriptions[i].price,
           imageUrl: subscriptions[i].imageUrl,
           websiteUrl: subscriptions[i].websiteUrl,
-          plans: subscriptions[i].plans,
           uid: subscriptions[i].uid,
+          plans: subscriptions[i].plans || [],
         }
       );
     }

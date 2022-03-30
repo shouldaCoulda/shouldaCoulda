@@ -23,7 +23,6 @@ import AddSubscription from "./AddSubscription";
 
 export const SelectionScreen = () => {
   const { defaultSubscriptions } = useSubscription();
-  console.log("defaultsubscriptions", defaultSubscriptions);
   const { writeSubscriptions, usersSubscriptions, currentUser } = useAuth();
   const [shown, setShown] = useState(false);
   const isSelected = Array(defaultSubscriptions.length).fill(false);
@@ -47,6 +46,7 @@ export const SelectionScreen = () => {
         data.push(element);
       }
     });
+    console.log(data)
     writeSubscriptions(data);
     history.push("/subscriptioninfo");
   }
@@ -123,9 +123,20 @@ export const SelectionScreen = () => {
             </Box>
           )}
         </Box>
-        <Box>
-          <Button onClick={handleSubmit}>Next</Button>
-        </Box>
+        <Button
+          onClick={handleSubmit}
+          sx={{
+            marginTop: 5,
+            borderWidth: 0,
+            boxShadow: "3px 2px 10px darkgray",
+            borderCollapse: "collapse",
+            color: "black",
+            borderRadius: 40,
+            width: 90,
+          }}
+        >
+          Next
+        </Button>
       </Box>
     </>
   );
