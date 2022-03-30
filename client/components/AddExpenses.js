@@ -3,7 +3,7 @@ import { useOtherExpenses } from "../contexts/OtherExpContext";
 
 import ExpenseCard from "./OtherExpCards/ExpenseCard";
 import { useAuth } from "../contexts/AuthContext";
-import { Box, Button } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { useHistory } from "react-router-dom";
 
 const AddExpense = () => {
@@ -39,11 +39,13 @@ const AddExpense = () => {
           mr: 2,
           display: { xs: "none", md: "flex" },
           flexWrap: "wrap",
-          paddingBottom: 20,
+          flexDirection: "column",
           alignItems: "center",
         }}
       >
-        <div>Would you like to add other expenses?</div>
+        <Typography variant="h6">
+          Would you like to add other expenses?
+        </Typography>
         <ExpenseCard />
         <Button
           onClick={() => history.push("/selections")}
