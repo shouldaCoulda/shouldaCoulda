@@ -19,7 +19,7 @@ the auth context outside of this file
 */
 export function useAuth() {
   const context = useContext(AuthContext);
-  const history = useHistory()
+  const history = useHistory();
   if (context === undefined) {
     throw new Error("useCount must be used within a CountProvider");
   }
@@ -41,6 +41,7 @@ export function AuthProvider({ children }) {
   */
   var [currentUser, setCurrentUser] = useState(null);
   const [usersSubscriptions, setSubs] = useState([]);
+  const [usersExpenses, setExpenses] = useState([]);
   const [loading, setLoading] = useState(true);
   var userSubReff = "";
 
@@ -61,8 +62,9 @@ export function AuthProvider({ children }) {
   }
   //this function writes user data into the user database
   function writeUserData(user) {
-    var userReff = ref(database, "users/" + user.uid);
+    var userReff = ref(database, "users/" + user.uid + "/email");
     set(userReff, user);
+    currentUser.updateEmail(user.email);
   }
 
   //Login with email and pass
@@ -82,13 +84,6 @@ export function AuthProvider({ children }) {
   //this funtion adds subscriptions into a users subscriptions/
   //collestion
   async function writeSubscriptions(subscriptions) {
-    if (usersSubscriptions.length === 0) {
-      var user = {
-        uid: currentUser.uid,
-        email: currentUser.email,
-      };
-      writeUserData(user);
-    }
     for (let i = 0; i < subscriptions.length; i++) {
       set(
         ref(
@@ -142,6 +137,16 @@ export function AuthProvider({ children }) {
           });
         }
       });
+      let userExpReff = ref(database, "users/" + str + "/expenses");
+      onValue(userExpReff, (snapshot) => {
+        setExpenses([]);
+        const data = snapshot.val();
+        if (data !== null) {
+          Object.values(data).map((expense) => {
+            setExpenses((oldArray) => [...oldArray, expense]);
+          });
+        }
+      });
     }
   }
   function getTotal() {
@@ -162,6 +167,8 @@ export function AuthProvider({ children }) {
     usersSubscriptions,
     removeSubscription,
     getTotal,
+    usersExpenses,
+    setExpenses,
   };
 
   return (
