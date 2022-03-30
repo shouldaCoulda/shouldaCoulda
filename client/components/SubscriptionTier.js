@@ -2,20 +2,13 @@ import React from "react";
 import { useGuestData } from "../contexts/GuestDataContext";
 import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
-import { ButtonGroup } from "@mui/material";
+import { ButtonGroup, Button } from "@mui/material";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import { Box } from "@mui/system";
 
 export const SubscriptionTier = () => {
   const [value, setValue] = React.useState(0);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
-
-export const SubscriptionTier = () => {
   const history = useHistory();
   let { currentUser, usersSubscriptions } = useAuth();
   let count = 0;
@@ -24,6 +17,9 @@ export const SubscriptionTier = () => {
     return count;
   }
 
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
   function handleClick(e, index) {
     console.log("clicked");
     // if (e.currentTarget.className.includes("tierSelected")) {
@@ -36,19 +32,20 @@ export const SubscriptionTier = () => {
   return (
     <section>
       <h1>Select your plan</h1>
-      {usersSubscriptions.map((sub) => {
+      {usersSubscriptions.map((sub, index) => {
         {
           if (sub.plans && sub.plans.length > 0) {
             return (
-              <div id="tierTable" key={sub.uid}>
+              <div id="tierTable" sub={sub} key={sub.uid}>
                 <div id="iconTable">
                   <img id="tierIcon" src={sub.imageUrl}></img>
                   <p>{sub.name}</p>
                 </div>
                 <div id="priceTierTable">
-                  {sub.plans.map((plan) => {
+                  {sub.plans.map((plan, i) => {
                     return (
                       <Box
+                        key={i}
                         sx={{
                           maxWidth: { xs: 320, sm: 480 },
                         }}
