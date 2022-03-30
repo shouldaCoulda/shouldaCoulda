@@ -30,6 +30,7 @@ const Profile = () => {
     usersExpenses,
     getTotalExpenses,
     getOverallTotal,
+    removeExpense,
   } = useAuth();
   const history = useHistory();
 
@@ -42,7 +43,6 @@ const Profile = () => {
           uid: currentUser.uid,
           email: currentUser.email,
         };
-        // console.log(user);
         writeUserData(user);
         // history.push("/profile");
       }
@@ -72,7 +72,6 @@ const Profile = () => {
             display: { xs: "none", md: "flex" },
             flexDirection: "column",
             alignItems: "center",
-            
           }}
         >
           {/* <Typography gutterBottom variant="p" component="div">
@@ -169,7 +168,7 @@ const Profile = () => {
                       <TableCell>
                         <Button
                           className="logoutButton"
-                          onClick={(e) => handleDelete(e, sub.uid)}
+                          onClick={(e) => handleDeleteExpense(e, expense.uid)}
                         >
                           Remove
                         </Button>
@@ -200,6 +199,10 @@ const Profile = () => {
 
   function handleDelete(e, uid) {
     removeSubscription(uid);
+  }
+  function handleDeleteExpense(e, uid) {
+    
+    removeExpense(uid);
   }
 
   useEffect(() => {

@@ -69,7 +69,6 @@ export const SubscriptionTier = () => {
         {
           if (sub.plans && sub.plans.length > 0) {
             let isSelected = Array(sub.plans.length).fill(false);
-            console.log(sub.name, "    ", isSelected);
             return (
               <Box
                 key={index}
@@ -102,70 +101,32 @@ export const SubscriptionTier = () => {
                 >
                   {sub.plans.map((plan, i) => {
                     if (isSelected[i]) {
-                      console.log("clicked, ", index);
                     }
                     return (
-                      <Box
-                        key={i}
-                        onClick={(e) => handleClick(e, index, plan)}
-                        sx={{
-                          mr: 2,
-                          display: { xs: "none", md: "flex" },
-                          flexDirection: "column",
-                          padding: 2,
-                          margin: 1,
-                          border: 0.5,
-                          alignItems: "center",
-                        }}
-                      >
-                        <Typography gutterBottom variant="p">
-                          {plan.tier}
-                        </Typography>
-                        <Typography gutterBottom variant="p">
-                          {plan.price}
-                        </Typography>
+                      <Box onClick={(e) => handleClick(e, index, plan)} key={i}>
+                        <Card
+                          sx={{
+                            mr: 2,
+                            display: { xs: "none", md: "flex" },
+                            flexDirection: "column",
+                            padding: 2,
+                            margin: 1,
+                            border: "none",
+                            alignItems: "center",
+                          }}
+                        >
+                          <Typography gutterBottom variant="p">
+                            {plan.tier}
+                          </Typography>
+                          <Typography gutterBottom variant="p">
+                            {plan.price}
+                          </Typography>
+                        </Card>
                       </Box>
                     );
                   })}
                 </Box>
               </Box>
-              // <div id="tierTable" sub={sub} key={sub.uid}>
-              //   <div id="iconTable">
-              //     <img id="tierIcon" src={sub.imageUrl}></img>
-              //     <p>{sub.name}</p>
-              //   </div>
-              //   <div id="priceTierTable">
-              //     {sub.plans.map((plan, i) => {
-              //       return (
-              //         // <Box
-              //         //   key={i}
-              //         //   sx={{
-              //         //     maxWidth: { xs: 320, sm: 480 },
-              //         //   }}
-              //         // >
-              //         <Tabs
-              //           orientation="horizontal"
-              //           key={setCount()}
-              //           value={false}
-              //           variant="scrollable"
-              //           scrollButtons={false}
-              //           aria-label="scrollable prevent tabs example"
-              //         >
-              //           <Tab
-              //             onClick={(event) => handleClick(event, index, plan)}
-              //             label={
-              //               <div className="singleTier">
-              //                 <h4>${plan.price}</h4>
-              //                 <p>{plan.tier}</p>
-              //               </div>
-              //             }
-              //           ></Tab>
-              //         </Tabs>
-              //         // </Box>
-              //       );
-              //     })}
-              //   </div>
-              // </div>
             );
           }
         }
