@@ -46,6 +46,7 @@ export const SelectionScreen = () => {
         data.push(element);
       }
     });
+    console.log(data)
     writeSubscriptions(data);
     history.push("/subscriptioninfo");
   }

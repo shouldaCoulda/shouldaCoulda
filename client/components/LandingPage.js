@@ -38,7 +38,6 @@ export const LandingPage = () => {
     history.push("/expense");
   };
   function handleSubmit() {
-    console.log("submit", ammountRef.current.value);
     generator();
   }
 

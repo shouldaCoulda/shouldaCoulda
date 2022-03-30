@@ -98,8 +98,8 @@ export function AuthProvider({ children }) {
           price: subscriptions[i].price,
           imageUrl: subscriptions[i].imageUrl,
           websiteUrl: subscriptions[i].websiteUrl,
-          plans: subscriptions[i].plans,
           uid: subscriptions[i].uid,
+          plans: subscriptions[i].plans || [],
         }
       );
     }
