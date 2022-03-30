@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { useAuth } from "../../contexts/AuthContext";
 import {
   Container,
   TextField,
@@ -20,10 +21,20 @@ import {
 import { styled } from '@mui/material/styles';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { expenseCards } from "../../../script/OtherExpenses";
+import { useOtherExpenses } from "../../contexts/OtherExpContext";
 
 
 export default function ExpenseCard() {
-
+  const { writeUserData, currentUser } = useAuth();
+  const { writeExpenseData } = useOtherExpenses();
+  // const write = (e) => {
+  //   e.preventDefault();
+  //   var user = {
+  //     uid: currentUser.uid,
+  //     email: currentUser.email,
+  //   };
+  //   writeUserData(user);
+  // };
 
   return (
     <Box
@@ -40,12 +51,12 @@ export default function ExpenseCard() {
 
         const handleSubmit = async (e) => {
           console.log("submit", expense.name, "price", priceRef.current.value);
-          // e.preventDefault();
-          // writeSubscriptionData(
-          //   nameRef.current.value,
-          //   priceRef.current.value,
-          //   currentUser.uid
-          // );
+          e.preventDefault();
+          writeExpenseData(
+            expense.name,
+            priceRef.current.value,
+            currentUser.uid
+          );
         };
 
         const [expanded, setExpanded] = React.useState(false);

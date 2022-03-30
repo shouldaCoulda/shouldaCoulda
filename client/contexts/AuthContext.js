@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { auth } from "../firebase";
 import {
   createUserWithEmailAndPassword,
@@ -18,6 +19,7 @@ the auth context outside of this file
 */
 export function useAuth() {
   const context = useContext(AuthContext);
+  const history = useHistory()
   if (context === undefined) {
     throw new Error("useCount must be used within a CountProvider");
   }

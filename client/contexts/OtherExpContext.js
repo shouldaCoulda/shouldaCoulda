@@ -35,9 +35,9 @@ export function OtherProvider({ children }) {
     })
   }, []);
 
-  function writeOtherData(name, price, userId) {
+  function writeExpenseData(name, price, userId) {
     const uuid = uid();
-    set(ref(database, `users/` + userId + '/otherExpenses/' + uuid), {
+    set(ref(database, `users/` + userId + '/expenses/' + uuid), {
       name: name,
       price: price,
       uid: uuid
@@ -49,23 +49,9 @@ export function OtherProvider({ children }) {
     remove(ref(database, `/${otherExpense.uuid}`));
   };
 
-  function seed() {
-    remove(ref(database, `/otherExpenses`));
-    for (let i = 0; i < otherData.length; i++) {
-      const uuid = uid();
-      set(ref(database, `otherExpenses/` + uuid), {
-        name: otherData[i].name,
-        price: otherData[i].price,
-        imageUrl: otherData[i].imageUrl,
-        websiteUrl: otherData[i].websiteUrl,
-        uid: uuid,
-      });
-    }
-  }
   const value = {
     otherExpData,
-    writeOtherData,
-    seed,
+    writeExpenseData,
   };
 
   return (
