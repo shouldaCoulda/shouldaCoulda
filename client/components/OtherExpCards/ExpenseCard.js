@@ -50,7 +50,6 @@ export default function ExpenseCard() {
       {expenseCards.map((expense, index) => {
 
         const handleSubmit = async (e) => {
-          console.log("submit", expense.name, "price", priceRef.current.value);
           e.preventDefault();
           writeExpenseData(
             expense.name,
