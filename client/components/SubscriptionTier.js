@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useGuestData } from "../contexts/GuestDataContext";
 import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
@@ -41,13 +41,16 @@ export const SubscriptionTier = () => {
 
   function handleClick(e, index, plan) {
     e.preventDefault();
+    if (e.currentTarget.className.includes("selected")) {
+      e.currentTarget.className = "";
+    } else {
+      e.currentTarget.className += " selected";
+    }
     setPrice(index, plan);
   }
 
   function setPrice(index, plan) {
-    console.log(usersSubscriptions);
     usersSubscriptions[index].price = plan.price;
-    console.log(usersSubscriptions);
   }
 
   return (
@@ -65,6 +68,8 @@ export const SubscriptionTier = () => {
       {usersSubscriptions.map((sub, index) => {
         {
           if (sub.plans && sub.plans.length > 0) {
+            let isSelected = Array(sub.plans.length).fill(false);
+            console.log(sub.name, "    ", isSelected);
             return (
               <Box
                 key={index}
@@ -96,6 +101,9 @@ export const SubscriptionTier = () => {
                   }}
                 >
                   {sub.plans.map((plan, i) => {
+                    if (isSelected[i]) {
+                      console.log("clicked, ", index);
+                    }
                     return (
                       <Box
                         key={i}
