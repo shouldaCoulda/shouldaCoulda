@@ -22,11 +22,12 @@ export const SubscriptionTier = () => {
   }
 
   function handleClick(e, index) {
-    if (e.currentTarget.className.includes("tierSelected")) {
-      e.currentTarget.className = "singleTier";
-    } else {
-      e.currentTarget.className = "singleTier tierSelected";
-    }
+    console.log("clicked");
+    // if (e.currentTarget.className.includes("tierSelected")) {
+    //   e.currentTarget.className = "singleTier";
+    // } else {
+    //   e.currentTarget.className = "singleTier tierSelected";
+    // }
   }
 
   return (
@@ -60,11 +61,9 @@ export const SubscriptionTier = () => {
                           <Tab
                             onClick={handleClick}
                             label={
-                              <div>
-                                <h4 className="singleTierChild">
-                                  ${plan.price}
-                                </h4>
-                                <p className="singleTierChild">{plan.tier}</p>
+                              <div className="singleTier">
+                                <h4>${plan.price}</h4>
+                                <p>{plan.tier}</p>
                               </div>
                             }
                           ></Tab>
