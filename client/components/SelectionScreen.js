@@ -23,7 +23,6 @@ import AddSubscription from "./AddSubscription";
 
 export const SelectionScreen = () => {
   const { defaultSubscriptions } = useSubscription();
-  console.log("defaultsubscriptions", defaultSubscriptions);
   const { writeSubscriptions, usersSubscriptions, currentUser } = useAuth();
   const [shown, setShown] = useState(false);
   const isSelected = Array(defaultSubscriptions.length).fill(false);
@@ -32,7 +31,7 @@ export const SelectionScreen = () => {
     e.preventDefault();
     isSelected[index] = !isSelected[index];
     if (e.currentTarget.className.includes("selected")) {
-      e.currentTarget.className = "card";
+      e.currentTarget.className = "";
     } else {
       e.currentTarget.className += " selected";
     }
@@ -47,6 +46,7 @@ export const SelectionScreen = () => {
         data.push(element);
       }
     });
+    console.log(data)
     writeSubscriptions(data);
     history.push("/subscriptioninfo");
   }
@@ -57,10 +57,11 @@ export const SelectionScreen = () => {
       uids.push(usersSubscriptions[i].uid);
     }
     if (uids.includes(uid)) {
-      return "card selected";
+      return " selected";
     }
-    return "card";
+    return "";
   }
+
   function toggleForm() {
     setShown(!shown);
   }
@@ -82,9 +83,11 @@ export const SelectionScreen = () => {
               >
                 <Card
                   sx={{
-                    maxWidth: 150,
-                    margin: 1,
+                    maxWidth: 100,
+                    margin: 2,
                     padding: 0,
+                    border: "none",
+                    boxShadow: "none",
                   }}
                 >
                   <CardMedia
@@ -120,9 +123,20 @@ export const SelectionScreen = () => {
             </Box>
           )}
         </Box>
-        <Box>
-          <Button onClick={handleSubmit}>Next</Button>
-        </Box>
+        <Button
+          onClick={handleSubmit}
+          sx={{
+            marginTop: 5,
+            borderWidth: 0,
+            boxShadow: "3px 2px 10px darkgray",
+            borderCollapse: "collapse",
+            color: "black",
+            borderRadius: 40,
+            width: 90,
+          }}
+        >
+          Next
+        </Button>
       </Box>
     </>
   );

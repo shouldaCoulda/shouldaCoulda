@@ -15,7 +15,16 @@ const Navbar = () => {
 
   return (
     // <>
-    <AppBar position="static">
+    <AppBar
+      position="static"
+      sx={{
+        backgroundColor: "white",
+        border: "none",
+        boxShadow: "none",
+        borderBottom: 0.5,
+        borderColor: "black",
+      }}
+    >
       <Container
         sx={{
           mr: 2,
@@ -41,10 +50,10 @@ const Navbar = () => {
               variant="h6"
               noWrap
               component="div"
-              onClick={() => history.push("./selections")}
+              onClick={() => history.push("./")}
               sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
             >
-              <HomeIcon sx={{ fontSize: 40 }} />
+              <HomeIcon sx={{ fontSize: 40, color: "lightblue" }} />
             </Typography>
             <Typography
               variant="h6"
@@ -53,7 +62,7 @@ const Navbar = () => {
               onClick={() => history.push("./profile")}
               sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
             >
-              <AccountBoxIcon sx={{ fontSize: 40 }} />
+              <AccountBoxIcon sx={{ fontSize: 40, color: "lightblue" }} />
             </Typography>
             <Typography
               variant="h6"
@@ -62,7 +71,7 @@ const Navbar = () => {
               onClick={() => history.push("./chart")}
               sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
             >
-              <ShowChartIcon sx={{ fontSize: 40 }} />
+              <ShowChartIcon sx={{ fontSize: 40, color: "lightblue" }} />
             </Typography>
             <Typography
               variant="h6"
@@ -71,30 +80,11 @@ const Navbar = () => {
               onClick={logout}
               sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
             >
-              <LogoutIcon sx={{ fontSize: 40 }} />
+              <LogoutIcon sx={{ fontSize: 40, color: "lightblue" }} />
             </Typography>
           </Box>
         ) : (
-          <Box sx={{ mr: 2, display: { xs: "none", md: "flex" } }}>
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              onClick={() => history.push("./login")}
-              sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
-            >
-              <LoginIcon sx={{ fontSize: 40 }} />
-            </Typography>
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              onClick={() => history.push("./signup")}
-              sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
-            >
-              Sign Up
-            </Typography>
-          </Box>
+          <Box sx={{ mr: 2, display: { xs: "none", md: "flex" } }}></Box>
         )}
       </Container>
     </AppBar>

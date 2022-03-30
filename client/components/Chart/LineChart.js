@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { VictoryLine, VictoryChart } from "victory";
+import {
+  VictoryLine,
+  VictoryChart,
+  VictoryVoronoiContainer,
+  VictoryTooltip,
+} from "victory";
 import { useChart } from "../../contexts/ChartContext";
 import { Box, Typography, Container } from "@mui/material";
 
@@ -30,11 +35,17 @@ const LineChart = () => {
         minDomain={({ y: 0 }, { x: 0 })}
         maxDomain={({ y: maxY }, { x: months })}
         domainPadding={30}
+        containerComponent={
+          <VictoryVoronoiContainer
+            labels={({ datum }) => `${datum.y.toFixed(2)}`}
+          />
+        }
+        standalone={true}
         animate={{
           duration: 500,
         }}
       >
-        {displayedLines.map((dataArray, key) => {
+        {lines.map((dataArray, key) => {
           return (
             <VictoryLine
               key={`line_${key}`}

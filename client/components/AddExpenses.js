@@ -1,26 +1,13 @@
 import React, { useRef } from "react";
-import { useOtherExpenses }from "../contexts/OtherExpContext";
-import FoodCard from "./OtherExpCards/Food";
-import CableCard from "./OtherExpCards/Cable";
-import TobaccoCard from "./OtherExpCards/Tobacco";
-import StreamingOtherCard from "./OtherExpCards/StreamingOther";
+import { useOtherExpenses } from "../contexts/OtherExpContext";
+
+import ExpenseCard from "./OtherExpCards/ExpenseCard";
 import { useAuth } from "../contexts/AuthContext";
-import { Link } from "react-router-dom";
-import {
-  Container,
-  TextField,
-  Box,
-  Card,
-  Button,
-  Typography,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Input,
-  InputAdornment
-} from "@mui/material";
+import { Box, Button } from "@mui/material";
+import { useHistory } from "react-router-dom";
 
 const AddExpense = () => {
+  const history = useHistory();
   const { writeOtherExpenseData } = useOtherExpenses();
   const { writeUserData, currentUser } = useAuth();
   let nameRef = useRef("");
@@ -28,7 +15,11 @@ const AddExpense = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    writeOtherExpenseData(nameRef.current.value, priceRef.current.value, currentUser.uid);
+    writeOtherExpenseData(
+      nameRef.current.value,
+      priceRef.current.value,
+      currentUser.uid
+    );
   };
 
   const write = (e) => {
@@ -40,28 +31,35 @@ const AddExpense = () => {
     writeUserData(user);
   };
 
-  const expenses = [
-    "Coffee",
-    "Food Delivery",
-    "Tobacco",
-    "Alcohol",
-    "Cable TV"
-  ]
-
   return (
     <>
-    <Box sx={{ ml: 2, mr: 2, display: { xs: "none", md: "flex" }, flexWrap: "wrap" }}>
-      <div>Would you like to add other expenses?</div>
-      {/* <h4>Everyone is unique and has different feelings on what expenses they are willing to cut back on.</h4>
-      <h4>Below are some common expenses that add up over time and you may be able to reduce</h4> */}
-      <Box sx={{ ml: 1, mr: 1 }}><FoodCard /></Box>
-      <Box sx={{ ml: 1, mr: 1 }}><CableCard /></Box>
-      <Box sx={{ ml: 1, mr: 1 }}><TobaccoCard /></Box>
-      <Box sx={{ ml: 1, mr: 1 }}><StreamingOtherCard /></Box>
-    </Box>
-    <Link to="/chart">
-        <button>continue</button>
-      </Link>
+      <Box
+        sx={{
+          ml: 2,
+          mr: 2,
+          display: { xs: "none", md: "flex" },
+          flexWrap: "wrap",
+          paddingBottom: 20,
+          alignItems: "center",
+        }}
+      >
+        <div>Would you like to add other expenses?</div>
+        <ExpenseCard />
+        <Button
+          onClick={() => history.push("/selections")}
+          sx={{
+            marginTop: 5,
+            borderWidth: 0,
+            boxShadow: "3px 2px 10px darkgray",
+            borderCollapse: "collapse",
+            color: "black",
+            borderRadius: 40,
+            width: 90,
+          }}
+        >
+          Next
+        </Button>
+      </Box>
     </>
   );
 };
