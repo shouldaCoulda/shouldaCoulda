@@ -82,87 +82,45 @@ const Footer = () => {
           Meet the team
         </Typography>
       </Box>
-      {currentUser ? (
-        <>
-          <Box
-            sx={{
-              padding: 1,
 
-              display: { xs: "none", md: "flex" },
-              flexDirection: "column",
-              alignItems: "right",
-            }}
-          >
-            <Typography
-              variant="p"
-              sx={{
-                fontSize: 14,
-                fontWeight: 600,
-                fontStyle: "italic",
-                marginBottom: 0.5,
-              }}
-            >
-              More
-            </Typography>
-            <Typography
-              variant="p"
-              noWrap
-              component="div"
-              sx={{ fontSize: 12 }}
-            >
-              questions?
-            </Typography>
-            <Button
-              sx={{ color: "white" }}
-              onClick={() => console.log("enter form data here")}
-            >
-              {" "}
-              Contact Us
-            </Button>
-          </Box>
-        </>
-      ) : (
-        <>
-          <Box
-            sx={{
-              padding: 1,
+      <Box
+        sx={{
+          padding: 1,
 
-              display: { xs: "none", md: "flex" },
-              flexDirection: "column",
-              alignItems: "right",
-              padding: 1,
-            }}
+          display: { xs: "none", md: "flex" },
+          flexDirection: "column",
+          alignItems: "right",
+          padding: 1,
+        }}
+      >
+        <Typography
+          variant="p"
+          sx={{
+            fontSize: 14,
+            fontWeight: 600,
+            fontStyle: "italic",
+            marginBottom: 0.5,
+          }}
+        >
+          More
+        </Typography>
+        <Typography variant="p" noWrap component="div" sx={{ fontSize: 12 }}>
+          Questions? Contact Us
+        </Typography>
+        {currentUser ? (
+          <Box></Box>
+        ) : (
+          <Typography
+            variant="p"
+            noWrap
+            component="div"
+            sx={{ fontSize: 12 }}
+            onClick={() => history.push("/login")}
           >
-            <Typography
-              variant="p"
-              sx={{
-                fontSize: 14,
-                fontWeight: 600,
-                fontStyle: "italic",
-                marginBottom: 0.5,
-              }}
-            >
-              More
-            </Typography>
-            <Typography
-              variant="p"
-              noWrap
-              component="div"
-              sx={{ fontSize: 12 }}
-            >
-              Already a user? sign in
-            </Typography>
-            <Typography
-              variant="p"
-              noWrap
-              component="div"
-              sx={{ fontSize: 12 }}
-            >
-              Questions? Contact Us
-            </Typography>
-          </Box>
-        </>
-      )}
+            Already a user? sign in
+          </Typography>
+        )}
+      </Box>
     </AppBar>
   );
 };
