@@ -51,14 +51,14 @@ export const LandingPage = () => {
         display: { xs: "none", md: "flex" },
         flexDirection: "column",
         alignItems: "center",
-        padding: 5,
+        padding: 2,
         paddingBottom: 20,
       }}
     >
       <Card
         sx={{
-          maxWidth: 700,
-          margin: 2,
+          maxWidth: 900,
+          margin: 0,
           padding: 0,
           border: "none",
           boxShadow: "none",
@@ -73,10 +73,11 @@ export const LandingPage = () => {
           sx={{
             height: 255,
             width: 600,
+            marginTop: 5,
           }}
         />
       </Card>
-      <Typography variant="h4" sx={{ fontWeight: 600 }}>
+      <Typography variant="h4" sx={{ fontWeight: 600, marginTop: 5 }}>
         Tired Of Wasting Your Hard Earned $$$?
       </Typography>
       <Typography variant="p" sx={{ padding: 4, lineHeight: 1.5 }}>
@@ -85,41 +86,90 @@ export const LandingPage = () => {
         to do. But you don’t know where to start. The first step to taking care
         of your money is to understand its REAL value.
       </Typography>
+      <Box
+        sx={{
+          alignSelf: "center",
+          display: { xs: "none", md: "flex" },
+          flexDirection: "row",
+          justifyContent: "space-between",
+          width: 800,
+          alignItems: "center",
+        }}
+      >
+        <Box
+          sx={{
+            alignSelf: "center",
+            display: { xs: "none", md: "flex" },
+            flexDirection: "column",
+            alignItems: "left",
+            width: 250,
+            marginLeft: 10,
+          }}
+        >
+          <Typography variant="p" sx={{ padding: 4, fontStyle: "italic" }}>
+            Ever wonder how much money you could be making if you invested your
+            starbucks bill into the S&P 500?
+          </Typography>
+        </Box>
+        <Typography variant="h6" sx={{ fontWeight: 600 }}>
+          OR
+        </Typography>
+        <Box
+          sx={{
+            alignSelf: "center",
+            display: { xs: "none", md: "flex" },
+            flexDirection: "column",
+            alignItems: "right",
+            marginRight: 10,
+            width: 250,
+          }}
+        >
+          <Typography variant="p" sx={{ padding: 4, fontStyle: "italic" }}>
+            just how much those costly monthly subscriptions are ACTUALLY
+            costing you?!
+          </Typography>
+        </Box>
+      </Box>
+      <Typography variant="p" sx={{ padding: 4, fontStyle: "italic" }}>
+        We will do the math. BUT FIRST, answer our simple questions below so we
+        can get to know you better.
+      </Typography>
+      <Box
+        sx={{
+          width: 800,
+          height: 1,
+          border: 0.5,
+          borderColor: "lightgray",
+          margin: 4,
+        }}
+      />
       <Typography variant="p" sx={{ padding: 4 }}>
-        Ever wonder how much money you could be making if you invested your
-        starbucks bill into the S&P 500?
-      </Typography>
-      <Typography variant="h4" sx={{ padding: 4 }}>
-        OR
-      </Typography>
-      <Typography variant="p" sx={{ padding: 4 }}>
-        just how much those costly monthly subscriptions are ACTUALLY costing
-        you?!
-      </Typography>
-      <Typography variant="h6" sx={{ padding: 4 }}>
-        We will do the math.
-      </Typography>
-      <Typography variant="p" sx={{ padding: 4 }}>
-        BUT FIRST, answer our simple questions below so we can get to know you
-        better.
-      </Typography>
-      <Typography variant="p" sx={{ padding: 4 }}>
-        Question 1: How much money do you make every month?
+        How much money do you make every month?
       </Typography>
       <Box>
         <FormControl>
-          <InputLabel htmlFor="ammount">Ammount</InputLabel>
-          <Input aria-describedby="my-helper-text" inputRef={ammountRef} />
-          <FormHelperText>Monthly net income:</FormHelperText>
+          <Input
+            aria-describedby="my-helper-text"
+            defaultValue="$"
+            inputRef={ammountRef}
+          />
         </FormControl>
       </Box>
-      <Typography variant="p" sx={{ padding: 4 }}>
-        Question 2: Are you ready to see how much your is really costing you?
-        Insert radio box here: answers are either YES! or I’M READY
-      </Typography>
-      <Button onClick={handleSubmit}>yes</Button>
 
-      <Button onClick={handleSubmit}>im ready</Button>
+      <Button
+        onClick={handleSubmit}
+        sx={{
+          marginTop: 5,
+          borderWidth: 0,
+          boxShadow: "3px 2px 10px darkgray",
+          borderCollapse: "collapse",
+          color: "black",
+          borderRadius: 40,
+          width: 90,
+        }}
+      >
+        Next
+      </Button>
     </Box>
   );
 };
