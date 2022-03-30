@@ -1,3 +1,20 @@
 .selected {
   box-shadow: 0px 0px 10px black;
 }
+
+#tierSelected {
+  box-shadow: 0 0 10px 20px royalblue;
+}
+
+#priceTierTable {
+  display: flex;
+  margin: auto;
+}
+
+#tierTable {
+  display: flex;
+  margin: auto;
+}
+#tierIcon {
+  width: 8rem;
+}

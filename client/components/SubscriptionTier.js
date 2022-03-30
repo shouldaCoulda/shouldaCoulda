@@ -2,8 +2,18 @@ import React from "react";
 import { useGuestData } from "../contexts/GuestDataContext";
 import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
+import { ButtonGroup } from "@mui/material";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import { Box } from "@mui/system";
 
 export const SubscriptionTier = () => {
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
   let { currentUser, usersSubscriptions } = useAuth();
   let count = 0;
   function setCount() {
@@ -34,14 +44,32 @@ export const SubscriptionTier = () => {
                 <div id="priceTierTable">
                   {sub.plans.map((plan) => {
                     return (
-                      <div
-                        className="singleTier"
-                        onClick={handleClick}
-                        key={setCount()}
+                      <Box
+                        sx={{
+                          maxWidth: { xs: 320, sm: 480 },
+                        }}
                       >
-                        <h4 className="singleTierChild">${plan.price}</h4>
-                        <p className="singleTierChild">{plan.tier}</p>
-                      </div>
+                        <Tabs
+                          orientation="horizontal"
+                          key={setCount()}
+                          value={false}
+                          variant="scrollable"
+                          scrollButtons={false}
+                          aria-label="scrollable prevent tabs example"
+                        >
+                          <Tab
+                            onClick={handleClick}
+                            label={
+                              <div>
+                                <h4 className="singleTierChild">
+                                  ${plan.price}
+                                </h4>
+                                <p className="singleTierChild">{plan.tier}</p>
+                              </div>
+                            }
+                          ></Tab>
+                        </Tabs>
+                      </Box>
                     );
                   })}
                 </div>

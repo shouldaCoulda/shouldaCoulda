@@ -56,6 +56,9 @@ export function SubscriptionProvider({ children }) {
 
   //this function removes all enteries in the sunbscriptions and fils it with data
   //that is imported from scrpti/defaultsubscriptions
+
+  function setPrice() {}
+
   function seed() {
     remove(ref(database, `/subscriptions`));
     for (let i = 0; i < data.length; i++) {
