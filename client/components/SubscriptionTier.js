@@ -1,9 +1,27 @@
 import React from "react";
 import { useGuestData } from "../contexts/GuestDataContext";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
+import {
+  Container,
+  AppBar,
+  Toolbar,
+  Typography,
+  FormControl,
+  Box,
+  Card,
+  CardMedia,
+  CardContent,
+  Button,
+  InputLabel,
+  Input,
+  FormHelperText,
+  InputAdornment,
+  TextField,
+} from "@mui/material";
 
 export const SubscriptionTier = () => {
+  const history = useHistory();
   let { currentUser, usersSubscriptions } = useAuth();
   let count = 0;
   function setCount() {
@@ -51,12 +69,20 @@ export const SubscriptionTier = () => {
         }
       })}
 
-      <Link to={"/chart"}>
-        <button className="nextButton">Show me the money!</button>
-      </Link>
-      <Link to={"/expense"}>
-        <button className="nextButton">Add more expenses</button>
-      </Link>
+      <Button
+        onClick={() => history.push("/")}
+        sx={{
+          marginTop: 5,
+          borderWidth: 0,
+          boxShadow: "3px 2px 10px darkgray",
+          borderCollapse: "collapse",
+          color: "black",
+          borderRadius: 40,
+          width: 90,
+        }}
+      >
+        Next
+      </Button>
     </section>
   );
 };

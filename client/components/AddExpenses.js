@@ -3,20 +3,8 @@ import { useOtherExpenses } from "../contexts/OtherExpContext";
 
 import ExpenseCard from "./OtherExpCards/ExpenseCard";
 import { useAuth } from "../contexts/AuthContext";
-import {
-  Container,
-  TextField,
-  Box,
-  Card,
-  Button,
-  Typography,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Input,
-  InputAdornment,
-} from "@mui/material";
-import { Link, useHistory } from "react-router-dom";
+import { Box, Button } from "@mui/material";
+import { useHistory } from "react-router-dom";
 
 const AddExpense = () => {
   const history = useHistory();
@@ -58,7 +46,7 @@ const AddExpense = () => {
         <div>Would you like to add other expenses?</div>
         <ExpenseCard />
         <Button
-          onClick={() => history.push("/")}
+          onClick={() => history.push("/selections")}
           sx={{
             marginTop: 5,
             borderWidth: 0,

@@ -122,9 +122,20 @@ export const SelectionScreen = () => {
             </Box>
           )}
         </Box>
-        <Box>
-          <Button onClick={handleSubmit}>Next</Button>
-        </Box>
+        <Button
+          onClick={handleSubmit}
+          sx={{
+            marginTop: 5,
+            borderWidth: 0,
+            boxShadow: "3px 2px 10px darkgray",
+            borderCollapse: "collapse",
+            color: "black",
+            borderRadius: 40,
+            width: 90,
+          }}
+        >
+          Next
+        </Button>
       </Box>
     </>
   );

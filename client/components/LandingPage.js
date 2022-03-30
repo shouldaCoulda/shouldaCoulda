@@ -14,6 +14,8 @@ import {
   InputLabel,
   Input,
   FormHelperText,
+  InputAdornment,
+  TextField,
 } from "@mui/material";
 import { Link, useHistory } from "react-router-dom";
 
@@ -144,10 +146,15 @@ export const LandingPage = () => {
       </Typography>
       <Box>
         <FormControl>
-          <Input
+          <TextField
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">$</InputAdornment>
+              ),
+            }}
             aria-describedby="my-helper-text"
-            defaultValue="$"
             inputRef={ammountRef}
+            sx={{ border: "none" }}
           />
         </FormControl>
       </Box>
