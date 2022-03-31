@@ -201,7 +201,7 @@ const Profile = () => {
     removeSubscription(uid);
   }
   function handleDeleteExpense(e, uid) {
-    
+    e.preventDefault();
     removeExpense(uid);
   }
 

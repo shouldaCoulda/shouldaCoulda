@@ -114,7 +114,7 @@ export function AuthProvider({ children }) {
   async function removeExpense(uid) {
     var userExpenseReff = ref(
       database,
-      "users/" + currentUser.uid + "/expense/" + uid
+      "users/" + currentUser.uid + "/expenses/" + uid
     );
     remove(userExpenseReff);
   }
