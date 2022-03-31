@@ -13,7 +13,6 @@ import SignInPrompt from './components/SignInPrompt';
 import Home from './components/Home';
 import AddExpensees from './components/AddExpenses';
 import LandingPage from './components/LandingPage';
-import BarChart from './components/BarChart';
 
 const Routes = () => {
   const { currentUser } = useAuth();

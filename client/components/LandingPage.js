@@ -18,6 +18,7 @@ import {
   TextField,
 } from '@mui/material';
 import { Link, useHistory } from 'react-router-dom';
+import PieChart from './PieChart';
 
 /**
  * COMPONENT
