@@ -13,6 +13,7 @@ import SignInPrompt from './components/SignInPrompt';
 import Home from './components/Home';
 import AddExpensees from './components/AddExpenses';
 import LandingPage from './components/LandingPage';
+import PieChart from './components/PieChart';
 
 const Routes = () => {
   const { currentUser } = useAuth();
@@ -33,6 +34,7 @@ const Routes = () => {
               path='/subscriptioninfo'
               component={SubscriptionTier}
             />
+            <Route exact path='/PieChart' component={PieChart} />
           </>
         ) : (
           <>
