@@ -9,11 +9,11 @@ import ChartContainer from './components/Chart/ChartContainer';
 import AddSubscription from './components/AddSubscription';
 import SelectionScreen from './components/SelectionScreen';
 import { SubscriptionTier } from './components/SubscriptionTier';
-import SignInPrompt from './components/SignInPrompt';
 import Home from './components/Home';
 import AddExpensees from './components/AddExpenses';
 import LandingPage from './components/LandingPage';
 import PieChart from './components/PieChart';
+import ListChart from './components/ListChart';
 
 const Routes = () => {
   const { currentUser } = useAuth();
@@ -35,6 +35,7 @@ const Routes = () => {
               component={SubscriptionTier}
             />
             <Route exact path='/PieChart' component={PieChart} />
+            <Route exact path='/List' component={ListChart} />
           </>
         ) : (
           <>
