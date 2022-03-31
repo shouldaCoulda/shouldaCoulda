@@ -37,7 +37,7 @@ export function OtherProvider({ children }) {
 
   function writeExpenseData(name, price, userId) {
     const uuid = uid();
-    set(ref(database, `users/` + userId + "/expenses/" + userId), {
+    set(ref(database, `users/` + userId + "/expenses/" + uuid), {
       name: name,
       price: price,
       uid: uuid,
