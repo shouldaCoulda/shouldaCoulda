@@ -34,7 +34,6 @@ const Routes = () => {
               path='/subscriptioninfo'
               component={SubscriptionTier}
             />
-            <Route exact path='/test' component={BarChart} />
           </>
         ) : (
           <>
