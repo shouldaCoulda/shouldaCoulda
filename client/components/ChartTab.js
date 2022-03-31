@@ -39,7 +39,16 @@ const ChartTab = () => {
           }
         />
 
-        <Tab label='Item Three' />
+        <Tab
+          icon={
+            <Link>
+              <Avatar
+                alt='list'
+                src='https://img.icons8.com/ios-filled/50/000000/list.png'
+              />
+            </Link>
+          }
+        />
         <Tab label='Item Four' />
         <Tab label='Item Five' />
         <Tab label='Item Six' />
