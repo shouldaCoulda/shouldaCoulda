@@ -12,12 +12,14 @@ const AddExpense = () => {
   const { writeUserData, currentUser } = useAuth();
   let nameRef = useRef("");
   let priceRef = useRef();
+  // let iconRef = useRef();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     writeOtherExpenseData(
       nameRef.current.value,
       priceRef.current.value,
+      // iconRef.current.value,
       currentUser.uid
     );
   };
