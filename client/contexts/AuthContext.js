@@ -79,6 +79,7 @@ export function AuthProvider({ children }) {
 
   //Logout
   async function logout() {
+    
     return auth.signOut();
   }
 

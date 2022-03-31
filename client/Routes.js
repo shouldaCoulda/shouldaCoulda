@@ -37,8 +37,6 @@ const Routes = () => {
           </>
         ) : (
           <>
-            <Route exact path="/profile" component={Profile} />
-
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={SignUp} />
             <Route path="/" component={SignUp} />
