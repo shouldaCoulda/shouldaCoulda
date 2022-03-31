@@ -13,6 +13,7 @@ import SignInPrompt from "./components/SignInPrompt";
 import Home from "./components/Home";
 import AddExpensees from "./components/AddExpenses";
 import LandingPage from "./components/LandingPage";
+import BudgetLanding from "./components/Budget/BudgetLanding";
 
 const Routes = () => {
   const { currentUser } = useAuth();
@@ -29,6 +30,7 @@ const Routes = () => {
             <Route exact path="/add" component={AddSubscription} />
             <Route exact path="/expense" component={AddExpensees} />
             <Route exact path="/landing" component={LandingPage} />
+            <Route exact path="/budget" component={BudgetLanding} />
             <Route
               exact
               path="/subscriptioninfo"
@@ -39,7 +41,7 @@ const Routes = () => {
           <>
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={SignUp} />
-            <Route path="/" component={SignUp} />
+            <Route exact path="/" component={SignUp} />
           </>
         )}
       </Switch>

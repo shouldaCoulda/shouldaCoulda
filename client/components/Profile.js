@@ -222,6 +222,7 @@ const Profile = () => {
       }}
     >
       {checkIfGuest(currentUser?.email)}
+      <Button onClick={history.push("/budget")}> budgets</Button>
     </Box>
   );
 };
