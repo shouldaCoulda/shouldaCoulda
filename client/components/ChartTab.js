@@ -20,6 +20,16 @@ const ChartTab = () => {
       >
         <Tab
           icon={
+            <Link to='/chart'>
+              <Avatar
+                alt='line chart'
+                src='https://img.icons8.com/external-bearicons-flat-bearicons/64/000000/external-Chart-business-and-marketing-bearicons-flat-bearicons.png'
+              ></Avatar>
+            </Link>
+          }
+        />
+        <Tab
+          icon={
             <Link to='/PieChart'>
               <Avatar
                 alt='pie chart'
@@ -29,7 +39,6 @@ const ChartTab = () => {
           }
         />
 
-        <Tab label='Item Two' />
         <Tab label='Item Three' />
         <Tab label='Item Four' />
         <Tab label='Item Five' />
