@@ -1,17 +1,14 @@
 import { useAuth } from '../contexts/AuthContext';
 import React from 'react';
-import { Box, Tabs, Tab, Typography, Card, CardMedia } from '@mui/material';
+import { Box, Typography, Card, CardMedia } from '@mui/material';
+import ChartTab from './ChartTab';
 
 /**
  * COMPONENT
  */
 export const Home = () => {
   const { currentUser } = useAuth();
-  const [value, setValue] = React.useState(0);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
   return (
     <Box>
       <Typography variant='h3'>select from the options </Typography>
@@ -24,26 +21,7 @@ export const Home = () => {
           boxShadow: 'none',
         }}
       >
-        <Box
-          sx={{ maxWidth: { xs: 320, sm: 480 }, bgcolor: 'background.paper' }}
-        >
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            variant='scrollable'
-            scrollButtons
-            allowScrollButtonsMobile
-            aria-label='scrollable force tabs example'
-          >
-            <Tab label='Item One' />
-            <Tab label='Item Two' />
-            <Tab label='Item Three' />
-            <Tab label='Item Four' />
-            <Tab label='Item Five' />
-            <Tab label='Item Six' />
-            <Tab label='Item Seven' />
-          </Tabs>
-        </Box>
+        <ChartTab />
         <CardMedia
           component='img'
           src={

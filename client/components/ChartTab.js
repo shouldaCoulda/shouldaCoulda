@@ -1,7 +1,6 @@
 import React from 'react';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Box from '@mui/material/Box';
+import { Link } from 'react-router-dom';
+import { Avatar, Tabs, Tab, Box } from '@mui/material';
 
 const ChartTab = () => {
   const [value, setValue] = React.useState(0);
@@ -19,7 +18,17 @@ const ChartTab = () => {
         scrollButtons='auto'
         aria-label='scrollable auto tabs example'
       >
-        <Tab label='Item One' />
+        <Tab
+          icon={
+            <Link to='/PieChart'>
+              <Avatar
+                alt='pie chart'
+                src='https://img.icons8.com/dusk/64/000000/chart.png'
+              />
+            </Link>
+          }
+        />
+
         <Tab label='Item Two' />
         <Tab label='Item Three' />
         <Tab label='Item Four' />
