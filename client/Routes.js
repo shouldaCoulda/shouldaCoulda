@@ -34,13 +34,13 @@ const Routes = () => {
               path='/subscriptioninfo'
               component={SubscriptionTier}
             />
+            <Route exact path='/test' component={BarChart} />
           </>
         ) : (
           <>
             <Route exact path='/login' component={Login} />
             <Route exact path='/signup' component={SignUp} />
             <Route path='/' component={LandingPage} />
-            <Route path='/test' component={BarChart} />
           </>
         )}
       </Switch>

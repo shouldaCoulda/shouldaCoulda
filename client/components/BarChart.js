@@ -1,7 +1,7 @@
 import React from 'react';
 
 const BarChart = () => {
-  return <div></div>;
+  return <div>Hello Friend</div>;
 };
 
 export default BarChart;
