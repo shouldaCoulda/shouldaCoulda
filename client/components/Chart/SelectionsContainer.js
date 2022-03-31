@@ -10,7 +10,7 @@ const SelectionsContainer = () => {
   return (
     <Box sx={{ padding: 1 }}>
       <Typography gutterBottom variant="p" component="div">
-        monthly: {getTotal()}
+        monthly: {getTotal().toFixed(2)}
       </Typography>
       <Typography gutterBottom variant="p" component="div">
         {months}: month total: {total}

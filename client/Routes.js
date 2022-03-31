@@ -23,12 +23,13 @@ const Routes = () => {
       <Switch>
         {currentUser ? (
           <>
+
             <Route exact path='/' component={Home} />
-            <Route exact path='/chart' component={ChartContainer} />
-            <Route exact path='/profile' component={Profile} />
-            <Route exact path='/selections' component={SelectionScreen} />
-            <Route exact path='/add' component={AddSubscription} />
-            <Route exact path='/expense' component={AddExpensees} />
+            <Route exact path="/chart" component={ChartContainer} />
+            <Route exact path="/profile" component={Profile} />
+            <Route exact path="/selections" component={SelectionScreen} />
+            <Route exact path="/add" component={AddSubscription} />
+            <Route exact path="/expense" component={AddExpensees} />
             <Route
               exact
               path='/subscriptioninfo'
