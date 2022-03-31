@@ -31,11 +31,13 @@ const Profile = () => {
     getTotalExpenses,
     getOverallTotal,
     removeExpense,
+    signup,
+    logout,
   } = useAuth();
   const history = useHistory();
 
   function checkIfGuest(email) {
-    let guest = email.slice(0, 5);
+    let guest = email?.slice(0, 5);
     if (guest === "guest") {
       function handleSubmit() {
         currentUser.email = emailRef.current.value;
@@ -43,29 +45,30 @@ const Profile = () => {
           uid: currentUser.uid,
           email: currentUser.email,
         };
+        // logout();
         writeUserData(user);
         // history.push("/profile");
       }
       return (
-        //     <Box>
-        //       <Typography variant="h6">Enter your information</Typography>
-        //       <Box>
-        //         <FormControl>
-        //           <InputLabel htmlFor="email">email</InputLabel>
-        //           <Input aria-describedby="my-helper-text" inputRef={emailRef} />
-        //           <FormHelperText>enter your email:</FormHelperText>
-        //         </FormControl>
-        //         <FormControl>
-        //           <InputLabel htmlFor="Price">Password</InputLabel>
-        //           <Input aria-describedby="my-helper-text" inputRef={passwordRef} />
-        //           <FormHelperText>must be 7 characters:</FormHelperText>
-        //         </FormControl>
-        //         <Button onClick={handleSubmit}>submit</Button>
-        //       </Box>
-        //     </Box>
-        //   );
-        // } else {
-        //   return (
+        <Box>
+          <Typography variant="h6">Enter your information</Typography>
+          <Box>
+            <FormControl>
+              <InputLabel htmlFor="email">email</InputLabel>
+              <Input aria-describedby="my-helper-text" inputRef={emailRef} />
+              <FormHelperText>enter your email:</FormHelperText>
+            </FormControl>
+            <FormControl>
+              <InputLabel htmlFor="Price">Password</InputLabel>
+              <Input aria-describedby="my-helper-text" inputRef={passwordRef} />
+              <FormHelperText>must be 7 characters:</FormHelperText>
+            </FormControl>
+            <Button onClick={handleSubmit}>submit</Button>
+          </Box>
+        </Box>
+      );
+    } else {
+      return (
         <Box
           sx={{
             mr: 2,
@@ -206,7 +209,7 @@ const Profile = () => {
   }
 
   useEffect(() => {
-    checkIfGuest(currentUser.email);
+    checkIfGuest(currentUser?.email);
   }, []);
 
   return (
@@ -218,7 +221,7 @@ const Profile = () => {
         alignItems: "center",
       }}
     >
-      {checkIfGuest(currentUser.email)}
+      {checkIfGuest(currentUser?.email)}
     </Box>
   );
 };

@@ -62,9 +62,10 @@ export function AuthProvider({ children }) {
   }
   //this function writes user data into the user database
   function writeUserData(user) {
-    var userReff = ref(database, "users/" + user.uid + "/email");
+    var userReff = ref(database, "users/" + user.uid);
     set(userReff, user);
-    currentUser.updateEmail(user.email);
+
+    // currentUser.updateEmail(user.email);
   }
 
   //Login with email and pass
