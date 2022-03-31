@@ -1,10 +1,13 @@
 import React from 'react';
 import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS } from 'chart.js/auto';
+import ChartTab from './ChartTab';
+import { Container } from '@mui/material';
 
 const PieChart = () => {
   return (
     <div>
+      <ChartTab />
       <Pie
         data={{
           labels: ['Youtube', 'Hulu', 'Netflix', 'Amazon', 'Disney+', 'Sling'],
@@ -32,20 +35,21 @@ const PieChart = () => {
             },
           ],
         }}
-        height={400}
-        width={600}
+        height={600}
+        width={1000}
         options={{
+          responsive: false,
           maintainAspectRatio: false,
           scales: {
-            yAxes: {
-              ticks: {
-                beginAtZero: true,
-              },
-            },
+            // yAxes: {
+            //   ticks: {
+            //     beginAtZero: true,
+            //   },
+            // },
           },
           legend: {
             labels: {
-              fontSize: 25,
+              fontSize: 40,
             },
           },
         }}
