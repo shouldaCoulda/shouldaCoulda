@@ -1,9 +1,3 @@
-// import FastfoodIcon from "@mui/icons-material/Fastfood";
-// import LocalCafeIcon from "@mui/icons-material/LocalCafe";
-// import TvIcon from "@mui/icons-material/Tv";
-// import SmokingRoomsIcon from"@mui/icons-material/SmokingRooms";
-// import LiquorIcon from"@mui/icons-material/Liquor";
-
 export const expenseCards = [
   {
     name: "Alcohol",
@@ -11,7 +5,6 @@ export const expenseCards = [
       "https://mshanken.imgix.net/wso/Articles/2018/NS_health112817_1600.jpg",
     description:
       "Have you thought about cutting down on drinking? Use this section to find out how much you could be saving if you were to invest some of that money.",
-    // icon: "LiquorIcon",
   },
   {
     name: "Cable/Directv",
