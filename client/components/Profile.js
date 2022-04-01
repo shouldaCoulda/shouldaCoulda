@@ -76,7 +76,7 @@ const Profile = () => {
         <Box
           sx={{
             mr: 2,
-            display: { xs: "none", md: "flex" },
+            display: "flex",
             flexDirection: "column",
             alignItems: "center",
           }}
@@ -221,7 +221,7 @@ const Profile = () => {
     <Box
       sx={{
         mr: 2,
-        display: { xs: "none", md: "flex" },
+        display: "flex",
         flexDirection: "column",
         alignItems: "center",
       }}

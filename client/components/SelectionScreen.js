@@ -67,12 +67,8 @@ export const SelectionScreen = () => {
 
   return (
     <>
-      <Box
-        sx={{ mr: 2, display: { xs: "none", md: "flex" }, flexWrap: "wrap" }}
-      >
-        <Box
-          sx={{ mr: 2, display: { xs: "none", md: "flex" }, flexWrap: "wrap" }}
-        >
+      <Box sx={{ mr: 2, display: "flex", flexWrap: "wrap" }}>
+        <Box sx={{ mr: 2, display: "flex", flexWrap: "wrap" }}>
           {defaultSubscriptions.map((sub, index) => {
             let str = checkIsSelected(sub.uid);
             return (

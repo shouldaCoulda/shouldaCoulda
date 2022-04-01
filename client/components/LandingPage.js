@@ -46,9 +46,9 @@ export const LandingPage = () => {
     <Box
       sx={{
         mr: 2,
-        display: { xs: 'none', md: 'flex' },
-        flexDirection: 'column',
-        alignItems: 'center',
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
         padding: 2,
       }}
     >
@@ -86,20 +86,21 @@ export const LandingPage = () => {
       </Typography>
       <Box
         sx={{
-          alignSelf: 'center',
-          display: { xs: 'none', md: 'flex' },
-          flexDirection: 'row',
-          justifyContent: 'space-between',
+          alignSelf: "center",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
           width: 800,
           alignItems: 'center',
         }}
       >
         <Box
           sx={{
-            alignSelf: 'center',
-            display: { xs: 'none', md: 'flex' },
-            flexDirection: 'column',
-            alignItems: 'left',
+            alignSelf: "center",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "left",
+
             width: 250,
             marginLeft: 10,
           }}
@@ -114,10 +115,10 @@ export const LandingPage = () => {
         </Typography>
         <Box
           sx={{
-            alignSelf: 'center',
-            display: { xs: 'none', md: 'flex' },
-            flexDirection: 'column',
-            alignItems: 'right',
+            alignSelf: "center",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "right",
             marginRight: 10,
             width: 250,
           }}

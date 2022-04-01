@@ -39,7 +39,7 @@ export default function ExpenseCard() {
     <Box
       sx={{
         mr: 2,
-        display: { xs: "none", md: "flex" },
+        display: "flex",
         flexDirection: "row",
         alignItems: "center",
         flexWrap: "wrap",

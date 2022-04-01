@@ -23,7 +23,7 @@ const Footer = () => {
         top: "auto",
         bottom: 0,
         height: 100,
-        display: { xs: "none", md: "flex" },
+        display: "flex",
         flexDirection: "row",
         alignItems: "flex-start",
         justifyContent: "space-between",
@@ -33,7 +33,7 @@ const Footer = () => {
     >
       <Box
         sx={{
-          display: { xs: "none", md: "flex" },
+          display: "flex",
           flexWrap: "wrap",
           alignItems: "center",
           width: 125,
@@ -57,7 +57,7 @@ const Footer = () => {
       </Box>
       <Box
         sx={{
-          display: { xs: "none", md: "flex" },
+          display: "flex",
           flexDirection: "column",
           alignItems: "left",
 
@@ -87,7 +87,7 @@ const Footer = () => {
         sx={{
           padding: 1,
 
-          display: { xs: "none", md: "flex" },
+          display: "flex",
           flexDirection: "column",
           alignItems: "right",
           padding: 1,

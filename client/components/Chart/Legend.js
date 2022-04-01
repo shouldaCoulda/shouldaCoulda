@@ -4,7 +4,6 @@ import { Box, Typography, Container } from "@mui/material";
 
 const Legend = () => {
   const { lines, selectedLines } = useChart();
-  
 
   let displayedLines = [];
   for (let i = 0; i < lines.length; i++) {
@@ -14,10 +13,10 @@ const Legend = () => {
   }
   return (
     <Box>
-      <Typography variant="h6">
-        lets see the the value of those subscriptions
+      <Typography variant="h6" sx={{ m: 2, textAlign: "center" }}>
+        Let's see the potential value of those subscriptions.
       </Typography>
-      <Box sx={{ display: { xs: "none", md: "flex" }, alignItems: "center" }}>
+      <Box sx={{ display: "flex", alignItems: "center" }}>
         {displayedLines.map((elem, key) => {
           return (
             <Typography

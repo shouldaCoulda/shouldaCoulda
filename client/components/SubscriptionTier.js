@@ -57,7 +57,7 @@ export const SubscriptionTier = () => {
     <Box
       sx={{
         mr: 2,
-        display: { xs: "none", md: "flex" },
+        display: "flex",
         flexDirection: "column",
         alignItems: "center",
       }}
@@ -74,7 +74,7 @@ export const SubscriptionTier = () => {
                 key={index}
                 sx={{
                   mr: 2,
-                  display: { xs: "none", md: "flex" },
+                  display: "flex",
                   width: 1000,
                 }}
               >
@@ -83,7 +83,7 @@ export const SubscriptionTier = () => {
                     alignSelf: "flex-start",
                     height: 50,
                     marginLeft: 5,
-                    display: { xs: "none", md: "flex" },
+                    display: "flex",
                     flexDirection: "column",
                   }}
                 >
@@ -95,7 +95,7 @@ export const SubscriptionTier = () => {
                 <Box
                   sx={{
                     mr: 2,
-                    display: { xs: "none", md: "flex" },
+                    display: "flex",
                     alignSelf: "center",
                   }}
                 >
@@ -107,7 +107,7 @@ export const SubscriptionTier = () => {
                         <Card
                           sx={{
                             mr: 2,
-                            display: { xs: "none", md: "flex" },
+                            display: "flex",
                             flexDirection: "column",
                             padding: 2,
                             margin: 1,

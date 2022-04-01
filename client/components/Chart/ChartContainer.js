@@ -14,8 +14,9 @@ const ChartContainer = () => {
       <ChartTab />
       <Box>
         <Legend />
-        <Box sx={{ display: { xs: 'none', md: 'flex', alignItems: 'center' } }}>
-          <SelectionsContainer className='selectionsContainer card' />
+        <Box sx={{ display: { xs: "flex", md: "flex", alignItems: "center" } }}>
+          <SelectionsContainer className="selectionsContainer card" />
+
           <LineChart />
           <FinancialContainer className='selectionsContainer card' />
         </Box>
