@@ -10,7 +10,6 @@ import {
 } from "firebase/database";
 import { database } from "../firebase";
 import { uid } from "uid";
-import { otherData } from "../../script/OtherExpenses";
 
 const OtherExpensesContext = React.createContext();
 

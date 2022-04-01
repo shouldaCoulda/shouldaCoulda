@@ -86,7 +86,6 @@ export const LandingPage = () => {
           }}
         />
       </Card>
-      <PieChart />
       <Typography variant="h4" sx={{ fontWeight: 600, marginTop: 5 }}>
         Tired Of Wasting Your Hard Earned $$$?
       </Typography>
