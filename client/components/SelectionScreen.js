@@ -20,9 +20,10 @@ import {
   FormHelperText,
 } from "@mui/material";
 import AddSubscription from "./AddSubscription";
+import ButtonUnstyled from "@mui/base/ButtonUnstyled";
 
 export const SelectionScreen = () => {
-  const { defaultSubscriptions } = useSubscription();
+  const { defaultSubscriptions, seed } = useSubscription();
   const { writeSubscriptions, usersSubscriptions, currentUser } = useAuth();
   const [shown, setShown] = useState(false);
   const isSelected = Array(defaultSubscriptions.length).fill(false);
@@ -112,14 +113,28 @@ export const SelectionScreen = () => {
           ) : (
             <Box>
               <Typography gutterBottom variant="p" component="div">
-                have a subscription not shown here?
-                <Button onClick={toggleForm}>Add</Button>
+                Do you have a subscription not shown here?
+                <Button
+                  onClick={toggleForm}
+                  sx={{
+                    color: "black",
+                    backgroundColor: "none",
+                    border: "none",
+                    backgroundColor: "transparent",
+                    "&.MuiButtonBase-root:hover": {
+                      bgcolor: "transparent",
+                      color: "#1976d2",
+                    },
+                  }}
+                >
+                  Add
+                </Button>
               </Typography>
             </Box>
           )}
         </Box>
         <Button
-          onClick={handleSubmit}
+          onClick={seed}
           sx={{
             marginTop: 5,
             borderWidth: 0,

@@ -28,13 +28,13 @@ const App = () => {
                       maxWidth: 1000,
                       display: "flex",
                       flexDirection: "column",
-                      paddingBottom: 15,
+                      paddingBottom: 8,
                     }}
                   >
                     <Navbar />
                     <Routes />
-                    <Footer />
                   </Box>
+                  <Footer />
                 </Container>
               </ChartProvider>
             </FinancialDataProvider>

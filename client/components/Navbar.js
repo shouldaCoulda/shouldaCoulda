@@ -44,43 +44,22 @@ const Navbar = () => {
               display: "flex",
               width: 300,
               justifyContent: "space-between",
+              paddingBottom: 2,
+              paddingLeft: 2,
             }}
           >
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              onClick={() => history.push("./")}
-              sx={{ mr: 2, display: "flex" }}
-            >
-              <HomeIcon sx={{ fontSize: 40, color: "lightblue" }} />
+            <Typography onClick={() => history.push("./")}>
+              <HomeIcon sx={{ fontSize: 40, color: "#3e87cf" }} />
             </Typography>
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              onClick={() => history.push("./profile")}
-              sx={{ mr: 2, display: "flex" }}
-            >
-              <AccountBoxIcon sx={{ fontSize: 40, color: "lightblue" }} />
+            <Typography onClick={() => history.push("./profile")}>
+              <AccountBoxIcon sx={{ fontSize: 40, color: "#3e87cf" }} />
             </Typography>
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              onClick={() => history.push("./chart")}
-              sx={{ mr: 2, display: "flex" }}
-            >
-              <ShowChartIcon sx={{ fontSize: 40, color: "lightblue" }} />
+            <Typography onClick={() => history.push("./chart")}>
+              <ShowChartIcon sx={{ fontSize: 40, color: "#3e87cf" }} />
             </Typography>
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              onClick={logout}
-              sx={{ mr: 2, display: "flex" }}
-            >
-              <LogoutIcon sx={{ fontSize: 40, color: "lightblue" }} />
+            <Typography onClick={logout}>
+              <LogoutIcon sx={{ fontSize: 40, color: "#3e87cf" }} />
+
             </Typography>
           </Box>
         ) : (

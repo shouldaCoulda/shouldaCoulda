@@ -19,7 +19,7 @@ import {
   FormHelperText,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import AddIcon from "@mui/icons-material/Add";
 import { expenseCards } from "../../../script/OtherExpenses";
 import { useOtherExpenses } from "../../contexts/OtherExpContext";
 
@@ -74,7 +74,21 @@ export default function ExpenseCard() {
 
         return (
           <Box key={index}>
-            <Card key={index} sx={{ width: 250, minHeight: 450, margin: 1 }}>
+            <Card
+              key={index}
+              sx={{
+                width: 250,
+                minHeight: 450,
+                margin: 1,
+                display: { xs: "none", md: "flex" },
+                flexDirection: "column",
+                alignItems: "center",
+                padding: 2,
+                border: 0.3,
+                borderColor: "lightgray",
+                boxShadow: "5px 5px 9px  lightgray",
+              }}
+            >
               <CardMedia
                 component="img"
                 alt="Misc"
@@ -96,18 +110,23 @@ export default function ExpenseCard() {
                   aria-expanded={expanded}
                   aria-label="show more"
                 >
-                  <ExpandMoreIcon />
+                  <AddIcon />
                 </ExpandMore>
               </CardActions>
               <Collapse in={expanded} timeout="auto" unmountOnExit>
                 <CardContent>
                   <FormControl>
-                    <InputLabel htmlFor="Price">Price</InputLabel>
-                    <Input
+                    <TextField
+                      InputProps={{
+                        startAdornment: (
+                          <InputAdornment position="start">$</InputAdornment>
+                        ),
+                      }}
                       aria-describedby="my-helper-text"
                       inputRef={priceRef}
+                      sx={{ border: "none" }}
                     />
-                    <FormHelperText>monthly cost:</FormHelperText>
+                    <FormHelperText>monthly</FormHelperText>
                   </FormControl>
                   <Button onClick={handleSubmit}>submit</Button>
                 </CardContent>

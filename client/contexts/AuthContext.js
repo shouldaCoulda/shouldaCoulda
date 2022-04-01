@@ -42,6 +42,7 @@ export function AuthProvider({ children }) {
   var [currentUser, setCurrentUser] = useState(null);
   const [usersSubscriptions, setSubs] = useState([]);
   const [usersExpenses, setExpenses] = useState([]);
+  const [usersIncomes, setIncomes] = useState([]);
   const [loading, setLoading] = useState(true);
   var userSubReff = "";
 
@@ -62,9 +63,10 @@ export function AuthProvider({ children }) {
   }
   //this function writes user data into the user database
   function writeUserData(user) {
-    var userReff = ref(database, "users/" + user.uid + "/email");
+    var userReff = ref(database, "users/" + user.uid + "/userinfo");
     set(userReff, user);
-    currentUser.updateEmail(user.email);
+
+    // currentUser.updateEmail(user.email);
   }
 
   //Login with email and pass
@@ -101,6 +103,15 @@ export function AuthProvider({ children }) {
       );
     }
   }
+  async function writeIncomeData(income) {
+    const uuid = uid();
+    set(ref(database, "users/" + currentUser.uid + "/incomes/" + uuid), {
+      name: income.name,
+      ammount: income.ammount,
+
+      uid: uuid,
+    });
+  }
 
   //this function romoves a subscription from a user's subscriptions
   //it removes the subscription based on the uid
@@ -110,13 +121,23 @@ export function AuthProvider({ children }) {
       "users/" + currentUser.uid + "/subscriptions/" + uid
     );
     remove(userSubsReff);
+    read(currentUser);
   }
   async function removeExpense(uid) {
     var userExpenseReff = ref(
       database,
-      "users/" + currentUser.uid + "/expense/" + uid
+      "users/" + currentUser.uid + "/expenses/" + uid
     );
     remove(userExpenseReff);
+    read(currentUser);
+  }
+  async function removeIncome(uid) {
+    var userIncomeRef = ref(
+      database,
+      "users/" + currentUser.uid + "/incomes/" + uid
+    );
+    remove(userIncomeRef);
+    read(currentUser);
   }
 
   useEffect(() => {
@@ -151,6 +172,16 @@ export function AuthProvider({ children }) {
         if (data !== null) {
           Object.values(data).map((expense) => {
             setExpenses((oldArray) => [...oldArray, expense]);
+          });
+        }
+      });
+      let userIncReff = ref(database, "users/" + str + "/incomes");
+      onValue(userIncReff, (snapshot) => {
+        setExpenses([]);
+        const data = snapshot.val();
+        if (data !== null) {
+          Object.values(data).map((income) => {
+            setIncomes((oldArray) => [...oldArray, income]);
           });
         }
       });
@@ -189,6 +220,10 @@ export function AuthProvider({ children }) {
     getTotalExpenses,
     getOverallTotal,
     removeExpense,
+    writeIncomeData,
+    usersIncomes,
+    setIncomes,
+    removeIncome,
   };
 
   return (

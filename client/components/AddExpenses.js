@@ -39,8 +39,11 @@ const AddExpense = () => {
           alignItems: "center",
         }}
       >
-        <Typography variant="h6">
-          Would you like to add other expenses?
+        <Typography
+          variant="h4"
+          sx={{ fontWeight: 600, marginTop: 10, marginBottom: 4 }}
+        >
+          Let's add up your unnecessary expenses ...{" "}
         </Typography>
         <ExpenseCard />
         <Button
