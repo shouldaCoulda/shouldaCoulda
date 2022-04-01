@@ -55,6 +55,7 @@
     "babel-loader": "^8.2.2",
     "chai": "^4.2.0",
     "css-loader": "^6.7.1",
+    "dotenv-webpack": "^7.1.0",
     "esm": "^3.2.25",
     "mocha": "^6.2.3",
     "nodemon": "^1.19.4",
