@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { autocompleteClasses, Button } from "@mui/material";
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
@@ -28,10 +28,10 @@ const Navbar = () => {
       <Container
         sx={{
           mr: 2,
-          display: { xs: "none", md: "flex" },
-          flexDirection: "row",
+          display: "flex",
+          flexDirection: { xs: "column", sm: "column", md: "row" },
           justifyContent: "space-between",
-          alignItems: "flex-end",
+          alignItems: { xs: "center", sm: "center", md: "flex-end" },
         }}
       >
         <Typography variant="h6" noWrap component="div">
@@ -41,7 +41,7 @@ const Navbar = () => {
           <Box
             sx={{
               mr: 2,
-              display: { xs: "none", md: "flex" },
+              display: "flex",
               width: 300,
               justifyContent: "space-between",
               paddingBottom: 2,
@@ -62,7 +62,7 @@ const Navbar = () => {
             </Typography>
           </Box>
         ) : (
-          <Box sx={{ mr: 2, display: { xs: "none", md: "flex" } }}></Box>
+          <Box sx={{ mr: 2, display: "flex" }}></Box>
         )}
       </Container>
     </AppBar>

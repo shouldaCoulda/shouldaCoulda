@@ -26,7 +26,7 @@ const App = () => {
                   <Box
                     sx={{
                       maxWidth: 1000,
-                      display: { xs: "none", md: "flex" },
+                      display: "flex",
                       flexDirection: "column",
                       paddingBottom: 8,
                     }}

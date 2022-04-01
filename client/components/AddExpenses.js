@@ -1,11 +1,9 @@
 import React, { useRef } from "react";
 import { useOtherExpenses } from "../contexts/OtherExpContext";
-
 import ExpenseCard from "./OtherExpCards/ExpenseCard";
 import { useAuth } from "../contexts/AuthContext";
 import { Box, Button, Typography } from "@mui/material";
 import { useHistory } from "react-router-dom";
-
 const AddExpense = () => {
   const history = useHistory();
   const { writeOtherExpenseData } = useOtherExpenses();
@@ -21,7 +19,6 @@ const AddExpense = () => {
       currentUser.uid
     );
   };
-
   const write = (e) => {
     e.preventDefault();
     var user = {
@@ -30,14 +27,13 @@ const AddExpense = () => {
     };
     writeUserData(user);
   };
-
   return (
     <>
       <Box
         sx={{
           ml: 2,
           mr: 2,
-          display: { xs: "none", md: "flex" },
+          display: flex,
           flexWrap: "wrap",
           flexDirection: "column",
           alignItems: "center",
@@ -68,5 +64,4 @@ const AddExpense = () => {
     </>
   );
 };
-
 export default AddExpense;

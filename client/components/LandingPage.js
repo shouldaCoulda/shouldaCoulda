@@ -18,6 +18,7 @@ import {
   TextField,
 } from "@mui/material";
 import { Link, useHistory } from "react-router-dom";
+import PieChart from "./PieChart";
 
 /**
  * COMPONENT
@@ -57,7 +58,7 @@ export const LandingPage = () => {
     <Box
       sx={{
         mr: 2,
-        display: { xs: "none", md: "flex" },
+        display: "flex",
         flexDirection: "column",
         alignItems: "center",
         padding: 2,
@@ -85,6 +86,7 @@ export const LandingPage = () => {
           }}
         />
       </Card>
+      <PieChart />
       <Typography variant="h4" sx={{ fontWeight: 600, marginTop: 5 }}>
         Tired Of Wasting Your Hard Earned $$$?
       </Typography>
@@ -97,7 +99,7 @@ export const LandingPage = () => {
       <Box
         sx={{
           alignSelf: "center",
-          display: { xs: "none", md: "flex" },
+          display: "flex",
           flexDirection: "row",
           justifyContent: "space-between",
           width: 800,
@@ -107,9 +109,10 @@ export const LandingPage = () => {
         <Box
           sx={{
             alignSelf: "center",
-            display: { xs: "none", md: "flex" },
+            display: "flex",
             flexDirection: "column",
             alignItems: "left",
+
             width: 250,
             marginLeft: 10,
           }}
@@ -125,7 +128,7 @@ export const LandingPage = () => {
         <Box
           sx={{
             alignSelf: "center",
-            display: { xs: "none", md: "flex" },
+            display: "flex",
             flexDirection: "column",
             alignItems: "right",
             marginRight: 10,
