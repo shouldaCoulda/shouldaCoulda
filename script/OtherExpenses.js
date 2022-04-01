@@ -34,4 +34,11 @@ export const expenseCards = [
     description:
       "If you use tobacco products and would like to analyze how much you could save by quitting, use this section to estimate how much you spend per month on these products.",
   },
+  {
+    name: "Other Expenses",
+    imageUrl:
+    "https://media.istockphoto.com/photos/anything-else-picture-id471941335?k=20&m=471941335&s=612x612&w=0&h=3sqLPaqFhLRmMyQC5MBACpwf_d-3zP6tvGslPYblWrU=",
+    description:
+    "If there are any other expenses that you think you could reduce in future months, use this section. Maybe you have a gym membership that you never use? Or anything else, add it here.",
+  },
 ];
