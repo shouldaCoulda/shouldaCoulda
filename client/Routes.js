@@ -4,7 +4,7 @@ import { useAuth } from "./contexts/AuthContext";
 import { withRouter, Route, Switch, Redirect } from "react-router-dom";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
-import Profile from "./components/Profile";
+import Profile from "./components/Profile/Profile";
 import ChartContainer from "./components/Chart/ChartContainer";
 import AddSubscription from "./components/AddSubscription";
 import SelectionScreen from "./components/SelectionScreen";
