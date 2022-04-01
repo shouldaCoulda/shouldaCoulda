@@ -28,7 +28,12 @@ import { styled } from "@mui/material/styles";
 const SubscriptionTable = () => {
   const [expanded, setExpanded] = React.useState(false);
 
-  const { usersSubscriptions, getTotal, removeSubscription } = useAuth();
+  const {
+    usersSubscriptions,
+    getTotalSubscriptions,
+    removeSubscription,
+    getTotal,
+  } = useAuth();
 
   function handleDelete(e, uid) {
     removeSubscription(uid);
@@ -51,7 +56,10 @@ const SubscriptionTable = () => {
 
   return (
     <Card sx={{ minWidth: 700 }}>
-      <CardHeader title="Subscriptions" />
+      <CardHeader
+        title="Subscriptions"
+        subheader={`Monthly total: ${getTotalSubscriptions()}`}
+      />
 
       <CardActions disableSpacing>
         <ExpandMore
@@ -101,18 +109,6 @@ const SubscriptionTable = () => {
                     </TableRow>
                   );
                 })}
-                <TableRow>
-                  <TableCell component="th" scope="row">
-                    <Typography type="b">
-                      Total Monthly cost: {getTotal()}
-                    </Typography>
-                  </TableCell>
-                  <TableCell component="th" scope="row">
-                    <Typography type="b">
-                      Total Anual cost: {(getTotal() * 12).toFixed(2)}
-                    </Typography>
-                  </TableCell>
-                </TableRow>
               </TableBody>
             </Table>
           </TableContainer>
