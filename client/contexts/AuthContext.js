@@ -8,7 +8,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { database } from "../firebase";
-import { ref, set, onValue, remove } from "firebase/database";
+import { ref, set, onValue, remove, get } from "firebase/database";
 import { uid } from "uid";
 
 //
