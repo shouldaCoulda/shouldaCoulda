@@ -30,10 +30,8 @@ const Profile = () => {
     writeUserData,
     usersExpenses,
     getTotalExpenses,
-    getOverallTotal,
     removeExpense,
-    signup,
-    logout,
+    usersIncomes,
   } = useAuth();
   const history = useHistory();
 
@@ -205,25 +203,22 @@ const Profile = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {usersExpenses.map((expense, index) => {
+                {usersIncomes.map((income, index) => {
                   return (
                     <TableRow
-                      key={expense.uid}
+                      key={income.uid}
                       sx={{
                         "&:last-child td, &:last-child th": { border: 0 },
                       }}
                     >
                       <TableCell component="th" scope="row">
-                        <img src={expense.imageUrl} style={{ height: 45 }} />
+                        {income.name}
                       </TableCell>
-                      <TableCell component="th" scope="row">
-                        {expense.name}
-                      </TableCell>
-                      <TableCell align="right">{expense.price}</TableCell>
+                      <TableCell align="right">{income.ammount}</TableCell>
                       <TableCell>
                         <Button
                           className="logoutButton"
-                          onClick={(e) => handleDeleteExpense(e, expense.uid)}
+                          // onClick={(e) => handleDeleteExpense(e, income.uid)}
                         >
                           Remove
                         </Button>

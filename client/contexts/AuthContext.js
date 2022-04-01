@@ -42,6 +42,7 @@ export function AuthProvider({ children }) {
   var [currentUser, setCurrentUser] = useState(null);
   const [usersSubscriptions, setSubs] = useState([]);
   const [usersExpenses, setExpenses] = useState([]);
+  const [usersIncomes, setIncomes] = useState([]);
   const [loading, setLoading] = useState(true);
   var userSubReff = "";
 
@@ -164,6 +165,16 @@ export function AuthProvider({ children }) {
           });
         }
       });
+      let userIncReff = ref(database, "users/" + str + "/incomes");
+      onValue(userIncReff, (snapshot) => {
+        setExpenses([]);
+        const data = snapshot.val();
+        if (data !== null) {
+          Object.values(data).map((income) => {
+            setIncomes((oldArray) => [...oldArray, income]);
+          });
+        }
+      });
     }
   }
   function getTotal() {
@@ -200,6 +211,8 @@ export function AuthProvider({ children }) {
     getOverallTotal,
     removeExpense,
     writeIncomeData,
+    usersIncomes,
+    setIncomes,
   };
 
   return (
