@@ -35,13 +35,19 @@ export function OtherProvider({ children }) {
     });
   }, []);
 
-  function writeExpenseData(name, price, userId) {
-    const uuid = uid();
-    set(ref(database, `users/` + userId + "/expenses/" + uuid), {
-      name: name,
-      price: price,
-      uid: uuid,
-    });
+  function writeExpenseData(data, userId) {
+    console.log(data);
+
+    for (let i = 0; i < data.length; i++) {
+      if (data[i].ammount !== "") {
+        const uuid = uid();
+        set(ref(database, `users/` + userId + "/expenses/" + uuid), {
+          name: data[i].name,
+          price: data[i].ammount,
+          uid: uuid,
+        });
+      }
+    }
   }
 
   //delete

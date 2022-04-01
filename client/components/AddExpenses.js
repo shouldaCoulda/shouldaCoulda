@@ -46,21 +46,6 @@ const AddExpense = () => {
           Let's add up your unnecessary expenses ...{" "}
         </Typography>
         <ExpenseCard />
-        <Button
-          onClick={() => history.push("/selections")}
-          sx={{
-            marginTop: 5,
-            borderWidth: 0,
-            boxShadow: "3px 2px 10px darkgray",
-            borderCollapse: "collapse",
-            color: "black",
-            borderRadius: 40,
-            width: 90,
-            marginBottom: 10,
-          }}
-        >
-          Next
-        </Button>
       </Box>
     </>
   );
