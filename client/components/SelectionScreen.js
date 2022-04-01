@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useSubscription } from "../contexts/SubscriptionContext";
 import { useAuth } from "../contexts/AuthContext";
 import { useHistory } from "react-router-dom";
-import { useGuestData } from "../contexts/GuestDataContext";
 import {
   Container,
   AppBar,
