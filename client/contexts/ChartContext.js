@@ -22,11 +22,12 @@ export function ChartProvider({ children }) {
   const [lines, setLines] = useState([]);
   const { financialData, bitcoinData, ethereumData } = useFinancialData();
   let maxY = 0;
+  const overallTotal = 100;
 
   const finData = getFinData(getTotal(), months, selectedApr);
-  const data = getData(getTotal(), months);
-  const ethData = getEthData(getTotal(), months, ethereumData);
-  const btcData = getBtcData(getTotal(), months, bitcoinData);
+  const data = getData(overallTotal, months);
+  const ethData = getEthData(overallTotal, months, ethereumData);
+  const btcData = getBtcData(overallTotal, months, bitcoinData);
 
   function getData(total, months) {
     const data = [];
@@ -60,23 +61,23 @@ export function ChartProvider({ children }) {
   }
 
   useEffect(() => {
+    setLines([
+      { name: "cash", line: data, color: "#3e87cf" },
+      { name: "Ethereum", line: ethData, color: "green" },
+      { name: "Bitcoin", line: btcData, color: "purple" },
+    ]);
+    console.log(lines);
+    console.log(overallTotal);
+  }, [months, overallTotal]);
+
+  useEffect(() => {
     getTotal();
-  }, []);
-
-  useEffect(() => {
     setLines([
       { name: "cash", line: data, color: "#3e87cf" },
       { name: "Ethereum", line: ethData, color: "green" },
       { name: "Bitcoin", line: btcData, color: "purple" },
     ]);
-  }, [months, financialData]);
-
-  useEffect(() => {
-    setLines([
-      { name: "cash", line: data, color: "#3e87cf" },
-      { name: "Ethereum", line: ethData, color: "green" },
-      { name: "Bitcoin", line: btcData, color: "purple" },
-    ]);
+    console.log(lines);
   }, []);
 
   const value = {
