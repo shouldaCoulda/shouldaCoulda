@@ -56,6 +56,7 @@ const AddExpense = () => {
             color: "black",
             borderRadius: 40,
             width: 90,
+            marginBottom: 10,
           }}
         >
           Next
