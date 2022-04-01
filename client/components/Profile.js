@@ -15,8 +15,15 @@ import {
   InputLabel,
   Input,
   FormHelperText,
+  SvgIcon
 } from "@mui/material";
 import { useHistory } from "react-router-dom";
+import FastfoodIcon from "@mui/icons-material/Fastfood";
+import LocalCafeIcon from "@mui/icons-material/LocalCafe";
+import TvIcon from "@mui/icons-material/Tv";
+import SmokingRoomsIcon from"@mui/icons-material/SmokingRooms";
+import LiquorIcon from"@mui/icons-material/Liquor";
+import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange';
 
 const Profile = () => {
   const emailRef = useRef("");
@@ -151,6 +158,7 @@ const Profile = () => {
               </TableHead>
               <TableBody>
                 {usersExpenses.map((expense, index) => {
+                  console.log(expense)
                   return (
                     <TableRow
                       key={expense.uid}
@@ -159,7 +167,7 @@ const Profile = () => {
                       }}
                     >
                       <TableCell component="th" scope="row">
-                        <img src={expense.imageUrl} style={{ height: 45 }} />
+                        <SvgIcon component={expense.name === "Alcohol" ? LiquorIcon : expense.name === "Cable/Directv" ? TvIcon : expense.name === " Tobacco Products"? SmokingRoomsIcon : expense.name === " Coffee" ? LocalCafeIcon : expense.name === "Food Delivery/Pick-Up" ? FastfoodIcon : CurrencyExchangeIcon} inheritViewBox />
                       </TableCell>
                       <TableCell component="th" scope="row">
                         {expense.name}
@@ -201,6 +209,7 @@ const Profile = () => {
     removeSubscription(uid);
   }
   function handleDeleteExpense(e, uid) {
+
     removeExpense(uid);
   }
 
