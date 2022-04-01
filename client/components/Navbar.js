@@ -49,16 +49,16 @@ const Navbar = () => {
             }}
           >
             <Typography onClick={() => history.push("./")}>
-              <HomeIcon sx={{ fontSize: 40, color: "#1976d2" }} />
+              <HomeIcon sx={{ fontSize: 40, color: "#3e87cf" }} />
             </Typography>
             <Typography onClick={() => history.push("./profile")}>
-              <AccountBoxIcon sx={{ fontSize: 40, color: "#1976d2" }} />
+              <AccountBoxIcon sx={{ fontSize: 40, color: "#3e87cf" }} />
             </Typography>
             <Typography onClick={() => history.push("./chart")}>
-              <ShowChartIcon sx={{ fontSize: 40, color: "#1976d2" }} />
+              <ShowChartIcon sx={{ fontSize: 40, color: "#3e87cf" }} />
             </Typography>
             <Typography onClick={logout}>
-              <LogoutIcon sx={{ fontSize: 40, color: "#1976d2" }} />
+              <LogoutIcon sx={{ fontSize: 40, color: "#3e87cf" }} />
             </Typography>
           </Box>
         ) : (
