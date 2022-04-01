@@ -79,7 +79,6 @@ export function ChartProvider({ children }) {
       { name: "Ethereum", line: ethData, color: "green" },
       { name: "Bitcoin", line: btcData, color: "purple" },
     ]);
-    console.log(lines);
   }, []);
 
   const value = {

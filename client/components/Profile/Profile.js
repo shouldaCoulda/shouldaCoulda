@@ -12,7 +12,7 @@ import IncomeTable from "./IncomeTable";
 const Profile = () => {
   const [expanded, setExpanded] = React.useState(false);
   return (
-    <Box className="column ">
+    <Box className="column " sx={{ marginBottom: 40, paddingBottom: 30 }}>
       <ExpenseTable />
       <SubscriptionTable />
       <IncomeTable />

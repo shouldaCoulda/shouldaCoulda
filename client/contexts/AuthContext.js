@@ -219,6 +219,13 @@ export function AuthProvider({ children }) {
       }, 0)
       .toFixed(2);
   }
+  function getTotalIncomes() {
+    return usersIncomes
+      .reduce((total, income) => {
+        return total + Number(income.ammount);
+      }, 0)
+      .toFixed(2);
+  }
 
   const value = {
     currentUser,
@@ -241,6 +248,7 @@ export function AuthProvider({ children }) {
     getTotalSubscriptions,
     usersTotalIncomeAndExpenses,
     setUsersTotalIncomeAndExpenses,
+    getTotalIncomes,
   };
 
   return (

@@ -133,7 +133,7 @@ export const SelectionScreen = () => {
           )}
         </Box>
         <Button
-          onClick={() => history.push("/subscriptionInfo")}
+          onClick={handleSubmit}
           sx={{
             marginTop: 5,
             borderWidth: 0,
