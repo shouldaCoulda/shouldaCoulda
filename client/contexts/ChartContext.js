@@ -29,9 +29,9 @@ export function ChartProvider({ children }) {
   let maxY = 0;
 
   const finData = getFinData(getTotal(), months, selectedApr);
-  const data = getData(usersTotalIncomeAndExpenses, months);
-  const ethData = getEthData(usersTotalIncomeAndExpenses, months, ethereumData);
-  const btcData = getBtcData(usersTotalIncomeAndExpenses, months, bitcoinData);
+  const data = getData(usersTotalIncomeAndExpenses, 30);
+  const ethData = getEthData(usersTotalIncomeAndExpenses, 30, ethereumData);
+  const btcData = getBtcData(usersTotalIncomeAndExpenses, 30, bitcoinData);
 
   function getData(total, months) {
     const data = [];

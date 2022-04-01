@@ -56,9 +56,7 @@ export function AuthProvider({ children }) {
     let expenseTotal = getTotalExpenses();
 
     total = total + Number(expenseTotal);
-    console.log("total", total);
-    console.log("users subscriptions", usersSubscriptions);
-    console.log("users expenses", usersExpenses);
+
     setUsersTotalIncomeAndExpenses(total);
   }
 
