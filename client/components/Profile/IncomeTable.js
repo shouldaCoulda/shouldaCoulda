@@ -30,7 +30,7 @@ const IncomeTable = () => {
 
   const { usersIncomes, getTotal, removeIncome } = useAuth();
 
-  async function handleDeleteIncome(e, uid) {
+  async function handleDelete(e, uid) {
     removeIncome(uid);
   }
 

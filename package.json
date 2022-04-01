@@ -58,7 +58,7 @@
     "dotenv-webpack": "^7.1.0",
     "esm": "^3.2.25",
     "mocha": "^6.2.3",
-    "nodemon": "^1.19.4",
+    "nodemon": "^2.0.15",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "react-redux": "^7.0.1",

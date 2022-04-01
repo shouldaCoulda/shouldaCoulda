@@ -1,7 +1,6 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import {
-  Container,
   TextField,
   Box,
   Card,
@@ -10,31 +9,28 @@ import {
   CardActions,
   CardContent,
   CardMedia,
-  Input,
   InputAdornment,
   Collapse,
   IconButton,
   FormControl,
-  InputLabel,
   FormHelperText,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import AddIcon from "@mui/icons-material/Add";
 import { expenseCards } from "../../../script/OtherExpenses";
 import { useOtherExpenses } from "../../contexts/OtherExpContext";
-
+import { useHistory } from "react-router-dom";
 export default function ExpenseCard() {
   const { writeUserData, currentUser } = useAuth();
   const { writeExpenseData } = useOtherExpenses();
-  // const write = (e) => {
-  //   e.preventDefault();
-  //   var user = {
-  //     uid: currentUser.uid,
-  //     email: currentUser.email,
-  //   };
-  //   writeUserData(user);
-  // };
+  const [fourms, setfourms] = useState([]);
+  const history = useHistory();
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    writeExpenseData(fourms, currentUser.uid);
+    history.push("/selections");
+  };
   return (
     <Box
       sx={{
@@ -47,14 +43,25 @@ export default function ExpenseCard() {
       }}
     >
       {expenseCards.map((expense, index) => {
-        const handleSubmit = async (e) => {
-          e.preventDefault();
-          writeExpenseData(
-            expense.name,
-            priceRef.current.value,
-            currentUser.uid
-          );
-        };
+        function handleChange(e) {
+          let array = [];
+          for (let j = 0; j < expenseCards.length; j++) {
+            if (j === index) {
+              array.push({
+                ammount: e.target.value,
+                name: expenseCards[j].name,
+              });
+            } else {
+              array.push(
+                fourms[j] || {
+                  ammount: "",
+                  name: expenseCards[j].name,
+                }
+              );
+            }
+          }
+          setfourms(array);
+        }
 
         const [expanded, setExpanded] = React.useState(false);
         const priceRef = useRef();
@@ -123,18 +130,34 @@ export default function ExpenseCard() {
                         ),
                       }}
                       aria-describedby="my-helper-text"
-                      inputRef={priceRef}
+                      type="text"
+                      value={fourms[index]?.ammount}
+                      onChange={handleChange}
                       sx={{ border: "none" }}
                     />
                     <FormHelperText>monthly</FormHelperText>
                   </FormControl>
-                  <Button onClick={handleSubmit}>submit</Button>
                 </CardContent>
               </Collapse>
             </Card>
           </Box>
         );
       })}
+      <Button
+        onClick={handleSubmit}
+        sx={{
+          marginTop: 5,
+          borderWidth: 0,
+          boxShadow: "3px 2px 10px darkgray",
+          borderCollapse: "collapse",
+          color: "black",
+          borderRadius: 40,
+          width: 90,
+          marginBottom: 10,
+        }}
+      >
+        Next
+      </Button>
     </Box>
   );
 }

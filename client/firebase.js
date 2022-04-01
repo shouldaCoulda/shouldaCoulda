@@ -7,13 +7,6 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  // apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  // authDomain: 'shouldacoulda-development.firebaseapp.com',
-  // databaseURL: 'https://shouldacoulda-development-default-rtdb.firebaseio.com/',
-  // projectId: 'shouldacoulda-development',
-  // storageBucket: 'shouldacoulda-development.appspot.com',
-  // messagingSenderId: '1007126989772',
-  // appId: '1:1007126989772:web:c5d68ab0adab5ed3736b69',
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
   databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,

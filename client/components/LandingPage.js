@@ -91,7 +91,6 @@ export const LandingPage = () => {
         Tired Of Wasting Your Hard Earned $$$?
       </Typography>
       <Typography variant="p" sx={{ padding: 4, lineHeight: 1.5 }}>
-        {console.log("test", process.env.thisisavar)}
         We get it. You KNOW you should be managing your finances better (i.e.
         investing, tracking, plus whatever else your dad is always nagging you
         to do. But you don’t know where to start. The first step to taking care
