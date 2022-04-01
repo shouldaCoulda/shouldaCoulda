@@ -79,7 +79,6 @@ export function AuthProvider({ children }) {
 
   //Logout
   async function logout() {
-    
     return auth.signOut();
   }
 
@@ -102,6 +101,15 @@ export function AuthProvider({ children }) {
         }
       );
     }
+  }
+  async function writeIncomeData(income) {
+    const uuid = uid();
+    set(ref(database, "users/" + currentUser.uid + "/incomes/" + uuid), {
+      name: income.name,
+      ammount: income.ammount,
+
+      uid: uuid,
+    });
   }
 
   //this function romoves a subscription from a user's subscriptions
@@ -191,6 +199,7 @@ export function AuthProvider({ children }) {
     getTotalExpenses,
     getOverallTotal,
     removeExpense,
+    writeIncomeData,
   };
 
   return (

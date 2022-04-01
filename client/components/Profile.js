@@ -17,6 +17,7 @@ import {
   FormHelperText,
 } from "@mui/material";
 import { useHistory } from "react-router-dom";
+import AddIncome from "./Income/AddIncome";
 
 const Profile = () => {
   const emailRef = useRef("");
@@ -194,6 +195,58 @@ const Profile = () => {
               </TableBody>
             </Table>
           </TableContainer>
+          <Typography variant="h4">Incomes</Typography>
+          <TableContainer sx={{ marginBottom: 6 }}>
+            <Table sx={{ minWidth: 650 }} aria-label="simple table">
+              <TableHead>
+                <TableRow>
+                  <TableCell>Name</TableCell>
+                  <TableCell align="right">ammount</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {usersExpenses.map((expense, index) => {
+                  return (
+                    <TableRow
+                      key={expense.uid}
+                      sx={{
+                        "&:last-child td, &:last-child th": { border: 0 },
+                      }}
+                    >
+                      <TableCell component="th" scope="row">
+                        <img src={expense.imageUrl} style={{ height: 45 }} />
+                      </TableCell>
+                      <TableCell component="th" scope="row">
+                        {expense.name}
+                      </TableCell>
+                      <TableCell align="right">{expense.price}</TableCell>
+                      <TableCell>
+                        <Button
+                          className="logoutButton"
+                          onClick={(e) => handleDeleteExpense(e, expense.uid)}
+                        >
+                          Remove
+                        </Button>
+                      </TableCell>
+                    </TableRow>
+                  );
+                })}
+                <TableRow>
+                  <TableCell component="th" scope="row">
+                    <Typography type="b">
+                      Total Monthly income: {getTotalExpenses()}
+                    </Typography>
+                  </TableCell>
+                  <TableCell component="th" scope="row">
+                    <Typography type="b">
+                      Total Anual income: {(getTotalExpenses() * 12).toFixed(2)}
+                    </Typography>
+                  </TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </TableContainer>
+          <AddIncome />
           <PopupButton />
         </Box>
       );
@@ -222,7 +275,6 @@ const Profile = () => {
       }}
     >
       {checkIfGuest(currentUser?.email)}
-      <Button onClick={history.push("/budget")}> budgets</Button>
     </Box>
   );
 };
