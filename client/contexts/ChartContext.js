@@ -15,19 +15,23 @@ export function useChart() {
 }
 
 export function ChartProvider({ children }) {
-  const { usersSubscriptions, getOverallTotal, getTotalExpenses } = useAuth();
+  const {
+    usersSubscriptions,
+    getOverallTotal,
+    getTotalExpenses,
+    usersTotalIncomeAndExpenses,
+  } = useAuth();
   const [months, setMonths] = useState(12);
   const [selectedLines, setSelectedLines] = useState([]);
   const [selectedApr, setSelectedApr] = useState(1);
   const [lines, setLines] = useState([]);
   const { financialData, bitcoinData, ethereumData } = useFinancialData();
   let maxY = 0;
-  const overallTotal = 100;
 
   const finData = getFinData(getTotal(), months, selectedApr);
-  const data = getData(overallTotal, months);
-  const ethData = getEthData(overallTotal, months, ethereumData);
-  const btcData = getBtcData(overallTotal, months, bitcoinData);
+  const data = getData(usersTotalIncomeAndExpenses, months);
+  const ethData = getEthData(usersTotalIncomeAndExpenses, months, ethereumData);
+  const btcData = getBtcData(usersTotalIncomeAndExpenses, months, bitcoinData);
 
   function getData(total, months) {
     const data = [];
@@ -66,9 +70,7 @@ export function ChartProvider({ children }) {
       { name: "Ethereum", line: ethData, color: "green" },
       { name: "Bitcoin", line: btcData, color: "purple" },
     ]);
-    console.log(lines);
-    console.log(overallTotal);
-  }, [months, overallTotal]);
+  }, [months, usersTotalIncomeAndExpenses]);
 
   useEffect(() => {
     getTotal();

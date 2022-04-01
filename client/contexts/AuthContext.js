@@ -43,8 +43,24 @@ export function AuthProvider({ children }) {
   const [usersSubscriptions, setSubs] = useState([]);
   const [usersExpenses, setExpenses] = useState([]);
   const [usersIncomes, setIncomes] = useState([]);
+  const [usersTotalIncomeAndExpenses, setUsersTotalIncomeAndExpenses] =
+    useState(0);
   const [loading, setLoading] = useState(true);
   var userSubReff = "";
+
+  function getTotal() {
+    let total = 0;
+    for (let i = 0; i < usersSubscriptions.length; i++) {
+      total = total + Number(usersSubscriptions[i].price);
+    }
+    let expenseTotal = getTotalExpenses();
+
+    total = total + Number(expenseTotal);
+    console.log("total", total);
+    console.log("users subscriptions", usersSubscriptions);
+    console.log("users expenses", usersExpenses);
+    setUsersTotalIncomeAndExpenses(total);
+  }
 
   async function signup(email, password) {
     try {
@@ -140,14 +156,18 @@ export function AuthProvider({ children }) {
     read(currentUser);
   }
 
-  useEffect(() => {
+  useEffect(async () => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
       read(user);
+      getTotal();
       setLoading(false);
     });
 
     return unsubscribe;
+  }, []);
+  useEffect(async () => {
+    read(currentUser);
   }, []);
 
   //this function sets the onvalue listner that saves the value of a
@@ -177,7 +197,7 @@ export function AuthProvider({ children }) {
       });
       let userIncReff = ref(database, "users/" + str + "/incomes");
       onValue(userIncReff, (snapshot) => {
-        setExpenses([]);
+        setIncomes([]);
         const data = snapshot.val();
         if (data !== null) {
           Object.values(data).map((income) => {
@@ -187,7 +207,7 @@ export function AuthProvider({ children }) {
       });
     }
   }
-  function getTotal() {
+  function getTotalSubscriptions() {
     return usersSubscriptions
       .reduce((total, sub) => {
         return total + Number(sub.price);
@@ -200,9 +220,6 @@ export function AuthProvider({ children }) {
         return total + Number(expense.price);
       }, 0)
       .toFixed(2);
-  }
-  function getOverallTotal() {
-    return getTotal() + getTotalExpenses();
   }
 
   const value = {
@@ -218,12 +235,14 @@ export function AuthProvider({ children }) {
     usersExpenses,
     setExpenses,
     getTotalExpenses,
-    getOverallTotal,
     removeExpense,
     writeIncomeData,
     usersIncomes,
     setIncomes,
     removeIncome,
+    getTotalSubscriptions,
+    usersTotalIncomeAndExpenses,
+    setUsersTotalIncomeAndExpenses,
   };
 
   return (
