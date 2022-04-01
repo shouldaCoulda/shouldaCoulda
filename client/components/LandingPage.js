@@ -45,7 +45,7 @@ export const LandingPage = () => {
     <Box
       sx={{
         mr: 2,
-        display: { xs: "none", md: "flex" },
+        display: "flex",
         flexDirection: "column",
         alignItems: "center",
         padding: 2,
@@ -85,7 +85,7 @@ export const LandingPage = () => {
       <Box
         sx={{
           alignSelf: "center",
-          display: { xs: "none", md: "flex" },
+          display: "flex",
           flexDirection: "row",
           justifyContent: "space-between",
           width: 800,
@@ -95,7 +95,7 @@ export const LandingPage = () => {
         <Box
           sx={{
             alignSelf: "center",
-            display: { xs: "none", md: "flex" },
+            display: "flex",
             flexDirection: "column",
             alignItems: "left",
             width: 250,
@@ -113,7 +113,7 @@ export const LandingPage = () => {
         <Box
           sx={{
             alignSelf: "center",
-            display: { xs: "none", md: "flex" },
+            display: "flex",
             flexDirection: "column",
             alignItems: "right",
             marginRight: 10,

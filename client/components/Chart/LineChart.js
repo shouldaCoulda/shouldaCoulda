@@ -26,19 +26,23 @@ const LineChart = () => {
     setDisplayedLines();
   }, [selectedLines, months]);
 
-  
   useEffect(() => {
     setDisplayedLines();
   }, []);
 
   return (
-    <Box sx={{ width: "500px" }}>
+    <Box sx={{ width: "500px", display: "flex" }}>
       <VictoryChart
+        sx={{
+          display: "flex",
+          flexDirection: { xs: "column", sm: "column", md: "row" },
+        }}
         minDomain={({ y: 0 }, { x: 0 })}
         maxDomain={({ y: maxY }, { x: months })}
         domainPadding={30}
         containerComponent={
           <VictoryVoronoiContainer
+            sx={{ flexDirection: { xs: "column", sm: "column", md: "row" } }}
             labels={({ datum }) => `${datum.y.toFixed(2)}`}
           />
         }

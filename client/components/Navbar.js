@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { autocompleteClasses, Button } from "@mui/material";
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
@@ -28,10 +28,10 @@ const Navbar = () => {
       <Container
         sx={{
           mr: 2,
-          display: { xs: "none", md: "flex" },
-          flexDirection: "row",
+          display: "flex",
+          flexDirection: { xs: "column", sm: "column", md: "row" },
           justifyContent: "space-between",
-          alignItems: "flex-end",
+          alignItems: { xs: "center", sm: "center", md: "flex-end" },
         }}
       >
         <Typography variant="h6" noWrap component="div">
@@ -41,7 +41,7 @@ const Navbar = () => {
           <Box
             sx={{
               mr: 2,
-              display: { xs: "none", md: "flex" },
+              display: "flex",
               width: 300,
               justifyContent: "space-between",
             }}
@@ -51,7 +51,7 @@ const Navbar = () => {
               noWrap
               component="div"
               onClick={() => history.push("./")}
-              sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
+              sx={{ mr: 2, display: "flex" }}
             >
               <HomeIcon sx={{ fontSize: 40, color: "lightblue" }} />
             </Typography>
@@ -60,7 +60,7 @@ const Navbar = () => {
               noWrap
               component="div"
               onClick={() => history.push("./profile")}
-              sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
+              sx={{ mr: 2, display: "flex" }}
             >
               <AccountBoxIcon sx={{ fontSize: 40, color: "lightblue" }} />
             </Typography>
@@ -69,7 +69,7 @@ const Navbar = () => {
               noWrap
               component="div"
               onClick={() => history.push("./chart")}
-              sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
+              sx={{ mr: 2, display: "flex" }}
             >
               <ShowChartIcon sx={{ fontSize: 40, color: "lightblue" }} />
             </Typography>
@@ -78,13 +78,13 @@ const Navbar = () => {
               noWrap
               component="div"
               onClick={logout}
-              sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
+              sx={{ mr: 2, display: "flex" }}
             >
               <LogoutIcon sx={{ fontSize: 40, color: "lightblue" }} />
             </Typography>
           </Box>
         ) : (
-          <Box sx={{ mr: 2, display: { xs: "none", md: "flex" } }}></Box>
+          <Box sx={{ mr: 2, display: "flex" }}></Box>
         )}
       </Container>
     </AppBar>
