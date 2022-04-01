@@ -28,9 +28,9 @@ import { styled } from "@mui/material/styles";
 const IncomeTable = () => {
   const [expanded, setExpanded] = React.useState(false);
 
-  const { usersIncomes, getTotal, removeIncome } = useAuth();
+  const { usersIncomes, getTotal, removeIncome, getTotalIncomes } = useAuth();
 
-  async function handleDeleteIncome(e, uid) {
+  async function handleDelete(e, uid) {
     removeIncome(uid);
   }
 
@@ -51,7 +51,10 @@ const IncomeTable = () => {
 
   return (
     <Card sx={{ minWidth: 700 }}>
-      <CardHeader title="Income" />
+      <CardHeader
+        title="Income"
+        subheader={`Monthly total: ${getTotalIncomes()}`}
+      />
 
       <CardActions disableSpacing>
         <ExpandMore
@@ -97,18 +100,6 @@ const IncomeTable = () => {
                     </TableRow>
                   );
                 })}
-                <TableRow>
-                  <TableCell component="th" scope="row">
-                    <Typography type="b">
-                      Total Monthly cost: {getTotal()}
-                    </Typography>
-                  </TableCell>
-                  <TableCell component="th" scope="row">
-                    <Typography type="b">
-                      Total Anual cost: {(getTotal() * 12).toFixed(2)}
-                    </Typography>
-                  </TableCell>
-                </TableRow>
               </TableBody>
             </Table>
           </TableContainer>

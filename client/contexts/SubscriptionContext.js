@@ -1,13 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import {
-  getDatabase,
-  ref,
-  onValue,
-  get,
-  child,
-  set,
-  remove,
-} from "firebase/database";
+import { ref, onValue, set, remove } from "firebase/database";
 import { database } from "../firebase";
 import { uid } from "uid";
 import { data } from "../../script/DefaultSubscriptionData";

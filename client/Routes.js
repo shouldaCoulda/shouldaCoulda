@@ -14,7 +14,8 @@ import AddExpensees from "./components/AddExpenses";
 import LandingPage from "./components/LandingPage";
 import PieChart from "./components/PieChart";
 import ListChart from "./components/ListChart";
-
+import About from "./components/Footer/About";
+import Team from "./components/Footer/Team";
 
 const Routes = () => {
   const { currentUser } = useAuth();
@@ -25,16 +26,17 @@ const Routes = () => {
         {currentUser ? (
           <>
             <Route exact path="/" component={Home} />
-
             <Route exact path="/chart" component={ChartContainer} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/selections" component={SelectionScreen} />
             <Route exact path="/add" component={AddSubscription} />
             <Route exact path="/expense" component={AddExpensees} />
             <Route exact path="/landing" component={LandingPage} />
+            <Route exact path="/about" component={About} />
+            <Route exact path="/team" component={Team} />
             <Route
               exact
-              path='/subscriptioninfo'
+              path="/subscriptioninfo"
               component={SubscriptionTier}
             />
             <Route exact path="/PieChart" component={PieChart} />
@@ -43,11 +45,10 @@ const Routes = () => {
         ) : (
           <>
             <Route exact path="/login" component={Login} />
+            <Route exact path="/team" component={Team} />
             <Route exact path="/signup" component={SignUp} />
+            <Route exact path="/about" component={About} />
             <Route exact path="/" component={SignUp} />
-            <Route exact path='/login' component={Login} />
-            <Route exact path='/signup' component={SignUp} />
-            <Route path='/' component={LandingPage} />
           </>
         )}
       </Switch>

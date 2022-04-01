@@ -8,6 +8,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import ShowChartIcon from "@mui/icons-material/ShowChart";
 import LoginIcon from "@mui/icons-material/Login";
+
 const Navbar = () => {
   //we take in logout and current user so our navbar can display accuratley
   const { logout, currentUser } = useAuth();
@@ -59,7 +60,6 @@ const Navbar = () => {
             </Typography>
             <Typography onClick={logout}>
               <LogoutIcon sx={{ fontSize: 40, color: "#3e87cf" }} />
-
             </Typography>
           </Box>
         ) : (
