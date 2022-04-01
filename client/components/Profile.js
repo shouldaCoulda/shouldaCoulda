@@ -23,6 +23,7 @@ import LocalCafeIcon from "@mui/icons-material/LocalCafe";
 import TvIcon from "@mui/icons-material/Tv";
 import SmokingRoomsIcon from"@mui/icons-material/SmokingRooms";
 import LiquorIcon from"@mui/icons-material/Liquor";
+import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange';
 
 const Profile = () => {
   const emailRef = useRef("");
@@ -166,7 +167,7 @@ const Profile = () => {
                       }}
                     >
                       <TableCell component="th" scope="row">
-                        <SvgIcon component={expense.name === "Alcohol" ? LiquorIcon : expense.name === "Cable/Directv" ? TvIcon : expense.name === " Tobacco Products"? SmokingRoomsIcon : expense.name === " Coffee" ? LocalCafeIcon : FastfoodIcon} inheritViewBox />
+                        <SvgIcon component={expense.name === "Alcohol" ? LiquorIcon : expense.name === "Cable/Directv" ? TvIcon : expense.name === " Tobacco Products"? SmokingRoomsIcon : expense.name === " Coffee" ? LocalCafeIcon : expense.name === "Food Delivery/Pick-Up" ? FastfoodIcon : CurrencyExchangeIcon} inheritViewBox />
                       </TableCell>
                       <TableCell component="th" scope="row">
                         {expense.name}
