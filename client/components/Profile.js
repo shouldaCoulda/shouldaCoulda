@@ -32,6 +32,7 @@ const Profile = () => {
     getTotalExpenses,
     removeExpense,
     usersIncomes,
+    removeIncome,
   } = useAuth();
   const history = useHistory();
 
@@ -206,7 +207,7 @@ const Profile = () => {
                 {usersIncomes.map((income, index) => {
                   return (
                     <TableRow
-                      key={income.uid}
+                      key={income.name}
                       sx={{
                         "&:last-child td, &:last-child th": { border: 0 },
                       }}
@@ -218,7 +219,7 @@ const Profile = () => {
                       <TableCell>
                         <Button
                           className="logoutButton"
-                          // onClick={(e) => handleDeleteExpense(e, income.uid)}
+                          onClick={(e) => handleDeleteIncome(e, income.uid)}
                         >
                           Remove
                         </Button>
@@ -252,8 +253,10 @@ const Profile = () => {
     removeSubscription(uid);
   }
   function handleDeleteExpense(e, uid) {
-    e.preventDefault();
     removeExpense(uid);
+  }
+  async function handleDeleteIncome(e, uid) {
+    removeIncome(uid);
   }
 
   useEffect(() => {

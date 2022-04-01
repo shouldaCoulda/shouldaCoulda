@@ -21,14 +21,16 @@ const AddIncome = () => {
   let nameRef = useRef("");
   let ammountRef = useRef();
 
-  const handleSubmit = async (e) => {
+  async function handleSubmit(e) {
     e.preventDefault();
     const income = {
       name: nameRef.current.value,
       ammount: ammountRef.current.value,
     };
     writeIncomeData(income);
-  };
+    nameRef.current.value = "";
+    ammountRef.current.value = "";
+  }
 
   return (
     <Box>
@@ -42,7 +44,7 @@ const AddIncome = () => {
         <Input aria-describedby="my-helper-text" inputRef={ammountRef} />
         <FormHelperText>monthly ammount:</FormHelperText>
       </FormControl>
-      <Button onClick={handleSubmit}>submit</Button>
+      <Button onClick={(e) => handleSubmit(e)}>submit</Button>
     </Box>
   );
 };

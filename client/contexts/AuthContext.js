@@ -63,7 +63,7 @@ export function AuthProvider({ children }) {
   }
   //this function writes user data into the user database
   function writeUserData(user) {
-    var userReff = ref(database, "users/" + user.uid);
+    var userReff = ref(database, "users/" + user.uid + "/userinfo");
     set(userReff, user);
 
     // currentUser.updateEmail(user.email);
@@ -121,6 +121,7 @@ export function AuthProvider({ children }) {
       "users/" + currentUser.uid + "/subscriptions/" + uid
     );
     remove(userSubsReff);
+    read(currentUser);
   }
   async function removeExpense(uid) {
     var userExpenseReff = ref(
@@ -128,6 +129,15 @@ export function AuthProvider({ children }) {
       "users/" + currentUser.uid + "/expenses/" + uid
     );
     remove(userExpenseReff);
+    read(currentUser);
+  }
+  async function removeIncome(uid) {
+    var userIncomeRef = ref(
+      database,
+      "users/" + currentUser.uid + "/incomes/" + uid
+    );
+    remove(userIncomeRef);
+    read(currentUser);
   }
 
   useEffect(() => {
@@ -213,6 +223,7 @@ export function AuthProvider({ children }) {
     writeIncomeData,
     usersIncomes,
     setIncomes,
+    removeIncome,
   };
 
   return (

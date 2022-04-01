@@ -23,7 +23,7 @@ import { Link, useHistory } from "react-router-dom";
  * COMPONENT
  */
 export const LandingPage = () => {
-  const { signup, writeUserData, currentUser } = useAuth();
+  const { signup, writeUserData, currentUser, writeIncomeData } = useAuth();
   const ammountRef = useRef(0);
 
   const history = useHistory();
@@ -37,14 +37,21 @@ export const LandingPage = () => {
   //   signup(`guest${string}@gmail.com`, "Password");
   //   history.push("/expense");
   // };
-  function handleSubmit() {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     const user = {
       uid: currentUser.uid,
       email: currentUser.email,
     };
-    writeUserData(user);
+    await writeUserData(user);
+    const income = {
+      name: "primary",
+      ammount: ammountRef.current.value,
+    };
+    writeIncomeData(income);
+
     history.push("/expense");
-  }
+  };
 
   return (
     <Box
@@ -163,7 +170,7 @@ export const LandingPage = () => {
       </Box>
 
       <Button
-        onClick={handleSubmit}
+        onClick={(e) => handleSubmit(e)}
         sx={{
           marginTop: 5,
           borderWidth: 0,
