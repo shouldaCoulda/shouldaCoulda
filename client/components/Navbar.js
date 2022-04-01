@@ -59,6 +59,7 @@ const Navbar = () => {
             </Typography>
             <Typography onClick={logout}>
               <LogoutIcon sx={{ fontSize: 40, color: "#3e87cf" }} />
+
             </Typography>
           </Box>
         ) : (

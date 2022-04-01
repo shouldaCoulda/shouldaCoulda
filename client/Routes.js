@@ -15,6 +15,7 @@ import LandingPage from "./components/LandingPage";
 import PieChart from "./components/PieChart";
 import ListChart from "./components/ListChart";
 
+
 const Routes = () => {
   const { currentUser } = useAuth();
 
@@ -24,6 +25,7 @@ const Routes = () => {
         {currentUser ? (
           <>
             <Route exact path="/" component={Home} />
+
             <Route exact path="/chart" component={ChartContainer} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/selections" component={SelectionScreen} />
@@ -32,7 +34,7 @@ const Routes = () => {
             <Route exact path="/landing" component={LandingPage} />
             <Route
               exact
-              path="/subscriptioninfo"
+              path='/subscriptioninfo'
               component={SubscriptionTier}
             />
             <Route exact path="/PieChart" component={PieChart} />
@@ -43,6 +45,9 @@ const Routes = () => {
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/" component={SignUp} />
+            <Route exact path='/login' component={Login} />
+            <Route exact path='/signup' component={SignUp} />
+            <Route path='/' component={LandingPage} />
           </>
         )}
       </Switch>
