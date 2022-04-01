@@ -44,43 +44,21 @@ const Navbar = () => {
               display: { xs: "none", md: "flex" },
               width: 300,
               justifyContent: "space-between",
+              paddingBottom: 2,
+              paddingLeft: 2,
             }}
           >
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              onClick={() => history.push("./")}
-              sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
-            >
-              <HomeIcon sx={{ fontSize: 40, color: "lightblue" }} />
+            <Typography onClick={() => history.push("./")}>
+              <HomeIcon sx={{ fontSize: 40, color: "#1976d2" }} />
             </Typography>
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              onClick={() => history.push("./profile")}
-              sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
-            >
-              <AccountBoxIcon sx={{ fontSize: 40, color: "lightblue" }} />
+            <Typography onClick={() => history.push("./profile")}>
+              <AccountBoxIcon sx={{ fontSize: 40, color: "#1976d2" }} />
             </Typography>
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              onClick={() => history.push("./chart")}
-              sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
-            >
-              <ShowChartIcon sx={{ fontSize: 40, color: "lightblue" }} />
+            <Typography onClick={() => history.push("./chart")}>
+              <ShowChartIcon sx={{ fontSize: 40, color: "#1976d2" }} />
             </Typography>
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              onClick={logout}
-              sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
-            >
-              <LogoutIcon sx={{ fontSize: 40, color: "lightblue" }} />
+            <Typography onClick={logout}>
+              <LogoutIcon sx={{ fontSize: 40, color: "#1976d2" }} />
             </Typography>
           </Box>
         ) : (
