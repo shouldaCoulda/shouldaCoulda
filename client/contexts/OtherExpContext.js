@@ -15,7 +15,7 @@ import { otherData } from "../../script/OtherExpenses";
 const OtherExpensesContext = React.createContext();
 
 export function useOtherExpenses() {
-  return useContext(OtherExpensesContext)
+  return useContext(OtherExpensesContext);
 }
 
 let otherExpRef = ref(database, "otherExpenses");
@@ -29,22 +29,22 @@ export function OtherProvider({ children }) {
       const otherData = snapshot.val();
       if (otherData !== null) {
         Object.values(otherData).map((expense) => {
-          setOtherData((oldArray) => [...oldArray, expense])
-        })
+          setOtherData((oldArray) => [...oldArray, expense]);
+        });
       }
-    })
+    });
   }, []);
 
   function writeExpenseData(name, price, userId) {
     const uuid = uid();
-    set(ref(database, `users/` + userId + '/expenses/' + uuid), {
+    set(ref(database, `users/` + userId + "/expenses/" + uuid), {
       name: name,
       price: price,
-      uid: uuid
+      uid: uuid,
     });
   }
 
-    //delete
+  //delete
   const handleDelete = (otherExpense) => {
     remove(ref(database, `/${otherExpense.uuid}`));
   };
@@ -59,7 +59,4 @@ export function OtherProvider({ children }) {
       {children}
     </OtherExpensesContext.Provider>
   );
-
 }
-
-

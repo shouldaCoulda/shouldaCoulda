@@ -23,12 +23,13 @@ const Footer = () => {
         top: "auto",
         bottom: 0,
         height: 100,
+        margin: 0,
         display: { xs: "none", md: "flex" },
         flexDirection: "row",
         alignItems: "flex-start",
         justifyContent: "space-between",
-        paddingLeft: 3,
-        paddingRight: 3,
+        marginLeft: 0,
+        marginRight: 0,
       }}
     >
       <Box

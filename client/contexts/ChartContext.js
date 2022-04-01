@@ -65,7 +65,7 @@ export function ChartProvider({ children }) {
 
   useEffect(() => {
     setLines([
-      { name: "cash", line: data, color: "blue" },
+      { name: "cash", line: data, color: "#3e87cf" },
       { name: "Ethereum", line: ethData, color: "green" },
       { name: "Bitcoin", line: btcData, color: "purple" },
     ]);
@@ -73,7 +73,7 @@ export function ChartProvider({ children }) {
 
   useEffect(() => {
     setLines([
-      { name: "cash", line: data, color: "blue" },
+      { name: "cash", line: data, color: "#3e87cf" },
       { name: "Ethereum", line: ethData, color: "green" },
       { name: "Bitcoin", line: btcData, color: "purple" },
     ]);
