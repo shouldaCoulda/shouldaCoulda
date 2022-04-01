@@ -23,7 +23,7 @@ import AddSubscription from "./AddSubscription";
 import ButtonUnstyled from "@mui/base/ButtonUnstyled";
 
 export const SelectionScreen = () => {
-  const { defaultSubscriptions } = useSubscription();
+  const { defaultSubscriptions, seed } = useSubscription();
   const { writeSubscriptions, usersSubscriptions, currentUser } = useAuth();
   const [shown, setShown] = useState(false);
   const isSelected = Array(defaultSubscriptions.length).fill(false);
@@ -150,7 +150,7 @@ export const SelectionScreen = () => {
           )}
         </Box>
         <Button
-          onClick={handleSubmit}
+          onClick={seed}
           sx={{
             marginTop: 5,
             borderWidth: 0,
