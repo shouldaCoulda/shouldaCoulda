@@ -44,17 +44,24 @@ const BarChart = () => {
   const innerHeight = height - margin.top - margin.bottom;
   const innerWidth = width - margin.left - margin.right;
 
+  //Axis controller, this function target the yValue
+  const yValue = (data) => {
+    return data.Country;
+  };
+
+  const xValue = (data) => {
+    return data.Population;
+  };
+
   //set the Y scale mapping the country data and range from 0 to the innerHeight
   //scaleBand is a d3 method
   //yScale is the country name in the y Axis
-  const yScale = scaleBand()
-    .domain(data.map((d) => d.Country))
-    .range([0, innerHeight]);
+  const yScale = scaleBand().domain(data.map(yValue)).range([0, innerHeight]);
 
   //set the X scale Population from 0 to width
   //xScale shows the Population the x axis
   const xScale = scaleLinear()
-    .domain([0, max(data, (d) => d.Population)])
+    .domain([0, max(data, xValue)])
     .range([0, innerWidth]);
 
   return (
