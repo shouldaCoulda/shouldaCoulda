@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { csv, scaleBand, scaleLinear, max } from 'd3';
+import styles from './BarChart.module.css';
 
 //this is the data or csv file we are getting the data from
 const csvUrl =
@@ -75,7 +76,10 @@ const BarChart = () => {
     //setting text y={innerHeight} puts the text to the bottom of chart
     //dy is moving the tick values down a little by 1.1em
     <svg width={width} height={height}>
-      <g transform={`translate(${margin.left},${margin.top})`}>
+      <g
+        className={styles.tick}
+        transform={`translate(${margin.left},${margin.top})`}
+      >
         {xScale.ticks().map((tickValue, i) => {
           return (
             <g key={i} transform={`translate(${xScale(tickValue)},0)`}>
