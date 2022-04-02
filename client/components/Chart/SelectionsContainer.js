@@ -8,14 +8,23 @@ const SelectionsContainer = () => {
   const total = (getTotal() * months).toFixed(2);
 
   return (
-    <Box sx={{ padding: 1 }}>
-      <Typography gutterBottom variant="p" component="div">
-        monthly: {getTotal().toFixed(2)}
+    <Box sx={{ display: "flex", flexDirection: "column", padding: 1 }}>
+      <Typography
+        gutterBottom
+        variant="p"
+        component="div"
+        sx={{ fontSize: { xs: 10, sm: 12, md: 18 } }}
+      >
+        Monthly Total: {getTotal().toFixed(2)}
       </Typography>
-      <Typography gutterBottom variant="p" component="div">
-        {months}: month total: {total}
+      <Typography
+        gutterBottom
+        variant="p"
+        component="div"
+        sx={{ fontSize: { xs: 10, sm: 12, md: 18 } }}
+      >
+        {months} month total: {total}
       </Typography>
-      <PopupButton />
     </Box>
   );
 };

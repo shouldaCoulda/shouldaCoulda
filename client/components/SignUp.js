@@ -50,10 +50,10 @@ const SignUp = () => {
   return (
     <div>
       <>
-        <div className="container">
+        <div>
           <Card className="logincard">
             <Card.Body>
-              <h2>sign up</h2>
+              <h2>Sign Up</h2>
               {error && <Alert variant="danger">{error}</Alert>}
               <Form onSubmit={handleSubmit}>
                 <Form.Group id="email">
@@ -72,7 +72,11 @@ const SignUp = () => {
                     required
                   />
                 </Form.Group>
-                <Button disabled={loading} className="w-100" type="submit">
+                <Button
+                  disabled={loading}
+                  className="signUpButton"
+                  type="submit"
+                >
                   Sign Up
                 </Button>
                 {/* <Button onClick={generator}>Generate Demo User</Button> */}

@@ -9,6 +9,7 @@ import {
   Box,
   Button,
 } from "@mui/material";
+import { red } from "@mui/material/colors";
 
 const Footer = () => {
   //we take in logout and current user so our navbar can display accuratley
@@ -19,6 +20,7 @@ const Footer = () => {
     // <>
     <AppBar
       position="fixed"
+      display="flex"
       sx={{
         top: "auto",
         bottom: 0,
@@ -26,8 +28,7 @@ const Footer = () => {
 
         display: "flex",
         flexDirection: "row",
-        alignItems: "flex-start",
-        justifyContent: "space-between",
+        justifyContent: "space-around",
         marginLeft: 0,
         marginRight: 0,
       }}
@@ -36,7 +37,7 @@ const Footer = () => {
         sx={{
           display: "flex",
           flexWrap: "wrap",
-          alignItems: "center",
+          color: red,
           width: 125,
           padding: 1,
         }}
@@ -60,7 +61,7 @@ const Footer = () => {
         sx={{
           display: "flex",
           flexDirection: "column",
-          alignItems: "left",
+          // alignItems: "left",
 
           padding: 1,
         }}
@@ -90,7 +91,7 @@ const Footer = () => {
 
           display: "flex",
           flexDirection: "column",
-          alignItems: "right",
+          // alignItems: "right",
           padding: 1,
         }}
       >

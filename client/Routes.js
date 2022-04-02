@@ -14,6 +14,8 @@ import AddExpensees from "./components/AddExpenses";
 import LandingPage from "./components/LandingPage";
 import PieChart from "./components/PieChart";
 import ListChart from "./components/ListChart";
+import FinancialContainer from "./components/Chart/FinancialContainer";
+import SelectionsContainer from "./components/Chart/SelectionsContainer";
 
 const Routes = () => {
   const { currentUser } = useAuth();
@@ -43,7 +45,7 @@ const Routes = () => {
           <>
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={SignUp} />
-            <Route exact path="/" component={SignUp} />
+            <Route exact path="/" component={ChartContainer} />
           </>
         )}
       </Switch>
