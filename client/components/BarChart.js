@@ -61,7 +61,7 @@ const BarChart = () => {
   const yScale = scaleBand()
     .domain(data.map(yValue))
     .range([0, innerHeight])
-    .padding(0.2);
+    .paddingInner(0.2);
 
   //set the X scale Population from 0 to width
   //xScale shows the Population the x axis
@@ -107,7 +107,14 @@ const BarChart = () => {
             </g>
           );
         })}
-
+        <text
+          className={styles.textAxis}
+          x={innerWidth / 2}
+          y={-5}
+          textAnchor='middle'
+        >
+          Population
+        </text>
         {data.map((d) => (
           <rect
             className={styles.marks}
