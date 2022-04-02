@@ -44,11 +44,12 @@ const BarChart = () => {
   const innerHeight = height - margin.top - margin.bottom;
   const innerWidth = width - margin.left - margin.right;
 
-  //Axis controller, this function target the yValue
+  //Axis controller, this function target the yValue of Chart
   const yValue = (data) => {
     return data.Country;
   };
 
+  //Axis controller this function target the xValue of Chart
   const xValue = (data) => {
     return data.Population;
   };
