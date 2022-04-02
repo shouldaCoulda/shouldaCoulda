@@ -8,7 +8,7 @@ const csvUrl =
 const width = 960;
 const height = 500;
 //setting margin
-const margin = { top: 20, right: 20, bottom: 50, left: 20 };
+const margin = { top: 20, right: 20, bottom: 50, left: 200 };
 
 //use state in the component to set data
 const BarChart = () => {
@@ -24,6 +24,7 @@ const BarChart = () => {
     };
     //slicing only the first 10 of the data from the list
     csv(csvUrl, row).then((data) => {
+      //setting data to data array
       setData(data.slice(0, 10));
     });
   }, []);
@@ -39,7 +40,7 @@ const BarChart = () => {
   const innerHeight = height - margin.top - margin.bottom;
   const innerWidth = width - margin.left - margin.right;
 
-  //set the Y scale mapping the country data and range from 0 to the height
+  //set the Y scale mapping the country data and range from 0 to the innerHeight
   //scaleBand is a d3 method
   const yScale = scaleBand()
     .domain(data.map((d) => d.Country))
@@ -71,6 +72,20 @@ const BarChart = () => {
             </g>
           );
         })}
+        {yScale.domain().map((tickValue) => {
+          return (
+            <g
+              transform={`translate(0,${
+                yScale(tickValue) + yScale.bandwidth() / 2
+              })`}
+            >
+              <text style={{ textAnchor: 'end' }} x={-4} dy='.32em'>
+                {tickValue}
+              </text>
+            </g>
+          );
+        })}
+
         {data.map((d) => (
           <rect
             key={d.Country}
