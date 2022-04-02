@@ -5,6 +5,7 @@ import notebook from '@d3/bar-chart-race';
 const RaceChart = () => {
   return (
     <>
+      <h2>Company Value In Millions From 2000-2019</h2>
       <iframe
         width='100%'
         height='725'
