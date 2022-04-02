@@ -10,12 +10,13 @@ const height = 500;
 
 //use state in the component to set data
 const BarChart = () => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
 
   //use effect to retrieve the data
   useEffect(() => {
     //setting the row data to year 2020 and Population
     const row = (d) => {
+      //+d is setting the data to a number for year 2020
       d.Population = +d['2020'];
       return d;
     };
