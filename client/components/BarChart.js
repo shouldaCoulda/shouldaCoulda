@@ -9,7 +9,7 @@ const csvUrl =
 const width = 960;
 const height = 500;
 //setting margin
-const margin = { top: 20, right: 20, bottom: 50, left: 200 };
+const margin = { top: 35, right: 20, bottom: 60, left: 200 };
 
 //custom hook made for retrieving data
 const useData = () => {
@@ -115,12 +115,12 @@ const BarChart = () => {
         >
           Population
         </text>
-        {data.map((d) => (
+        {data.map((d, i) => (
           <rect
             className={styles.marks}
-            key={d.Country}
-            y={yScale(d.Country)}
-            width={xScale(d.Population)}
+            key={i}
+            y={yScale(yValue(d))}
+            width={xScale(xValue(d))}
             height={yScale.bandwidth()}
           />
         ))}
