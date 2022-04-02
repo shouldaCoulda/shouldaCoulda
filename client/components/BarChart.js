@@ -34,7 +34,7 @@ const BarChart = () => {
     return <pre>Loading...</pre>;
   }
 
-  console.log(data[0]);
+  // console.log(data[0]);
 
   //helps to control the margin
   const innerHeight = height - margin.top - margin.bottom;
@@ -62,9 +62,9 @@ const BarChart = () => {
     //dy is moving the tick values down a little by 1.1em
     <svg width={width} height={height}>
       <g transform={`translate(${margin.left},${margin.top})`}>
-        {xScale.ticks().map((tickValue) => {
+        {xScale.ticks().map((tickValue, i) => {
           return (
-            <g transform={`translate(${xScale(tickValue)},0)`}>
+            <g key={i} transform={`translate(${xScale(tickValue)},0)`}>
               <line x1={0} y1={0} x2={0} y2={innerHeight} stroke='green' />
               <text y={innerHeight} style={{ textAnchor: 'middle' }} dy='1.1em'>
                 {tickValue}
@@ -72,9 +72,10 @@ const BarChart = () => {
             </g>
           );
         })}
-        {yScale.domain().map((tickValue) => {
+        {yScale.domain().map((tickValue, i) => {
           return (
             <g
+              key={i}
               transform={`translate(0,${
                 yScale(tickValue) + yScale.bandwidth() / 2
               })`}
