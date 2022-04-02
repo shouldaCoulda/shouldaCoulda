@@ -8,7 +8,7 @@ const csvUrl =
 const width = 960;
 const height = 500;
 //setting margin
-const margin = { top: 20, right: 20, bottom: 20, left: 20 };
+const margin = { top: 20, right: 20, bottom: 50, left: 20 };
 
 //use state in the component to set data
 const BarChart = () => {
@@ -35,31 +35,49 @@ const BarChart = () => {
 
   console.log(data[0]);
 
+  //helps to control the margin
   const innerHeight = height - margin.top - margin.bottom;
   const innerWidth = width - margin.left - margin.right;
 
-  //set the Y axis mapping the country data and range from 0 to the height
+  //set the Y scale mapping the country data and range from 0 to the height
   //scaleBand is a d3 method
   const yScale = scaleBand()
     .domain(data.map((d) => d.Country))
     .range([0, innerHeight]);
 
-  //set the X axis Population from 0 to width
+  //set the X scale Population from 0 to width
   const xScale = scaleLinear()
     .domain([0, max(data, (d) => d.Population)])
     .range([0, innerWidth]);
 
   return (
-    //It use svg tab to show the chart mapping the array and displaying the data in this format
+    /*It use svg tab to show the chart mapping the array and displaying the data in this format
+    <g> === group element
+    <g transform={`translate(${margin.left},${margin.top})`}> is use to move the graph position
+    line creates the vertical line
+    */
     <svg width={width} height={height}>
-      {data.map((d) => (
-        <rect
-          key={d.Country}
-          y={yScale(d.Country)}
-          width={xScale(d.Population)}
-          height={yScale.bandwidth()}
-        />
-      ))}
+      <g transform={`translate(${margin.left},${margin.top})`}>
+        {xScale.ticks().map((tickValue) => {
+          return (
+            <line
+              x1={xScale(tickValue)}
+              y1={0}
+              x2={xScale(tickValue)}
+              y2={innerHeight}
+              stroke='green'
+            />
+          );
+        })}
+        {data.map((d) => (
+          <rect
+            key={d.Country}
+            y={yScale(d.Country)}
+            width={xScale(d.Population)}
+            height={yScale.bandwidth()}
+          />
+        ))}
+      </g>
     </svg>
   );
 };
