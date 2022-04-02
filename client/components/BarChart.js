@@ -27,36 +27,34 @@ import styles from './BarChart.module.css';
 //   return data;
 // };
 
+//dummy data
 const chart = [
   { name: 'Netflix', price: 9.99 },
   { name: 'Hulu', price: 12.99 },
   { name: 'Spotify', price: 15.99 },
   { name: 'Amazon', price: 20 },
   { name: 'Youtube', price: 17 },
+  { name: 'HBO Max', price: 9.99 },
 ];
 
-const useData = () => {
+const width = 960;
+const height = 500;
+const margin = { top: 35, right: 20, bottom: 70, left: 200 };
+
+//use state in the component to set data
+const BarChart = () => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
     setData(chart);
   }, []);
-  return data;
-};
-
-const width = 960;
-const height = 500;
-const margin = { top: 35, right: 20, bottom: 60, left: 200 };
-
-//use state in the component to set data
-const BarChart = () => {
-  const data = useData();
 
   //condition is the data is not exist then give a loading message
   if (!data) {
     return <pre>Loading...</pre>;
   }
 
+  console.log(data);
   //helps to control the margin
   const innerHeight = height - margin.top - margin.bottom;
   const innerWidth = width - margin.left - margin.right;
@@ -138,7 +136,9 @@ const BarChart = () => {
             y={yScale(yValue(d))}
             width={xScale(xValue(d))}
             height={yScale.bandwidth()}
-          />
+          >
+            <title>{xValue(d)}</title>
+          </rect>
         ))}
       </g>
     </svg>
