@@ -1,3 +1,6 @@
+//the Y Axis, if using be sure to put yScale as props in the AxisLeft component
+//in render and import to BarChart
+
 const AxisLeft = (yScale) => {
   yScale.domain().map((tickValue, i) => {
     return (
