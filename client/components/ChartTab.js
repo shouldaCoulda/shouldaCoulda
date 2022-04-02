@@ -41,7 +41,7 @@ const ChartTab = () => {
 
         <Tab
           icon={
-            <Link to='/List'>
+            <Link to='/Race'>
               <Avatar
                 alt='list'
                 src='https://img.icons8.com/ios-filled/50/000000/list.png'
