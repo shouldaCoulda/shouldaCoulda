@@ -12,3 +12,5 @@ const AxisBottom = (xScale, innerHeight) => {
     );
   });
 };
+
+export default AxisBottom;
