@@ -58,7 +58,10 @@ const BarChart = () => {
   //set the Y scale mapping the country data and range from 0 to the innerHeight
   //scaleBand is a d3 method
   //yScale is the country name in the y Axis
-  const yScale = scaleBand().domain(data.map(yValue)).range([0, innerHeight]);
+  const yScale = scaleBand()
+    .domain(data.map(yValue))
+    .range([0, innerHeight])
+    .padding(0.2);
 
   //set the X scale Population from 0 to width
   //xScale shows the Population the x axis
