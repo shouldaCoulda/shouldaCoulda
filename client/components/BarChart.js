@@ -107,6 +107,7 @@ const BarChart = () => {
 
         {data.map((d) => (
           <rect
+            className={styles.marks}
             key={d.Country}
             y={yScale(d.Country)}
             width={xScale(d.Population)}

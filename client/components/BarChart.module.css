@@ -1,10 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&family=Roboto:ital,wght@1,100&display=swap');
-
 .tick line {
   stroke: #c0c0bb;
 }
 
 .tick text {
   fill: #635f5d;
-  font-family: ;
+  font-family: 'Poppins', sans-serif;
+}
+
+.marks {
+  fill: #8e6c8a;
 }
