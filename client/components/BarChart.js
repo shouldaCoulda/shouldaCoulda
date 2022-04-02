@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { csv, scaleBand, scaleLinear, max } from 'd3';
 import styles from './BarChart.module.css';
+import RaceChart from './RaceChart';
 
 //this is the data or csv file we are getting the data from
 // const csvUrl =
@@ -54,7 +55,6 @@ const BarChart = () => {
     return <pre>Loading...</pre>;
   }
 
-  console.log(data);
   //helps to control the margin
   const innerHeight = height - margin.top - margin.bottom;
   const innerWidth = width - margin.left - margin.right;
