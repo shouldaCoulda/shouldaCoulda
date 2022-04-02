@@ -54,19 +54,20 @@ const BarChart = () => {
     /*It use svg tab to show the chart mapping the array and displaying the data in this format
     <g> === group element
     <g transform={`translate(${margin.left},${margin.top})`}> is use to move the graph position
-    <line> creates the vertical line x1,x2,y1,y2 is use to control position of line
+    <line> creates the vertical tick lines x1,x2,y1,y2 is use to control position of tick lines
     */
+
+    //setting text y={innerHeight} puts the text to the bottom of chart
     <svg width={width} height={height}>
       <g transform={`translate(${margin.left},${margin.top})`}>
         {xScale.ticks().map((tickValue) => {
           return (
-            <line
-              x1={xScale(tickValue)}
-              y1={0}
-              x2={xScale(tickValue)}
-              y2={innerHeight}
-              stroke='green'
-            />
+            <g transform={`translate(${xScale(tickValue)},0)`}>
+              <line x1={0} y1={0} x2={0} y2={innerHeight} stroke='green' />
+              <text y={innerHeight} style={{ textAnchor: 'middle' }}>
+                {tickValue}
+              </text>
+            </g>
           );
         })}
         {data.map((d) => (
