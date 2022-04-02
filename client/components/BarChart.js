@@ -54,7 +54,7 @@ const BarChart = () => {
     /*It use svg tab to show the chart mapping the array and displaying the data in this format
     <g> === group element
     <g transform={`translate(${margin.left},${margin.top})`}> is use to move the graph position
-    line creates the vertical line
+    <line> creates the vertical line x1,x2,y1,y2 is use to control position of line
     */
     <svg width={width} height={height}>
       <g transform={`translate(${margin.left},${margin.top})`}>
