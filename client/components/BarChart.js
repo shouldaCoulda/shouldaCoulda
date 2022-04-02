@@ -129,7 +129,7 @@ const BarChart = () => {
           y={-5}
           textAnchor='middle'
         >
-          Population
+          Subscriptions
         </text>
         {data.map((d, i) => (
           <rect
