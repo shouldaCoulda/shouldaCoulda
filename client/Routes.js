@@ -17,6 +17,7 @@ import ListChart from './components/ListChart';
 import About from './components/Footer/About';
 import Team from './components/Footer/Team';
 import BarChart from './components/BarChart';
+import RaceChart from './components/RaceChart';
 
 const Routes = () => {
   const { currentUser } = useAuth();
@@ -43,6 +44,7 @@ const Routes = () => {
             <Route exact path='/PieChart' component={PieChart} />
             <Route exact path='/List' component={ListChart} />
             <Route exact path='/Bar' component={BarChart} />
+            <Route exact path='/Race' component={RaceChart} />
           </>
         ) : (
           <>
