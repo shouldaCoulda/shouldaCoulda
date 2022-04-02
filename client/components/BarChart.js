@@ -3,34 +3,50 @@ import { csv, scaleBand, scaleLinear, max } from 'd3';
 import styles from './BarChart.module.css';
 
 //this is the data or csv file we are getting the data from
-const csvUrl =
-  'https://gist.githubusercontent.com/curran/0ac4077c7fc6390f5dd33bf5c06cb5ff/raw/605c54080c7a93a417a3cea93fd52e7550e76500/UN_Population_2019.csv';
-
-const width = 960;
-const height = 500;
-//setting margin
-const margin = { top: 35, right: 20, bottom: 60, left: 200 };
+// const csvUrl =
+//   'https://gist.githubusercontent.com/curran/0ac4077c7fc6390f5dd33bf5c06cb5ff/raw/605c54080c7a93a417a3cea93fd52e7550e76500/UN_Population_2019.csv';
 
 //custom hook made for retrieving data
-const useData = () => {
-  const [data, setData] = useState([]);
+// const useData = () => {
+//   const [data, setData] = useState([]);
 
-  //use effect to retrieve the data
+//   //use effect to retrieve the data
+//   useEffect(() => {
+//     //setting the row data to year 2020 and Population
+//     const row = (d) => {
+//       //+d is setting the data to a number for year 2020
+//       d.Population = +d['2020'];
+//       return d;
+//     };
+//     //slicing only the first 10 of the data from the list
+//     csv(csvUrl, row).then((data) => {
+//       //setting data to data array
+//       setData(data.slice(0, 10));
+//     });
+//   }, []);
+//   return data;
+// };
+
+const chart = [
+  { name: 'Netflix', price: 9.99 },
+  { name: 'Hulu', price: 12.99 },
+  { name: 'Spotify', price: 15.99 },
+  { name: 'Amazon', price: 20 },
+  { name: 'Youtube', price: 17 },
+];
+
+const useData = () => {
+  const [data, setData] = useState(null);
+
   useEffect(() => {
-    //setting the row data to year 2020 and Population
-    const row = (d) => {
-      //+d is setting the data to a number for year 2020
-      d.Population = +d['2020'];
-      return d;
-    };
-    //slicing only the first 10 of the data from the list
-    csv(csvUrl, row).then((data) => {
-      //setting data to data array
-      setData(data.slice(0, 10));
-    });
+    setData(chart);
   }, []);
   return data;
 };
+
+const width = 960;
+const height = 500;
+const margin = { top: 35, right: 20, bottom: 60, left: 200 };
 
 //use state in the component to set data
 const BarChart = () => {
@@ -47,12 +63,12 @@ const BarChart = () => {
 
   //Axis controller, this function target the yValue of Chart
   const yValue = (data) => {
-    return data.Country;
+    return data.name;
   };
 
   //Axis controller this function target the xValue of Chart
   const xValue = (data) => {
-    return data.Population;
+    return data.price;
   };
 
   //set the Y scale mapping the country data and range from 0 to the innerHeight
