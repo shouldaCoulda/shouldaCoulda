@@ -83,7 +83,7 @@ const BarChart = () => {
         {xScale.ticks().map((tickValue, i) => {
           return (
             <g key={i} transform={`translate(${xScale(tickValue)},0)`}>
-              <line x1={0} y1={0} x2={0} y2={innerHeight} stroke='green' />
+              <line x1={0} y1={0} x2={0} y2={innerHeight} />
               <text y={innerHeight} style={{ textAnchor: 'middle' }} dy='1.1em'>
                 {tickValue}
               </text>
