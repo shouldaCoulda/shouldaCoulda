@@ -10,8 +10,7 @@ const height = 500;
 //setting margin
 const margin = { top: 20, right: 20, bottom: 50, left: 200 };
 
-//use state in the component to set data
-const BarChart = () => {
+const useData = () => {
   const [data, setData] = useState([]);
 
   //use effect to retrieve the data
@@ -28,13 +27,17 @@ const BarChart = () => {
       setData(data.slice(0, 10));
     });
   }, []);
+  return data;
+};
+
+//use state in the component to set data
+const BarChart = () => {
+  const data = useData();
 
   //condition is the data is not exist then give a loading message
   if (!data) {
     return <pre>Loading...</pre>;
   }
-
-  // console.log(data[0]);
 
   //helps to control the margin
   const innerHeight = height - margin.top - margin.bottom;
@@ -42,11 +45,13 @@ const BarChart = () => {
 
   //set the Y scale mapping the country data and range from 0 to the innerHeight
   //scaleBand is a d3 method
+  //yScale is the country name in the y Axis
   const yScale = scaleBand()
     .domain(data.map((d) => d.Country))
     .range([0, innerHeight]);
 
   //set the X scale Population from 0 to width
+  //xScale shows the Population the x axis
   const xScale = scaleLinear()
     .domain([0, max(data, (d) => d.Population)])
     .range([0, innerWidth]);
