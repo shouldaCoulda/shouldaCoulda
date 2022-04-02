@@ -10,6 +10,7 @@ const height = 500;
 //setting margin
 const margin = { top: 20, right: 20, bottom: 50, left: 200 };
 
+//custom hook made for retrieving data
 const useData = () => {
   const [data, setData] = useState([]);
 
@@ -28,6 +29,19 @@ const useData = () => {
     });
   }, []);
   return data;
+};
+// Function for the Bottom Axis
+const AxisBottom = (xScale, innerHeight) => {
+  xScale.ticks().map((tickValue, i) => {
+    return (
+      <g key={i} transform={`translate(${xScale(tickValue)},0)`}>
+        <line x1={0} y1={0} x2={0} y2={innerHeight} stroke='green' />
+        <text y={innerHeight} style={{ textAnchor: 'middle' }} dy='1.1em'>
+          {tickValue}
+        </text>
+      </g>
+    );
+  });
 };
 
 //use state in the component to set data
