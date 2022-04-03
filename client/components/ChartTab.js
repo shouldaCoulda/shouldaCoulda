@@ -51,7 +51,7 @@ const ChartTab = () => {
         />
         <Tab
           icon={
-            <Link>
+            <Link to='/Scatter'>
               <Avatar
                 alt='scatter plot'
                 src='https://img.icons8.com/external-icongeek26-linear-colour-icongeek26/64/000000/external-chart-data-analytics-icongeek26-linear-colour-icongeek26.png'
