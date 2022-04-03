@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './ScatterChart.module.css';
 
 export const AxisBottom = ({
   xScale,
@@ -8,7 +9,7 @@ export const AxisBottom = ({
 }) =>
   xScale.ticks().map((tickValue) => (
     <g
-      className='tick'
+      className={styles.tick}
       key={tickValue}
       transform={`translate(${xScale(tickValue)},0)`}
     >

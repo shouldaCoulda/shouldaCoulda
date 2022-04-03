@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './ScatterChart.module.css';
 
 export const Marks = ({
   data,
@@ -12,7 +13,7 @@ export const Marks = ({
   data.map((d, i) => (
     <circle
       key={i}
-      className='mark'
+      className={styles.marks}
       cx={String(xScale(xValue(d)))}
       cy={String(yScale(yValue(d)))}
       r={circleRadius}
