@@ -110,9 +110,10 @@ const ScatterChart = () => {
               tickSize={circleRadius}
               tickTextOffset={15}
               onHover={setHoveredValue}
+              hoveredValue={hoveredValue}
             />
           </g>
-          <g opacity={0.2}>
+          <g opacity={hoveredValue ? 0.2 : 1}>
             <Marks
               data={data}
               xScale={xScale}
