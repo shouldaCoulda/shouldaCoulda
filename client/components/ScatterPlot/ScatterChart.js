@@ -6,7 +6,7 @@ import { AxisLeft } from './AxisLeft';
 import { Marks } from './Marks';
 import styles from './ScatterChart.module.css';
 import ChartTab from '../ChartTab';
-import { colors } from '@mui/material';
+import ColorLegend from './ColorLegend';
 
 //this group here control the charts length and positions
 const width = 960;
@@ -85,6 +85,7 @@ const ScatterChart = () => {
           >
             {xAxisLabel}
           </text>
+          <ColorLegend colorScale={colorScale} />
           <Marks
             data={data}
             xScale={xScale}
