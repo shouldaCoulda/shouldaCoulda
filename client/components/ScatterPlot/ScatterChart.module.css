@@ -5,6 +5,7 @@
 .tick text {
   fill: #635f5d;
   font-family: 'Poppins', sans-serif;
+  cursor: default;
 }
 
 .axis_label {
