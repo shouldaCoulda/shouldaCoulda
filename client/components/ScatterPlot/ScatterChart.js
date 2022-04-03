@@ -20,14 +20,16 @@ const ScatterChart = () => {
     return <pre>Loading...</pre>;
   }
 
+  //this helps control the positions of the the height and width of chart
   const innerHeight = height - margin.top - margin.bottom;
   const innerWidth = width - margin.left - margin.right;
 
-  const xValue
-  const yValue
+  //this is the x and y value of the chart
+  const xValue = (d) => d.sepal_length;
+  const yValue = (d) => d.sepal_width;
 
-  const siFormat = format('.2s')
-  const xAxisTickFormat = tickValue => siFormat(tickValue).replace('G','B')
+  const siFormat = format('.2s');
+  const xAxisTickFormat = (tickValue) => siFormat(tickValue).replace('G', 'B');
 
   const xScale = scaleLinear()
     .domain([extent(data, xValue)])
