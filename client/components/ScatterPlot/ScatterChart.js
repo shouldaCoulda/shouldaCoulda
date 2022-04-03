@@ -33,8 +33,11 @@ const ScatterChart = () => {
   const yValue = (d) => d.sepal_width;
   const yAxisLabel = 'Sepal Width';
 
-  //this is what controls the color of the dots.
+  //this is what controls the color of the dots and the value.
   const colorValue = (d) => d.species;
+  const colorScale = scaleOrdinal()
+    .domain(data.map(colorValue))
+    .range(['#137B80', '#e6842a', '#9a3e25']);
 
   const siFormat = format('.2s');
   const xAxisTickFormat = (tickValue) => siFormat(tickValue).replace('G', 'B');
@@ -50,9 +53,6 @@ const ScatterChart = () => {
     .range([0, innerHeight]);
 
   //setting the color of each dots. map over the value and then setting a color for each different type of value
-  const colorScale = scaleOrdinal()
-    .domain(data.map(colorValue))
-    .range(['#137B80', '#e6842a', '#9a3e25']);
 
   //text anchor is for the text and is set to middle position
   //we are splitting the graph into different components
