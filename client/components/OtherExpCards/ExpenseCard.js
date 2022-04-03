@@ -86,7 +86,8 @@ export default function ExpenseCard() {
                 key={index}
                 sx={{
                   width: 250,
-                  minHeight: 450,
+
+                  minHeight: 490,
                   margin: 1,
                   display: "flex",
                   flexDirection: "column",
