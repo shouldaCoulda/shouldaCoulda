@@ -7,9 +7,10 @@ import { Marks } from './Marks';
 import styles from './ScatterChart.module.css';
 import ChartTab from '../ChartTab';
 
+//this group here control the charts length and positions
 const width = 960;
 const height = 500;
-const margin = { top: 20, right: 30, bottom: 65, left: 90 };
+const margin = { top: 20, right: 30, bottom: 100, left: 90 };
 const xAxisLabelOffset = 50;
 const yAxisLabelOffset = 45;
 
@@ -23,9 +24,11 @@ const ScatterChart = () => {
   const innerHeight = height - margin.top - margin.bottom;
   const innerWidth = width - margin.left - margin.right;
 
+  //control what the X value is
   const xValue = (d) => d.petal_length;
   const xAxisLabel = 'Petal Length';
 
+  //controls what the Y value is
   const yValue = (d) => d.sepal_width;
   const yAxisLabel = 'Sepal Width';
 
