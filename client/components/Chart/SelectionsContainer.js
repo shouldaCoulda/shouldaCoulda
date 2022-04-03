@@ -2,18 +2,25 @@ import React from "react";
 import { useChart } from "../../contexts/ChartContext";
 import { Box, Typography } from "@mui/material";
 import PopupButton from "../PopupButton";
+import { positions } from "@mui/system";
 
 const SelectionsContainer = () => {
   const { getTotal, months } = useChart();
   const total = (getTotal() * months).toFixed(2);
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", padding: 1 }}>
+    <Box
+      sx={{
+        display: "inline-flex",
+        flexDirection: "column",
+        padding: 1,
+      }}
+    >
       <Typography
         gutterBottom
         variant="p"
         component="div"
-        sx={{ fontSize: { xs: 10, sm: 12, md: 18 } }}
+        sx={{ fontSize: { xs: 12, md: 16 }, justifyContent: "center" }}
       >
         Monthly Total: {getTotal().toFixed(2)}
       </Typography>
@@ -21,7 +28,7 @@ const SelectionsContainer = () => {
         gutterBottom
         variant="p"
         component="div"
-        sx={{ fontSize: { xs: 10, sm: 12, md: 18 } }}
+        sx={{ position: "right", fontSize: { xs: 12, md: 16 } }}
       >
         {months} month total: {total}
       </Typography>

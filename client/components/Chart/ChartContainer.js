@@ -15,13 +15,12 @@ const ChartContainer = () => {
 
       <ChartTab />
       <Box>
-        <Box>
-          <SelectionsContainer className="selectionsContainer card" />
-
-          <LineChart />
-        </Box>
-        <MonthSlider />
         <FinancialContainer className="selectionsContainer card" />
+        <LineChart />
+        <Box sx={{ mb: 7, display: "flex", justifyContent: "space-evenly" }}>
+          <MonthSlider sx={{}} />
+          <SelectionsContainer className="selectionsContainer card" />
+        </Box>
       </Box>
     </Container>
   );
