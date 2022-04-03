@@ -22,6 +22,13 @@ const ScatterChart = () => {
 
   const innerHeight = height - margin.top - margin.bottom;
   const innerWidth = width - margin.left - margin.right;
+
+  const xValue
+  const yValue
+
+  const siFormat = format('.2s')
+  const xAxisTickFormat = tickValue => siFormat(tickValue).replace('G','B')
+
   const xScale = scaleLinear()
     .domain([extent(data, xValue)])
     .range([0, innerWidth]);
@@ -38,7 +45,7 @@ const ScatterChart = () => {
           innerHeight={innerHeight}
           tickFormat={xAxisTickFormat}
         />
-        <AxisLeft yScale={yScale} />
+        <AxisLeft yScale={yScale} innerWidth={innerWidth} />
         <text
           className='axis-label'
           x={innerWidth / 2}
