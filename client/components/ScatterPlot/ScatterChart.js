@@ -25,6 +25,8 @@ const ScatterChart = () => {
   const innerHeight = height - margin.top - margin.bottom;
   const innerWidth = width - margin.left - margin.right;
 
+  const circleRadius = 7;
+
   //control what the X value and name is
   const xValue = (d) => d.petal_length;
   const xAxisLabel = 'Petal Length';
@@ -85,8 +87,17 @@ const ScatterChart = () => {
           >
             {xAxisLabel}
           </text>
+
           <g transform={`translate(${innerWidth + 50})`}>
-            <ColorLegend colorScale={colorScale} />
+            <text className={styles.axis_label} textAnchor='middle'>
+              Subscription
+            </text>
+            <ColorLegend
+              colorScale={colorScale}
+              tickSpacing={25}
+              tickSize={circleRadius}
+              tickTextOffset={15}
+            />
           </g>
           <Marks
             data={data}
@@ -97,7 +108,7 @@ const ScatterChart = () => {
             colorScale={colorScale}
             colorValue={colorValue}
             tooltipFormat={xAxisTickFormat}
-            circleRadius={7}
+            circleRadius={circleRadius}
           />
         </g>
       </svg>
