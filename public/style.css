@@ -83,3 +83,6 @@ section {
   flex-direction: column;
   align-items: center;
 }
+.logincard {
+  width: 300;
+}

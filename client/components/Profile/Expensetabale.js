@@ -50,7 +50,10 @@ const ExpenseTable = () => {
 
   return (
     <Card sx={{ minWidth: 700 }}>
-      <CardHeader title="Expenses" />
+      <CardHeader
+        title="Expenses"
+        subheader={`Monthly total: ${getTotalExpenses()}`}
+      />
 
       <CardActions disableSpacing>
         <ExpandMore
@@ -100,18 +103,6 @@ const ExpenseTable = () => {
                     </TableRow>
                   );
                 })}
-                <TableRow>
-                  <TableCell component="th" scope="row">
-                    <Typography type="b">
-                      Total Monthly cost: {getTotalExpenses()}
-                    </Typography>
-                  </TableCell>
-                  <TableCell component="th" scope="row">
-                    <Typography type="b">
-                      Total Anual cost: {(getTotalExpenses() * 12).toFixed(2)}
-                    </Typography>
-                  </TableCell>
-                </TableRow>
               </TableBody>
             </Table>
           </TableContainer>

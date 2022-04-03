@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
-import { useAuth } from "../contexts/AuthContext";
+import { useAuth } from "../../contexts/AuthContext";
 import {
   Container,
   AppBar,
@@ -77,10 +77,18 @@ const Footer = () => {
         >
           Explore
         </Typography>
-        <Typography variant="p" sx={{ fontSize: 11 }}>
+        <Typography
+          variant="p"
+          onClick={() => history.push("/about")}
+          sx={{ fontSize: 11 }}
+        >
           About
         </Typography>
-        <Typography variant="p" sx={{ fontSize: 11 }}>
+        <Typography
+          variant="p"
+          onClick={() => history.push("/team")}
+          sx={{ fontSize: 11 }}
+        >
           Meet the team
         </Typography>
       </Box>

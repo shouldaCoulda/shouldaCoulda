@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { useHistory, Link } from "react-router-dom";
 import { Form, Button, Card, Alert } from "react-bootstrap";
+import { Box } from "@mui/material";
 
 const Login = () => {
   const emailRef = useRef();

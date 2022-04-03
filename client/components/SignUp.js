@@ -8,6 +8,7 @@ import { auth } from "../firebase";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import { Form, Button, Card, Alert } from "react-bootstrap";
+import { Box } from "@mui/material";
 
 const SignUp = () => {
   const emailRef = useRef();
@@ -83,6 +84,9 @@ const SignUp = () => {
               </Form>
             </Card.Body>
           </Card>
+        </Box>
+        <div className="w-100 text-center mt-2 ">
+          Already have an account? <Link to="/login">Login</Link>
         </div>
       </>
     </div>
