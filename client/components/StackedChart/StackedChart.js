@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css';
+
 import StackedBarChart from './StackedBarChart';
 import styles from './StackedChart.module.css';
 
