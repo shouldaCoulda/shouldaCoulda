@@ -10,7 +10,7 @@ const ChartTab = () => {
   };
   //tab is one of the tab from the tab bar > link is the path > avatar is the icon src is the link to image
   return (
-    <Box sx={{ maxWidth: { xs: 320, sm: 480 }, bgcolor: 'background.paper' }}>
+    <Box sx={{ maxWidth: { s: 500, sm: 600 }, bgcolor: 'background.paper' }}>
       <Tabs
         value={value}
         onChange={handleChange}
@@ -25,6 +25,16 @@ const ChartTab = () => {
                 alt='line chart'
                 src='https://img.icons8.com/external-bearicons-flat-bearicons/64/000000/external-Chart-business-and-marketing-bearicons-flat-bearicons.png'
               ></Avatar>
+            </Link>
+          }
+        />
+        <Tab
+          icon={
+            <Link to='/Bar'>
+              <Avatar
+                alt='bar chart'
+                src='https://img.icons8.com/external-vitaliy-gorbachev-flat-vitaly-gorbachev/58/000000/external-bar-chart-infographic-elements-vitaliy-gorbachev-flat-vitaly-gorbachev.png'
+              />
             </Link>
           }
         />
@@ -59,9 +69,21 @@ const ChartTab = () => {
             </Link>
           }
         />
-        <Tab label='Item Five' />
-        <Tab label='Item Six' />
-        <Tab label='Item Seven' />
+
+        <Tab
+          icon={
+            <Link>
+              <Avatar alt='' />
+            </Link>
+          }
+        />
+        <Tab
+          icon={
+            <Link>
+              <Avatar alt='' />
+            </Link>
+          }
+        />
       </Tabs>
     </Box>
   );

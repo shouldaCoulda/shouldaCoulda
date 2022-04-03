@@ -2,6 +2,8 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { csv, scaleBand, scaleLinear, max } from 'd3';
 import styles from './BarChart.module.css';
 import RaceChart from './RaceChart';
+import ChartTab from './ChartTab';
+import { Chart } from 'react-chartjs-2';
 
 //this is the data or csv file we are getting the data from
 // const csvUrl =
@@ -92,56 +94,63 @@ const BarChart = () => {
 
     //setting text y={innerHeight} puts the text to the bottom of chart
     //dy is moving the tick values down a little by 1.1em
-    <svg width={width} height={height}>
-      <g
-        className={styles.tick}
-        transform={`translate(${margin.left},${margin.top})`}
-      >
-        {xScale.ticks().map((tickValue, i) => {
-          return (
-            <g key={i} transform={`translate(${xScale(tickValue)},0)`}>
-              <line x1={0} y1={0} x2={0} y2={innerHeight} />
-              <text y={innerHeight} style={{ textAnchor: 'middle' }} dy='1.1em'>
-                {tickValue}
-              </text>
-            </g>
-          );
-        })}
-        {yScale.domain().map((tickValue, i) => {
-          return (
-            <g
-              key={i}
-              transform={`translate(0,${
-                yScale(tickValue) + yScale.bandwidth() / 2
-              })`}
-            >
-              <text style={{ textAnchor: 'end' }} x={-4} dy='.32em'>
-                {tickValue}
-              </text>
-            </g>
-          );
-        })}
-        <text
-          className={styles.textAxis}
-          x={innerWidth / 2}
-          y={-5}
-          textAnchor='middle'
+    <>
+      <ChartTab />
+      <svg width={width} height={height}>
+        <g
+          className={styles.tick}
+          transform={`translate(${margin.left},${margin.top})`}
         >
-          Subscriptions
-        </text>
-        {data.map((d, i) => (
-          <rect
-            className={styles.marks}
-            key={i}
-            y={yScale(yValue(d))}
-            width={xScale(xValue(d))}
-            height={yScale.bandwidth()}
+          {xScale.ticks().map((tickValue, i) => {
+            return (
+              <g key={i} transform={`translate(${xScale(tickValue)},0)`}>
+                <line x1={0} y1={0} x2={0} y2={innerHeight} />
+                <text
+                  y={innerHeight}
+                  style={{ textAnchor: 'middle' }}
+                  dy='1.1em'
+                >
+                  {tickValue}
+                </text>
+              </g>
+            );
+          })}
+          {yScale.domain().map((tickValue, i) => {
+            return (
+              <g
+                key={i}
+                transform={`translate(0,${
+                  yScale(tickValue) + yScale.bandwidth() / 2
+                })`}
+              >
+                <text style={{ textAnchor: 'end' }} x={-4} dy='.32em'>
+                  {tickValue}
+                </text>
+              </g>
+            );
+          })}
+          <text
+            className={styles.textAxis}
+            x={innerWidth / 2}
+            y={-5}
+            textAnchor='middle'
           >
-            <title>{xValue(d)}</title>
-          </rect>
-        ))}
-      </g>
-    </svg>
+            Subscriptions
+          </text>
+          {data.map((d, i) => (
+            <rect
+              className={styles.marks}
+              key={i}
+              y={yScale(yValue(d))}
+              width={xScale(xValue(d))}
+              height={yScale.bandwidth()}
+            >
+              <title>{xValue(d)}</title>
+            </rect>
+          ))}
+        </g>
+      </svg>
+    </>
   );
 };
 
