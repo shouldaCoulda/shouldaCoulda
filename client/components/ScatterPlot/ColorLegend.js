@@ -9,6 +9,7 @@ const ColorLegend = ({
   tickTextOffset = 15,
   onHover,
   hoveredValue,
+  fadeOpacity,
 }) => {
   return colorScale.domain().map((domainValue, i) => {
     return (
@@ -22,7 +23,7 @@ const ColorLegend = ({
         }}
         key={i}
         transform={`translate(0,${i * tickSpacing})`}
-        opacity={hoveredValue && domainValue !== hoveredValue ? 0.2 : 1}
+        opacity={hoveredValue && domainValue !== hoveredValue ? fadeOpacity : 1}
       >
         <circle fill={colorScale(domainValue)} r={tickSize} />
         <text x={tickTextOffset} dy='.32em'>

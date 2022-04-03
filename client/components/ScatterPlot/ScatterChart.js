@@ -14,6 +14,7 @@ const height = 500;
 const margin = { top: 20, right: 210, bottom: 100, left: 90 };
 const xAxisLabelOffset = 50;
 const yAxisLabelOffset = 45;
+const fadeOpacity = 0.2;
 
 const ScatterChart = () => {
   const data = useData();
@@ -111,9 +112,10 @@ const ScatterChart = () => {
               tickTextOffset={15}
               onHover={setHoveredValue}
               hoveredValue={hoveredValue}
+              fadeOpacity={fadeOpacity}
             />
           </g>
-          <g opacity={hoveredValue ? 0.2 : 1}>
+          <g opacity={hoveredValue ? fadeOpacity : 1}>
             <Marks
               data={data}
               xScale={xScale}
@@ -127,7 +129,7 @@ const ScatterChart = () => {
             />
           </g>
           <Marks
-            data={data}
+            data={filteredData}
             xScale={xScale}
             yScale={yScale}
             xValue={xValue}
