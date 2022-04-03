@@ -8,7 +8,7 @@ const ChartTab = () => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
+  //tab is one of the tab from the tab bar > link is the path > avatar is the icon src is the link to image
   return (
     <Box sx={{ maxWidth: { xs: 320, sm: 480 }, bgcolor: 'background.paper' }}>
       <Tabs
@@ -49,7 +49,16 @@ const ChartTab = () => {
             </Link>
           }
         />
-        <Tab label='Item Four' />
+        <Tab
+          icon={
+            <Link>
+              <Avatar
+                alt='scatter plot'
+                src='https://img.icons8.com/external-icongeek26-linear-colour-icongeek26/64/000000/external-chart-data-analytics-icongeek26-linear-colour-icongeek26.png'
+              />
+            </Link>
+          }
+        />
         <Tab label='Item Five' />
         <Tab label='Item Six' />
         <Tab label='Item Seven' />

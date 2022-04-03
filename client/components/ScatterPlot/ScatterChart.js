@@ -31,6 +31,7 @@ const ScatterChart = () => {
   const siFormat = format('.2s');
   const xAxisTickFormat = (tickValue) => siFormat(tickValue).replace('G', 'B');
 
+  //scatter plots use scaleLiner for both x and y scale
   const xScale = scaleLinear()
     .domain([extent(data, xValue)])
     .range([0, innerWidth]);
