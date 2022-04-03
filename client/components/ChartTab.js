@@ -44,7 +44,7 @@ const ChartTab = () => {
             <Link to='/Race'>
               <Avatar
                 alt='list'
-                src='https://img.icons8.com/ios-filled/50/000000/list.png'
+                src='https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/000000/external-running-race-running-flaticons-lineal-color-flat-icons-13.png'
               />
             </Link>
           }
