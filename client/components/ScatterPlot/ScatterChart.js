@@ -17,6 +17,7 @@ const yAxisLabelOffset = 45;
 
 const ScatterChart = () => {
   const data = useData();
+  const [hoveredValue, setHoveredValue] = useState(null);
 
   if (!data) {
     return <pre>Loading...</pre>;
@@ -42,6 +43,10 @@ const ScatterChart = () => {
   const colorScale = scaleOrdinal()
     .domain(data.map(colorValue))
     .range(['#137B80', '#e6842a', '#9a3e25']);
+
+  const filteredData = data.filter((d) => {
+    return hoveredValue === colorValue(d);
+  });
 
   const siFormat = format('.2s');
   const xAxisTickFormat = (tickValue) => siFormat(tickValue).replace('G', 'B');
@@ -104,9 +109,7 @@ const ScatterChart = () => {
               tickSpacing={25}
               tickSize={circleRadius}
               tickTextOffset={15}
-              onHover={(hoveredValue) => {
-                console.log(hoveredValue);
-              }}
+              onHover={setHoveredValue}
             />
           </g>
           <Marks
