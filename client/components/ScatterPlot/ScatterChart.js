@@ -17,6 +17,7 @@ const yAxisLabelOffset = 45;
 const fadeOpacity = 0.2;
 
 const ScatterChart = () => {
+  //we are using data from the useData hook from useData.js
   const data = useData();
   const [hoveredValue, setHoveredValue] = useState(null);
 
@@ -45,7 +46,9 @@ const ScatterChart = () => {
     .domain(data.map(colorValue))
     .range(['#137B80', '#e6842a', '#9a3e25']);
 
+  //this is the function we use for the hovering effect
   const filteredData = data.filter((d) => {
+    //return the hovervalue that equal to the colorValue of the data
     return hoveredValue === colorValue(d);
   });
 
@@ -66,6 +69,8 @@ const ScatterChart = () => {
 
   //text anchor is for the text and is set to middle position
   //we are splitting the graph into different components
+  //we have 2 marks component, 1 handles the ticks when nothing is being filter
+  //the other does the filtering when we hover over the legend
   return (
     <>
       <ChartTab />
