@@ -10,7 +10,7 @@ const ChartTab = () => {
   };
   //tab is one of the tab from the tab bar > link is the path > avatar is the icon src is the link to image
   return (
-    <Box sx={{ maxWidth: { s: 500, sm: 600 }, bgcolor: 'background.paper' }}>
+    <Box sx={{ maxWidth: { s: 320, sm: 600 }, bgcolor: 'background.paper' }}>
       <Tabs
         value={value}
         onChange={handleChange}
@@ -71,14 +71,14 @@ const ChartTab = () => {
 
         <Tab
           icon={
-            <Link>
+            <Link to=''>
               <Avatar alt='' />
             </Link>
           }
         />
         <Tab
           icon={
-            <Link>
+            <Link to=''>
               <Avatar alt='' />
             </Link>
           }

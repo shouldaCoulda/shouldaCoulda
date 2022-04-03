@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { csv, scaleLinear, max, format, extent } from 'd3';
+import { csv, scaleLinear, scaleOrdinal, max, format, extent } from 'd3';
 import { useData } from './useData';
 import { AxisBottom } from './AxisBottom';
 import { AxisLeft } from './AxisLeft';
@@ -32,6 +32,9 @@ const ScatterChart = () => {
   const yValue = (d) => d.sepal_width;
   const yAxisLabel = 'Sepal Width';
 
+  //this is what controls the color of the dots.
+  const colorValue = (d) => d.species;
+
   const siFormat = format('.2s');
   const xAxisTickFormat = (tickValue) => siFormat(tickValue).replace('G', 'B');
 
@@ -44,6 +47,8 @@ const ScatterChart = () => {
   const yScale = scaleLinear()
     .domain(extent(data, yValue))
     .range([0, innerHeight]);
+
+  const colorScale = scaleOrdinal();
 
   //text anchor is for the text and is set to middle position
   //we are splitting the graph into different components
