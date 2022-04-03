@@ -11,7 +11,7 @@ import ColorLegend from './ColorLegend';
 //this group here control the charts length and positions
 const width = 960;
 const height = 500;
-const margin = { top: 20, right: 30, bottom: 100, left: 90 };
+const margin = { top: 20, right: 170, bottom: 100, left: 90 };
 const xAxisLabelOffset = 50;
 const yAxisLabelOffset = 45;
 
@@ -85,7 +85,9 @@ const ScatterChart = () => {
           >
             {xAxisLabel}
           </text>
-          <ColorLegend colorScale={colorScale} />
+          <g transform={`translate(${innerWidth + 50})`}>
+            <ColorLegend colorScale={colorScale} />
+          </g>
           <Marks
             data={data}
             xScale={xScale}

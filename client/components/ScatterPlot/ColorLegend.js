@@ -7,7 +7,7 @@ const ColorLegend = ({ colorScale, tickSpacing = 20, tickSize = 10 }) => {
     return (
       <g key={i} transform={`translate(0,${i * tickSpacing})`}>
         <circle fill={colorScale(domainValue)} r={tickSize} />
-        <text>{domainValue}</text>
+        <text dy='.32em'>{domainValue}</text>
       </g>
     );
   });
