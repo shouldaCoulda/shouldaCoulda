@@ -50,7 +50,7 @@ const ScatterChart = () => {
           tickOffset={5}
         />
         <text
-          className='axis-label'
+          className={styles.axis_label}
           textAnchor='middle'
           transform={`translate(${-yAxisLabelOffset},${
             innerHeight / 2
@@ -60,7 +60,7 @@ const ScatterChart = () => {
         </text>
         <AxisLeft yScale={yScale} innerWidth={innerWidth} tickOffset={5} />
         <text
-          className='axis-label'
+          className={styles.axis_label}
           x={innerWidth / 2}
           y={innerHeight + xAxisLabelOffset}
           textAnchor='middle'
