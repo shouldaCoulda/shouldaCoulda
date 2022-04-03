@@ -51,9 +51,9 @@ function App() {
       <h2>Stacked Bar Chart with D3 </h2>
       <StackedBarChart data={data} keys={keys} colors={colors} />
 
-      <div className={styles.fields}>
+      <div className={styles.field}>
         {allKeys.map((key) => (
-          <div key={key} className={styles.fields}>
+          <div key={key} className={styles.field}>
             <input
               id={key}
               type='checkbox'
