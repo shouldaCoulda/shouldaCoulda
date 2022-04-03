@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './ScatterChart.module.css';
 
+//controls the the value of the bottom axis
 export const AxisBottom = ({
   xScale,
   innerHeight,

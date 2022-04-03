@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './ScatterChart.module.css';
 
-//this control the axis on the left the text and position
+//Controls the value of the left axis
 export const AxisLeft = ({ yScale, innerWidth, tickOffset = 3 }) =>
   yScale.ticks().map((tickValue, i) => (
     <g

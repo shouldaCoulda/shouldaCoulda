@@ -24,17 +24,18 @@ const ScatterChart = () => {
   const innerHeight = height - margin.top - margin.bottom;
   const innerWidth = width - margin.left - margin.right;
 
-  //control what the X value is
+  //control what the X value and name is
   const xValue = (d) => d.petal_length;
   const xAxisLabel = 'Petal Length';
 
-  //controls what the Y value is
+  //controls what the Y value and name is
   const yValue = (d) => d.sepal_width;
   const yAxisLabel = 'Sepal Width';
 
   const siFormat = format('.2s');
   const xAxisTickFormat = (tickValue) => siFormat(tickValue).replace('G', 'B');
 
+  //scatter plots uses scaleLinear for x and the y scale
   const xScale = scaleLinear()
     .domain(extent(data, xValue))
     .range([0, innerWidth])
@@ -44,6 +45,8 @@ const ScatterChart = () => {
     .domain(extent(data, yValue))
     .range([0, innerHeight]);
 
+  //text anchor is for the text and is set to middle position
+  //we are splitting the graph into different components
   return (
     <>
       <ChartTab />
