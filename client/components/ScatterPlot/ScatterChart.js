@@ -11,7 +11,7 @@ import ColorLegend from './ColorLegend';
 //this group here control the charts length and positions
 const width = 960;
 const height = 500;
-const margin = { top: 20, right: 170, bottom: 100, left: 90 };
+const margin = { top: 20, right: 210, bottom: 100, left: 90 };
 const xAxisLabelOffset = 50;
 const yAxisLabelOffset = 45;
 
@@ -34,6 +34,8 @@ const ScatterChart = () => {
   //controls what the Y value and name is
   const yValue = (d) => d.sepal_width;
   const yAxisLabel = 'Sepal Width';
+
+  const ColorLegendLabel = 'Legend';
 
   //this is what controls the color of the dots and the value.
   const colorValue = (d) => d.species;
@@ -88,9 +90,14 @@ const ScatterChart = () => {
             {xAxisLabel}
           </text>
 
-          <g transform={`translate(${innerWidth + 50})`}>
-            <text className={styles.axis_label} textAnchor='middle'>
-              Subscription
+          <g transform={`translate(${innerWidth + 80}, 60)`}>
+            <text
+              x={40}
+              y={-25}
+              className={styles.axis_label}
+              textAnchor='middle'
+            >
+              {ColorLegendLabel}
             </text>
             <ColorLegend
               colorScale={colorScale}
