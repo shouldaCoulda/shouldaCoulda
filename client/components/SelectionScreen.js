@@ -1,29 +1,19 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { useSubscription } from "../contexts/SubscriptionContext";
 import { useAuth } from "../contexts/AuthContext";
 import { useHistory } from "react-router-dom";
-import { useGuestData } from "../contexts/GuestDataContext";
 import {
-  Container,
-  AppBar,
-  Toolbar,
   Typography,
   Box,
   Card,
   CardMedia,
   CardContent,
   Button,
-  FormControl,
-  InputLabel,
-  Input,
-  FormHelperText,
 } from "@mui/material";
 import AddSubscription from "./AddSubscription";
-import ButtonUnstyled from "@mui/base/ButtonUnstyled";
 
 export const SelectionScreen = () => {
-  const { defaultSubscriptions, seed } = useSubscription();
+  const { defaultSubscriptions } = useSubscription();
   const { writeSubscriptions, usersSubscriptions, currentUser } = useAuth();
   const [shown, setShown] = useState(false);
   const isSelected = Array(defaultSubscriptions.length).fill(false);
@@ -68,8 +58,15 @@ export const SelectionScreen = () => {
 
   return (
     <>
-      <Box sx={{ mr: 2, display: "flex", flexWrap: "wrap" }}>
-        <Box sx={{ mr: 2, display: "flex", flexWrap: "wrap" }}>
+      <Box>
+        <Box
+          sx={{
+            display: "flex",
+            flexWrap: "wrap",
+
+            // backgroundColor: "red",
+          }}
+        >
           {defaultSubscriptions.map((sub, index) => {
             let str = checkIsSelected(sub.uid);
             return (
@@ -91,7 +88,7 @@ export const SelectionScreen = () => {
                     src={sub.imageUrl}
                     alt="green iguana"
                     sx={{
-                      height: 120,
+                      width: "100%",
                     }}
                   />
                   <CardContent>
