@@ -48,23 +48,22 @@ const ChartTab = () => {
             </Link>
           }
         />
-
-        <Tab
-          icon={
-            <Link to='/Race'>
-              <Avatar
-                alt='list'
-                src='https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/000000/external-running-race-running-flaticons-lineal-color-flat-icons-13.png'
-              />
-            </Link>
-          }
-        />
         <Tab
           icon={
             <Link to='/Scatter'>
               <Avatar
                 alt='scatter plot'
                 src='https://img.icons8.com/external-icongeek26-linear-colour-icongeek26/64/000000/external-chart-data-analytics-icongeek26-linear-colour-icongeek26.png'
+              />
+            </Link>
+          }
+        />
+        <Tab
+          icon={
+            <Link to='/Race'>
+              <Avatar
+                alt='list'
+                src='https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/000000/external-running-race-running-flaticons-lineal-color-flat-icons-13.png'
               />
             </Link>
           }
