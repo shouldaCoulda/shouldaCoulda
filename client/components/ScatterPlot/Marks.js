@@ -7,15 +7,15 @@ export const Marks = ({
   xValue,
   yValue,
   tooltipFormat,
+  circleRadius,
 }) =>
-  //cx and cy is center x  and center y position of the circle r= radius
   data.map((d, i) => (
     <circle
-      className='mark'
       key={i}
-      cx={xScale(xValue(d))}
-      cy={yScale(yValue(d))}
-      r={10}
+      className='mark'
+      cx={String(xScale(xValue(d)))}
+      cy={String(yScale(yValue(d)))}
+      r={circleRadius}
     >
       <title>{tooltipFormat(xValue(d))}</title>
     </circle>

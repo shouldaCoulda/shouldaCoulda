@@ -8,15 +8,15 @@ export const useData = () => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    const row = (data) => {
-      //+data === Number(data)
-      data.sepal_length = +data.sepal_length;
-      data.sepal_width = +data.sepal_width;
-      data.petal_length = +data.petal_length;
-      data.petal_width = +data.petal_width;
-      return data;
+    const row = (d) => {
+      d.sepal_length = +d.sepal_length;
+      d.sepal_width = +d.sepal_width;
+      d.petal_length = +d.petal_length;
+      d.petal_width = +d.petal_width;
+      return d;
     };
     csv(csvUrl, row).then(setData);
   }, []);
+
   return data;
 };
