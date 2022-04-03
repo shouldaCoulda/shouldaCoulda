@@ -6,6 +6,7 @@ import { AxisLeft } from './AxisLeft';
 import { Marks } from './Marks';
 import styles from './ScatterChart.module.css';
 import ChartTab from '../ChartTab';
+import { colors } from '@mui/material';
 
 //this group here control the charts length and positions
 const width = 960;
@@ -48,7 +49,10 @@ const ScatterChart = () => {
     .domain(extent(data, yValue))
     .range([0, innerHeight]);
 
-  const colorScale = scaleOrdinal();
+  //setting the color of each dots. map over the value and then setting a color for each different type of value
+  const colorScale = scaleOrdinal()
+    .domain(data.map(colorValue))
+    .range(['#137B80', '#e6842a', '#9a3e25']);
 
   //text anchor is for the text and is set to middle position
   //we are splitting the graph into different components
@@ -87,6 +91,8 @@ const ScatterChart = () => {
             yScale={yScale}
             xValue={xValue}
             yValue={yValue}
+            colorScale={colorScale}
+            colorValue={colorValue}
             tooltipFormat={xAxisTickFormat}
             circleRadius={7}
           />
