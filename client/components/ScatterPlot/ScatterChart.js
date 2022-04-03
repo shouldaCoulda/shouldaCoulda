@@ -104,6 +104,9 @@ const ScatterChart = () => {
               tickSpacing={25}
               tickSize={circleRadius}
               tickTextOffset={15}
+              onHover={(hoveredValue) => {
+                console.log(hoveredValue);
+              }}
             />
           </g>
           <Marks

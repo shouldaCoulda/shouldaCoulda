@@ -7,11 +7,15 @@ const ColorLegend = ({
   tickSpacing = 20,
   tickSize = 10,
   tickTextOffset = 15,
+  onHover,
 }) => {
   return colorScale.domain().map((domainValue, i) => {
     return (
       <g
         className={styles.tick}
+        onMouseEnter={() => {
+          onHover(domainValue);
+        }}
         key={i}
         transform={`translate(0,${i * tickSpacing})`}
       >
