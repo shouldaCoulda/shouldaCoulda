@@ -1,5 +1,5 @@
 import React from 'react';
-
+import styles from './ScatterChart.module.css';
 //domainValue is the name of each type
 //this control color legend we see on the page to the right.
 const ColorLegend = ({
@@ -10,7 +10,11 @@ const ColorLegend = ({
 }) => {
   return colorScale.domain().map((domainValue, i) => {
     return (
-      <g key={i} transform={`translate(0,${i * tickSpacing})`}>
+      <g
+        className={styles.tick}
+        key={i}
+        transform={`translate(0,${i * tickSpacing})`}
+      >
         <circle fill={colorScale(domainValue)} r={tickSize} />
         <text x={tickTextOffset} dy='.32em'>
           {domainValue}

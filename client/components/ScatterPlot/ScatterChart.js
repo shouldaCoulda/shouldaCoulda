@@ -29,11 +29,11 @@ const ScatterChart = () => {
 
   //control what the X value and name is
   const xValue = (d) => d.petal_length;
-  const xAxisLabel = 'Petal Length';
+  const xAxisLabel = 'Year';
 
   //controls what the Y value and name is
   const yValue = (d) => d.sepal_width;
-  const yAxisLabel = 'Sepal Width';
+  const yAxisLabel = 'Price';
 
   const ColorLegendLabel = 'Legend';
 
