@@ -16,6 +16,9 @@ const ColorLegend = ({
         onMouseEnter={() => {
           onHover(domainValue);
         }}
+        onMouseOut={() => {
+          onHover(null);
+        }}
         key={i}
         transform={`translate(0,${i * tickSpacing})`}
       >
