@@ -13,6 +13,15 @@ const xAxisLabelOffset = 50;
 const ScatterChart = () => {
   //extent is using min and max
   //scatter plots uses scaleLinear for both the x and y scale
+
+  const data = useData();
+
+  if (!data) {
+    return <pre>Loading...</pre>;
+  }
+
+  const innerHeight = height - margin.top - margin.bottom;
+  const innerWidth = width - margin.left - margin.right;
   const xScale = scaleLinear()
     .domain([extent(data, xValue)])
     .range([0, innerWidth]);
@@ -21,7 +30,34 @@ const ScatterChart = () => {
     .domain([extent(data, yValue)])
     .range([0, innerHeight]);
 
-    return ()
+  return (
+    <svg width={width} height={height}>
+      <g transform={`translate(${margin.left},${margin.top})`}>
+        <AxisBottom
+          xScale={xScale}
+          innerHeight={innerHeight}
+          tickFormat={xAxisTickFormat}
+        />
+        <AxisLeft yScale={yScale} />
+        <text
+          className='axis-label'
+          x={innerWidth / 2}
+          y={innerHeight + xAxisLabelOffset}
+          textAnchor='middle'
+        >
+          Population
+        </text>
+        <Marks
+          data={data}
+          xScale={xScale}
+          yScale={yScale}
+          xValue={xValue}
+          yValue={yValue}
+          tooltipFormat={xAxisTickFormat}
+        />
+      </g>
+    </svg>
+  );
 };
 
 export default ScatterChart;
