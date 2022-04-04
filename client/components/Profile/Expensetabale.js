@@ -30,6 +30,9 @@ import TvIcon from "@mui/icons-material/Tv";
 import SmokingRoomsIcon from "@mui/icons-material/SmokingRooms";
 import LiquorIcon from "@mui/icons-material/Liquor";
 import CurrencyExchangeIcon from "@mui/icons-material/CurrencyExchange";
+import GrassIcon from '@mui/icons-material/Grass';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import CreditCardIcon from '@mui/icons-material/CreditCard';
 
 import { styled } from "@mui/material/styles";
 const ExpenseTable = () => {
@@ -93,7 +96,7 @@ const ExpenseTable = () => {
                       }}
                     >
                       <TableCell component="th" scope="row">
-                        <SvgIcon component={expense.name === "Alcohol" ? LiquorIcon : expense.name === "Cable/Directv" ? TvIcon : expense.name === " Tobacco Products"? SmokingRoomsIcon : expense.name === " Coffee" ? LocalCafeIcon : FastfoodIcon} inheritViewBox />
+                        <SvgIcon component={expense.name === "Alcohol" ? LiquorIcon : expense.name === "Cable" ? TvIcon : expense.name === " Tobacco Products"? SmokingRoomsIcon : expense.name === " Coffee" ? LocalCafeIcon : expense.name === "Food Delivery/Pick-Up" ? FastfoodIcon : expense.name === "Marijuana" ? GrassIcon : expense.name === " Shopping" ? ShoppingCartIcon : expense.name === "Credit Card Payments" ? CreditCardIcon : CurrencyExchangeIcon} inheritViewBox />
                       </TableCell>
                       <TableCell component="th" scope="row">
                         {expense.name}
