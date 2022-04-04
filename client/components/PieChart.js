@@ -7,7 +7,8 @@ import { useAuth } from '../contexts/AuthContext';
 
 const PieChart = () => {
   const { usersSubscriptions, usersExpenses, usersIncomes } = useAuth();
-  console.log('this is userSub', usersSubscriptions);
+  console.log('this is userSubscriptions', usersSubscriptions);
+  console.log('this is userExpenses', usersExpenses);
 
   return (
     <div>
@@ -68,15 +69,15 @@ const PieChart = () => {
       <Pie
         data={{
           labels: [
-            ...usersSubscriptions.map((sub) => {
-              return sub.name;
+            ...usersExpenses.map((expense) => {
+              return expense.name;
             }),
           ],
           datasets: [
             {
               label: '# of votes',
-              data: usersSubscriptions.map((sub, i) => {
-                return sub.price;
+              data: usersExpenses.map((expense, i) => {
+                return expense.price;
               }),
               backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
