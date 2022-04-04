@@ -11,12 +11,19 @@ const Legend = () => {
       displayedLines.push(lines[i]);
     }
   }
+
   return (
     <Box>
-      <Typography variant="h6" sx={{ m: 2, textAlign: "center" }}>
-        Let's see the potential value of those subscriptions.
+      <Typography
+        sx={{
+          m: 2,
+          textAlign: "center",
+          fontSize: { xs: 14, sm: 16, md: 18, lg: 24, xl: 30 },
+        }}
+      >
+        Let's see what coulda been...
       </Typography>
-      <Box sx={{ display: "flex", alignItems: "center" }}>
+      <Box sx={{ display: "flex" }}>
         {displayedLines.map((elem, key) => {
           return (
             <Typography

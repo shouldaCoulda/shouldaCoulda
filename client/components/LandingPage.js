@@ -16,6 +16,7 @@ import {
   FormHelperText,
   InputAdornment,
   TextField,
+  autocompleteClasses,
 } from "@mui/material";
 import { Link, useHistory } from "react-router-dom";
 import PieChart from "./PieChart";
@@ -99,10 +100,11 @@ export const LandingPage = () => {
         sx={{
           alignSelf: "center",
           display: "flex",
-          flexDirection: "row",
+          flexDirection: { xs: "column", md: "row" },
           justifyContent: "space-between",
           width: 800,
           alignItems: "center",
+          // margin: { xs: "auto" },
         }}
       >
         <Box
@@ -111,12 +113,14 @@ export const LandingPage = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "left",
-
             width: 250,
-            marginLeft: 10,
+            margin: { sx: "auto" },
           }}
         >
-          <Typography variant="p" sx={{ padding: 4, fontStyle: "italic" }}>
+          <Typography
+            variant="p"
+            sx={{ padding: 4, fontStyle: "italic", margin: { sx: "auto" } }}
+          >
             Ever wonder how much money you could be making if you invested your
             starbucks bill into the S&P 500?
           </Typography>
@@ -130,11 +134,13 @@ export const LandingPage = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "right",
-            marginRight: 10,
             width: 250,
           }}
         >
-          <Typography variant="p" sx={{ padding: 4, fontStyle: "italic" }}>
+          <Typography
+            variant="p"
+            sx={{ margin: { xs: "auto" }, padding: 4, fontStyle: "italic" }}
+          >
             just how much those costly monthly subscriptions are ACTUALLY
             costing you?!
           </Typography>
@@ -175,6 +181,7 @@ export const LandingPage = () => {
         onClick={(e) => handleSubmit(e)}
         sx={{
           marginTop: 5,
+          marginBottom: 5,
           borderWidth: 0,
           boxShadow: "3px 2px 10px darkgray",
           borderCollapse: "collapse",

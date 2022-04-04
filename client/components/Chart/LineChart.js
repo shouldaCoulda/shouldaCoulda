@@ -31,10 +31,11 @@ const LineChart = () => {
   }, []);
 
   return (
-    <Box sx={{ width: "500px", display: "flex" }}>
+    <Box sx={{ width: "100", display: "flex" }}>
       <VictoryChart
         sx={{
           display: "flex",
+
           flexDirection: { xs: "column", sm: "column", md: "row" },
         }}
         minDomain={({ y: 0 }, { x: 0 })}
@@ -48,7 +49,7 @@ const LineChart = () => {
         }
         standalone={true}
         animate={{
-          duration: 500,
+          duration: 1000,
         }}
       >
         {displayedLines.map((dataArray, key) => {

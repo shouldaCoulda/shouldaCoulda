@@ -31,8 +31,10 @@ const AddExpense = () => {
     <>
       <Box
         sx={{
-          ml: 2,
-          mr: 2,
+          ml: "auto",
+          mr: "auto",
+          mb: 15,
+
           display: "flex",
           flexWrap: "wrap",
           flexDirection: "column",
@@ -41,11 +43,16 @@ const AddExpense = () => {
       >
         <Typography
           variant="h4"
-          sx={{ fontWeight: 600, marginTop: 10, marginBottom: 4 }}
+          sx={{
+            margin: "auto",
+            fontWeight: 600,
+            marginTop: 10,
+            marginBottom: 4,
+          }}
         >
           Let's add up your unnecessary expenses ...{" "}
         </Typography>
-        <ExpenseCard />
+        <ExpenseCard sx={{ margin: "auto", backgroundColor: "gold" }} />
       </Box>
     </>
   );

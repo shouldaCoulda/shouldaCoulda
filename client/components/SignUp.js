@@ -51,10 +51,10 @@ const SignUp = () => {
   return (
     <div>
       <>
-        <Box className="container" sx={{ maxWidth: 550, marginTop: "20%" }}>
+        <div>
           <Card className="logincard">
             <Card.Body>
-              <h2>sign up</h2>
+              <h2>Sign Up</h2>
               {error && <Alert variant="danger">{error}</Alert>}
               <Form onSubmit={handleSubmit}>
                 <Form.Group id="email">
@@ -73,14 +73,18 @@ const SignUp = () => {
                     required
                   />
                 </Form.Group>
-                <Button disabled={loading} className="w-100" type="submit">
+                <Button
+                  disabled={loading}
+                  className="signUpButton"
+                  type="submit"
+                >
                   Sign Up
                 </Button>
                 {/* <Button onClick={generator}>Generate Demo User</Button> */}
               </Form>
             </Card.Body>
           </Card>
-        </Box>
+        </div>
         <div className="w-100 text-center mt-2 ">
           Already have an account? <Link to="/login">Login</Link>
         </div>

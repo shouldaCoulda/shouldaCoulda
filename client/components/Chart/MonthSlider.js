@@ -20,24 +20,29 @@ const MonthSlider = () => {
     <Box
       sx={{
         mr: 2,
-        display: { xs: "none", md: "flex" },
+        display: "flex",
         flexDirection: "column",
-        alignItems: "center",
+        width: "max-content",
       }}
     >
-      <Typography gutterBottom variant="h6" component="div">
-        Duration
+      <Typography
+        gutterBottom
+        variant="h6"
+        component="div"
+        sx={{ fontSize: { xs: 12, md: 18, lg: 24 } }}
+      >
+        Adjust Duration
       </Typography>
-      <Box sx={{ width: 300 }}>
+      <Box sx={{ height: "max-content", width: { xs: 150, md: 300, lg: 400 } }}>
         <Slider
           aria-label="Temperature"
           defaultValue={12}
           getAriaValueText={valuetext}
           valueLabelDisplay="auto"
           step={1}
-          marks
           min={1}
           max={30}
+          size="small"
           onChange={handleSlide}
           className="slider"
         />
