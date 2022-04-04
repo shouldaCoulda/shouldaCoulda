@@ -1,5 +1,6 @@
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
+import ChartTab from './ChartTab';
 
 const MultiBarChart = () => {
   const data = {
@@ -35,7 +36,12 @@ const MultiBarChart = () => {
       },
     },
   };
-  return <Bar data={data} options={options} />;
+  return (
+    <>
+      <ChartTab />
+      <Bar data={data} options={options} />
+    </>
+  );
 };
 
 export default MultiBarChart;

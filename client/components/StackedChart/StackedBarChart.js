@@ -9,7 +9,7 @@ import {
   axisLeft,
   stackOrderAscending,
 } from 'd3';
-// import useResizeObserver from './useResizeObserver';
+import useResizeObserver from './useResizeObserver';
 
 /**
  * Component that renders a StackedBarChart
@@ -18,15 +18,14 @@ import {
 function StackedBarChart({ data, keys, colors }) {
   const svgRef = useRef();
   const wrapperRef = useRef();
-  // const dimensions = useResizeObserver(wrapperRef);
+  const dimensions = useResizeObserver(wrapperRef);
 
   // will be called initially and on every data change
   useEffect(() => {
     const svg = select(svgRef.current);
-    const width = 1000;
-    const height = 280;
-    // const { width, height } =
-    //   dimensions || wrapperRef.current.getBoundingClientRect();
+
+    const { width, height } =
+      dimensions || wrapperRef.current.getBoundingClientRect();
 
     // stacks / layers
     const stackGenerator = stack().keys(keys).order(stackOrderAscending);
@@ -68,7 +67,7 @@ function StackedBarChart({ data, keys, colors }) {
 
     const yAxis = axisLeft(yScale);
     svg.select('.y-axis').call(yAxis);
-  }, [colors, data, keys]);
+  }, [colors, data, dimensions, keys]);
 
   return (
     <>
