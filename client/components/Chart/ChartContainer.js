@@ -27,6 +27,7 @@ const ChartContainer = () => {
           <MonthSlider sx={{}} />
           <SelectionsContainer className="selectionsContainer card" />
           <FinancialContainer className="selectionsContainer card" />
+
         </Box>
       </Box>
     </Container>

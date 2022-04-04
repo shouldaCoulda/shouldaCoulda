@@ -55,13 +55,13 @@ export const SubscriptionTier = () => {
   return (
     <Box
       sx={{
-        mr: 2,
+        mb: 10,
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
       }}
     >
-      <Typography gutterBottom variant="h3">
+      <Typography gutterBottom variant="h3" sx={{ m: 4 }}>
         Select your plan
       </Typography>
       {usersSubscriptions.map((sub, index) => {
@@ -81,12 +81,12 @@ export const SubscriptionTier = () => {
                   sx={{
                     alignSelf: "flex-start",
                     height: 50,
-                    marginLeft: 5,
+                    m: 5,
                     display: "flex",
                     flexDirection: "column",
                   }}
                 >
-                  <img style={{ height: 45 }} src={sub.imageUrl}></img>
+                  <img style={{ width: 100 }} src={sub.imageUrl}></img>
                   <Typography gutterBottom variant="p">
                     {sub.name}
                   </Typography>

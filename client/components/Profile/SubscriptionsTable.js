@@ -60,7 +60,7 @@ const SubscriptionTable = () => {
   };
 
   return (
-    <Card sx={{ minWidth: 700 }}>
+    <Card sx={{ width: "85%" }}>
       <CardHeader
         title="Subscriptions"
         subheader={`Monthly total: ${getTotalSubscriptions()}`}

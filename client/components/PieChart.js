@@ -13,6 +13,7 @@ const PieChart = () => {
     usersTotalIncomeAndExpenses,
   } = useAuth();
 
+
   return (
     <div>
       <ChartTab />
