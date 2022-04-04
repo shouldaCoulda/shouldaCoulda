@@ -23,7 +23,7 @@ const Legend = () => {
       >
         Let's see what coulda been...
       </Typography>
-      <Box sx={{ display: "flex" }}>
+      {/* <Box sx={{ display: "flex" }}>
         {displayedLines.map((elem, key) => {
           return (
             <Typography
@@ -37,7 +37,7 @@ const Legend = () => {
             </Typography>
           );
         })}
-      </Box>
+      </Box> */}
     </Box>
   );
 };

@@ -50,7 +50,7 @@ const IncomeTable = () => {
   };
 
   return (
-    <Card sx={{ minWidth: 700 }}>
+    <Card sx={{ width: "85%" }}>
       <CardHeader
         title="Income"
         subheader={`Monthly total: ${getTotalIncomes()}`}

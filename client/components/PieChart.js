@@ -3,8 +3,12 @@ import { Pie } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
 import ChartTab from "./ChartTab";
 import { Container } from "@mui/material";
+import { useAuth } from "../contexts/AuthContext";
 
 const PieChart = () => {
+  const { getExpenseArray } = useAuth();
+
+  console.log("test", getExpenseArray());
   return (
     <div>
       <ChartTab />

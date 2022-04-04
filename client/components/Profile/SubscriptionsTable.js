@@ -55,7 +55,7 @@ const SubscriptionTable = () => {
   };
 
   return (
-    <Card sx={{ minWidth: 700 }}>
+    <Card sx={{ width: "85%" }}>
       <CardHeader
         title="Subscriptions"
         subheader={`Monthly total: ${getTotalSubscriptions()}`}
@@ -92,7 +92,11 @@ const SubscriptionTable = () => {
                       }}
                     >
                       <TableCell component="th" scope="row">
-                        <a href={sub.websiteUrl} target="_blank" rel="noreferrer noopener">
+                        <a
+                          href={sub.websiteUrl}
+                          target="_blank"
+                          rel="noreferrer noopener"
+                        >
                           <img src={sub.imageUrl} style={{ height: 45 }} />
                         </a>
                       </TableCell>
