@@ -64,10 +64,18 @@ const Navbar = () => {
               </Tooltip>
             </Typography>
             <Typography onClick={() => history.push("./chart")}>
-              <ShowChartIcon sx={{ fontSize: 40, color: "#3e87cf" }} />
+              <Tooltip title="Charts">
+                <IconButton>
+                  <ShowChartIcon sx={{ fontSize: 40, color: "#3e87cf" }} />
+                </IconButton>
+              </Tooltip>
             </Typography>
             <Typography onClick={logout}>
-              <LogoutIcon sx={{ fontSize: 40, color: "#3e87cf" }} />
+              <Tooltip title="Logout">
+                <IconButton>
+                  <LogoutIcon sx={{ fontSize: 40, color: "#3e87cf" }} />
+                </IconButton>
+              </Tooltip>
             </Typography>
           </Box>
         ) : (
