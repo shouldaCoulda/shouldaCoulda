@@ -50,7 +50,6 @@ export function AuthProvider({ children }) {
 
   const history = useHistory();
 
-
   function getTotal() {
     let total = 0;
     for (let i = 0; i < usersSubscriptions.length; i++) {
@@ -97,7 +96,7 @@ export function AuthProvider({ children }) {
 
   //Logout
   async function logout() {
-    history.push("/")
+    history.push("/");
     return auth.signOut();
   }
 
@@ -126,6 +125,16 @@ export function AuthProvider({ children }) {
     set(ref(database, "users/" + currentUser.uid + "/incomes/" + uuid), {
       name: income.name,
       ammount: income.ammount,
+
+      uid: uuid,
+    });
+  }
+  async function writeExpenseData(expense) {
+    const uuid = uid();
+    console.log(expense);
+    set(ref(database, "users/" + currentUser.uid + "/expenses/" + uuid), {
+      name: expense.name,
+      price: parseInt(expense.ammount),
 
       uid: uuid,
     });
@@ -253,6 +262,7 @@ export function AuthProvider({ children }) {
     usersTotalIncomeAndExpenses,
     setUsersTotalIncomeAndExpenses,
     getTotalIncomes,
+    writeExpenseData,
   };
 
   return (
