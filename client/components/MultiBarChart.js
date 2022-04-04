@@ -39,7 +39,6 @@ const MultiBarChart = () => {
   return (
     <>
       <ChartTab />
-
       <Bar data={data} options={options} />
     </>
   );
