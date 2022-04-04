@@ -2,7 +2,7 @@ import { autocompleteClasses, Button } from "@mui/material";
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
-import { Container, AppBar, Toolbar, Typography, Box } from "@mui/material";
+import { Container, AppBar, Toolbar, Typography, Box, Tooltip, IconButton } from "@mui/material";
 import LogoutIcon from "@mui/icons-material/Logout";
 import HomeIcon from "@mui/icons-material/Home";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
@@ -50,10 +50,18 @@ const Navbar = () => {
             }}
           >
             <Typography onClick={() => history.push("./")}>
-              <HomeIcon sx={{ fontSize: 40, color: "#3e87cf" }} />
+              <Tooltip title="Home">
+                <IconButton>
+                  <HomeIcon sx={{ fontSize: 40, color: "#3e87cf" }} />
+                </IconButton>
+              </Tooltip>
             </Typography>
             <Typography onClick={() => history.push("./profile")}>
-              <AccountBoxIcon sx={{ fontSize: 40, color: "#3e87cf" }} />
+            <Tooltip title="Profile">
+                <IconButton>
+                  <AccountBoxIcon sx={{ fontSize: 40, color: "#3e87cf" }} />
+                </IconButton>
+              </Tooltip>
             </Typography>
             <Typography onClick={() => history.push("./chart")}>
               <ShowChartIcon sx={{ fontSize: 40, color: "#3e87cf" }} />
