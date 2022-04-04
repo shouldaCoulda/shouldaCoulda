@@ -19,7 +19,7 @@ the auth context outside of this file
 */
 export function useAuth() {
   const context = useContext(AuthContext);
-  const history = useHistory();
+  // const history = useHistory();
   if (context === undefined) {
     throw new Error("useCount must be used within a CountProvider");
   }
@@ -47,6 +47,9 @@ export function AuthProvider({ children }) {
     useState(0);
   const [loading, setLoading] = useState(true);
   var userSubReff = "";
+
+  const history = useHistory();
+
 
   function getTotal() {
     let total = 0;
@@ -94,6 +97,7 @@ export function AuthProvider({ children }) {
 
   //Logout
   async function logout() {
+    history.push("/")
     return auth.signOut();
   }
 
