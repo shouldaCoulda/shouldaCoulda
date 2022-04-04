@@ -11,6 +11,10 @@
   fill: #8e6c8a;
 }
 
+.marks_two {
+  fill: rgba(151, 103, 20, 0.5);
+}
+
 .textAxis {
   font-size: 25px;
   font-weight: 900;

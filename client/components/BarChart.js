@@ -4,6 +4,7 @@ import styles from './BarChart.module.css';
 import RaceChart from './RaceChart';
 import ChartTab from './ChartTab';
 import { Chart } from 'react-chartjs-2';
+import { useAuth } from '../contexts/AuthContext';
 
 //this is the data or csv file we are getting the data from
 // const csvUrl =
@@ -46,11 +47,21 @@ const margin = { top: 35, right: 20, bottom: 70, left: 200 };
 
 //use state in the component to set data
 const BarChart = () => {
+  const {
+    usersSubscriptions,
+    usersExpenses,
+    usersIncomes,
+    usersTotalIncomeAndExpenses,
+  } = useAuth();
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    setData(chart);
-  }, []);
+    if (usersSubscriptions && usersSubscriptions.length > 0) {
+      setData(usersSubscriptions);
+    }
+  }, [usersSubscriptions]);
+
+  console.log('data', data);
 
   //condition is the data is not exist then give a loading message
   if (!data) {
@@ -140,6 +151,60 @@ const BarChart = () => {
           {data.map((d, i) => (
             <rect
               className={styles.marks}
+              key={i}
+              y={yScale(yValue(d))}
+              width={xScale(xValue(d))}
+              height={yScale.bandwidth()}
+            >
+              <title>{xValue(d)}</title>
+            </rect>
+          ))}
+        </g>
+      </svg>
+      <svg width={width} height={height}>
+        <g
+          className={styles.tick}
+          transform={`translate(${margin.left},${margin.top})`}
+        >
+          {xScale.ticks().map((tickValue, i) => {
+            return (
+              <g key={i} transform={`translate(${xScale(tickValue)},0)`}>
+                <line x1={0} y1={0} x2={0} y2={innerHeight} />
+                <text
+                  y={innerHeight}
+                  style={{ textAnchor: 'middle' }}
+                  dy='1.1em'
+                >
+                  {tickValue}
+                </text>
+              </g>
+            );
+          })}
+          {yScale.domain().map((tickValue, i) => {
+            return (
+              <g
+                key={i}
+                transform={`translate(0,${
+                  yScale(tickValue) + yScale.bandwidth() / 2
+                })`}
+              >
+                <text style={{ textAnchor: 'end' }} x={-4} dy='.32em'>
+                  {tickValue}
+                </text>
+              </g>
+            );
+          })}
+          <text
+            className={styles.textAxis}
+            x={innerWidth / 2}
+            y={-5}
+            textAnchor='middle'
+          >
+            Expenses
+          </text>
+          {data.map((d, i) => (
+            <rect
+              className={styles.marks_two}
               key={i}
               y={yScale(yValue(d))}
               width={xScale(xValue(d))}
