@@ -34,9 +34,9 @@ const SignUp = () => {
       setError("");
       setLoading(true);
       signup(emailRef.current.value, passwordRef.current.value);
-      history.push("/landing");
-    } catch (error){
-      setError("Failed to create an account", error);
+      history.push("/Income");
+    } catch {
+      setError("Failed to create an account");
     }
     setLoading(false);
   }

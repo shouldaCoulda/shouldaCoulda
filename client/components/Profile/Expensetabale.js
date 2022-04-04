@@ -30,13 +30,16 @@ import TvIcon from "@mui/icons-material/Tv";
 import SmokingRoomsIcon from "@mui/icons-material/SmokingRooms";
 import LiquorIcon from "@mui/icons-material/Liquor";
 import CurrencyExchangeIcon from "@mui/icons-material/CurrencyExchange";
-import GrassIcon from '@mui/icons-material/Grass';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import CreditCardIcon from '@mui/icons-material/CreditCard';
+import GrassIcon from "@mui/icons-material/Grass";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import CreditCardIcon from "@mui/icons-material/CreditCard";
+import AddExpense from "../AddExpense";
+import AddIcon from "@mui/icons-material/Add";
 
 import { styled } from "@mui/material/styles";
 const ExpenseTable = () => {
   const [expanded, setExpanded] = React.useState(false);
+  const [expandedFourm, setExpandedfourm] = React.useState(false);
 
   const { usersExpenses, getTotalExpenses, removeExpense } = useAuth();
   function handleDeleteExpense(e, uid) {
@@ -57,6 +60,9 @@ const ExpenseTable = () => {
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+  const handleAddClick = () => {
+    setExpandedfourm(!expandedFourm);
+  };
 
   return (
     <Card sx={{ minWidth: 700 }}>
@@ -73,6 +79,16 @@ const ExpenseTable = () => {
           aria-label="show more"
         >
           <ExpandMoreIcon />
+        </ExpandMore>
+      </CardActions>
+      <CardActions disableSpacing>
+        <ExpandMore
+          expand={expanded}
+          onClick={handleAddClick}
+          aria-expanded={expanded}
+          aria-label="show more"
+        >
+          <AddIcon />
         </ExpandMore>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
@@ -96,7 +112,28 @@ const ExpenseTable = () => {
                       }}
                     >
                       <TableCell component="th" scope="row">
-                        <SvgIcon component={expense.name === "Alcohol" ? LiquorIcon : expense.name === "Cable" ? TvIcon : expense.name === " Tobacco Products"? SmokingRoomsIcon : expense.name === " Coffee" ? LocalCafeIcon : expense.name === "Food Delivery/Pick-Up" ? FastfoodIcon : expense.name === "Marijuana" ? GrassIcon : expense.name === " Shopping" ? ShoppingCartIcon : expense.name === "Credit Card Payments" ? CreditCardIcon : CurrencyExchangeIcon} inheritViewBox />
+                        <SvgIcon
+                          component={
+                            expense.name === "Alcohol"
+                              ? LiquorIcon
+                              : expense.name === "Cable"
+                              ? TvIcon
+                              : expense.name === " Tobacco Products"
+                              ? SmokingRoomsIcon
+                              : expense.name === " Coffee"
+                              ? LocalCafeIcon
+                              : expense.name === "Food Delivery/Pick-Up"
+                              ? FastfoodIcon
+                              : expense.name === "Marijuana"
+                              ? GrassIcon
+                              : expense.name === " Shopping"
+                              ? ShoppingCartIcon
+                              : expense.name === "Credit Card Payments"
+                              ? CreditCardIcon
+                              : CurrencyExchangeIcon
+                          }
+                          inheritViewBox
+                        />
                       </TableCell>
                       <TableCell component="th" scope="row">
                         {expense.name}
@@ -116,6 +153,11 @@ const ExpenseTable = () => {
               </TableBody>
             </Table>
           </TableContainer>
+        </CardContent>
+      </Collapse>
+      <Collapse in={expandedFourm} timeout="auto" unmountOnExit>
+        <CardContent>
+          <AddExpense />
         </CardContent>
       </Collapse>
     </Card>

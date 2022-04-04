@@ -21,12 +21,14 @@ import {
   CardActions,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import Collapse from "@mui/material/Collapse";
+import AddIcon from "@mui/icons-material/Add";
+import AddSubscription from "../AddSubscription";
 
 import { styled } from "@mui/material/styles";
 const SubscriptionTable = () => {
   const [expanded, setExpanded] = React.useState(false);
+  const [expandedFourm, setExpandedfourm] = React.useState(false);
 
   const {
     usersSubscriptions,
@@ -53,6 +55,9 @@ const SubscriptionTable = () => {
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+  const handleAddClick = () => {
+    setExpandedfourm(!expandedFourm);
+  };
 
   return (
     <Card sx={{ minWidth: 700 }}>
@@ -69,6 +74,16 @@ const SubscriptionTable = () => {
           aria-label="show more"
         >
           <ExpandMoreIcon />
+        </ExpandMore>
+      </CardActions>
+      <CardActions disableSpacing>
+        <ExpandMore
+          expand={expanded}
+          onClick={handleAddClick}
+          aria-expanded={expanded}
+          aria-label="show more"
+        >
+          <AddIcon />
         </ExpandMore>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
@@ -92,7 +107,11 @@ const SubscriptionTable = () => {
                       }}
                     >
                       <TableCell component="th" scope="row">
-                        <a href={sub.websiteUrl} target="_blank" rel="noreferrer noopener">
+                        <a
+                          href={sub.websiteUrl}
+                          target="_blank"
+                          rel="noreferrer noopener"
+                        >
                           <img src={sub.imageUrl} style={{ height: 45 }} />
                         </a>
                       </TableCell>
@@ -114,6 +133,11 @@ const SubscriptionTable = () => {
               </TableBody>
             </Table>
           </TableContainer>
+        </CardContent>
+      </Collapse>
+      <Collapse in={expandedFourm} timeout="auto" unmountOnExit>
+        <CardContent>
+          <AddSubscription />
         </CardContent>
       </Collapse>
     </Card>
