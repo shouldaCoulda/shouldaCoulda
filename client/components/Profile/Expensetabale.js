@@ -19,6 +19,7 @@ import {
   IconButton,
   CardContent,
   CardActions,
+  SvgIcon,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
@@ -92,7 +93,7 @@ const ExpenseTable = () => {
                       }}
                     >
                       <TableCell component="th" scope="row">
-                        <img src={expense.imageUrl} style={{ height: 45 }} />
+                        <SvgIcon component={expense.name === "Alcohol" ? LiquorIcon : expense.name === "Cable/Directv" ? TvIcon : expense.name === " Tobacco Products"? SmokingRoomsIcon : expense.name === " Coffee" ? LocalCafeIcon : FastfoodIcon} inheritViewBox />
                       </TableCell>
                       <TableCell component="th" scope="row">
                         {expense.name}
