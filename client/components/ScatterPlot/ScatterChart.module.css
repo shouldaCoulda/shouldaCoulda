@@ -1,0 +1,14 @@
+.tick line {
+  stroke: #c0c0bb;
+}
+
+.tick text {
+  fill: #635f5d;
+  font-family: 'Poppins', sans-serif;
+  cursor: default;
+}
+
+.axis_label {
+  font-size: 2.5em;
+  fill: #635f5d;
+}
