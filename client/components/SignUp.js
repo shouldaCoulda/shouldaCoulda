@@ -35,10 +35,9 @@ const SignUp = () => {
       setLoading(true);
       signup(emailRef.current.value, passwordRef.current.value);
       history.push("/landing");
-    } catch {
-      setError("Failed to create an account");
+    } catch (error){
+      setError("Failed to create an account", error);
     }
-
     setLoading(false);
   }
 
