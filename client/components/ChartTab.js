@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Avatar, Tabs, Tab, Box } from '@mui/material';
+import React from "react";
+import { Link } from "react-router-dom";
+import { Avatar, Tabs, Tab, Box, autocompleteClasses } from "@mui/material";
 
 const ChartTab = () => {
   const [value, setValue] = React.useState(0);
@@ -10,26 +10,34 @@ const ChartTab = () => {
   };
   //tab is one of the tab from the tab bar > link is the path > avatar is the icon src is the link to image
   return (
-    <Box sx={{ maxWidth: { s: 320, sm: 600 }, bgcolor: 'background.paper' }}>
+    <Box
+      sx={{
+        maxWidth: { xs: 320, sm: 480 },
+        bgcolor: "background.paper",
+        margin: "auto",
+      }}
+    >
+
       <Tabs
         value={value}
         onChange={handleChange}
-        variant='scrollable'
-        scrollButtons='auto'
-        aria-label='scrollable auto tabs example'
+        variant="scrollable"
+        scrollButtons="auto"
+        aria-label="scrollable auto tabs example"
       >
         <Tab
           icon={
-            <Link to='/chart'>
+            <Link to="/chart">
               <Avatar
-                alt='line chart'
-                src='https://img.icons8.com/external-bearicons-flat-bearicons/64/000000/external-Chart-business-and-marketing-bearicons-flat-bearicons.png'
+                alt="line chart"
+                src="https://img.icons8.com/external-bearicons-flat-bearicons/64/000000/external-Chart-business-and-marketing-bearicons-flat-bearicons.png"
               ></Avatar>
             </Link>
           }
         />
         <Tab
           icon={
+
             <Link to='/Bar'>
               <Avatar
                 alt='bar chart'
@@ -42,14 +50,15 @@ const ChartTab = () => {
           icon={
             <Link to='/PieChart'>
               <Avatar
-                alt='pie chart'
-                src='https://img.icons8.com/dusk/64/000000/chart.png'
+                alt="pie chart"
+                src="https://img.icons8.com/dusk/64/000000/chart.png"
               />
             </Link>
           }
         />
         <Tab
           icon={
+
             <Link to='/Scatter'>
               <Avatar
                 alt='scatter plot'
@@ -78,6 +87,7 @@ const ChartTab = () => {
             </Link>
           }
         />
+
 
         <Tab
           icon={

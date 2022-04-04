@@ -25,8 +25,8 @@ const Login = () => {
 
   return (
     <>
-      <Box className="container" sx={{ maxWidth: 550, marginTop: "20%" }}>
-        <Card>
+      <div className="container">
+        <Card className="logincard">
           <Card.Body>
             <h2>Log In</h2>
             {error && <Alert variant="danger">{error}</Alert>}
@@ -45,7 +45,7 @@ const Login = () => {
             </Form>
           </Card.Body>
         </Card>
-      </Box>
+      </div>
       <div className="w-100 text-center mt-2 ">
         Need an account? <Link to="/signup">Sign Up</Link>
       </div>

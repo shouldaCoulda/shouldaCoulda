@@ -5,6 +5,7 @@ import SelectionsContainer from "./SelectionsContainer";
 import FinancialContainer from "./FinancialContainer";
 import MonthSlider from "./MonthSlider";
 import Legend from "./Legend";
+
 import { Box, Container, getTableSortLabelUtilityClass } from "@mui/material";
 import ChartTab from "../ChartTab";
 import { useAuth } from "../../contexts/AuthContext";
@@ -16,16 +17,17 @@ const ChartContainer = () => {
   }, []);
   return (
     <Container>
+      <Legend />
+
       <ChartTab />
       <Box>
-        <Legend />
-        <Box sx={{ display: { xs: "flex", md: "flex", alignItems: "center" } }}>
+        <FinancialContainer className="selectionsContainer card" />
+        <LineChart />
+        <Box sx={{ mb: 7, display: "flex", justifyContent: "space-evenly" }}>
+          <MonthSlider sx={{}} />
           <SelectionsContainer className="selectionsContainer card" />
-
-          <LineChart />
           <FinancialContainer className="selectionsContainer card" />
         </Box>
-        <MonthSlider />
       </Box>
     </Container>
   );

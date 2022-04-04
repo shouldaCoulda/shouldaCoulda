@@ -1,31 +1,23 @@
 import { useAuth } from "../contexts/AuthContext";
 import React, { useEffect, useRef } from "react";
 import {
-  Container,
-  AppBar,
-  Toolbar,
   Typography,
   FormControl,
   Box,
   Card,
   CardMedia,
-  CardContent,
   Button,
-  InputLabel,
-  Input,
-  FormHelperText,
   InputAdornment,
   TextField,
 } from "@mui/material";
 import { Link, useHistory } from "react-router-dom";
-import PieChart from "./PieChart";
+import SignUp from "./SignUp";
 
 /**
  * COMPONENT
  */
 export const LandingPage = () => {
   const { signup, writeUserData, currentUser, writeIncomeData } = useAuth();
-  const ammountRef = useRef(0);
 
   const history = useHistory();
 
@@ -40,18 +32,8 @@ export const LandingPage = () => {
   // };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const user = {
-      uid: currentUser.uid,
-      email: currentUser.email,
-    };
-    await writeUserData(user);
-    const income = {
-      name: "primary",
-      ammount: ammountRef.current.value,
-    };
-    writeIncomeData(income);
 
-    history.push("/expense");
+    history.push("/Income");
   };
 
   return (
@@ -99,10 +81,11 @@ export const LandingPage = () => {
         sx={{
           alignSelf: "center",
           display: "flex",
-          flexDirection: "row",
+          flexDirection: { xs: "column", md: "row" },
           justifyContent: "space-between",
           width: 800,
           alignItems: "center",
+          // margin: { xs: "auto" },
         }}
       >
         <Box
@@ -111,12 +94,14 @@ export const LandingPage = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "left",
-
             width: 250,
-            marginLeft: 10,
+            margin: { sx: "auto" },
           }}
         >
-          <Typography variant="p" sx={{ padding: 4, fontStyle: "italic" }}>
+          <Typography
+            variant="p"
+            sx={{ padding: 4, fontStyle: "italic", margin: { sx: "auto" } }}
+          >
             Ever wonder how much money you could be making if you invested your
             starbucks bill into the S&P 500?
           </Typography>
@@ -130,19 +115,21 @@ export const LandingPage = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "right",
-            marginRight: 10,
             width: 250,
           }}
         >
-          <Typography variant="p" sx={{ padding: 4, fontStyle: "italic" }}>
+          <Typography
+            variant="p"
+            sx={{ margin: { xs: "auto" }, padding: 4, fontStyle: "italic" }}
+          >
             just how much those costly monthly subscriptions are ACTUALLY
             costing you?!
           </Typography>
         </Box>
       </Box>
       <Typography variant="p" sx={{ padding: 4, fontStyle: "italic" }}>
-        We will do the math. BUT FIRST, answer our simple questions below so we
-        can get to know you better.
+        We will do the math. BUT FIRST, answer some simple questions so we can
+        get to know you better.
       </Typography>
       <Box
         sx={{
@@ -153,38 +140,8 @@ export const LandingPage = () => {
           margin: 4,
         }}
       />
-      <Typography variant="p" sx={{ padding: 4 }}>
-        What is your monthly income?
-      </Typography>
-      <Box>
-        <FormControl>
-          <TextField
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">$</InputAdornment>
-              ),
-            }}
-            aria-describedby="my-helper-text"
-            inputRef={ammountRef}
-            sx={{ border: "none" }}
-          />
-        </FormControl>
-      </Box>
-
-      <Button
-        onClick={(e) => handleSubmit(e)}
-        sx={{
-          marginTop: 5,
-          borderWidth: 0,
-          boxShadow: "3px 2px 10px darkgray",
-          borderCollapse: "collapse",
-          color: "black",
-          borderRadius: 40,
-          width: 90,
-        }}
-      >
-        Next
-      </Button>
+      <SignUp />
+      <Box sx={{ marginBottom: 10 }} />
     </Box>
   );
 };

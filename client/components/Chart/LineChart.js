@@ -4,6 +4,8 @@ import {
   VictoryChart,
   VictoryVoronoiContainer,
   VictoryTooltip,
+  VictoryTheme,
+  VictoryLabel,
 } from "victory";
 import { useChart } from "../../contexts/ChartContext";
 import { Box, Typography, Container } from "@mui/material";
@@ -31,15 +33,17 @@ const LineChart = () => {
   }, []);
 
   return (
-    <Box sx={{ width: "500px", display: "flex" }}>
+    <Box sx={{ width: "100", display: "flex" }}>
       <VictoryChart
         sx={{
           display: "flex",
+
           flexDirection: { xs: "column", sm: "column", md: "row" },
         }}
         minDomain={({ y: 0 }, { x: 0 })}
         maxDomain={({ y: maxY }, { x: months })}
         domainPadding={30}
+        theme={VictoryTheme.material}
         containerComponent={
           <VictoryVoronoiContainer
             sx={{ flexDirection: { xs: "column", sm: "column", md: "row" } }}
@@ -48,7 +52,7 @@ const LineChart = () => {
         }
         standalone={true}
         animate={{
-          duration: 500,
+          duration: 300,
         }}
       >
         {displayedLines.map((dataArray, key) => {

@@ -38,13 +38,24 @@ const FinancialContainer = () => {
 
   return (
     <>
-      <Box>
-        <Typography gutterBottom variant="h5" component="div">
-          Toggle Data
+      <Box sx={{ m: 2, display: "flex", flexDirection: "column" }}>
+        <Typography
+          gutterBottom
+          variant="h9"
+          component="div"
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            flexDirection: "column",
+          }}
+        >
+          What if you'd put your money into....
         </Typography>
         <ButtonGroup
-          orientation="vertical"
+          orientation="horizontal"
+          size="small"
           aria-label="vertical outlined button group"
+          sx={{ justifyContent: "center" }}
         >
           {lines.map((line, index) => {
             let color = "";

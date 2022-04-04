@@ -19,7 +19,7 @@ the auth context outside of this file
 */
 export function useAuth() {
   const context = useContext(AuthContext);
-  const history = useHistory();
+  // const history = useHistory();
   if (context === undefined) {
     throw new Error("useCount must be used within a CountProvider");
   }
@@ -47,6 +47,8 @@ export function AuthProvider({ children }) {
     useState(0);
   const [loading, setLoading] = useState(true);
   var userSubReff = "";
+
+  const history = useHistory();
 
   function getTotal() {
     let total = 0;
@@ -94,6 +96,7 @@ export function AuthProvider({ children }) {
 
   //Logout
   async function logout() {
+    history.push("/");
     return auth.signOut();
   }
 
@@ -122,6 +125,16 @@ export function AuthProvider({ children }) {
     set(ref(database, "users/" + currentUser.uid + "/incomes/" + uuid), {
       name: income.name,
       ammount: income.ammount,
+
+      uid: uuid,
+    });
+  }
+  async function writeExpenseData(expense) {
+    const uuid = uid();
+    console.log(expense);
+    set(ref(database, "users/" + currentUser.uid + "/expenses/" + uuid), {
+      name: expense.name,
+      price: parseInt(expense.ammount),
 
       uid: uuid,
     });
@@ -249,6 +262,7 @@ export function AuthProvider({ children }) {
     usersTotalIncomeAndExpenses,
     setUsersTotalIncomeAndExpenses,
     getTotalIncomes,
+    writeExpenseData,
   };
 
   return (

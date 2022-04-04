@@ -23,6 +23,16 @@
   overflow: auto;
 }
 
+.logincard {
+  max-width: 338px;
+  margin: 20px auto;
+}
+
+.signUpButton {
+  margin: 2em auto;
+  width: 100%;
+}
+
 .close {
   content: "x";
   cursor: pointer;
@@ -75,4 +85,12 @@ section {
 }
 .logincard {
   width: 300;
+}
+.tables {
+  background-color: red;
+  margin: 3;
+  padding: 3;
+  width: 900;
+  color: red;
+  width: 500;
 }

@@ -25,9 +25,13 @@ function PopupButton() {
       <Button
         type="button"
         value="ADD"
-        className="moreSubsButton hover"
+        // className="moreSubsButton hover"
         onClick={togglePopup}
-        sx={{ backgroundColor: "lightgreen", borderRadius: "50%" }}
+        sx={{
+          backgroundColor: "#7FD3F4",
+          fontSize: 18,
+          color: "#EC008C",
+        }}
       >
         +
       </Button>
