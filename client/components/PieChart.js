@@ -12,12 +12,6 @@ const PieChart = () => {
     usersIncomes,
     usersTotalIncomeAndExpenses,
   } = useAuth();
-  console.log('this is userSubscriptions', usersSubscriptions);
-  console.log('this is userExpenses', usersExpenses);
-  console.log(
-    'this is userTotalIncomeAndExpenses',
-    usersTotalIncomeAndExpenses
-  );
 
   return (
     <div>
