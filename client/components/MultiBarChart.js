@@ -11,22 +11,28 @@ const MultiBarChart = () => {
     usersTotalIncomeAndExpenses,
   } = useAuth();
   const data = {
-    labels: ['2016', '2017', '2018', '2019', '2020', '2021', '2022'],
+    labels: [
+      ...usersSubscriptions.map((sub) => {
+        return sub.name;
+      }),
+    ],
     datasets: [
       {
-        label: 'expenses',
-        data: [100, 125, 150, 175, 200, 250, 300],
-        backgroundColor: ['rgba(0,10,220,1)'],
-      },
-      {
-        label: 'subscriptions',
-        data: [200, 100, 170, 50, 99, 300, 400],
-        backgroundColor: ['rgba(255, 165, 0,1)'],
-      },
-      {
-        label: 'others',
-        data: [50, 75, 40, 30, 150, 125, 150],
-        backgroundColor: ['rgb(106, 90, 205,1)'],
+        label: ['Subscription'],
+        data: [
+          ...usersSubscriptions.map((sub) => {
+            return sub.price;
+          }),
+        ],
+        backgroundColor: ['rgba(0,10,220,1)', 'rgba(215, 169, 201, 1)'],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+        ],
       },
     ],
   };
