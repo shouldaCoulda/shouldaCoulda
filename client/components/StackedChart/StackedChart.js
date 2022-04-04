@@ -6,48 +6,48 @@ import styles from './StackedChart.module.css';
 const data = [
   {
     year: 1980,
-    '🥑': 10,
-    '🍌': 20,
-    '🍆': 30,
+    subscription: 10,
+    other: 20,
+    expense: 30,
   },
   {
     year: 1990,
-    '🥑': 20,
-    '🍌': 40,
-    '🍆': 60,
+    subscription: 20,
+    other: 40,
+    expense: 60,
   },
   {
     year: 2000,
-    '🥑': 30,
-    '🍌': 45,
-    '🍆': 80,
+    subscription: 30,
+    other: 45,
+    expense: 80,
   },
   {
     year: 2010,
-    '🥑': 40,
-    '🍌': 60,
-    '🍆': 100,
+    subscription: 40,
+    other: 60,
+    expense: 100,
   },
   {
     year: 2020,
-    '🥑': 50,
-    '🍌': 80,
-    '🍆': 120,
+    subscription: 50,
+    other: 80,
+    expense: 120,
   },
 ];
 
-const allKeys = ['🥑', '🍌', '🍆'];
+const allKeys = ['subscription', 'other', 'expense'];
 
 const colors = {
-  '🥑': 'green',
-  '🍌': 'orange',
-  '🍆': 'purple',
+  subscription: 'green',
+  other: 'orange',
+  expense: 'purple',
 };
 
 function App() {
   const [keys, setKeys] = useState(allKeys);
   return (
-    <React.Fragment>
+    <>
       <h2>Stacked Bar Chart with D3 </h2>
       <StackedBarChart data={data} keys={keys} colors={colors} />
 
@@ -72,7 +72,7 @@ function App() {
           </div>
         ))}
       </div>
-    </React.Fragment>
+    </>
   );
 }
 

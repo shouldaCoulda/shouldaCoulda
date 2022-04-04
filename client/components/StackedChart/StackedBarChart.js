@@ -9,7 +9,7 @@ import {
   axisLeft,
   stackOrderAscending,
 } from 'd3';
-import useResizeObserver from './useResizeObserver';
+// import useResizeObserver from './useResizeObserver';
 
 /**
  * Component that renders a StackedBarChart
@@ -18,13 +18,15 @@ import useResizeObserver from './useResizeObserver';
 function StackedBarChart({ data, keys, colors }) {
   const svgRef = useRef();
   const wrapperRef = useRef();
-  const dimensions = useResizeObserver(wrapperRef);
+  // const dimensions = useResizeObserver(wrapperRef);
 
   // will be called initially and on every data change
   useEffect(() => {
     const svg = select(svgRef.current);
-    const { width, height } =
-      dimensions || wrapperRef.current.getBoundingClientRect();
+    const width = 1000;
+    const height = 280;
+    // const { width, height } =
+    //   dimensions || wrapperRef.current.getBoundingClientRect();
 
     // stacks / layers
     const stackGenerator = stack().keys(keys).order(stackOrderAscending);
@@ -38,7 +40,7 @@ function StackedBarChart({ data, keys, colors }) {
     const xScale = scaleBand()
       .domain(data.map((d) => d.year))
       .range([0, width])
-      .padding(0.25);
+      .padding(0.5);
 
     const yScale = scaleLinear().domain(extent).range([height, 0]);
 
@@ -66,17 +68,17 @@ function StackedBarChart({ data, keys, colors }) {
 
     const yAxis = axisLeft(yScale);
     svg.select('.y-axis').call(yAxis);
-  }, [colors, data, dimensions, keys]);
+  }, [colors, data, keys]);
 
   return (
-    <React.Fragment>
-      <div ref={wrapperRef} style={{ marginBottom: '2rem' }}>
+    <>
+      <div ref={wrapperRef} style={{ marginBottom: '1rem' }}>
         <svg ref={svgRef}>
           <g className='x-axis' />
           <g className='y-axis' />
         </svg>
       </div>
-    </React.Fragment>
+    </>
   );
 }
 
