@@ -20,6 +20,7 @@ import BarChart from './components/BarChart';
 import RaceChart from './components/RaceChart';
 import ScatterChart from './components/ScatterPlot/ScatterChart';
 import StackedChart from './components/StackedChart/StackedChart';
+import MultiBarChart from './components/MultiBarChart';
 
 const Routes = () => {
   const { currentUser } = useAuth();
@@ -49,6 +50,7 @@ const Routes = () => {
             <Route exact path='/Race' component={RaceChart} />
             <Route exact path='/Scatter' component={ScatterChart} />
             <Route exact path='/Stack' component={StackedChart} />
+            <Route exact path='/Bar2' component={MultiBarChart} />
           </>
         ) : (
           <>
