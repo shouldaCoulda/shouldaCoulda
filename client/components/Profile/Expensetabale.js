@@ -23,6 +23,12 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import Collapse from "@mui/material/Collapse";
+import FastfoodIcon from "@mui/icons-material/Fastfood";
+import LocalCafeIcon from "@mui/icons-material/LocalCafe";
+import TvIcon from "@mui/icons-material/Tv";
+import SmokingRoomsIcon from "@mui/icons-material/SmokingRooms";
+import LiquorIcon from "@mui/icons-material/Liquor";
+import CurrencyExchangeIcon from "@mui/icons-material/CurrencyExchange";
 
 import { styled } from "@mui/material/styles";
 const ExpenseTable = () => {
