@@ -60,6 +60,16 @@ const ChartTab = () => {
         />
         <Tab
           icon={
+            <Link to='/Bar2'>
+              <Avatar
+                alt='Bar Chart'
+                src='https://img.icons8.com/external-xnimrodx-lineal-color-xnimrodx/64/000000/external-bar-chart-infographic-and-chart-xnimrodx-lineal-color-xnimrodx.png'
+              />
+            </Link>
+          }
+        />
+        <Tab
+          icon={
             <Link to='/Race'>
               <Avatar
                 alt='list'
@@ -69,13 +79,6 @@ const ChartTab = () => {
           }
         />
 
-        <Tab
-          icon={
-            <Link to=''>
-              <Avatar alt='' />
-            </Link>
-          }
-        />
         <Tab
           icon={
             <Link to=''>
