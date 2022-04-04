@@ -32,7 +32,7 @@ const SelectionsContainer = () => {
         component="div"
         sx={{ fontSize: { xs: 12, md: 16 }, justifyContent: "center" }}
       >
-        Monthly Total: {getTotal().toFixed(2)}
+        Monthly Expenses: {getTotal().toFixed(2)}
       </Typography>
       <Typography
         gutterBottom

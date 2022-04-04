@@ -33,7 +33,7 @@ const LineChart = () => {
   }, []);
 
   return (
-    <Box sx={{ width: "80%", display: "flex" }}>
+    <Box sx={{ width: "100", display: "flex" }}>
       <VictoryChart
         sx={{
           display: "flex",

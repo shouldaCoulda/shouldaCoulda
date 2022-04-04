@@ -35,8 +35,6 @@ export function OtherProvider({ children }) {
   }, []);
 
   function writeExpenseData(data, userId) {
-    console.log(data);
-
     for (let i = 0; i < data.length; i++) {
       if (data[i].ammount !== "") {
         const uuid = uid();
