@@ -92,7 +92,9 @@ const SubscriptionTable = () => {
                       }}
                     >
                       <TableCell component="th" scope="row">
-                        <img src={sub.imageUrl} style={{ height: 45 }} />
+                        <a href={sub.websiteUrl} target="_blank" rel="noreferrer noopener">
+                          <img src={sub.imageUrl} style={{ height: 45 }} />
+                        </a>
                       </TableCell>
                       <TableCell component="th" scope="row">
                         {sub.name}
