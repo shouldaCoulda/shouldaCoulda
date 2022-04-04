@@ -26,8 +26,12 @@ const ChartContainer = () => {
         <Box sx={{ mb: 7, display: "flex", justifyContent: "space-evenly" }}>
           <MonthSlider sx={{}} />
           <SelectionsContainer className="selectionsContainer card" />
+<<<<<<< HEAD
 
           {/* <FinancialContainer className="selectionsContainer card" /> */}
+=======
+          <FinancialContainer className="selectionsContainer card" />
+>>>>>>> 93619dcb89e92c2989caf316d7458e3e08fa21af
         </Box>
       </Box>
     </Container>

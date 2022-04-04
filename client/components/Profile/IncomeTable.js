@@ -21,12 +21,14 @@ import {
   CardActions,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import Collapse from "@mui/material/Collapse";
+import AddIcon from "@mui/icons-material/Add";
+import AddIncome from "../Income/AddIncome";
 
 import { styled } from "@mui/material/styles";
 const IncomeTable = () => {
   const [expanded, setExpanded] = React.useState(false);
+  const [expandedFourm, setExpandedfourm] = React.useState(false);
 
   const { usersIncomes, getTotal, removeIncome, getTotalIncomes } = useAuth();
 
@@ -48,6 +50,9 @@ const IncomeTable = () => {
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+  const handleAddClick = () => {
+    setExpandedfourm(!expandedFourm);
+  };
 
   return (
     <Card sx={{ width: "85%" }}>
@@ -58,12 +63,22 @@ const IncomeTable = () => {
 
       <CardActions disableSpacing>
         <ExpandMore
-          expand={expanded}
+          expand={expandedFourm}
           onClick={handleExpandClick}
           aria-expanded={expanded}
           aria-label="show more"
         >
           <ExpandMoreIcon />
+        </ExpandMore>
+      </CardActions>
+      <CardActions disableSpacing>
+        <ExpandMore
+          expand={expanded}
+          onClick={handleAddClick}
+          aria-expanded={expanded}
+          aria-label="show more"
+        >
+          <AddIcon />
         </ExpandMore>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
@@ -103,6 +118,11 @@ const IncomeTable = () => {
               </TableBody>
             </Table>
           </TableContainer>
+        </CardContent>
+      </Collapse>
+      <Collapse in={expandedFourm} timeout="auto" unmountOnExit>
+        <CardContent>
+          <AddIncome />
         </CardContent>
       </Collapse>
     </Card>

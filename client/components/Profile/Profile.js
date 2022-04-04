@@ -33,7 +33,10 @@ const Profile = () => {
     >
       <IncomeTable />
       <SubscriptionsTable />
+<<<<<<< HEAD
 
+=======
+>>>>>>> 93619dcb89e92c2989caf316d7458e3e08fa21af
       <ExpenseTable />
     </Box>
   );
