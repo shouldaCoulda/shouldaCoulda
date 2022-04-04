@@ -1,8 +1,15 @@
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
 import ChartTab from './ChartTab';
+import { useAuth } from '../contexts/AuthContext';
 
 const MultiBarChart = () => {
+  const {
+    usersSubscriptions,
+    usersExpenses,
+    usersIncomes,
+    usersTotalIncomeAndExpenses,
+  } = useAuth();
   const data = {
     labels: ['2016', '2017', '2018', '2019', '2020', '2021', '2022'],
     datasets: [
