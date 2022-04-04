@@ -34,6 +34,18 @@ const data = [
     other: 80,
     expense: 120,
   },
+  {
+    year: 2025,
+    subscription: 60,
+    other: 90,
+    expense: 130,
+  },
+  {
+    year: 2030,
+    subscription: 100,
+    other: 120,
+    expense: 200,
+  },
 ];
 
 const allKeys = ['subscription', 'other', 'expense'];
@@ -48,7 +60,7 @@ function App() {
   const [keys, setKeys] = useState(allKeys);
   return (
     <>
-      <h2>Stacked Bar Chart with D3 </h2>
+      <h2>Your Projected Spending </h2>
       <StackedBarChart data={data} keys={keys} colors={colors} />
 
       <div className={styles.field}>
