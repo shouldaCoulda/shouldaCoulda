@@ -6,8 +6,19 @@ const MultiBarChart = () => {
     labels: ['2016', '2017', '2018', '2019', '2020', '2021', '2022'],
     datasets: [
       {
-        label: 'expense',
+        label: 'expenses',
         data: [100, 125, 150, 175, 200, 250, 300],
+        backgroundColor: ['rgba(0,10,220,0.8)'],
+      },
+      {
+        label: 'subscriptions',
+        data: [200, 100, 170, 50, 99, 300, 400],
+        backgroundColor: ['rgba(255, 165, 0,0.8)'],
+      },
+      {
+        label: 'others',
+        data: [50, 75, 40, 30, 150, 125, 150],
+        backgroundColor: ['rgb(106, 90, 205,0.8)'],
       },
     ],
   };
