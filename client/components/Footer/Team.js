@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { useHistory } from "react-router-dom";
-import { Box, Typography, Avatar } from "@mui/material";
+import { Box, Typography, Avatar, Link } from "@mui/material";
 
 var team = [
   {
@@ -40,8 +40,8 @@ const Team = () => {
           <Box key={i} className="column" sx={{ padding: 2 }}>
             <Avatar src={member.image} />
             <Typography varient="h4">{member.name}</Typography>
-            <Typography varient="p">{member.github}</Typography>
-            <Typography varient="p">{member.linkedin}</Typography>
+            <Link href={member.github} target="_blank" rel="noreferrer noopener" varient="p">Github</Link>
+            <Link href={member.linkedin} target="_blank" rel="noreferrer noopener" varient="p">LinkedIn</Link>
           </Box>
         );
       })}
