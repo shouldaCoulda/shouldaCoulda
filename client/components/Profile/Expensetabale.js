@@ -34,10 +34,16 @@ import GrassIcon from "@mui/icons-material/Grass";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import CreditCardIcon from "@mui/icons-material/CreditCard";
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import AddExpense from "../AddExpense";
 import AddIcon from "@mui/icons-material/Add";
 >>>>>>> 93619dcb89e92c2989caf316d7458e3e08fa21af
+=======
+import AddExpense from "../AddExpense";
+import AddIcon from "@mui/icons-material/Add";
+
+>>>>>>> daf0c577ee4d3cc1c2443a3c74590c74745b644d
 
 import { styled } from "@mui/material/styles";
 const ExpenseTable = () => {
