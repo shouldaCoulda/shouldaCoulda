@@ -86,3 +86,11 @@ section {
 .logincard {
   width: 300;
 }
+.tables {
+  background-color: red;
+  margin: 3;
+  padding: 3;
+  width: 900;
+  color: red;
+  width: 500;
+}

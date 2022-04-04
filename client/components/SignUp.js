@@ -26,15 +26,18 @@ const SignUp = () => {
       return setError("Passwords do not match");
     }
 
+    if (passwordRef.current.value.length < 6) {
+      return setError("Pw must be at least 6 characters");
+    }
+
     try {
       setError("");
       setLoading(true);
       signup(emailRef.current.value, passwordRef.current.value);
-      history.push("/landing");
+      history.push("/Income");
     } catch {
       setError("Failed to create an account");
     }
-
     setLoading(false);
   }
 

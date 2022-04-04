@@ -26,6 +26,16 @@ export default function ExpenseCard() {
   const [fourms, setfourms] = useState([]);
   const history = useHistory();
 
+  useEffect(() => {
+    let array = [];
+    for (let j = 0; j < expenseCards.length; j++) {
+      array.push({
+        ammount: "",
+        name: expenseCards[j].name,
+      });
+    }
+    setfourms(array);
+  }, []);
   const handleSubmit = async (e) => {
     e.preventDefault();
     writeExpenseData(fourms, currentUser.uid);

@@ -33,7 +33,6 @@ const Profile = () => {
     >
       <IncomeTable />
       <SubscriptionsTable />
-
       <ExpenseTable />
     </Box>
   );

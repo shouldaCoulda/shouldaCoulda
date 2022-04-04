@@ -21,6 +21,7 @@ import RaceChart from "./components/RaceChart";
 import ScatterChart from "./components/ScatterPlot/ScatterChart";
 import StackedChart from "./components/StackedChart/StackedChart";
 import MultiBarChart from "./components/MultiBarChart";
+import Income from "./components/Income";
 
 const Routes = () => {
   const { currentUser } = useAuth();
@@ -30,7 +31,8 @@ const Routes = () => {
       <Switch>
         {currentUser ? (
           <>
-            <Route exact path="/" component={ChartContainer} />
+
+            <Route exact path="/" component={ChartContainer} /
             <Route exact path="/chart" component={ChartContainer} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/selections" component={SelectionScreen} />
@@ -51,6 +53,8 @@ const Routes = () => {
             <Route exact path="/Scatter" component={ScatterChart} />
             <Route exact path="/Stack" component={StackedChart} />
             <Route exact path="/Bar2" component={MultiBarChart} />
+            <Route exact path="/Income" component={Income} />
+
           </>
         ) : (
           <>
@@ -58,7 +62,8 @@ const Routes = () => {
             <Route exact path="/team" component={Team} />
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/about" component={About} />
-            <Route exact path="/" component={SignUp} />
+            <Route exact path="/" component={LandingPage} />
+
           </>
         )}
       </Switch>
