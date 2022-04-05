@@ -55,7 +55,7 @@ const ChartTab = () => {
             </Link>
           }
         />
-        <Tab
+        {/* <Tab
           icon={
             <Link to='/Scatter'>
               <Avatar
@@ -64,7 +64,7 @@ const ChartTab = () => {
               />
             </Link>
           }
-        />
+        /> */}
 
         <Tab
           icon={
