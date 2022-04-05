@@ -8,7 +8,8 @@ const RaceChart = () => {
     <>
       <ChartTab />
       <h2>
-        Think About Investing In These Company Value In Millions From 2000-2019
+        Think About Investing In These Companies Value In Millions From
+        2000-2019
       </h2>
       <iframe
         width='100%'

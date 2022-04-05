@@ -63,6 +63,15 @@ const MultiBarChart = () => {
     ],
   };
   const options = {
+    legend: {
+      labels: {
+        // This more specific font property overrides the global property
+        fontColor: 'blue',
+        fontSize: '40',
+        font: '40',
+        defaultFontSize: 40,
+      },
+    },
     indexAxis: 'y',
     scales: {
       y: {
