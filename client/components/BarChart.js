@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { csv, scaleBand, scaleLinear, max } from 'd3';
-import styles from './BarChart.module.css';
-import RaceChart from './RaceChart';
-import ChartTab from './ChartTab';
-import { Chart } from 'react-chartjs-2';
-import { useAuth } from '../contexts/AuthContext';
+import React, { useState, useEffect, useCallback } from "react";
+import { csv, scaleBand, scaleLinear, max } from "d3";
+import styles from "./BarChart.module.css";
+import RaceChart from "./RaceChart";
+import ChartTab from "./ChartTab";
+import { Chart } from "react-chartjs-2";
+import { useAuth } from "../contexts/AuthContext";
 
 //this is the data or csv file we are getting the data from
 // const csvUrl =
@@ -33,15 +33,15 @@ import { useAuth } from '../contexts/AuthContext';
 
 //dummy data
 const chart = [
-  { name: 'Netflix', price: 9.99 },
-  { name: 'Hulu', price: 12.99 },
-  { name: 'Spotify', price: 15.99 },
-  { name: 'Amazon', price: 20 },
-  { name: 'Youtube', price: 17 },
-  { name: 'HBO Max', price: 9.99 },
+  { name: "Netflix", price: 9.99 },
+  { name: "Hulu", price: 12.99 },
+  { name: "Spotify", price: 15.99 },
+  { name: "Amazon", price: 20 },
+  { name: "Youtube", price: 17 },
+  { name: "HBO Max", price: 9.99 },
 ];
 
-const width = 960;
+const width = 85;
 const height = 500;
 const margin = { top: 35, right: 20, bottom: 70, left: 200 };
 
@@ -61,7 +61,7 @@ const BarChart = () => {
     }
   }, [usersSubscriptions]);
 
-  console.log('data', data);
+  console.log("data", data);
 
   //condition is the data is not exist then give a loading message
   if (!data) {
@@ -118,8 +118,8 @@ const BarChart = () => {
                 <line x1={0} y1={0} x2={0} y2={innerHeight} />
                 <text
                   y={innerHeight}
-                  style={{ textAnchor: 'middle' }}
-                  dy='1.1em'
+                  style={{ textAnchor: "middle" }}
+                  dy="1.1em"
                 >
                   {tickValue}
                 </text>
@@ -134,7 +134,7 @@ const BarChart = () => {
                   yScale(tickValue) + yScale.bandwidth() / 2
                 })`}
               >
-                <text style={{ textAnchor: 'end' }} x={-4} dy='.32em'>
+                <text style={{ textAnchor: "end" }} x={-4} dy=".32em">
                   {tickValue}
                 </text>
               </g>
@@ -144,7 +144,7 @@ const BarChart = () => {
             className={styles.textAxis}
             x={innerWidth / 2}
             y={-5}
-            textAnchor='middle'
+            textAnchor="middle"
           >
             Subscriptions
           </text>
@@ -172,8 +172,8 @@ const BarChart = () => {
                 <line x1={0} y1={0} x2={0} y2={innerHeight} />
                 <text
                   y={innerHeight}
-                  style={{ textAnchor: 'middle' }}
-                  dy='1.1em'
+                  style={{ textAnchor: "middle" }}
+                  dy="1.1em"
                 >
                   {tickValue}
                 </text>
@@ -188,7 +188,7 @@ const BarChart = () => {
                   yScale(tickValue) + yScale.bandwidth() / 2
                 })`}
               >
-                <text style={{ textAnchor: 'end' }} x={-4} dy='.32em'>
+                <text style={{ textAnchor: "end" }} x={-4} dy=".32em">
                   {tickValue}
                 </text>
               </g>
@@ -198,7 +198,7 @@ const BarChart = () => {
             className={styles.textAxis}
             x={innerWidth / 2}
             y={-5}
-            textAnchor='middle'
+            textAnchor="middle"
           >
             Expenses
           </text>

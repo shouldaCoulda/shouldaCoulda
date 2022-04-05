@@ -59,9 +59,10 @@ export const SubscriptionTier = () => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        width: "85vw",
       }}
     >
-      <Typography gutterBottom variant="h3" sx={{ m: 4 }}>
+      <Typography gutterBottom variant="h3" sx={{ m: "auto" }}>
         Select your plan
       </Typography>
       {usersSubscriptions.map((sub, index) => {
@@ -72,22 +73,31 @@ export const SubscriptionTier = () => {
               <Box
                 key={index}
                 sx={{
-                  mr: 2,
+                  // mr: 2,
                   display: "flex",
-                  width: 1000,
+                  flexWrap: "wrap",
+                  width: "75vw",
                 }}
               >
                 <Box
                   sx={{
-                    alignSelf: "flex-start",
-                    height: 50,
-                    m: 5,
+                    m: { xs: "auto", md: 0 },
+                    height: "max-content",
                     display: "flex",
                     flexDirection: "column",
+                    mt: 1,
                   }}
                 >
-                  <img style={{ width: 100 }} src={sub.imageUrl}></img>
-                  <Typography gutterBottom variant="p">
+                  <img
+                    style={{ width: 70, m: "auto" }}
+                    src={sub.imageUrl}
+                  ></img>
+                  <Typography
+                    gutterBottom
+                    variant="p"
+                    align="center"
+                    sx={{ width: 70 }}
+                  >
                     {sub.name}
                   </Typography>
                 </Box>
@@ -95,6 +105,7 @@ export const SubscriptionTier = () => {
                   sx={{
                     mr: 2,
                     display: "flex",
+                    flexWrap: "wrap",
                     alignSelf: "center",
                   }}
                 >
@@ -102,16 +113,26 @@ export const SubscriptionTier = () => {
                     if (isSelected[i]) {
                     }
                     return (
-                      <Box onClick={(e) => handleClick(e, index, plan)} key={i}>
+                      <Box
+                        onClick={(e) => handleClick(e, index, plan)}
+                        key={i}
+                        sx={{
+                          display: "flex",
+                          flexWrap: "wrap",
+                          m: { xs: "auto", md: 0 },
+                        }}
+                      >
                         <Card
                           sx={{
-                            mr: 2,
+                            // mr: 2,
                             display: "flex",
                             flexDirection: "column",
+                            flexWrap: "wrap",
                             padding: 2,
                             margin: 1,
                             border: "none",
                             alignItems: "center",
+                            maxWidth: 200,
                           }}
                         >
                           <Typography gutterBottom variant="p">
