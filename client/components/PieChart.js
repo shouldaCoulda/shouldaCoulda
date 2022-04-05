@@ -14,7 +14,7 @@ const PieChart = () => {
   } = useAuth();
 
   return (
-    <Box sx={{ m: "auto", mb: 10, width: "75vw" }}>
+    <Box sx={{ m: "auto", mb: 10, width: "55vw" }}>
       <ChartTab />
       <h1>Your Subscriptions</h1>
       <Pie
@@ -71,7 +71,7 @@ const PieChart = () => {
       />
 
       <h1>Your Expenses</h1>
-<hr></hr>
+      <hr></hr>
 
       <Pie
         data={{

@@ -50,6 +50,7 @@ const Income = () => {
         flexDirection: "column",
         alignItems: "center",
         padding: 2,
+        backgroundColor: "red",
       }}
     >
       <Typography variant="p" sx={{ padding: 4 }}>
