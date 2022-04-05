@@ -45,7 +45,7 @@ const Income = () => {
   return (
     <Box
       sx={{
-        mr: 2,
+        m: { xs: 4, md: 12, lg: 20 },
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
