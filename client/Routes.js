@@ -31,7 +31,7 @@ const Routes = () => {
       <Switch>
         {currentUser ? (
           <>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" component={ChartContainer} />
             <Route exact path="/chart" component={ChartContainer} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/selections" component={SelectionScreen} />

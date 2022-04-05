@@ -19,26 +19,33 @@ import {
   IconButton,
   CardContent,
   CardActions,
+  SvgIcon,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
 import Collapse from "@mui/material/Collapse";
+import FastfoodIcon from "@mui/icons-material/Fastfood";
+import LocalCafeIcon from "@mui/icons-material/LocalCafe";
+import TvIcon from "@mui/icons-material/Tv";
+import SmokingRoomsIcon from "@mui/icons-material/SmokingRooms";
+import LiquorIcon from "@mui/icons-material/Liquor";
+import CurrencyExchangeIcon from "@mui/icons-material/CurrencyExchange";
+import GrassIcon from "@mui/icons-material/Grass";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import CreditCardIcon from "@mui/icons-material/CreditCard";
+import AddExpense from "../AddExpense";
 import AddIcon from "@mui/icons-material/Add";
-import AddSubscription from "../AddSubscription";
+import AddExpense from "../AddExpense";
+import AddIcon from "@mui/icons-material/Add";
 
 import { styled } from "@mui/material/styles";
-const SubscriptionTable = () => {
+const ExpenseTable = () => {
   const [expanded, setExpanded] = React.useState(false);
   const [expandedFourm, setExpandedfourm] = React.useState(false);
 
-  const {
-    usersSubscriptions,
-    getTotalSubscriptions,
-    removeSubscription,
-    getTotal,
-  } = useAuth();
-
-  function handleDelete(e, uid) {
-    removeSubscription(uid);
+  const { usersExpenses, getTotalExpenses, removeExpense } = useAuth();
+  function handleDeleteExpense(e, uid) {
+    removeExpense(uid);
   }
 
   const ExpandMore = styled((props) => {
@@ -62,8 +69,8 @@ const SubscriptionTable = () => {
   return (
     <Card sx={{ width: "85%" }}>
       <CardHeader
-        title="Subscriptions"
-        subheader={`Monthly total: ${getTotalSubscriptions()}`}
+        title="Expenses"
+        subheader={`Monthly total: ${getTotalExpenses()}`}
       />
 
       <CardActions disableSpacing>
@@ -98,31 +105,46 @@ const SubscriptionTable = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {usersSubscriptions.map((sub, index) => {
+                {usersExpenses.map((expense, index) => {
                   return (
                     <TableRow
-                      key={sub.uid}
+                      key={expense.uid}
                       sx={{
                         "&:last-child td, &:last-child th": { border: 0 },
                       }}
                     >
                       <TableCell component="th" scope="row">
-                        <a
-                          href={sub.websiteUrl}
-                          target="_blank"
-                          rel="noreferrer noopener"
-                        >
-                          <img src={sub.imageUrl} style={{ height: 45 }} />
-                        </a>
+                        <SvgIcon
+                          component={
+                            expense.name === "Alcohol"
+                              ? LiquorIcon
+                              : expense.name === "Cable"
+                              ? TvIcon
+                              : expense.name === " Tobacco Products"
+                              ? SmokingRoomsIcon
+                              : expense.name === " Coffee"
+                              ? LocalCafeIcon
+                              : expense.name === "Food Delivery/Pick-Up"
+                              ? FastfoodIcon
+                              : expense.name === "Marijuana"
+                              ? GrassIcon
+                              : expense.name === " Shopping"
+                              ? ShoppingCartIcon
+                              : expense.name === "Credit Card Payments"
+                              ? CreditCardIcon
+                              : CurrencyExchangeIcon
+                          }
+                          inheritViewBox
+                        />
                       </TableCell>
                       <TableCell component="th" scope="row">
-                        {sub.name}
+                        {expense.name}
                       </TableCell>
-                      <TableCell align="right">{sub.price}</TableCell>
+                      <TableCell align="right">{expense.price}</TableCell>
                       <TableCell>
                         <Button
                           className="logoutButton"
-                          onClick={(e) => handleDelete(e, sub.uid)}
+                          onClick={(e) => handleDeleteExpense(e, expense.uid)}
                         >
                           Remove
                         </Button>
@@ -137,11 +159,11 @@ const SubscriptionTable = () => {
       </Collapse>
       <Collapse in={expandedFourm} timeout="auto" unmountOnExit>
         <CardContent>
-          <AddSubscription />
+          <AddExpense />
         </CardContent>
       </Collapse>
     </Card>
   );
 };
 
-export default SubscriptionTable;
+export default ExpenseTable;

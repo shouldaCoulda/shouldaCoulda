@@ -58,7 +58,7 @@ export const SelectionScreen = () => {
 
   return (
     <>
-      <Box>
+      <Box sx={{ mb: 15 }}>
         <Box
           sx={{
             display: "flex",
@@ -73,11 +73,12 @@ export const SelectionScreen = () => {
               <Box
                 onClick={(event) => handleClick(event, index)}
                 key={sub.name}
+                sx={{ margin: "auto" }}
               >
                 <Card
                   sx={{
                     maxWidth: 100,
-                    margin: 2,
+                    margin: 4,
                     padding: 0,
                     border: "none",
                     boxShadow: "none",

@@ -36,6 +36,7 @@ import CreditCardIcon from "@mui/icons-material/CreditCard";
 import AddExpense from "../AddExpense";
 import AddIcon from "@mui/icons-material/Add";
 
+
 import { styled } from "@mui/material/styles";
 const ExpenseTable = () => {
   const [expanded, setExpanded] = React.useState(false);
@@ -65,7 +66,7 @@ const ExpenseTable = () => {
   };
 
   return (
-    <Card sx={{ minWidth: 700 }}>
+    <Card sx={{ width: "85%" }}>
       <CardHeader
         title="Expenses"
         subheader={`Monthly total: ${getTotalExpenses()}`}
