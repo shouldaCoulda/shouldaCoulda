@@ -9,14 +9,11 @@ const MultiBarChart = () => {
     usersExpenses,
     usersIncomes,
     getTotalSubscriptions,
+    getTotalExpenses,
   } = useAuth();
-  console.log(getTotalSubscriptions());
+
   const data = {
-    labels: [
-      usersSubscriptions.map((sub, i) => {
-        return sub.name;
-      }),
-    ],
+    labels: ['Total'],
     datasets: [
       {
         axis: 'y',
@@ -43,6 +40,11 @@ const MultiBarChart = () => {
           'rgb(201, 203, 207)',
         ],
         borderWidth: 1,
+      },
+      {
+        label: 'Expense',
+        data: [getTotalExpenses()],
+        backgroundColor: 'rgba(255, 159, 64, 0.2)',
       },
     ],
   };
