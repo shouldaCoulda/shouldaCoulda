@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from "react";
-import { useAuth } from "../../contexts/AuthContext";
+import React, { useEffect, useRef } from 'react';
+import { useAuth } from '../../contexts/AuthContext';
 import {
   Typography,
   Box,
@@ -19,13 +19,13 @@ import {
   IconButton,
   CardContent,
   CardActions,
-} from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Collapse from "@mui/material/Collapse";
-import AddIcon from "@mui/icons-material/Add";
-import AddIncome from "../Income/AddIncome";
+} from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Collapse from '@mui/material/Collapse';
+import AddIcon from '@mui/icons-material/Add';
+import AddIncome from '../Income/AddIncome';
 
-import { styled } from "@mui/material/styles";
+import { styled } from '@mui/material/styles';
 const IncomeTable = () => {
   const [expanded, setExpanded] = React.useState(false);
   const [expandedFourm, setExpandedfourm] = React.useState(false);
@@ -40,9 +40,9 @@ const IncomeTable = () => {
     const { expand, ...other } = props;
     return <IconButton {...other} />;
   })(({ theme, expand }) => ({
-    transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
-    marginLeft: "auto",
-    transition: theme.transitions.create("transform", {
+    transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
+    marginLeft: 'auto',
+    transition: theme.transitions.create('transform', {
       duration: theme.transitions.duration.shortest,
     }),
   }));
@@ -57,7 +57,7 @@ const IncomeTable = () => {
   return (
     <Card sx={{ minWidth: 700 }}>
       <CardHeader
-        title="Income"
+        title='Income'
         subheader={`Monthly total: ${getTotalIncomes()}`}
       />
 
@@ -66,7 +66,7 @@ const IncomeTable = () => {
           expand={expandedFourm}
           onClick={handleExpandClick}
           aria-expanded={expanded}
-          aria-label="show more"
+          aria-label='show more'
         >
           <ExpandMoreIcon />
         </ExpandMore>
@@ -76,19 +76,19 @@ const IncomeTable = () => {
           expand={expanded}
           onClick={handleAddClick}
           aria-expanded={expanded}
-          aria-label="show more"
+          aria-label='show more'
         >
           <AddIcon />
         </ExpandMore>
       </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
+      <Collapse in={expanded} timeout='auto' unmountOnExit>
         <CardContent>
           <TableContainer sx={{ marginBottom: 6 }}>
-            <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <Table sx={{ minWidth: 650 }} aria-label='simple table'>
               <TableHead>
                 <TableRow>
                   <TableCell>Name</TableCell>
-                  <TableCell align="right">Ammount</TableCell>
+                  <TableCell align='right'>Amount</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -97,16 +97,16 @@ const IncomeTable = () => {
                     <TableRow
                       key={income.uid}
                       sx={{
-                        "&:last-child td, &:last-child th": { border: 0 },
+                        '&:last-child td, &:last-child th': { border: 0 },
                       }}
                     >
-                      <TableCell component="th" scope="row">
+                      <TableCell component='th' scope='row'>
                         {income.name}
                       </TableCell>
-                      <TableCell align="right">{income.ammount}</TableCell>
+                      <TableCell align='right'>{income.ammount}</TableCell>
                       <TableCell>
                         <Button
-                          className="logoutButton"
+                          className='logoutButton'
                           onClick={(e) => handleDelete(e, income.uid)}
                         >
                           Remove
@@ -120,7 +120,7 @@ const IncomeTable = () => {
           </TableContainer>
         </CardContent>
       </Collapse>
-      <Collapse in={expandedFourm} timeout="auto" unmountOnExit>
+      <Collapse in={expandedFourm} timeout='auto' unmountOnExit>
         <CardContent>
           <AddIncome />
         </CardContent>
