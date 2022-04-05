@@ -16,6 +16,7 @@ const PieChart = () => {
   return (
     <Box sx={{ m: "auto", mb: 10, width: "75vw" }}>
       <ChartTab />
+      <h1>Your Subscriptions</h1>
       <Pie
         data={{
           labels: [
@@ -68,7 +69,10 @@ const PieChart = () => {
           },
         }}
       />
-      <hr></hr>
+
+      <h1>Your Expenses</h1>
+<hr></hr>
+
       <Pie
         data={{
           labels: [

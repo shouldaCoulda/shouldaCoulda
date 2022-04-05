@@ -6,6 +6,9 @@ import ChartTab from "./ChartTab";
 import { Chart } from "react-chartjs-2";
 import { useAuth } from "../contexts/AuthContext";
 
+
+const width = 960;
+
 //this is the data or csv file we are getting the data from
 // const csvUrl =
 //   'https://gist.githubusercontent.com/curran/0ac4077c7fc6390f5dd33bf5c06cb5ff/raw/605c54080c7a93a417a3cea93fd52e7550e76500/UN_Population_2019.csv';
@@ -42,6 +45,7 @@ const chart = [
 ];
 
 const width = 85;
+
 const height = 500;
 const margin = { top: 35, right: 20, bottom: 70, left: 200 };
 
@@ -161,6 +165,7 @@ const BarChart = () => {
           ))}
         </g>
       </svg>
+
       <svg width={width} height={height}>
         <g
           className={styles.tick}

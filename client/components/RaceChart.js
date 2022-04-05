@@ -7,7 +7,10 @@ const RaceChart = () => {
   return (
     <>
       <ChartTab />
-      <h2>Company Value In Millions From 2000-2019</h2>
+      <h2>
+        Think About Investing In These Companies Value In Millions From
+        2000-2019
+      </h2>
       <iframe
         width='100%'
         height='725'
