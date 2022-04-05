@@ -24,7 +24,7 @@ const MultiBarChart = () => {
 
         fill: false,
         backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
+          'rgba(255, 99, 132, 0.8)',
           'rgba(255, 159, 64, 0.2)',
           'rgba(255, 205, 86, 0.2)',
           'rgba(75, 192, 192, 0.2)',
@@ -46,19 +46,19 @@ const MultiBarChart = () => {
       {
         label: 'Expense',
         data: [getTotalExpenses()],
-        backgroundColor: 'rgba(255, 159, 64, 0.2)',
+        backgroundColor: 'rgba(255, 159, 64, 0.8)',
       },
       {
         label: 'Money Remaining',
         data: [
           getTotalIncomes() - getTotalExpenses() - getTotalSubscriptions(),
         ],
-        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+        backgroundColor: 'rgba(54, 162, 235, 0.8)',
       },
       {
         label: 'Income',
         data: [getTotalIncomes()],
-        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        backgroundColor: 'rgba(75, 192, 192, 0.8)',
       },
     ],
   };
@@ -72,7 +72,12 @@ const MultiBarChart = () => {
       },
     },
   };
-  return <Bar data={data} options={options} />;
+  return (
+    <>
+      <ChartTab />
+      <Bar data={data} options={options} />
+    </>
+  );
 };
 
 export default MultiBarChart;
