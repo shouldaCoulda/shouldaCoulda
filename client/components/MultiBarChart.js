@@ -13,7 +13,7 @@ const MultiBarChart = () => {
     usersTotalIncomeAndExpenses,
     getTotalIncomes,
   } = useAuth();
-  console.log(getTotalIncomes());
+
   const data = {
     labels: ['Total'],
     datasets: [
