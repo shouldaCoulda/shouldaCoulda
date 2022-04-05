@@ -10,8 +10,10 @@ const MultiBarChart = () => {
     usersIncomes,
     getTotalSubscriptions,
     getTotalExpenses,
+    usersTotalIncomeAndExpenses,
+    getTotalIncomes,
   } = useAuth();
-
+  console.log(getTotalIncomes());
   const data = {
     labels: ['Total'],
     datasets: [
@@ -45,6 +47,18 @@ const MultiBarChart = () => {
         label: 'Expense',
         data: [getTotalExpenses()],
         backgroundColor: 'rgba(255, 159, 64, 0.2)',
+      },
+      {
+        label: 'Money Remaining',
+        data: [
+          getTotalIncomes() - getTotalExpenses() - getTotalSubscriptions(),
+        ],
+        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+      },
+      {
+        label: 'Income',
+        data: [getTotalIncomes()],
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
       },
     ],
   };
