@@ -6,12 +6,12 @@ import {
   Box,
   Card,
   CardMedia,
-  Button,
   InputAdornment,
   TextField,
 } from "@mui/material";
 import { Link, useHistory } from "react-router-dom";
 import SignUp from "./SignUp";
+import { Button } from "react-bootstrap";
 
 /**
  * COMPONENT
@@ -21,15 +21,15 @@ export const LandingPage = () => {
 
   const history = useHistory();
 
-  // const generator = () => {
-  //   var chars = "abcdefghijklmnopqrstuvwxyz1234567890";
-  //   var string = "";
-  //   for (var i = 0; i < 15; i++) {
-  //     string += chars[Math.floor(Math.random() * chars.length)];
-  //   }
-  //   signup(`guest${string}@gmail.com`, "Password");
-  //   history.push("/expense");
-  // };
+  const generator = () => {
+    var chars = "abcdefghijklmnopqrstuvwxyz1234567890";
+    var string = "";
+    for (var i = 0; i < 15; i++) {
+      string += chars[Math.floor(Math.random() * chars.length)];
+    }
+    signup(`guest${string}@gmail.com`, "Password");
+    history.push("/Income");
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -140,6 +140,12 @@ export const LandingPage = () => {
           margin: 4,
         }}
       />
+      <Button className="guestButton" onClick={generator}>
+        Continue as guest
+      </Button>
+      <Typography variant="h6" sx={{ fontWeight: 600 }}>
+        OR
+      </Typography>
       <SignUp />
       <Box sx={{ marginBottom: 10 }} />
     </Box>
