@@ -32,6 +32,10 @@
   margin: 2em auto;
   width: 100%;
 }
+.guestButton {
+  width: 200px;
+  margin: 2em auto;
+}
 
 .close {
   content: "x";
